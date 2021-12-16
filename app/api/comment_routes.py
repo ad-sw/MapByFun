@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Post, Comment, db
+from app.models import Route, Comment, db
 from app.forms import CreateCommentForm, EditCommentForm
 
 comment_routes = Blueprint('comments', __name__)
@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @comment_routes.route('/', methods=['POST'])
-@login_required
+# @login_required
 def post_comment():
    form = CreateCommentForm()
    form['csrf_token'].data = request.cookies['csrf_token']
@@ -34,7 +34,7 @@ def post_comment():
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/edit', methods=['PUT'])
-@login_required
+# @login_required
 def update_comment(id):
    comment = Comment.query.get(id)
    form = EditCommentForm()
@@ -47,7 +47,7 @@ def update_comment(id):
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/delete', methods=['DELETE'])
-@login_required
+# @login_required
 def delete_comment(id):
     comment = Comment.query.get(id)
     db.session.delete(comment)

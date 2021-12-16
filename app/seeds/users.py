@@ -16,13 +16,13 @@ def seed_users():
         password='password'
     )
     bobbie = User(
-         first_name='Bobbie',
+        first_name='Bobbie',
         last_name='Thompson',
         email='bobbie@aa.io',
         password='password'
     )
     sally = User(
-         first_name='Sally',
+        first_name='Sally',
         last_name='Fredrick',
         email='sally@aa.io',
         password='password'

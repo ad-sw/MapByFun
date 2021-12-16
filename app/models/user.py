@@ -3,6 +3,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
+friends = db.Table(
+    "friends",
+    db.Column("user_id", db.Integer, db.ForeignKey("users.id")),
+    db.Column("friend_id", db.Integer, db.ForeignKey("users.id"))
+)
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -16,8 +22,16 @@ class User(db.Model, UserMixin):
 
     routes = db.relationship("Route", back_populates="users")
     comments = db.relationship("Comment", back_populates="users")
-    friender = db.relationship("Friend", back_populates="friender_user", foreign_keys="Friend.user_id", cascade="all, delete")
-    friended = db.relationship("Friend", back_populates="friended_user", foreign_keys="Friend.friend_id", cascade="all, delete")
+
+    friends_received = db.relationship(
+        "User",
+        secondary=friends,
+        primaryjoin=(friends.c.user_id == id),
+        secondaryjoin=(friends.c.friend_id == id),
+        backref=db.backref("friends_list", lazy="dynamic"),
+        lazy="dynamic"
+    )
+
 
     @property
     def password(self):
@@ -30,10 +44,35 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def add_friend(self, user):
+        if user not in self.friends_list:
+            self.friends_list.append(user)
+            return self.to_dict
+
+    def remove_friend(self, user):
+        if user in self.friends_list:
+            self.friends_list.remove(user)
+            return self.to_dict()
+
     def to_dict(self):
         return {
             'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'email': self.email
+            'email': self.email,
+            'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
+            'friends': {user.to_dict_friends()['id']:user.to_dict_friends() for user in self.friends_received},
         }
+
+    def to_dict_friends(self):
+            return {
+                'id': self.id,
+                'first_name': self.first_name,
+                'last_name': self.last_name,
+                'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes}
+            }
+
+    def to_dict_routes(self):
+            return {
+                'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
+            }

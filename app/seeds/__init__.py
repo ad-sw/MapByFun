@@ -5,8 +5,8 @@ from .friends import seed_friends, undo_friends
 from .comments import seed_comments, undo_comments
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
-seed_commands = AppGroup('seed')
 
+seed_commands = AppGroup('seed')
 
 # Creates the `flask seed all` command
 @seed_commands.command('all')
