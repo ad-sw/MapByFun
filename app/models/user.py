@@ -15,10 +15,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     routes = db.relationship("Route", back_populates="users")
-    guides = db.relationship("Guide", back_populates="users")
     comments = db.relationship("Comment", back_populates="users")
-    # friends = db.relationship("Friend", back_populates="users")
-
     friender = db.relationship("Friend", back_populates="friender_user", foreign_keys="Friend.user_id", cascade="all, delete")
     friended = db.relationship("Friend", back_populates="friended_user", foreign_keys="Friend.friend_id", cascade="all, delete")
 
