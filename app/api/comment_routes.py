@@ -23,14 +23,13 @@ def post_comment():
    if form.validate_on_submit():
       comment = Comment(
          user_id=form.data['user_id'],
-         post_id=form.data['post_id'],
+         route_id=form.data['route_id'],
          content=form.data['content'],
       )
       db.session.add(comment)
       db.session.commit()
 
       return Comment.query.get(comment.id).to_dict()
-
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/edit', methods=['PUT'])
@@ -42,8 +41,8 @@ def update_comment(id):
    if form.validate_on_submit():
       comment.content=form.data['content']
       db.session.commit()
-      return comment.to_dict()
 
+      return comment.to_dict()
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/delete', methods=['DELETE'])

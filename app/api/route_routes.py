@@ -26,7 +26,7 @@ def get_all_routes():
 # @login_required
 def get_a_route(id):
     route = Route.query.get(id)
-    return route.to_dictionary()
+    return route.to_dict()
 
 @route_routes.route('/', methods=['POST'])
 # @login_required
@@ -43,7 +43,6 @@ def post_route():
         db.session.commit()
 
         return route.to_dict()
-
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @route_routes.route('/<int:id>', methods=['PUT'])
@@ -58,7 +57,6 @@ def update_route(id):
         specific_route.description=form.data['description'],
         db.session.commit()
         return specific_route.to_dictionary()
-
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @route_routes.route('/<int:id>', methods=['DELETE'])
