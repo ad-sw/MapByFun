@@ -8,29 +8,24 @@ import "./DashboardPage.css"
 export default function DashboardPage(){
     const dispatch = useDispatch()
     let routes = useSelector(state => state.routes)
-    console.log(routes, 'test')
-    const routes2 = useSelector(state => Object.values(state.notebooks))
-    console.log(routes2, 'testingAgain')
-    
     console.log(useSelector(state => state.session.user.routes), 'hiiii')
-    // console.log(useSelector(state => state.routes), 'testing')
+    console.log(useSelector(state => state.routes), 'testing')
     console.log(routes, "test")
-    // console.log(Object.entries(routes), 'test')
-    // const dashInfo = Object.values(routes).map((route, idx) =>
-    // <NavLink key={idx} to={`/routes/${route.id}`}>
-    //     <div className="route-dash">
-    //         <div className="route-dash-info" >
-    //             <div className="name">{route.name}</div>
-    //             <div>Description: ${route.description}</div>
-    //             {/* <div>Created: ${route.created_at}</div> */}
-    //             {/* <div>Activity: ${route.activity}</div> */}
-    //             <div>By {route.user}</div>
-    //         </div>
-    //         <div>
-    //         </div>
-    //     </div>
-    // </NavLink>
-    // ).reverse()
+    const dashInfo = routes?.map((route, idx) =>
+    <NavLink key={idx} to={`/routes/${route.id}`}>
+        <div className="route-dash">
+            <div className="route-dash-info" >
+                <div className="name">{route.name}</div>
+                <div>Description: ${route.description}</div>
+                {/* <div>Created: ${route.created_at}</div> */}
+                {/* <div>Activity: ${route.activity}</div> */}
+                <div>By {route.user}</div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </NavLink>
+    )
 
     useEffect(()=>{
         dispatch(allRoutes())},
@@ -40,7 +35,7 @@ export default function DashboardPage(){
     return <div>
     <div className='page-header'>Dashboard Routes</div>
     <div className="routes-wrapper">
-        {/* {dashInfo} */}
+        {dashInfo}
     </div>
     </div>
 }

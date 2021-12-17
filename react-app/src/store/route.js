@@ -145,14 +145,12 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_ROUTES:
           newState = {...state}
-          console.log(newState, '123')
           newState.routes = action.payload.routes
-          console.log(newState.routes, 'why')
           return newState
-        // case GET_ONE_ROUTE:
-        //   newState = {...state}
-        //   newState.currentRoute = action.payload
-        //   return newState
+        case GET_ONE_ROUTE:
+          newState = {...state}
+          newState.currentRoute = action.payload
+          return newState
         case CREATE_ONE_ROUTE:
           newState = {...state}
           newState.routes.push(action.payload)
