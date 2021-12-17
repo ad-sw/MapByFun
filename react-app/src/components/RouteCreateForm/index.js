@@ -9,7 +9,6 @@ const RouteForm = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [activity_id, setActivityId] = useState(1);
-    // const [user_id, setUserId] = useState(1);
     const [errors, setErrors] = useState([])
 
     const user_id = useSelector(state => state.session.user.id);

@@ -9,6 +9,9 @@ export default function DashboardPage(){
     const dispatch = useDispatch()
     let routes = useSelector(state => state.routes)
     console.log(routes, 'test')
+    const routes2 = useSelector(state => Object.values(state.notebooks))
+    console.log(routes2, 'testingAgain')
+    
     console.log(useSelector(state => state.session.user.routes), 'hiiii')
     // console.log(useSelector(state => state.routes), 'testing')
     console.log(routes, "test")
