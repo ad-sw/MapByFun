@@ -6,7 +6,9 @@ from sqlalchemy.sql import func
 friends = db.Table(
     "friends",
     db.Column("user_id", db.Integer, db.ForeignKey("users.id")),
-    db.Column("friend_id", db.Integer, db.ForeignKey("users.id"))
+    db.Column("friend_id", db.Integer, db.ForeignKey("users.id")),
+    # created_at = db.Column(db.DateTime(timezone=True), server_default=func.now()),
+    # updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 )
 
 class User(db.Model, UserMixin):

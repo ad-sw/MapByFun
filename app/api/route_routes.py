@@ -22,7 +22,7 @@ def get_all_routes():
     return {'routes': [route.to_dict() for route in all_routes]}
     # return 'hi'
 
-@route_routes.route('/<int:id>')
+@route_routes.route('/<int:route_id>')
 # @login_required
 def get_a_route(id):
     route = Route.query.get(id)
@@ -30,7 +30,7 @@ def get_a_route(id):
 
 @route_routes.route('/', methods=['POST'])
 # @login_required
-def post_route():
+def create_route():
     form = CreateRouteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -45,9 +45,9 @@ def post_route():
         return route.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>', methods=['PUT'])
+@route_routes.route('/<int:route_id>/edit', methods=['PUT'])
 # @login_required
-def update_route(id):
+def edit_route(id):
     specific_route = Route.query.get(id)
     form = EditRouteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -59,7 +59,7 @@ def update_route(id):
         return specific_route.to_dictionary()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>', methods=['DELETE'])
+@route_routes.route('/<int:route_id>/delete', methods=['DELETE'])
 # @login_required
 def delete_route(id):
     specific_route = Route.query.get(id)

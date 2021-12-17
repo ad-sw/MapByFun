@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @comment_routes.route('/', methods=['POST'])
 # @login_required
-def post_comment():
+def create_comment():
    form = CreateCommentForm()
    form['csrf_token'].data = request.cookies['csrf_token']
    if form.validate_on_submit():
@@ -34,7 +34,7 @@ def post_comment():
 
 @comment_routes.route('/<int:comment_id>/edit', methods=['PUT'])
 # @login_required
-def update_comment(id):
+def edit_comment(id):
    comment = Comment.query.get(id)
    form = EditCommentForm()
    form['csrf_token'].data = request.cookies['csrf_token']

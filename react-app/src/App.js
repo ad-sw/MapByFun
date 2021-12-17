@@ -31,21 +31,31 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+        <Route>
+        <center>
+            <h1 id="h1404">404:</h1>
+            <p>Page Not Found</p>
+            <img alt="test" height="650" width="400" src="https://i.pinimg.com/originals/1d/c7/f9/1dc7f97fd25ba503520fc6ed4022f75e.jpg"></img>
+            {/* <img alt="test" height="650" width="400" src="https://i.pinimg.com/originals/ec/94/fa/ec94fa24a9d4dca2c0d627039763dbaa.png"></img> */}
+        </center>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+// style={{filter: "grayscale(100%)", border: "10px solid transparent"}}
