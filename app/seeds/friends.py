@@ -1,29 +1,30 @@
-from app.models import db, Friend
+from app.models import db, friends
+from sqlalchemy import insert
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_friends():
-    friend1 = Friend(
+    friend1 = insert(friends).values(
         user_id= 1,
         friend_id= 2,
     )
-    friend2 = Friend(
-        user_id= 2,
-        friend_id= 1,
-    )
-    friend3 = Friend(
+    friend2 = insert(friends).values(
         user_id= 3,
         friend_id= 2,
     )
-    friend4 = Friend(
+    friend3 = insert(friends).values(
         user_id= 3,
-        friend_id= 1,
+        friend_id= 4,
+    )
+    friend4 = insert(friends).values(
+        user_id= 4,
+        friend_id= 3,
     )
 
-    db.session.add(friend1)
-    db.session.add(friend2)
-    db.session.add(friend3)
-    db.session.add(friend4)
+    db.session.execute(friend1)
+    db.session.execute(friend2)
+    db.session.execute(friend3)
+    db.session.execute(friend4)
 
     db.session.commit()
 
