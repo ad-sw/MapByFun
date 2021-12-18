@@ -30,7 +30,6 @@ def add_comment():
       db.session.commit()
 
       return Comment.query.get(comment.id).to_dict()
-
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/edit', methods=['PUT'])
@@ -43,7 +42,6 @@ def edit_comment(id):
       comment.content=form.data['content']
       db.session.commit()
       return comment.to_dict()
-
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:comment_id>/delete', methods=['DELETE'])

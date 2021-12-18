@@ -42,7 +42,6 @@ def add_route():
         db.session.commit()
 
         return route.to_dict()
-
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @route_routes.route('/<int:id>/edit', methods=['PUT'])
@@ -57,7 +56,6 @@ def edit_route(id):
         one_route.description=form.data['description'],
         db.session.commit()
         return one_route.to_dict()
-
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @route_routes.route('/<int:id>/delete', methods=['DELETE'])
