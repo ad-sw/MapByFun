@@ -9,7 +9,7 @@ export default function RoutePage(){
     let dispatch = useDispatch();
     const {routeId} = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
-    let {routes} = useSelector(state => state.routes); //why do currentRoutes: [] in route.js store & then currentRoute: routes, vs just desctructure routes here?
+    let {currentRoute: routes} = useSelector(state => state.routes);
     let sessionUser = useSelector(state => state.session.user);
     const user_id = useSelector(state => state.session.user?.id);
 
