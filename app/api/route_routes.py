@@ -24,8 +24,8 @@ def get_all_routes():
 @route_routes.route('/<int:id>')
 # @login_required
 def get_a_route(id):
-    route = Route.query.get(id)
-    return route.to_dictionary()
+    one_route = Route.query.get(id)
+    return one_route.to_dict()
 
 @route_routes.route('/', methods=['POST'])
 # @login_required
@@ -48,22 +48,22 @@ def add_route():
 @route_routes.route('/<int:id>/edit', methods=['PUT'])
 # @login_required
 def edit_route(id):
-    specific_route = Route.query.get(id)
+    one_route = Route.query.get(id)
     form = EditRouteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        specific_route.user_id=form.data['user_id'],
-        specific_route.name=form.data['name'],
-        specific_route.description=form.data['description'],
+        one_route.user_id=form.data['user_id'],
+        one_route.name=form.data['name'],
+        one_route.description=form.data['description'],
         db.session.commit()
-        return specific_route.to_dictionary()
+        return one_route.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @route_routes.route('/<int:id>/delete', methods=['DELETE'])
 # @login_required
 def delete_route(id):
-    specific_route = Route.query.get(id)
-    db.session.delete(specific_route)
+    one_route = Route.query.get(id)
+    db.session.delete(one_route)
     db.session.commit()
     return {"message": "Successful deletion"}
