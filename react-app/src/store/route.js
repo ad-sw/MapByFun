@@ -140,7 +140,7 @@ export const createRoute = (routeInfo) => async(dispatch) => {
 
 let initialState = {routes:[], currentRoute:null}
 
-const reducer = (state = initialState, action) => {
+const routeReducer = (state = initialState, action) => {
   let newState
     switch (action.type) {
         case GET_ALL_ROUTES:
@@ -170,4 +170,4 @@ const reducer = (state = initialState, action) => {
         //  return newState
     }
 }
-export default reducer
+export default routeReducer

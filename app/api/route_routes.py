@@ -16,20 +16,20 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @route_routes.route('/')
-@login_required
+# @login_required
 def get_all_routes():
     all_routes = Route.query.all()
     return {'routes': [route.to_dict() for route in all_routes]}
 
 @route_routes.route('/<int:id>')
-@login_required
+# @login_required
 def get_a_route(id):
     route = Route.query.get(id)
     return route.to_dictionary()
 
 @route_routes.route('/', methods=['POST'])
-@login_required
-def post_route():
+# @login_required
+def add_route():
     form = CreateRouteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -45,9 +45,9 @@ def post_route():
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>', methods=['PUT'])
-@login_required
-def update_route(id):
+@route_routes.route('/<int:id>/edit', methods=['PUT'])
+# @login_required
+def edit_route(id):
     specific_route = Route.query.get(id)
     form = EditRouteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -60,8 +60,8 @@ def update_route(id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
+@route_routes.route('/<int:id>/delete', methods=['DELETE'])
+# @login_required
 def delete_route(id):
     specific_route = Route.query.get(id)
     db.session.delete(specific_route)

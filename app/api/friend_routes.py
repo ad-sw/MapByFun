@@ -5,7 +5,7 @@ from app.models import User, Friend, db
 friend_routes = Blueprint('friends', __name__)
 
 @friend_routes.route('/<int:id>')
-@login_required
+# @login_required
 def one_friend(id):
     friends_received = Friend.query.filter_by(user_id=id)
     friends_added = Friend.query.filter_by(friend_id=id)
@@ -23,8 +23,8 @@ def one_friend(id):
 
     return {'friends_added': friends_added_list, 'friends_received': friends_received_list}
 
-@friend_routes.route('/<int:id>', methods=['POST'])
-@login_required
+@friend_routes.route('/<int:id>/add', methods=['POST'])
+# @login_required
 def add_friend(id):
 
     friend_request = Friend(user_id=current_user.id, friend_id=id)
@@ -34,8 +34,8 @@ def add_friend(id):
 
     return one_friend(id)
 
-@friend_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
+@friend_routes.route('/<int:id>/delete', methods=['DELETE'])
+# @login_required
 def remove_friend(id):
 
     specific_friend = Friend.query.filter_by(user_id=current_user.id, friend_id=id).first()
@@ -46,7 +46,7 @@ def remove_friend(id):
     return one_friend(id)
 
 @friend_routes.route('/people')
-@login_required
+# @login_required
 def all_users_to_friend():
     all_people = User.query.all()
     return {'people': [user.to_dict() for user in all_people]}
