@@ -9,7 +9,7 @@ export default function DashboardPage(){
     const dispatch = useDispatch()
     let routes = useSelector(state => state.routes.routes)
     const dashInfo = routes?.map((route, idx) =>
-    <NavLink key={idx} to={`/routes/${route.id}`}>
+    <NavLink key={route?.id} to={`/routes/${route.id}`}>
         <div className="route-dash">
             <div className="route-dash-info" >
                 <div className="name">{route.name}</div>

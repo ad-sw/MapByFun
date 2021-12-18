@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import RouteForm from './components/RouteCreateForm';
 import DashboardPage from './components/DashboardPage';
+import RoutePage from './components/RoutePage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -52,6 +53,9 @@ function App() {
         <ProtectedRoute path='/routes' exact={true}>
           <DashboardPage />
         </ProtectedRoute>
+        <Route path='/routes/:routeId' exact={true}>
+          <RoutePage/>
+        </Route>
         <Route>
         <center>
             <h1 id="h1404">404:</h1>
