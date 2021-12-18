@@ -12,7 +12,6 @@ class Route(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     users = db.relationship('User', back_populates='routes')
-    guides = db.relationship('Guide', back_populates='routes', cascade="all, delete")
     comments = db.relationship('Comment', back_populates='routes', cascade="all, delete")
 
     def to_dict(self):
@@ -22,3 +21,4 @@ class Route(db.Model):
             'name': self.name,
             'description': self.description
         }
+

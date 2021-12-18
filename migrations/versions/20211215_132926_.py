@@ -49,17 +49,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('guides',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('route_id', sa.Integer(), nullable=False),
-    sa.Column('duration', sa.Float(), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
-    sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
-    sa.ForeignKeyConstraint(['route_id'], ['routes.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
     op.add_column('users', sa.Column('first_name', sa.String(length=40), nullable=False))
     op.add_column('users', sa.Column('last_name', sa.String(length=40), nullable=False))
     op.add_column('users', sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True))
@@ -81,7 +70,6 @@ def downgrade():
     op.drop_column('users', 'created_at')
     op.drop_column('users', 'last_name')
     op.drop_column('users', 'first_name')
-    op.drop_table('guides')
     op.drop_table('comments')
     op.drop_table('routes')
     op.drop_table('friends')
