@@ -9,11 +9,21 @@
   align-items: center;
 }
 
-#modal-background {
+#modal-bg {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modal-content {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 4px;
+  margin: 30px;
+  height: 50%;
+  width: 35%;
 }

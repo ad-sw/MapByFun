@@ -40,7 +40,7 @@ const removeOneRoute = (id) => {
     }
   }
 
-export const allRoutes = () => async (dispatch) => {
+export const getAllRoutes = () => async (dispatch) => {
     const response = await fetch('/api/routes/')
     if (response.ok) {
         const data = await response.json();
@@ -113,7 +113,7 @@ export const createRoute = (routeInfo) => async(dispatch) => {
 // }
 
 export const removeRoute = (id) => async(dispatch) => {
-  const response = await fetch(`/api/routes/${id}`, {
+  const response = await fetch(`/api/routes/${id}/delete`, {
     method: 'DELETE',
   })
   if(response.ok) {
@@ -136,12 +136,10 @@ const routeReducer = (state = initialState, action) => {
         case GET_ALL_ROUTES:
           newState = {...state}
           newState.routes = action.payload.routes
-          console.log('hi all!')
           return newState
         case GET_ONE_ROUTE:
           newState = {...state}
           newState.currentRoute = action.payload
-          console.log('hi one!')
           return newState
         case CREATE_ONE_ROUTE:
           newState = {...state}
@@ -155,15 +153,12 @@ const routeReducer = (state = initialState, action) => {
       //    newState.routes[routeIdx] = action.payload
       //    newState.currentRoute = action.payload
       //    return newState
-        // case REMOVE_ONE_ROUTE:
-        //  newState = {...state}
-        //  const routeRIdx = newState.routes.findIndex(route => route.id === action.payload)
-        //  newState.routes.splice(routeRIdx, 1)
-        //  return newState
-          case REMOVE_ONE_ROUTE:
-            newState = {...state};
-            delete newState[action.id];
-            return newState;
+        case REMOVE_ONE_ROUTE:
+         newState = {...state}
+         console.log(state.action, 'test payload')
+         const routeRIdx = newState.routes.findIndex(route => route.id === parseInt(action.payload))
+         newState.routes.splice(routeRIdx, 1)
+         return newState
     }
 }
 export default routeReducer
