@@ -62,6 +62,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
             'friends': {user.to_dict_friends()['id']:user.to_dict_friends() for user in self.friends_received},
+            'created_at': self.created_at,
         }
 
     def to_dict_friends(self):
@@ -69,7 +70,7 @@ class User(db.Model, UserMixin):
                 'id': self.id,
                 'first_name': self.first_name,
                 'last_name': self.last_name,
-                'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes}
+                'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
             }
 
     def to_dict_routes(self):

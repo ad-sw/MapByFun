@@ -23,13 +23,15 @@ function User() {
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>User Name</strong> {user.first_name}&nbsp;{user.last_name}
       </li>
       <li>
         <strong>Email</strong> {user.email}
+      </li>
+      <li>
+        <strong>Member Since</strong> {user.created_at}
       </li>
     </ul>
   );

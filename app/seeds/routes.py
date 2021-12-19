@@ -7,21 +7,63 @@ def seed_routes():
         user_id= 1,
         name='Example 1',
         description='here is a map description',
+        activity='Bike ride',
     )
     route2 = Route(
         user_id= 1,
         name='Example 2',
         description='here is a map description',
+        activity='Walk',
     )
     route3 = Route(
         user_id= 1,
         name='Example 3',
         description='here is a map description',
+        activity='Social',
+    )
+    route4 = Route(
+        user_id= 1,
+        name='Example 4',
+        description='here is a map description',
+        activity='Bike ride',
+    )
+    route5 = Route(
+        user_id= 1,
+        name='Example 5',
+        description='here is a map description',
+        activity='Walk',
+    )
+    route6 = Route(
+        user_id= 1,
+        name='Example 6',
+        description='here is a map description',
+        activity='Social',
+    )
+    route7 = Route(
+        user_id= 1,
+        name='Example 7',
+        description='here is a map description',
+        activity='Bike ride',
+    )
+    route8 = Route(
+        user_id= 1,
+        name='Example 8',
+        description='here is a map description',
+        activity='Walk',
+    )
+    route9 = Route(
+        user_id= 1,
+        name='Example 9',
+        description='here is a map description',
+        activity='Social',
     )
 
     db.session.add(route1)
     db.session.add(route2)
     db.session.add(route3)
+    db.session.add(route4)
+    db.session.add(route5)
+    db.session.add(route6)
 
     db.session.commit()
 
