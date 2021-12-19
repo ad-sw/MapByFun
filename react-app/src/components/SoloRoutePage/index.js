@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from '../context/Modal';
 import { useSelector, useDispatch } from 'react-redux';
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import {oneRoute} from  '../../store/route'
 import RouteDeleteModal from "../RouteDeleteModal";
-import './RoutePage.css'
+import './SoloRoutePage.css'
 
 export default function RoutePage(){
     let dispatch = useDispatch();
     const {routeId} = useParams();
-    const [showModal, setShowModal] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const history = useHistory()
     let {currentRoute: routes} = useSelector(state => state.routes);
-    let sessionUser = useSelector(state => state.session.user);
     const user_id = useSelector(state => state.session.user?.id);
 
     useEffect(() => {dispatch(oneRoute(routeId))}, [dispatch])
@@ -24,6 +22,12 @@ export default function RoutePage(){
                 <p id="routeDescription">{routes.description}</p>
                 <p id="routeDate">{routes.created_at}</p>
 
+                <button className="editRouteBtn" onClick={(e) => {
+                    e.preventDefault();
+                    history.push(`/routes/${routes.id}/edit`);
+                    }}>
+                    Edit Route
+                </button>
                 <RouteDeleteModal routeId={routeId}/>
             </div>
             </>

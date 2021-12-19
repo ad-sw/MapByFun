@@ -44,8 +44,8 @@ def add_route():
         return route.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>/edit', methods=['PUT'])
-@login_required
+@route_routes.route('/<int:id>/edit', methods=['PATCH'])
+# @login_required
 def edit_route(id):
     one_route = Route.query.get(id)
     form = EditRouteForm()
@@ -58,7 +58,7 @@ def edit_route(id):
         return one_route.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>/delete', methods=['DELETE'])
+@route_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_route(id):
     one_route = Route.query.get(id)
