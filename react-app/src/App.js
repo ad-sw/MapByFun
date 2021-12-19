@@ -9,7 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import RouteForm from './components/RouteCreateForm';
 import DashboardPage from './components/DashboardPage';
-import RoutePage from './components/RoutePage';
+import RoutePage from './components/SoloRoutePage';
+import RouteEditPage from './components/RouteEditPage'
 import { authenticate } from './store/session';
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/routes/:routeId' exact={true}>
           <RoutePage/>
+        </Route>
+        <Route path='/routes/:routeId/edit' exact={true}>
+          <RouteEditPage/>
         </Route>
         <Route>
         <center>

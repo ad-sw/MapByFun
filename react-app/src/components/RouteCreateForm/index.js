@@ -37,14 +37,14 @@ const RouteCreateForm = () => {
         if(errorsArr.length) {
             setErrors(errorsArr)
         } else{
-            const route_info = {
+            const payload = {
                 user_id,
                 name,
                 description,
                 activity_id,
                 activity
             }
-            const data = await dispatch(createRoute(route_info))
+            const data = await dispatch(createRoute(payload))
             if(data) {
                 setErrors(data)
             } else {
