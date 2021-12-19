@@ -5,10 +5,10 @@ const EDIT_ONE_ROUTE = 'routes/EDIT_ONE'
 const REMOVE_ONE_ROUTE = 'routes/REMOVE_ONE'
 
 const setAllRoutes = (allRoutes) => {
-    return {
-        type: GET_ALL_ROUTES,
-        payload: allRoutes
-    }
+  return {
+      type: GET_ALL_ROUTES,
+      payload: allRoutes
+  }
 }
 
 const getOneRoute = (oneRoute) => {
@@ -72,11 +72,11 @@ export const oneRoute = (id) => async(dispatch) => {
     }
 }
 
-export const createRoute = (routeInfo) => async(dispatch) => {
+export const createRoute = (payload) => async(dispatch) => {
   const response = await fetch(`/api/routes/`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(routeInfo)
+    body: JSON.stringify(payload)
   });
   if (response.ok) {
     const data = await response.json()
@@ -92,11 +92,11 @@ export const createRoute = (routeInfo) => async(dispatch) => {
   }
 }
 
-export const editRoute = (id, routeInfo) => async(dispatch) => {
-  const response = await fetch(`/api/routes/2/edit`, {
+export const editRoute = (payload) => async(dispatch) => {
+  const response = await fetch(`/api/routes/${payload.id}/edit`, {
     method: 'PATCH',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(routeInfo)
+    body: JSON.stringify(payload)
   });
   if (response.ok) {
     const data = await response.json()
@@ -145,12 +145,15 @@ const routeReducer = (state = initialState, action) => {
         newState = {...state}
         newState.routes.push(action.payload)
         return newState
-      case EDIT_ONE_ROUTE:
-         newState = {...state}
-         const routeIdx = newState.routes.findIndex(route => route.id === action.payload.id)
-         newState.routes[routeIdx] = action.payload
-         newState.currentRoute = action.payload
-         return newState
+
+      //const updateState = {...state};
+      //updateState[action.product.id] = action.product;
+      // case EDIT_ONE_ROUTE:
+      //    newState = {...state}
+      //   //  const routeIdx = newState.routes.findIndex(route => route.id === action.payload.id)
+      //    newState.routes[action.payload.id] = action.payload
+      //    newState.currentRoute = action.payload
+      //    return newState
         case REMOVE_ONE_ROUTE:
         newState = {...state}
         let newRoutes = newState.routes.filter(route => route.id !== Number(action.payload))

@@ -6,19 +6,19 @@ from app.models.user import friends
 user_routes = Blueprint('users', __name__)
 
 @user_routes.route('/')
-# @login_required
+@login_required
 def all_users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
 @user_routes.route('/<int:id>')
-# @login_required
+@login_required
 def user_page(id):
     user = User.query.get(id)
     return user.to_dict()
 
 @user_routes.route('/<int:id>/routes')
-# @login_required
+@login_required
 def user_route_dashboard(id):
     user = User.query.get(id)
     return user.to_dict_routes()
