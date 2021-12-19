@@ -4,11 +4,12 @@ import { useHistory } from 'react-router-dom'
 import { createRoute } from '../../store/route'
 import './RouteCreateForm.css'
 
-const RouteForm = () => {
+const RouteCreateForm = () => {
     const history = useHistory()
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [activity_id, setActivityId] = useState(1);
+    const [activity, setActivity] = useState('');
     const [errors, setErrors] = useState([])
 
     const user_id = useSelector(state => state.session.user.id);
@@ -38,9 +39,10 @@ const RouteForm = () => {
         } else{
             const route_info = {
                 user_id,
-                activity_id,
                 name,
                 description,
+                activity_id,
+                activity
             }
             const data = await dispatch(createRoute(route_info))
             if(data) {
@@ -84,8 +86,8 @@ const RouteForm = () => {
                     placeholder='Description'
                     required
                     onChange= {(e) => setDescription(e.target.value)}/>
-                    <select className='activity-dropdown-menu'
-                    onChange={(e) => setActivityId(e.target.value)}>
+                    {/* <select
+                    >
                         <option value={1}>{activities[0]}</option>
                         <option value={2}>{activities[1]}</option>
                         <option value={3}>{activities[2]}</option>
@@ -95,6 +97,11 @@ const RouteForm = () => {
                         <option value={7}>{activities[6]}</option>
                         <option value={8}>{activities[7]}</option>
                         <option value={9}>{activities[8]}</option>
+                    </select> */}
+                    <select className='activity-dropdown-menu' onChange={(e) => setActivity(e.target.value)}>
+                        <option value={'one'}>{activities[0]}</option>
+                        <option value={'two'}>{activities[1]}</option>
+                        <option value={'three'}>{activities[2]}</option>
                     </select>
                     <button className="route-submit-button">Submit</button>
                 </form>
@@ -103,4 +110,4 @@ const RouteForm = () => {
     )
 }
 
-export default RouteForm;
+export default RouteCreateForm;
