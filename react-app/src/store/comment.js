@@ -86,20 +86,27 @@ let initialState = {routes: [], currentRoute: []}
 const commentReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case CREATE_ONE_COMMENT:
-          newState = {...state}
-          newState.currentRoute.comments.push([action.payload.content, action.payload.id])
-          console.log('hiiiiiiiiiiiii')
-          return newState
+        // case CREATE_ONE_COMMENT:
+        //   newState = {...state}
+        //   console.log(state, 'this should be')
+        //   newState.currentRoute = action.payload
+        //   console.log(state, 'this should be')
+        //   newState.currentRoute.comments.push([action.payload.content, action.payload.id])
+        //   console.log(newState.currentRoute, 'trying')
+        //   return newState
         // case EDIT_ONE_COMMENT:
-        //     const updateState = {...state};
-        //     updateState[action.review.id] = action.review;
-        //     return updateState;
-        case DELETE_ONE_COMMENT:
-          newState = {...state}
-          let newComments = newState.currentRoute.comments.filter(comment => comment[1] !== Number(action.payload))
-          newState.currentRoute.comments = newComments
-          return newState
+        //   newState = {...state}
+        //   const commentIdx = newState.currentRoute.comments.findIndex(comment =>comment[1] === action.payload.id)
+        //   newState.currentRoute[commentIdx] = action.payload
+        //   // newState.currentRoute = action.payload
+        //   newState.currentRoute = [...newState.currentRoute]
+        //   return newState
+        // case DELETE_ONE_COMMENT:
+        //   newState = {...state}
+        //   let newComments = newState.currentRoute.comments.filter(comment => comment[1] !== Number(action.payload))
+        //   console.log(newComments, 'hiii')
+        //   newState.currentRoute.comments = newComments
+        //   return newState
         default:
             return state;
     }
