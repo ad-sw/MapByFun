@@ -15,9 +15,15 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+@comment_routes.route('/')
+# @login_required
+def get_all_comments():
+    all_comments = Comment.query.all()
+    return {'comments': [comment.to_dict() for comment in all_comments]}
+
 @comment_routes.route('/', methods=['POST'])
-@login_required
-def add_comment():
+# @login_required
+def create_comment():
    form = CreateCommentForm()
    form['csrf_token'].data = request.cookies['csrf_token']
    if form.validate_on_submit():
@@ -28,12 +34,11 @@ def add_comment():
       )
       db.session.add(comment)
       db.session.commit()
-
-      return Comment.query.get(comment.id).to_dict()
+      return comment.to_dict()
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@comment_routes.route('/<int:comment_id>/edit', methods=['PUT'])
-@login_required
+@comment_routes.route('/<int:id>/edit', methods=['PATCH'])
+# @login_required
 def edit_comment(id):
    comment = Comment.query.get(id)
    form = EditCommentForm()
@@ -44,10 +49,10 @@ def edit_comment(id):
       return comment.to_dict()
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@comment_routes.route('/<int:comment_id>/delete', methods=['DELETE'])
-@login_required
+@comment_routes.route('/<int:id>/delete', methods=['DELETE'])
+# @login_required
 def delete_comment(id):
-    comment = Comment.query.get(id)
-    db.session.delete(comment)
+    one_comment = Comment.query.get(id)
+    db.session.delete(one_comment)
     db.session.commit()
     return {"message": "Successful deletion"}

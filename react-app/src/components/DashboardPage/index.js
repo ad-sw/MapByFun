@@ -25,14 +25,12 @@ export default function DashboardPage(){
     </NavLink>
     <div>
     <NavLink to={`/routes/${route.id}/edit`} exact={true} className="RouteEditBtn">
-      <div className="navbtn">
         Edit Route
-      </div>
     </NavLink>
     <RouteDeleteModal routeId={route.id}/>
     </div>
     </>
-    )
+    ).reverse()
 
     useEffect(()=>{
         dispatch(getAllRoutes())},
