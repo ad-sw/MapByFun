@@ -23,4 +23,5 @@ class Route(db.Model):
             'description': self.description,
             'activity': self.activity,
             'created_at': self.created_at,
+            'comments': [list((obj.content, obj.id)) for obj in self.comments],
         }

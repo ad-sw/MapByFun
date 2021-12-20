@@ -41,7 +41,7 @@ function RouteEditForm() {
                 required
                 value={description}
                 onChange= {(e) => setDescription(e.target.value)}/>
-            <button type='submit'>Update route</button>
+            <button type='submit'>Edit route</button>
           </form>
         </div>
       );

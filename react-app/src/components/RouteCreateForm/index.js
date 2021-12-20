@@ -11,9 +11,8 @@ const RouteCreateForm = () => {
     const [activity_id, setActivityId] = useState(1);
     const [activity, setActivity] = useState('');
     const [errors, setErrors] = useState([])
-
-    const user_id = useSelector(state => state.session.user.id);
     const dispatch = useDispatch();
+    const user_id = useSelector(state => state.session.user.id);
 
     const validator = () => {
         let error = []
@@ -65,24 +64,24 @@ const RouteCreateForm = () => {
 
     return (
         <>
-            <div className="page-header">
+            <div className="routeHeader">
                 New Route
             </div>
-            <div className='route-form-container'>
+            <div className='routeFormContainer'>
                 <div className="errors">
-                    {errors.map((error, ind) => (
-                    <div key={ind}>{error.split(':')[1]}</div>
+                    {errors.map((error, idx) => (
+                    <div key={idx}>{error.split(':')[1]}</div>
                 ))}
                 </div>
-                <form className='route-form' onSubmit={handleSubmit}>
+                <form className='routeForm' onSubmit={handleSubmit}>
                     <input
-                    className='route-name-input'
+                    className='routeNameInput'
                     placeholder='Name'
                     required
                     value = {name}
                     onChange= {(e) => setName(e.target.value)}/>
                     <input
-                    className='route-description-input'
+                    className='routeDescriptionInput'
                     placeholder='Description'
                     required
                     onChange= {(e) => setDescription(e.target.value)}/>
@@ -98,12 +97,12 @@ const RouteCreateForm = () => {
                         <option value={8}>{activities[7]}</option>
                         <option value={9}>{activities[8]}</option>
                     </select> */}
-                    <select className='activity-dropdown-menu' onChange={(e) => setActivity(e.target.value)}>
+                    <select className='activityDropdownMenu' onChange={(e) => setActivity(e.target.value)}>
                         <option value={'one'}>{activities[0]}</option>
                         <option value={'two'}>{activities[1]}</option>
                         <option value={'three'}>{activities[2]}</option>
                     </select>
-                    <button className="route-submit-button">Submit</button>
+                    <button className="routeSubmitButton">Submit</button>
                 </form>
             </div>
         </>

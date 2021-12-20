@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Modal } from '../context/Modal';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import { removeRoute, getAllRoutes } from '../../store/route'
+import { deleteRoute, getAllRoutes } from '../../store/route'
 import './RouteDeleteModal.css';
 
 function RouteDeleteModal({routeId}) {
@@ -13,16 +13,16 @@ function RouteDeleteModal({routeId}) {
   const handleDelete = (e) => {
     e.preventDefault();
 
-    dispatch(removeRoute(routeId));
+    dispatch(deleteRoute(routeId));
     // dispatch(getAllRoutes);
     setShowModal(false);
     history.push('/routes');
 }
 
-useEffect(()=>{
-  dispatch(getAllRoutes())},
-  [dispatch]
-)
+// useEffect(()=>{
+//   dispatch(getAllRoutes())},
+//   [dispatch]
+// )
 
 return (
 
