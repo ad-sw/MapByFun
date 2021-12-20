@@ -18,10 +18,46 @@ def seed_comments():
         route_id= 3,
         content='Example content for a comment',
     )
+    comment4 = Comment(
+        user_id= 1,
+        route_id= 4,
+        content='Example content for a comment',
+    )
+    comment5 = Comment(
+        user_id= 1,
+        route_id= 5,
+        content='Example content for a comment',
+    )
+    comment6 = Comment(
+        user_id= 1,
+        route_id= 6,
+        content='Example content for a comment',
+    )
+    comment7 = Comment(
+        user_id= 1,
+        route_id= 7,
+        content='Example content for a comment',
+    )
+    comment8 = Comment(
+        user_id= 1,
+        route_id= 8,
+        content='Example content for a comment',
+    )
+    comment9 = Comment(
+        user_id= 1,
+        route_id= 9,
+        content='Example content for a comment',
+    )
 
     db.session.add(comment1)
     db.session.add(comment2)
     db.session.add(comment3)
+    db.session.add(comment4)
+    db.session.add(comment5)
+    db.session.add(comment6)
+    db.session.add(comment7)
+    db.session.add(comment8)
+    db.session.add(comment9)
 
     db.session.commit()
 

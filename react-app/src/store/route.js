@@ -144,6 +144,26 @@ const routeReducer = (state = initialState, action) => {
       case CREATE_ONE_ROUTE:
         newState = {...state}
         newState.routes.push(action.payload)
+<<<<<<< Updated upstream
+||||||| constructed merge base
+        console.log('CREATE_ONE_ROUTE')
+        return newState
+      case EDIT_ONE_ROUTE:
+        newState = {...state}
+        const routeIdx = newState.routes.findIndex(route =>route.id === action.payload.id)
+        newState.routes[routeIdx] = action.payload
+        newState.currentRoute = action.payload
+        newState.routes = [...newState.routes]
+        console.log('EDIT_ONE_ROUTE')
+=======
+        return newState
+      case EDIT_ONE_ROUTE:
+        newState = {...state}
+        const routeIdx = newState.routes.findIndex(route =>route.id === action.payload.id)
+        newState.routes[routeIdx] = action.payload
+        newState.currentRoute = action.payload
+        newState.routes = [...newState.routes]
+>>>>>>> Stashed changes
         return newState
 
       //const updateState = {...state};

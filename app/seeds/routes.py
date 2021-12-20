@@ -64,6 +64,10 @@ def seed_routes():
     db.session.add(route4)
     db.session.add(route5)
     db.session.add(route6)
+    db.session.add(route7)
+    db.session.add(route8)
+    db.session.add(route9)
+
 
     db.session.commit()
 
