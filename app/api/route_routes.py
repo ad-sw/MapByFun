@@ -58,10 +58,10 @@ def edit_route(id):
         return one_route.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>', methods=['DELETE'])
+@route_routes.route('/<int:route_id>/delete', methods=['DELETE'])
 # @login_required
-def delete_route(id):
-    one_route = Route.query.get(id)
+def delete_route(route_id):
+    one_route = Route.query.get(route_id)
     db.session.delete(one_route)
     db.session.commit()
     return {"message": "Successful deletion"}

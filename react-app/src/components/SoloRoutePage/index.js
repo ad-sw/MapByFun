@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Modal } from '../context/Modal';
+import { Modal } from '../Context/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom'
-import {getOneRoute, getAllRoutes} from  '../../store/route'
+import {getOneRoute} from  '../../store/route'
+import { getAllRouteComments } from "../../store/comment";
 import RouteDeleteModal from "../RouteDeleteModal";
 import CommentCreateModal from '../CommentCreateModal';
 import CommentDeleteModal from '../CommentDeleteModal';
@@ -13,37 +14,47 @@ export default function RoutePage(){
     let dispatch = useDispatch();
     const {routeId} = useParams();
     const history = useHistory()
-    let {currentRoute: routes} = useSelector(state => state.routes);
-    // const user_id = useSelector(state => state.session.user?.id);
-    // console.log(useSelector(state => state.routes.currentRoute.comments), 'this is test');
-    useEffect(() => {dispatch(getOneRoute(routeId))}, [dispatch])
+    const [isLoaded, setIsLoaded] = useState(false)
+    const sessionUser = useSelector(state => state.session.user)
 
-    let currentRouteComments = useSelector(state => state?.routes?.currentRoute?.comments)
+    useEffect(() => {
+        (async () => {
+            await dispatch(getOneRoute(routeId));
+            await dispatch(getAllRouteComments(routeId));
+            setIsLoaded(true)
+        })();
+    }, [dispatch, sessionUser])
+
+    const route = useSelector(state => state.routes[routeId])
+
+    let currentRouteComments = useSelector(state => Object.values(state?.comments))
     let commentss = currentRouteComments?.map((comment) =>
     <>
         <div className="commentContent">
-            {comment[0]}
+            {comment?.content}
         </div>
-        <CommentDeleteModal comment_id={comment[1]} route_id={routeId}/>
-        <CommentEditModal comment_id={comment[1]} route_id={routeId}/>
+        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+        <CommentEditModal commentId={comment?.id} routeId={routeId}/>
     </>
     )
     return (<>
-            <div key={routes.id}  className="routePage">
-                <h2 id="routeName">{routes.name}</h2>
-                <p id="routeActivity">{routes.activity}</p>
-                <p id="routeDescription">{routes.description}</p>
-                <p id="routeDate">{routes.created_at}</p>
-                <button className="editRouteBtn" onClick={(e) => {
-                    e.preventDefault();
-                    history.push(`/routes/${routes.id}/edit`);
-                    }}>
-                    Edit Route
-                </button>
-                <RouteDeleteModal routeId={routeId}/>
-                <CommentCreateModal routeId={routeId}/>
-                {commentss}
-            </div>
+            {isLoaded && (
+                <div key={route?.id}  className="routePage">
+                    <h2 id="routeName">{route.name}</h2>
+                    <p id="routeActivity">{route.activity}</p>
+                    <p id="routeDescription">{route.description}</p>
+                    <p id="routeDate">{route.created_at}</p>
+                    <button className="editRouteBtn" onClick={(e) => {
+                        e.preventDefault();
+                        history.push(`/routes/${route.id}/edit`);
+                        }}>
+                        Edit Route
+                    </button>
+                    <RouteDeleteModal routeId={routeId}/>
+                    <CommentCreateModal routeId={routeId}/>
+                    {commentss}
+                </div>
+                )}
             </>
    );
 }

@@ -10,6 +10,7 @@ import User from './components/User';
 import RouteForm from './components/RouteCreateForm';
 import DashboardPage from './components/DashboardPage';
 import RoutePage from './components/SoloRoutePage';
+import HomePage from './components/Homepage';
 import RouteEditPage from './components/RouteEditPage'
 import { authenticate } from './store/session';
 
@@ -45,8 +46,7 @@ function App() {
           <User/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <NavLink to="/routes">Route Dashboard Placeholder</NavLink>
+          <HomePage/>
         </ProtectedRoute>
         <ProtectedRoute path='/routes/new' exact={true}>
           <RouteForm/>

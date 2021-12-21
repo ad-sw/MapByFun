@@ -4,11 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import {editComment} from '../../store/comment'
 import './CommentEditModal.css'
 
-const CommentEditForm = ({route_id, commentId, acontent, setShowModal}) => {
+const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
     const [content, setContent] = useState(acontent);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
-    console.log(commentId, 'comment_id in indexjs modal edit')
 
     const validator = () => {
         let error = []
@@ -28,7 +27,7 @@ const CommentEditForm = ({route_id, commentId, acontent, setShowModal}) => {
             setErrors(errorsArr)
         }else{
             const payload = {
-                route_id,
+                routeId,
                 content,
                 commentId,
             }

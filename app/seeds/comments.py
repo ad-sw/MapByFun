@@ -48,6 +48,52 @@ def seed_comments():
         route_id= 9,
         content='Example content for a comment',
     )
+    comment10 = Comment(
+        user_id= 1,
+        route_id= 1,
+        content='Example content for a comment',
+    )
+    comment11 = Comment(
+        user_id= 1,
+        route_id= 9,
+        content='Example content for a comment',
+    )
+    comment12 = Comment(
+        user_id= 1,
+        route_id= 2,
+        content='Example content for a comment',
+    )
+    comment13 = Comment(
+        user_id= 1,
+        route_id= 3,
+        content='Example content for a comment',
+    )
+    comment14 = Comment(
+        user_id= 1,
+        route_id= 4,
+        content='Example content for a comment',
+    )
+    comment15 = Comment(
+        user_id= 1,
+        route_id= 5,
+        content='Example content for a comment',
+    )
+    comment16 = Comment(
+        user_id= 1,
+        route_id= 6,
+        content='Example content for a comment',
+    )
+    comment17 = Comment(
+        user_id= 1,
+        route_id= 7,
+        content='Example content for a comment',
+    )
+    comment18 = Comment(
+        user_id= 1,
+        route_id= 8,
+        content='Example content for a comment',
+    )
+
 
     db.session.add(comment1)
     db.session.add(comment2)
@@ -58,6 +104,15 @@ def seed_comments():
     db.session.add(comment7)
     db.session.add(comment8)
     db.session.add(comment9)
+    db.session.add(comment10)
+    db.session.add(comment11)
+    db.session.add(comment12)
+    db.session.add(comment13)
+    db.session.add(comment14)
+    db.session.add(comment15)
+    db.session.add(comment16)
+    db.session.add(comment17)
+    db.session.add(comment18)
 
     db.session.commit()
 

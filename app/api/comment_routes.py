@@ -15,11 +15,11 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-@comment_routes.route('/')
+@comment_routes.route('/<int:route_id>')
 # @login_required
-def get_all_comments():
-    all_comments = Comment.query.all()
-    return {'comments': [comment.to_dict() for comment in all_comments]}
+def get_all_route_comments(route_id):
+    all_route_comments = Comment.query.filter(Comment.route_id == route_id).all()
+    return {'comments': [comment.to_dict() for comment in all_route_comments]}
 
 @comment_routes.route('/', methods=['POST'])
 # @login_required
@@ -34,7 +34,7 @@ def create_comment():
       )
       db.session.add(comment)
       db.session.commit()
-      return comment.to_dict()
+      return { "comment": comment.to_dict() }
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>/edit', methods=['PATCH'])

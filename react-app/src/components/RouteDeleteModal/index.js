@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { Modal } from '../context/Modal';
+import { Modal } from '../Context/Modal';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import { deleteRoute, getAllRoutes } from '../../store/route'
+import { deleteRoute } from '../../store/route'
 import './RouteDeleteModal.css';
 
 function RouteDeleteModal({routeId}) {
