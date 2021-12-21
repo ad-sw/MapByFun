@@ -1,6 +1,12 @@
+const LOAD_ALL_COMMENTS_FOR_ROUTE = 'comment/LOAD_ALL_ROUTE_COMMENTS'
 const CREATE_ONE_COMMENT = 'comment/CREATE_ONE';
 const EDIT_ONE_COMMENT = 'comment/EDIT_ONE';
 const DELETE_ONE_COMMENT = 'comment/DELETE_ONE';
+
+const loadAllRouteComments = (comment) => ({
+  type: LOAD_ALL_COMMENTS_FOR_ROUTE,
+  payload: comment,
+});
 
 const createOneComment = (comment) => ({
     type: CREATE_ONE_COMMENT,
@@ -17,6 +23,22 @@ const deleteOneComment = (id) => ({
     payload: id
 });
 
+export const getAllRouteComments = (routeId) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${routeId}`);
+  if (response.ok) {
+      const data = await response.json();
+      dispatch(loadAllRouteComments(data));
+      return data;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ['An error occurred. Please try again.']
+    }
+};
+
 export const createComment = (comment) => async(dispatch) => {
     const response = await fetch(`/api/comments/`, {
       method: 'POST',
@@ -27,11 +49,9 @@ export const createComment = (comment) => async(dispatch) => {
         comment
       )
     })
-    console.log(comment, 'this is the comment')
     if (response.ok) {
       const data = await response.json()
       dispatch(createOneComment(data))
-      console.log(data, ' this is the comments data')
       return null;
     } else if (response.status < 500){
       const data = await response.json()
@@ -43,17 +63,15 @@ export const createComment = (comment) => async(dispatch) => {
     }
   }
 
-  export const editComment = (payload, commentId) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${commentId}/edit`, {
+  export const editComment = (payload, id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${id}/edit`, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     })
-    console.log(payload, commentId, 'this is edit comment')
     if (response.ok) {
       const data = await response.json()
       dispatch(editOneComment(data))
-      console.log(data, ' this is edits comments data')
       return null;
     } else if (response.status < 500){
       const data = await response.json()
@@ -81,32 +99,27 @@ export const createComment = (comment) => async(dispatch) => {
     }
   }
 
-let initialState = {routes: [], currentRoute: []}
-
-const commentReducer = (state = initialState, action) => {
+const commentReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
-        // case CREATE_ONE_COMMENT:
-        //   newState = {...state}
-        //   console.log(state, 'this should be')
-        //   newState.currentRoute = action.payload
-        //   console.log(state, 'this should be')
-        //   newState.currentRoute.comments.push([action.payload.content, action.payload.id])
-        //   console.log(newState.currentRoute, 'trying')
-        //   return newState
-        // case EDIT_ONE_COMMENT:
-        //   newState = {...state}
-        //   const commentIdx = newState.currentRoute.comments.findIndex(comment =>comment[1] === action.payload.id)
-        //   newState.currentRoute[commentIdx] = action.payload
-        //   // newState.currentRoute = action.payload
-        //   newState.currentRoute = [...newState.currentRoute]
-        //   return newState
-        // case DELETE_ONE_COMMENT:
-        //   newState = {...state}
-        //   let newComments = newState.currentRoute.comments.filter(comment => comment[1] !== Number(action.payload))
-        //   console.log(newComments, 'hiii')
-        //   newState.currentRoute.comments = newComments
-        //   return newState
+        case LOAD_ALL_COMMENTS_FOR_ROUTE:
+          newState = {};
+          action.payload.comments.forEach(comment => {
+            newState[comment.id] = comment;
+            });
+          return newState;
+        case CREATE_ONE_COMMENT:
+          newState = {...state};
+          newState[action.payload.comment.id] = action.payload.comment
+          return newState;
+        case EDIT_ONE_COMMENT:
+          newState = {...state};
+          newState[action.payload.id] = action.payload;
+          return newState;
+        case DELETE_ONE_COMMENT:
+          newState = {...state}
+          delete newState[action.payload]
+          return newState
         default:
             return state;
     }

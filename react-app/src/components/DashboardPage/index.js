@@ -1,52 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useHistory } from 'react-router-dom'
 import {getAllRoutes} from  '../../store/route'
-import RouteEditPage from "../RouteEditPage";
-import RouteDeleteModal from "../RouteDeleteModal";
+// import RouteEditPage from "../RouteEditPage";
 import "./DashboardPage.css"
-
+import RouteModal from "../RouteReadAll";
 export default function DashboardPage(){
     const dispatch = useDispatch()
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user)
+    const [isLoaded, setIsLoaded] = useState(false)
 
-    let routes = useSelector(state => state.routes.routes)
-    const dashInfo = routes?.map((route) =>
-    <>
-    <NavLink key={route?.id} to={`/routes/${route.id}`}>
-        <div className="route-dash">
-            <div className="route-dash-info" >
-                <div className="name">{route.name}</div>
-                <div>Activity: {route.activity}</div>
-                <div>Description: {route.description}</div>
-                <div>Created: {route.created_at}</div>
+    useEffect(() => {
+        (async () => {
+            await dispatch(getAllRoutes());
+            setIsLoaded(true)
+        })();
+    }, [dispatch, sessionUser]);
+
+
+    return (<>
+        {isLoaded && (
+            <div>
+                <div className='page-header'>Dashboard Routes</div>
+                <RouteModal />
+                <div className="routes-wrapper">
+                <button className="createRouteBtn" onClick={(e) => {
+                e.preventDefault();
+                history.push('/routes/new');
+                }}>
+                Create Route
+                </button>
+                </div>
             </div>
-        </div>
-    </NavLink>
-    <div>
-    <NavLink to={`/routes/${route.id}/edit`} exact={true} className="RouteEditBtn">
-        Edit Route
-    </NavLink>
-    <RouteDeleteModal routeId={route.id}/>
-    </div>
+        )}
     </>
-    ).reverse()
-
-    useEffect(()=>{
-        dispatch(getAllRoutes())},
-        [dispatch]
     )
-
-    return <div>
-    <div className='page-header'>Dashboard Routes</div>
-    <div className="routes-wrapper">
-        {dashInfo}
-        <button className="createRouteBtn" onClick={(e) => {
-        e.preventDefault();
-        history.push('/routes/new');
-        }}>
-          Create Route
-      </button>
-    </div>
-    </div>
 }
