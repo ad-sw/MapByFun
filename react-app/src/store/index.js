@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session'
 import routeReducer from './route'
 import commentReducer from './comment';
+import friendReducer from './friend';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   routes: routeReducer,
-  comments: commentReducer
+  comments: commentReducer,
+  friends: friendReducer,
 });
 
 

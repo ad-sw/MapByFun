@@ -17,19 +17,26 @@ def user_page(id):
     user = User.query.get(id)
     return user.to_dict()
 
-@user_routes.route('/<int:id>/routes')
+@user_routes.route('/<int:user_id>/routes')
 @login_required
-def user_route_dashboard(id):
-    user = User.query.get(id)
-    return user.to_dict_routes()
+def get_all_routes(user_id):
+    all_user_routes = Route.query.filter(Route.user_id == user_id).all()
+    return {'routes': [route.to_dict() for route in all_user_routes]}
 
 @user_routes.route('/<int:id>/friends')
-# @login_required
+@login_required
 def all_user_friends(id):
     user = User.query.get(id)
     return user.to_dict()['friends']
 
-@user_routes.route('/friends/add', methods=['POST'])
+@user_routes.route('/<int:id>/friends/<int:friend_id>/routes')
+# @login_required
+def user_friend_routes(id, friend_id):
+    # user = User.query.get(friend_id)
+    all_friend_routes = Route.query.filter(Route.user_id == friend_id).all()
+    return {'routes': [route.to_dict() for route in all_friend_routes]}
+
+@user_routes.route('/<int:user_id>/friends/add', methods=['POST'])
 # @login_required
 def add_friend():
     form = CreateFriendForm()
@@ -43,7 +50,7 @@ def add_friend():
         db.session.commit()
         return user.to_dict()['friends']
 
-@user_routes.route('/<int:user_id>/friends/<int:friend_id>/remove', methods=['DELETE'])
+@user_routes.route('/<int:user_id>/friends/<int:friend_id>/delete', methods=['DELETE'])
 # @login_required
 def remove_friend(user_id, friend_id):
     user = User.query.get(user_id)
@@ -52,5 +59,5 @@ def remove_friend(user_id, friend_id):
     db.session.commit()
     return {
         'user_id': user_id,
-        'unfriended_id': friend_id
+        'friend_id': friend_id
     }

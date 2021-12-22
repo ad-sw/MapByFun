@@ -33,8 +33,11 @@ export default function RoutePage(){
         <div className="commentContent">
             {comment?.content}
         </div>
+        {sessionUser.id === route?.user_id && (
+        <>
         <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
         <CommentEditModal commentId={comment?.id} routeId={routeId}/>
+        </>)}
     </>
     )
     return (<>
@@ -44,6 +47,8 @@ export default function RoutePage(){
                     <p id="routeActivity">{route.activity}</p>
                     <p id="routeDescription">{route.description}</p>
                     <p id="routeDate">{route.created_at}</p>
+                    {sessionUser.id === route?.user_id && (
+                    <>
                     <button className="editRouteBtn" onClick={(e) => {
                         e.preventDefault();
                         history.push(`/routes/${route.id}/edit`);
@@ -52,6 +57,7 @@ export default function RoutePage(){
                     </button>
                     <RouteDeleteModal routeId={routeId}/>
                     <CommentCreateModal routeId={routeId}/>
+                    </>)}
                     {commentss}
                 </div>
                 )}

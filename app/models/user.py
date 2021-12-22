@@ -72,8 +72,3 @@ class User(db.Model, UserMixin):
                 'last_name': self.last_name,
                 'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
             }
-
-    def to_dict_routes(self):
-            return {
-                'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
-            }

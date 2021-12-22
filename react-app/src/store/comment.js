@@ -42,12 +42,8 @@ export const getAllRouteComments = (routeId) => async (dispatch) => {
 export const createComment = (comment) => async(dispatch) => {
     const response = await fetch(`/api/comments/`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-        comment
-      )
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(comment)
     })
     if (response.ok) {
       const data = await response.json()
@@ -99,30 +95,28 @@ export const createComment = (comment) => async(dispatch) => {
     }
   }
 
-const commentReducer = (state = {}, action) => {
-    let newState;
-    switch (action.type) {
-        case LOAD_ALL_COMMENTS_FOR_ROUTE:
-          newState = {};
-          action.payload.comments.forEach(comment => {
-            newState[comment.id] = comment;
-            });
-          return newState;
-        case CREATE_ONE_COMMENT:
-          newState = {...state};
-          newState[action.payload.comment.id] = action.payload.comment
-          return newState;
-        case EDIT_ONE_COMMENT:
-          newState = {...state};
-          newState[action.payload.id] = action.payload;
-          return newState;
-        case DELETE_ONE_COMMENT:
-          newState = {...state}
-          delete newState[action.payload]
-          return newState
-        default:
-            return state;
-    }
+export default function commentReducer (state = {}, action) {
+  let newState;
+  switch (action.type) {
+      case LOAD_ALL_COMMENTS_FOR_ROUTE:
+        newState = {};
+        action.payload.comments.forEach(comment => {
+          newState[comment.id] = comment;
+          });
+        return newState;
+      case CREATE_ONE_COMMENT:
+        newState = {...state};
+        newState[action.payload.comment.id] = action.payload.comment
+        return newState;
+      case EDIT_ONE_COMMENT:
+        newState = {...state};
+        newState[action.payload.id] = action.payload;
+        return newState;
+      case DELETE_ONE_COMMENT:
+        newState = {...state}
+        delete newState[action.payload]
+        return newState
+      default:
+          return state;
+  }
 };
-
-export default commentReducer;
