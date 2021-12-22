@@ -9,7 +9,6 @@ const CommentCreateForm = ({setShowModal}, id) => {
     const [content, setContent] = useState('');
     const dispatch = useDispatch();
     const user_id = useSelector(state => state.session.user.id);
-    // const user_id = useSelector(state => state.session.user.id);
     const {routeId} = useParams();
 
     const validator = () => {
@@ -23,7 +22,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
         return error;
     }
 
-    const handleSubmit = async(e) => {
+    const handleCreate = async(e) => {
         e.preventDefault()
         const errorsArr = validator()
         if(errorsArr.length) {
@@ -47,7 +46,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
 
     return (
         <div className='commentFormContainer'>
-            <form className='commentForm' onSubmit={handleSubmit}>
+            <form className='commentForm' onSubmit={handleCreate}>
             <div className="errors">
                 {errors.map((error, idx) => (
                 <div key={idx}>{error.split(':')[1]}</div>

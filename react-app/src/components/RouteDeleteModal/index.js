@@ -14,15 +14,9 @@ function RouteDeleteModal({routeId}) {
     e.preventDefault();
 
     dispatch(deleteRoute(routeId));
-    // dispatch(getAllRoutes);
     setShowModal(false);
     history.push('/routes');
 }
-
-// useEffect(()=>{
-//   dispatch(getAllRoutes())},
-//   [dispatch]
-// )
 
 return (
 

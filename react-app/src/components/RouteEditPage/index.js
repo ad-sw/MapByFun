@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RouteEditForm from './RouteEditForm';
 import "./RouteEditForm.css";
 
-function RouteEditPage({routeId}) {
+export default function RouteEditPage({routeId}) {
   // const {routeId} = useParams();
 
   return (
@@ -11,5 +11,3 @@ function RouteEditPage({routeId}) {
     </>
   );
 }
-
-export default RouteEditPage;

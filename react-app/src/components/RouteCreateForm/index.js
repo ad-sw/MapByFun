@@ -30,7 +30,7 @@ const RouteCreateForm = () => {
         return error;
     }
 
-    const handleSubmit = async (e) => {
+    const handleCreate = async (e) => {
         e.preventDefault();
         const errorsArr = validator()
         if(errorsArr.length) {
@@ -73,7 +73,7 @@ const RouteCreateForm = () => {
                     <div key={idx}>{error.split(':')[1]}</div>
                 ))}
                 </div>
-                <form className='routeForm' onSubmit={handleSubmit}>
+                <form className='routeForm' onSubmit={handleCreate}>
                     <input
                     className='routeNameInput'
                     placeholder='Name'

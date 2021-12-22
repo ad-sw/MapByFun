@@ -30,9 +30,8 @@ def all_user_friends(id):
     return user.to_dict()['friends']
 
 @user_routes.route('/<int:id>/friends/<int:friend_id>/routes')
-# @login_required
+@login_required
 def user_friend_routes(id, friend_id):
-    # user = User.query.get(friend_id)
     all_friend_routes = Route.query.filter(Route.user_id == friend_id).all()
     return {'routes': [route.to_dict() for route in all_friend_routes]}
 

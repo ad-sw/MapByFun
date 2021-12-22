@@ -20,11 +20,21 @@ def seed_friends():
         user_id= 2,
         friend_id= 3,
     )
+    friend5 = insert(friends).values(
+        user_id= 1,
+        friend_id= 3,
+    )
+    friend6 = insert(friends).values(
+        user_id= 3,
+        friend_id= 1,
+    )
 
     db.session.execute(friend1)
     db.session.execute(friend2)
     db.session.execute(friend3)
     db.session.execute(friend4)
+    db.session.execute(friend5)
+    db.session.execute(friend6)
 
     db.session.commit()
 

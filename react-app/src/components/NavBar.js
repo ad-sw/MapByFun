@@ -15,11 +15,6 @@ const NavBar = () => {
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-
           <LogoutButton />
       </ul>
     </nav>

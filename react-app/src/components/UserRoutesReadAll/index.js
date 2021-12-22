@@ -7,7 +7,6 @@ import RouteDeleteModal from "../RouteDeleteModal";
 function UserRouteReadModal() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    // console.log(sessionUser.routes, 'sessionnnnnn1111')
     const [isLoaded, setIsLoaded] = useState(false)
     const { friendId }  = useParams();
 
@@ -20,9 +19,6 @@ function UserRouteReadModal() {
     }, [dispatch, sessionUser]);
 
     const dashRoutes = useSelector(state => Object.values(state.routes))
-    // if (sessionUser.id !== sessionUser.routes.user_id) {
-    //     return null;
-    //   }
 
     const test = dashRoutes?.map(route => {
         return (<>
@@ -47,7 +43,7 @@ function UserRouteReadModal() {
             })
 
     return (
-        <div className="products">
+        <div className="routes2">
             {test}
         </div>
     );

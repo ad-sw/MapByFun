@@ -21,19 +21,12 @@ function User() {
   }
 
   return (
-    <ul>
-      <li>
-      </li>
-      <li>
-        <strong>User Name</strong> {user.first_name}&nbsp;{user.last_name}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-      <li>
-        <strong>Member Since</strong> {user.created_at}
-      </li>
-    </ul>
+        <>
+            <div>{user.first_name}&nbsp;{user.last_name}</div>
+            <div><i>Member Since</i> {user.created_at}</div>
+            <button>Add</button>
+            <button>Unfriend</button>
+        </>
   );
 }
 export default User;

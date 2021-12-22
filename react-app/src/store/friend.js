@@ -53,7 +53,6 @@ export const getAllFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends`);
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'this is the thunk data')
     dispatch(loadAllFriends(data));
     return null;
     } else if (response.status < 500){
@@ -70,7 +69,6 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/friends/${friendId}/routes`);
     if (response.ok) {
       const data = await response.json();
-      console.log(data, 'thunk friend route data')
       dispatch(loadOneFriendRoutes(data));
       return null;
       } else if (response.status < 500){
@@ -91,6 +89,7 @@ export const addFriend = (payload, userId) => async (dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
+    console.log(data, `data we are sending idk`)
     dispatch(addOneFriend(data));
     return null;
     } else if (response.status < 500){
@@ -145,6 +144,7 @@ export default function friendReducer(state = {}, action) {
             return newState;
         case ADD_ONE_FRIEND:
             newState = {...state};
+            console.log(action.payload, 'this is friend added')
             newState[action.payload.id] = action.payload;
             return newState;
         case REMOVE_ONE_FRIEND:

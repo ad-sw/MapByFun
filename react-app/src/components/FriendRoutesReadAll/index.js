@@ -9,12 +9,14 @@ export default function FriendRouteReadModal() {
     const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
     const { userId, friendId }  = useParams();
+
     useEffect(() => {
         (async () => {
             await dispatch(getFriendRoutes(userId, friendId));
+
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser]);
+    }, [dispatch, sessionUser, userId, friendId]);
 
     const dashRoutes = useSelector(state => Object.values(state.friends))
 
@@ -34,9 +36,10 @@ export default function FriendRouteReadModal() {
                 )
             })
 
-    return (
-        <div className="products">
-            {test}
-        </div>
+    return (<> {isLoaded && (
+                <div className="routes">
+                    {test}
+                </div>)}
+            </>
     );
 }
