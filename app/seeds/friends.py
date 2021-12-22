@@ -9,15 +9,15 @@ def seed_friends():
         friend_id= 2,
     )
     friend2 = insert(friends).values(
-        user_id= 3,
-        friend_id= 2,
+        user_id= 2,
+        friend_id= 1,
     )
     friend3 = insert(friends).values(
         user_id= 3,
-        friend_id= 4,
+        friend_id= 2,
     )
     friend4 = insert(friends).values(
-        user_id= 4,
+        user_id= 2,
         friend_id= 3,
     )
 

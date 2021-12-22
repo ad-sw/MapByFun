@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ NavLink, useHistory } from 'react-router-dom'
+import{ NavLink, useHistory, useParams } from 'react-router-dom'
 import {getAllRoutes} from  '../../store/route'
 // import RouteEditPage from "../RouteEditPage";
-import "./DashboardPage.css"
-import RouteModal from "../RouteReadAll";
-export default function DashboardPage(){
+import "./RoutesDashboard.css"
+import UserRouteReadModal from "../UserRoutesReadAll";
+
+export default function RoutesDashboard(){
     const dispatch = useDispatch()
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
@@ -13,17 +14,16 @@ export default function DashboardPage(){
 
     useEffect(() => {
         (async () => {
-            await dispatch(getAllRoutes());
+            await dispatch(getAllRoutes(sessionUser.id));
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser]);
-
 
     return (<>
         {isLoaded && (
             <div>
                 <div className='page-header'>Dashboard Routes</div>
-                <RouteModal />
+                <UserRouteReadModal userId={sessionUser?.id}/>
                 <div className="routes-wrapper">
                 <button className="createRouteBtn" onClick={(e) => {
                 e.preventDefault();

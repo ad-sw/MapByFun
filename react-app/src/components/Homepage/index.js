@@ -10,9 +10,11 @@ export default function HomePage(){
     const sessionUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
 
+
+
     useEffect(() => {
         (async () => {
-            await dispatch(getAllRoutes());
+            await dispatch(getAllRoutes(sessionUser.id));
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser])
@@ -21,7 +23,8 @@ export default function HomePage(){
     return (<> {isLoaded && (
                 <div>
                 <h1>My Home Page</h1>
-                <NavLink to="/routes">Route Dashboard Placeholder</NavLink>
+                <NavLink to={`/users/${sessionUser.id}/routes`}>Route Dashboard Placeholder</NavLink><br></br>
+                <NavLink to={`/users/${sessionUser.id}/friends`}>Friends Dashboard Placeholder</NavLink>
                 </div>
                 )}
             </>

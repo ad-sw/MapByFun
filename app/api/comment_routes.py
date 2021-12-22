@@ -16,13 +16,13 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @comment_routes.route('/<int:route_id>')
-# @login_required
+@login_required
 def get_all_route_comments(route_id):
     all_route_comments = Comment.query.filter(Comment.route_id == route_id).all()
     return {'comments': [comment.to_dict() for comment in all_route_comments]}
 
 @comment_routes.route('/', methods=['POST'])
-# @login_required
+@login_required
 def create_comment():
    form = CreateCommentForm()
    form['csrf_token'].data = request.cookies['csrf_token']
@@ -38,7 +38,7 @@ def create_comment():
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>/edit', methods=['PATCH'])
-# @login_required
+@login_required
 def edit_comment(id):
    comment = Comment.query.get(id)
    form = EditCommentForm()
@@ -50,7 +50,7 @@ def edit_comment(id):
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>/delete', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_comment(id):
     one_comment = Comment.query.get(id)
     db.session.delete(one_comment)

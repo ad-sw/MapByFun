@@ -39,8 +39,8 @@ const deleteOneRoute = (routeId) => {
     }
   }
 
-export const getAllRoutes = () => async (dispatch) => {
-    const response = await fetch('/api/routes/')
+export const getAllRoutes = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/routes`)
     if (response.ok) {
         const data = await response.json();
         dispatch(loadAllRoutes(data))
@@ -127,33 +127,32 @@ export const deleteRoute = (routeId) => async(dispatch) => {
   }
 }
 
-const routeReducer = (state = {}, action) => {
+export default function routeReducer (state = {}, action) {
   let newState;
-    switch (action.type) {
-      case GET_ALL_ROUTES:
-        newState = {};
-          action.payload.routes.forEach(route => {
-              newState[route.id] = route;
-            })
-          return newState;
-      case GET_ONE_ROUTE:
-        newState = {...state};
-        newState[action.payload.id] = action.payload;
-        return newState;
-      case CREATE_ONE_ROUTE:
-        newState = {...state};
-        newState[action.payload.id] = action.payload;
-        return newState;
-      case EDIT_ONE_ROUTE:
-        newState = {...state};
-        newState[action.payload.id] = action.payload;
-        return newState;
-      case DELETE_ONE_ROUTE:
-        newState = {...state};
-        delete newState[action.payload];
-        return newState;
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case GET_ALL_ROUTES:
+      newState = {};
+      action.payload.routes.forEach(route => {
+          newState[route.id] = route;
+        })
+      return newState;
+    case GET_ONE_ROUTE:
+      newState = {...state};
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case CREATE_ONE_ROUTE:
+      newState = {...state};
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case EDIT_ONE_ROUTE:
+      newState = {...state};
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case DELETE_ONE_ROUTE:
+      newState = {...state};
+      delete newState[action.payload];
+      return newState;
+    default:
+      return state;
+  }
 }
-export default routeReducer

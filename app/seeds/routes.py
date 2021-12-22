@@ -28,32 +28,38 @@ def seed_routes():
         activity='Bike ride',
     )
     route5 = Route(
-        user_id= 1,
+        user_id= 2,
         name='Example 5',
         description='here is a map description',
         activity='Walk',
     )
     route6 = Route(
-        user_id= 1,
+        user_id= 2,
         name='Example 6',
         description='here is a map description',
         activity='Social',
     )
     route7 = Route(
-        user_id= 1,
+        user_id= 2,
         name='Example 7',
         description='here is a map description',
         activity='Bike ride',
     )
     route8 = Route(
-        user_id= 1,
+        user_id= 3,
         name='Example 8',
         description='here is a map description',
         activity='Walk',
     )
     route9 = Route(
-        user_id= 1,
+        user_id= 3,
         name='Example 9',
+        description='here is a map description',
+        activity='Social',
+    )
+    route10 = Route(
+        user_id= 3,
+        name='Example 10',
         description='here is a map description',
         activity='Social',
     )
@@ -67,7 +73,7 @@ def seed_routes():
     db.session.add(route7)
     db.session.add(route8)
     db.session.add(route9)
-
+    db.session.add(route10)
 
     db.session.commit()
 
