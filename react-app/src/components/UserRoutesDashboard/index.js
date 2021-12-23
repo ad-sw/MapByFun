@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useHistory, useParams } from 'react-router-dom'
 import {getAllRoutes} from  '../../store/route'
-// import RouteEditPage from "../RouteEditPage";
 import "./RoutesDashboard.css"
 import UserRouteReadModal from "../UserRoutesReadAll";
 
@@ -14,7 +13,6 @@ export default function RoutesDashboard(){
 
     useEffect(() => {
         (async () => {
-            await dispatch(getAllRoutes(sessionUser.id));
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser]);

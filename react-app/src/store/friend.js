@@ -53,6 +53,7 @@ export const getAllFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends`);
   if (response.ok) {
     const data = await response.json();
+    console.log(data, 'all friend data')
     dispatch(loadAllFriends(data));
     return null;
     } else if (response.status < 500){
@@ -65,10 +66,27 @@ export const getAllFriends = (userId) => async (dispatch) => {
     }
 }
 
+export const getAllNonFriends = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/people`);
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(loadAllUsers(data));
+      return null;
+      } else if (response.status < 500){
+          const data = await response.json()
+          if (data.errors) {
+          return data.errors
+          }
+      } else {
+          return ['An error occurred. Please try again.']
+      }
+  }
+
 export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/friends/${friendId}/routes`);
     if (response.ok) {
       const data = await response.json();
+      console.log(data, 'all friend route data')
       dispatch(loadOneFriendRoutes(data));
       return null;
       } else if (response.status < 500){
@@ -81,7 +99,7 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
       }
   }
 
-export const addFriend = (payload, user_id) => async (dispatch) => {
+export const addFriend = (payload) => async (dispatch) => {
   const response = await fetch(`/api/users/friends/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -130,16 +148,17 @@ export default function friendReducer(state = {}, action) {
             return newState;
         case GET_USER_FRIENDS:
             newState = {};
-            let test = Object.values(action.payload)
-            test.forEach(friend => {
+            action.payload.users.forEach(friend => {
                 newState[friend.id] = friend;
               })
+            console.log(newState, 'end friend state')
             return newState;
         case GET_ONE_FRIEND_ROUTES:
             newState = {};
             action.payload.routes.forEach(route => {
                 newState[route.id] = route;
               })
+            console.log(newState, 'end state routes')
             return newState;
         case ADD_ONE_FRIEND:
             newState = {...state};

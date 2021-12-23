@@ -23,7 +23,7 @@ export default function HomePage(){
                     <h1>My Home Page</h1>
                     <div><NavLink to={`/users/${sessionUser.id}/routes`}>Route Dashboard Placeholder</NavLink></div>
                     <div><NavLink to={`/users/${sessionUser.id}/friends`}>Friends Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to='/users' exact={true}>All Users (to friend) Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users/${sessionUser.id}/people`} exact={true}>All Users (to friend) Dashboard Placeholder</NavLink></div>
                 </div>
                 )}
             </>

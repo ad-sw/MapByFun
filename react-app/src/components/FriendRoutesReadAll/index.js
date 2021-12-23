@@ -2,7 +2,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {getFriendRoutes} from '../../store/friend';
 import {useEffect, useState} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import RouteDeleteModal from "../RouteDeleteModal";
 
 export default function FriendRouteReadModal() {
     const dispatch = useDispatch();
@@ -13,11 +12,11 @@ export default function FriendRouteReadModal() {
     useEffect(() => {
         (async () => {
             await dispatch(getFriendRoutes(userId, friendId));
-
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser, userId, friendId]);
+    }, [dispatch, userId, friendId]);
 
+    console.log(useSelector(state => state), 'dashinfo');
     const dashRoutes = useSelector(state => Object.values(state.friends))
 
     const test = dashRoutes?.map(route => {
