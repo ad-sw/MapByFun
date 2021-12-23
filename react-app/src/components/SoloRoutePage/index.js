@@ -23,7 +23,7 @@ export default function RoutePage(){
             await dispatch(getAllRouteComments(routeId));
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser])
+    }, [dispatch, sessionUser, routeId])
 
     const route = useSelector(state => state.routes[routeId])
 

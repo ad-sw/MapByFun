@@ -14,7 +14,6 @@ export default function UserFriendsDashboard() {
 
     useEffect(() => {
         (async () => {
-            await dispatch(getFriendRoutes(userId, friendId));
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser, userId, friendId]);
