@@ -17,7 +17,7 @@ export default function UserFriendsDashboard() {
             await dispatch(getFriendRoutes(userId, friendId));
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser]);
+    }, [dispatch, sessionUser, userId, friendId]);
 
     return (<>
         {isLoaded && (

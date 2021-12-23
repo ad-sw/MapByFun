@@ -53,7 +53,6 @@ export const getAllFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends`);
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'this is the thunk data')
     dispatch(loadAllFriends(data));
     return null;
     } else if (response.status < 500){
@@ -70,7 +69,6 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/friends/${friendId}/routes`);
     if (response.ok) {
       const data = await response.json();
-      console.log(data, 'thunk friend route data')
       dispatch(loadOneFriendRoutes(data));
       return null;
       } else if (response.status < 500){
@@ -83,8 +81,8 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
       }
   }
 
-export const addFriend = (payload, userId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${userId}/friends/add`, {
+export const addFriend = (payload, user_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/friends/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
@@ -109,7 +107,7 @@ export const removeFriend = (userId, friendId) => async (dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(removeOneFriend(data, userId));
+    dispatch(removeOneFriend(data));
     return null;
     } else if (response.status < 500){
         const data = await response.json()

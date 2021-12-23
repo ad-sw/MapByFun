@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
 import {editRoute} from '../../store/route';
 
-function RouteEditForm() {
+export default function RouteEditForm() {
     const [name, setName] = useState('');
     const history = useHistory()
     const [description, setDescription] = useState('');
@@ -23,7 +23,6 @@ function RouteEditForm() {
           user_id
         };
         await dispatch(editRoute(payload)).then(history.push(`/routes/${editId}`));
-        // history.push(`/routes/${editId}`);
       };
 
     return (
@@ -46,5 +45,3 @@ function RouteEditForm() {
         </div>
       );
 }
-
-export default RouteEditForm;
