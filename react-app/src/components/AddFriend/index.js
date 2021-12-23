@@ -6,8 +6,12 @@ import {addFriend} from '../../store/friend';
 
 export default function AddFriend({friend_id, user_id}){
     const [showModal, setShowModal] = useState(false)
+    const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
 
+    let friendsId = Object.keys(sessionUser?.friends).filter(friend => +friend === friend_id)
+    //logs ['1'] or whichever friend id
+    
     const handleAdd = async(e) => {
         e.preventDefault();
         const payload = {
@@ -20,7 +24,8 @@ export default function AddFriend({friend_id, user_id}){
     return (
         <div className="friendAddBtnContainer">
         <>
-        <button type="submit" onClick={handleAdd} className="friendAddBtn">Add Friend</button>
+        {friendsId && <button type="submit" onClick={handleAdd} className="friendAddBtn">Add Friend</button>}
+        {!friendsId && null}
         </>
         </div>
     )

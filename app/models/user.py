@@ -62,6 +62,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
             'friends': {user.to_dict_friends()['id']:user.to_dict_friends() for user in self.user_friends},
+            
             'created_at': self.created_at,
         }
 

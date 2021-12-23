@@ -8,6 +8,10 @@ function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const user_id = useSelector(state => state.session.user.id);
+  const sessionUser = useSelector(state => state.session.user)
+  const [friended, setFriended] = useState(
+    Object.values(sessionUser?.friends).includes(Number(userId))
+  );
 
   useEffect(() => {
     if (!userId) {
@@ -28,7 +32,7 @@ function User() {
         <>
             <div>{user.first_name}&nbsp;{user.last_name}</div>
             <div><i>Member Since</i> {user.created_at}</div>
-            <AddFriend friend_id={Number(userId)} user_id={user_id}/>
+            {!friended && (<AddFriend friend_id={Number(userId)} user_id={user_id}/>)}
             <RemoveFriend friend_id={Number(userId)} user_id={user_id}/>
         </>
   );
