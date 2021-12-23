@@ -25,9 +25,9 @@ const CommentCreateForm = ({setShowModal}, id) => {
     const handleCreate = async(e) => {
         e.preventDefault()
         const errorsArr = validator()
-        if(errorsArr.length) {
+        if (errorsArr.length) {
             setErrors(errorsArr)
-        }else{
+        } else {
             const payload = {
                 user_id,
                 route_id: routeId,
@@ -35,7 +35,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
                 content
             }
             const data = await dispatch(createComment(payload))
-            if(data){
+            if (data) {
                 setErrors(data)
             } else {
                 setShowModal(false);

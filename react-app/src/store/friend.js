@@ -81,15 +81,14 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
       }
   }
 
-export const addFriend = (payload, userId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${userId}/friends/add`, {
+export const addFriend = (payload, user_id) => async (dispatch) => {
+  const response = await fetch(`/api/users/friends/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
   });
   if (response.ok) {
     const data = await response.json();
-    console.log(data, `data we are sending idk`)
     dispatch(addOneFriend(data));
     return null;
     } else if (response.status < 500){
@@ -108,7 +107,7 @@ export const removeFriend = (userId, friendId) => async (dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(removeOneFriend(data, userId));
+    dispatch(removeOneFriend(data));
     return null;
     } else if (response.status < 500){
         const data = await response.json()
@@ -144,7 +143,6 @@ export default function friendReducer(state = {}, action) {
             return newState;
         case ADD_ONE_FRIEND:
             newState = {...state};
-            console.log(action.payload, 'this is friend added')
             newState[action.payload.id] = action.payload;
             return newState;
         case REMOVE_ONE_FRIEND:

@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
     routes = db.relationship("Route", back_populates="users")
     comments = db.relationship("Comment", back_populates="users")
 
-    friends_received = db.relationship(
+    user_friends = db.relationship(
         "User",
         secondary=friends,
         primaryjoin=(friends.c.user_id == id),
@@ -61,7 +61,7 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'email': self.email,
             'routes': {route.to_dict()['id']: route.to_dict() for route in self.routes},
-            'friends': {user.to_dict_friends()['id']:user.to_dict_friends() for user in self.friends_received},
+            'friends': {user.to_dict_friends()['id']:user.to_dict_friends() for user in self.user_friends},
             'created_at': self.created_at,
         }
 
