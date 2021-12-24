@@ -1,11 +1,10 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {getFriendRoutes} from '../../store/friend';
+import {getFriendRoutes} from '../../store/route';
 import {useEffect, useState} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 
 export default function FriendRouteReadModal() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
     const { userId, friendId }  = useParams();
 
@@ -16,8 +15,7 @@ export default function FriendRouteReadModal() {
         })();
     }, [dispatch, userId, friendId]);
 
-    console.log(useSelector(state => state), 'dashinfo');
-    const dashRoutes = useSelector(state => Object.values(state.friends))
+    const dashRoutes = useSelector(state => Object.values(state.routes))
 
     const test = dashRoutes?.map(route => {
         return (<>
