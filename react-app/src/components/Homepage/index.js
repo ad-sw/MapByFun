@@ -13,7 +13,6 @@ export default function HomePage(){
     useEffect(() => {
         (async () => {
             await dispatch(getAllUsers());
-            await dispatch(getAllFriends(sessionUser.id))
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser])
@@ -23,7 +22,8 @@ export default function HomePage(){
                     <h1>My Home Page</h1>
                     <div><NavLink to={`/users/${sessionUser.id}/routes`}>Route Dashboard Placeholder</NavLink></div>
                     <div><NavLink to={`/users/${sessionUser.id}/friends`}>Friends Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users/${sessionUser.id}/people`} exact={true}>All Users (to friend) Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users/${sessionUser.id}/people`} exact={true}>All Nonfriend Users Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users`} exact={true}>All Users Dashboard Placeholder</NavLink></div>
                 </div>
                 )}
             </>

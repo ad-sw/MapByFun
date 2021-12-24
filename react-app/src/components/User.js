@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import AddFriend from '../../src/components/AddFriend';
-import RemoveFriend from '../../src/components/DeleteFriend';
+// import AddFriend from '../../src/components/AddFriend';
+import FriendBtns from '../../src/components/AddDeleteFriendBtns';
 import { useSelector } from "react-redux";
 
 function User() {
@@ -32,8 +32,8 @@ function User() {
         <>
             <div>{user.first_name}&nbsp;{user.last_name}</div>
             <div><i>Member Since</i> {user.created_at}</div>
-            {!friended && (<AddFriend friend_id={Number(userId)} user_id={user_id}/>)}
-            <RemoveFriend friend_id={Number(userId)} user_id={user_id}/>
+            {/* {!friended && (<AddFriend friend_id={Number(userId)} user_id={user_id}/>)} */}
+            <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
         </>
   );
 }

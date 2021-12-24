@@ -1,5 +1,5 @@
 const GET_USER_FRIENDS = "friends/GET_FRIENDS";
-const ADD_ONE_FRIEND = 'friends/ADD_RIEND';
+const ADD_ONE_FRIEND = 'friends/ADD_FRIEND';
 const REMOVE_ONE_FRIEND = 'friends/REMOVE_FRIEND';
 
 const loadAllFriends = (friends, userId) => ({
@@ -8,10 +8,9 @@ const loadAllFriends = (friends, userId) => ({
   userId,
 });
 
-const addOneFriend = (friend, userId) => ({
+const addOneFriend = (friend) => ({
     type: ADD_ONE_FRIEND,
     payload: friend,
-    userId
 });
 
 const removeOneFriend = (data) => ({
@@ -35,8 +34,8 @@ export const getAllFriends = (userId) => async (dispatch) => {
     }
 }
 
-export const addFriend = (payload, userId, friendId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${+userId}/friends/${friendId}/add`, {
+export const addFriend = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/users/${payload.user_id}/friends/${payload.friend_id}/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
@@ -45,6 +44,7 @@ export const addFriend = (payload, userId, friendId) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(addOneFriend(data));
+    console.log(data, 'add data')
     return null;
     } else if (response.status < 500){
         const data = await response.json()
@@ -79,18 +79,21 @@ export default function friendReducer(state = {}, action) {
     switch (action.type) {
         case GET_USER_FRIENDS:
             newState = {};
+            console.log(action.payload)
             action.payload.users.forEach(friend => {
                 newState[friend.id] = friend;
               })
             return newState;
         case ADD_ONE_FRIEND:
             newState = {...state};
-            console.log(action.payload, 'payload add')
+            console.log(newState, 'current state')
+            console.log(action.payload.id, 'payload adding')
             newState[action.payload.id] = action.payload;
             console.log(newState, 'is this the new state')
             return newState;
         case REMOVE_ONE_FRIEND:
             newState = {...state};
+            console.log(newState, 'current delete state')
             delete newState[action.payload.friend_id];
             return newState;
         default:
