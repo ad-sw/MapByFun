@@ -62,8 +62,9 @@ def add_friend(user_id, friend_id):
     friend_added = User.query.get(friend_id)
     user.user_friends.append(friend_added)
     friend_added.user_friends.append(user)
+    friend = User.query.get(friend_id)
     db.session.commit()
-    return {'user_id': user_id, 'friend_id': friend_id}
+    return friend.to_dict()
 
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>/delete', methods=['DELETE'])
 @login_required

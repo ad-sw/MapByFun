@@ -29,23 +29,9 @@ export const getAllNonFriends = (id) => async (dispatch) => {
         }
 }
 
-export const removeNonFriend = (payload, userId, friendId) => async (dispatch) => {
-    // const response = await fetch(`/api/users/${+userId}/people`, {
-    //   method: "DELETE"
-    // });
-    // if (response.ok) {
-    //   const data = await response.json();
-    //   dispatch(removeOneNonFriend(data));
-    //   return null;
-    //   } else if (response.status < 500){
-    //       const data = await response.json()
-    //       if (data.errors) {
-    //       return data.errors
-    //       }
-    //   } else {
-    //       return ['An error occurred. Please try again.']
-    //   }
-  }
+export const removeNonFriend = (payload) => async (dispatch) => {
+      dispatch(removeOneNonFriend(payload));
+    }
 
 export default function nonFriendReducer(state = {}, action) {
     let newState;
@@ -57,8 +43,9 @@ export default function nonFriendReducer(state = {}, action) {
               })
             return newState;
         case REMOVE_A_NON_FRIEND:
-            newState = {};
+            newState = {...state};
             console.log(newState, 'newstateee')
+            console.log(action.payload, 'testtttt')
             delete newState[action.payload.friend_id];
             return newState;
         default:

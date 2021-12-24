@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllNonFriends} from  '../../store/nonfriend';
-import UserNonfriendsList from '../test/UserNonFriendsList';
+import FriendBtns from '../AddDeleteFriendBtns';
 
 export default function UserNonfriendsDashboard() {
   const dispatch = useDispatch()
@@ -11,17 +11,32 @@ export default function UserNonfriendsDashboard() {
 
   useEffect(() => {
       (async () => {
-        await dispatch(getAllNonFriends(userId));
-          setIsLoaded(true);
+          await dispatch(getAllNonFriends(userId));
+          // await dispatch(getAllFriends(userId));
+          setIsLoaded(true)
       })();
   }, [dispatch, userId]);
 
-  return (<> {isLoaded && (
-              <div>
-                <h1>User List: </h1>
-                <div><UserNonfriendsList user_id={+userId}/></div>
-              </div>
-              )}
-          </>
-  );
+  const sessionUser = useSelector(state => state.session.user)
+  let nonFriendList = useSelector(state => state.nonFriends)
+  let nonFriendsList = Object.values(nonFriendList)
+
+  const userComponents = nonFriendsList?.map(user => {
+    if (user.id !== sessionUser.id) {
+    return (<> {isLoaded && (
+      <NavLink key={user?.id} to={`/users/${+userId}/friends/${user?.id}/routes`}>
+        <div className="route-dash">
+          <div className="route-dash-info" >
+              <div>Name: {user?.first_name}&nbsp;{user?.last_name}</div>
+              <FriendBtns friend_id={user?.id} user_id={+userId}/>
+          </div>
+        </div>
+      </NavLink>)}
+  </>
+)
+}})
+return (<>
+    <div>{userComponents}</div>
+</>
+);
 }

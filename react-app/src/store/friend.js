@@ -1,13 +1,6 @@
-const GET_ALL_NON_FRIENDS = "nonfriends/GET_NONFRIENDS";
 const GET_USER_FRIENDS = "friends/GET_FRIENDS";
-const ADD_ONE_FRIEND = 'friends/ADD_RIEND';
+const ADD_ONE_FRIEND = 'friends/ADD_FRIEND';
 const REMOVE_ONE_FRIEND = 'friends/REMOVE_FRIEND';
-
-const loadAllNonFriends = (friends, id) => ({
-    type: GET_ALL_NON_FRIENDS,
-    payload: friends,
-    id,
-  });
 
 const loadAllFriends = (friends, userId) => ({
   type: GET_USER_FRIENDS,
@@ -25,22 +18,6 @@ const removeOneFriend = (data) => ({
     payload: data,
 });
 
-export const getAllNonFriends = (id) => async (dispatch) => {
-    const response = await fetch(`/api/users/${id}/people`);
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(loadAllNonFriends(data));
-        return null;
-        } else if (response.status < 500){
-            const data = await response.json()
-            if (data.errors) {
-            return data.errors
-            }
-        } else {
-            return ['An error occurred. Please try again.']
-        }
-}
-
 export const getAllFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends`);
   if (response.ok) {
@@ -57,13 +34,13 @@ export const getAllFriends = (userId) => async (dispatch) => {
     }
 }
 
-export const addFriend = (payload, userId, friendId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${+userId}/friends/${friendId}/add`, {
+export const addFriend = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/users/${payload.user_id}/friends/${payload.friend_id}/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
   });
-  console.log(payload, userId, friendId, 'received payload from add')
+  console.log(payload, 'received payload from add')
   if (response.ok) {
     const data = await response.json();
     dispatch(addOneFriend(data));
@@ -102,21 +79,16 @@ export default function friendReducer(state = {}, action) {
     switch (action.type) {
         case GET_USER_FRIENDS:
             newState = {};
+            console.log(action.payload)
             action.payload.users.forEach(friend => {
                 newState[friend.id] = friend;
               })
             return newState;
-        case GET_ALL_NON_FRIENDS:
-            newState = {};
-            Object.values(action.payload.nonfriends).forEach(user => {
-                newState[user.id] = user;
-                })
-            return newState;
         case ADD_ONE_FRIEND:
             newState = {...state};
             console.log(newState, 'current state')
-            console.log(action.payload, 'payload add')
-            newState[action.payload] = action.payload;
+            console.log(action.payload.id, 'payload adding')
+            newState[action.payload.id] = action.payload;
             console.log(newState, 'is this the new state')
             return newState;
         case REMOVE_ONE_FRIEND:

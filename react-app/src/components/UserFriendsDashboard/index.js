@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import RemoveFriend from '../DeleteFriend';
+import FriendBtns from '../AddDeleteFriendBtns';
 import {getAllFriends} from  '../../store/friend'
 import {getAllUsers} from '../../store/user'
 
@@ -33,7 +33,7 @@ function UserFriendsDashboard() {
             </div>
 
           </NavLink>
-          <RemoveFriend friend_id={Number(friend?.id)} user_id={user_id}/>
+          <FriendBtns friend_id={Number(friend?.id)} user_id={user_id}/>
       </>
     )
   })
