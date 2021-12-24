@@ -17,6 +17,7 @@ export const getAllUsers = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(loadAllUsers(data));
+        console.log(data, 'this is the data')
         return null;
     } else if (response.status < 500){
         const data = await response.json()
@@ -28,22 +29,22 @@ export const getAllUsers = () => async (dispatch) => {
     }
 }
 
-export const getAllNonFriends = (id) => async (dispatch) => {
-    const response = await fetch(`/api/users/${id}/people`);
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(loadAllUsers(data));
-        console.log(data, 'this is data')
-        return null;
-        } else if (response.status < 500){
-            const data = await response.json()
-            if (data.errors) {
-            return data.errors
-            }
-        } else {
-            return ['An error occurred. Please try again.']
-        }
-}
+// export const getAllNonFriends = (id) => async (dispatch) => {
+//     const response = await fetch(`/api/users/${id}/people`);
+//     if (response.ok) {
+//         const data = await response.json();
+//         dispatch(loadAllUsers(data));
+//         console.log(data, 'this is data')
+//         return null;
+//         } else if (response.status < 500){
+//             const data = await response.json()
+//             if (data.errors) {
+//             return data.errors
+//             }
+//         } else {
+//             return ['An error occurred. Please try again.']
+//         }
+// }
 
 export default function userReducer(state = {}, action) {
     let newState;

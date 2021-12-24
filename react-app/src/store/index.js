@@ -5,6 +5,7 @@ import routeReducer from './route'
 import commentReducer from './comment';
 import friendReducer from './friend';
 import userReducer from './user';
+import nonFriendReducer from './nonfriend';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   comments: commentReducer,
   friends: friendReducer,
   users: userReducer,
+  nonFriends: nonFriendReducer,
 });
 
 

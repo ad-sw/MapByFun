@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Modal } from '../Context/Modal';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { deleteRoute } from '../../store/route'
 import './RouteDeleteModal.css';
@@ -9,15 +9,16 @@ function RouteDeleteModal({routeId}) {
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
+  const userId = useParams()
 
   const handleDelete = (e) => {
     e.preventDefault();
 
     dispatch(deleteRoute(routeId));
     setShowModal(false);
-    history.push('/routes');
+    history.push(`/users/${userId}/routes`);
 }
-
+//users/1/routes
 return (
 
   <>

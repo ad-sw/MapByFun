@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import AddFriend from '../AddFriend';
 import RemoveFriend from '../DeleteFriend';
 import {getAllFriends} from  '../../store/friend'
+import {getAllUsers} from '../../store/user'
 
 function UserFriendsDashboard() {
   const dispatch = useDispatch()
@@ -14,6 +14,7 @@ function UserFriendsDashboard() {
   useEffect(() => {
       (async () => {
           await dispatch(getAllFriends(userId));
+          // await dispatch(getAllUsers());
           setIsLoaded(true)
       })();
   }, [dispatch, userId]);

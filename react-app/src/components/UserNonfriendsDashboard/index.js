@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllNonFriends} from  '../../store/user';
+import { getAllNonFriends} from  '../../store/nonfriend';
 import UserNonfriendsList from '../test/UserNonFriendsList';
 
 export default function UserNonfriendsDashboard() {
