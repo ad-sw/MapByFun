@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {getFriendRoutes} from  '../../store/friend';
+// import {getFriendRoutes} from  '../../store/friend';
 import FriendRouteReadModal from "../FriendRoutesReadAll";
 
 export default function UserFriendsDashboard() {

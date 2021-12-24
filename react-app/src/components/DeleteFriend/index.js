@@ -11,6 +11,7 @@ export default function RemoveFriend({user_id, friend_id}) {
     const handleDelete = async(e) => {
         e.preventDefault();
         await dispatch(removeFriend(user_id, friend_id))
+        setShowModal(false);
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
-import {getAllRoutes} from  '../../store/route'
+import {getAllUsers} from  '../../store/user'
 import {getAllFriends} from '../../store/friend'
 import "./Homepage.css"
 
@@ -12,8 +12,8 @@ export default function HomePage(){
 
     useEffect(() => {
         (async () => {
-            // await dispatch(getAllRoutes(sessionUser.id));
-            // await dispatch(getAllFriends(sessionUser.id));
+            await dispatch(getAllUsers());
+            await dispatch(getAllFriends(sessionUser.id))
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser])
