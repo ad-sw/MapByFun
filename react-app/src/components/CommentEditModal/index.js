@@ -8,8 +8,7 @@ function CommentEditModal({routeId , commentId, content}){
     const [showModal, setShowModal] = useState(false)
 
     return (
-        <div>
-        <>
+        <><div>
             <button onClick={() => setShowModal(true)} className="commentEditBtn">Edit Comment</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
@@ -20,9 +19,9 @@ function CommentEditModal({routeId , commentId, content}){
                         content={content}
                     />
                 </Modal>
-            )}
+                )}
+            </div>
         </>
-        </div>
     )
 }
 

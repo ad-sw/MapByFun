@@ -8,21 +8,22 @@ export default function UserFriendsDashboard() {
     const [users, setUsers] = useState([]);
     const dispatch = useDispatch()
     const history = useHistory();
-    const { userId, friendId }  = useParams();
-    const sessionUser = useSelector(state => state.session.user)
+    const { userId }  = useParams();
+    let friendId = userId
+    const user_Id = useSelector(state => state.session.user.id)
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
         (async () => {
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser, userId, friendId]);
+    }, [dispatch, user_Id, friendId]);
 
     return (<>
         {isLoaded && (
             <div>
-                <div className='page-header'>Dashboard Routes</div>
-                <FriendRouteReadModal userId={userId} friendId={friendId}/>
+                <h1 className='page-header'>User Dashboard Routes</h1>
+                <FriendRouteReadModal userId={user_Id} friendId={friendId}/>
                 <div className="routes-wrapper">
                 </div>
             </div>
