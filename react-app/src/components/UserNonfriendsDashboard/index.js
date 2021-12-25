@@ -24,7 +24,7 @@ export default function UserNonfriendsDashboard() {
   const userComponents = nonFriendsList?.map(user => {
     if (user.id !== sessionUser.id) {
     return (<> {isLoaded && (
-      <NavLink key={user?.id} to={`/users/${+userId}/friends/${user?.id}/routes`}>
+      <NavLink key={user?.id} to={`/users/${user?.id}`}>
         <div className="route-dash">
           <div className="route-dash-info" >
               <div>Name: {user?.first_name}&nbsp;{user?.last_name}</div>
@@ -35,8 +35,12 @@ export default function UserNonfriendsDashboard() {
   </>
 )
 }})
-return (<>
-    <div>{userComponents}</div>
+return (<>{isLoaded && (
+    <div>
+        <h1>Nonfriend List: </h1>
+        <div>{userComponents}</div>
+    </div>
+    )}
 </>
 );
 }

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 function UsersList() {
   const [users, setUsers] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false)
   const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
@@ -11,6 +12,7 @@ function UsersList() {
       const response = await fetch('/api/users/');
       const responseData = await response.json();
       setUsers(responseData.users);
+      setIsLoaded(true)
     }
     fetchData();
   }, []);
@@ -25,9 +27,12 @@ function UsersList() {
   }});
 
   return (
-    <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+    <>{isLoaded &&(
+      <div>
+        <h1>User List: </h1>
+        <ul>{userComponents}</ul>
+      </div>
+      )}
     </>
   );
 }

@@ -13,30 +13,26 @@ function RouteDeleteModal({routeId}) {
 
   const handleDelete = (e) => {
     e.preventDefault();
-
     dispatch(deleteRoute(routeId));
     setShowModal(false);
     history.push(`/users/${userId}/routes`);
 }
-//users/1/routes
-return (
 
-  <>
-  <div>
-      <button type="submit" onClick={() => setShowModal(true)} className="routeDeleteModalBtn">Delete Route</button>
-      {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <div className="routeDeleteModal">
-              <div className="form">
-                <p>Are you sure you want to delete this route?</p>
-                <button type="submit" onClick={handleDelete} className="routeDeleteConfirmBtn">Delete</button>
+return (
+    <div>
+        <button type="submit" onClick={() => setShowModal(true)} className="routeDeleteModalBtn">Delete Route</button>
+        {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <div className="routeDeleteModal">
+                <div className="form">
+                  <p>Are you sure you want to delete this route?</p>
+                  <button type="submit" onClick={handleDelete} className="routeDeleteConfirmBtn">Delete</button>
+                </div>
               </div>
-            </div>
-          </Modal>
-      )}
-  </div>
-  </>
-);
+            </Modal>
+        )}
+    </div>
+  );
 }
 
 export default RouteDeleteModal;
