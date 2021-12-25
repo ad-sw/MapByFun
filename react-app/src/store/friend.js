@@ -89,8 +89,9 @@ export default function friendReducer(state = {}, action) {
             console.log(newState, 'current state')
             console.log(action.payload.id, 'payload adding')
             newState[action.payload.id] = action.payload;
-            console.log(newState, 'is this the new state')
-            return newState;
+            const copiedState = {...newState}
+
+            return copiedState;
         case REMOVE_ONE_FRIEND:
             newState = {...state};
             console.log(newState, 'current delete state')

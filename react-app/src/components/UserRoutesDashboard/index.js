@@ -20,7 +20,7 @@ export default function RoutesDashboard(){
     return (<>
         {isLoaded && (
             <div>
-                <div className='page-header'>Dashboard Routes</div>
+                <h1 className='page-header'>My Dashboard Routes</h1>
                 <UserRouteReadModal userId={sessionUser?.id}/>
                 <div className="routes-wrapper">
                 <button className="createRouteBtn" onClick={(e) => {

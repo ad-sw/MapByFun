@@ -13,7 +13,6 @@ import RoutePage from './components/SoloRoutePage';
 import HomePage from './components/Homepage';
 import RouteEditPage from './components/RouteEditPage'
 import UserFriendsDashboard from './components/UserFriendsDashboard';
-import FriendRoutesDashboard from './components/FriendRoutesDashboard';
 import UserNonfriendsDashboard from './components/UserNonfriendsDashboard';
 import { authenticate } from './store/session';
 
@@ -68,9 +67,6 @@ function App() {
         </ProtectedRoute>
         <Route path='/users/:userId/friends' exact={true}>
           <UserFriendsDashboard/>
-        </Route>
-        <Route path='/users/:userId/friends/:friendId/routes' exact={true}>
-          <FriendRoutesDashboard/>
         </Route>
         <Route>
         <center>

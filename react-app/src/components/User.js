@@ -3,25 +3,28 @@ import { useParams } from 'react-router-dom';
 // import AddFriend from '../../src/components/AddFriend';
 import FriendBtns from '../../src/components/AddDeleteFriendBtns';
 import { useSelector } from "react-redux";
+import UserFriendsDashboard from "../components/FriendRoutesDashboard";
 
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const user_id = useSelector(state => state.session.user.id);
-  const sessionUser = useSelector(state => state.session.user)
-  const [friended, setFriended] = useState(
-    Object.values(sessionUser?.friends).includes(Number(userId))
-  );
+  const [isLoaded, setIsLoaded] = useState(false)
+  // const sessionUser = useSelector(state => state.session.user)
+  // const [friended, setFriended] = useState(
+  //   Object.values(sessionUser?.friends).includes(Number(userId))
+  // );
 
   useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
+  if (!userId) {
+    return;
+  }
+  (async () => {
+    const response = await fetch(`/api/users/${userId}`);
+    const user = await response.json();
+    setUser(user);
+    setIsLoaded(true)
+  })();
   }, [userId]);
 
   if (!user) {
@@ -29,11 +32,14 @@ function User() {
   }
 
   return (
-        <>
+        <>{isLoaded && (<div>
+            <h1>User Profile</h1>
             <div>{user.first_name}&nbsp;{user.last_name}</div>
             <div><i>Member Since</i> {user.created_at}</div>
-            {/* {!friended && (<AddFriend friend_id={Number(userId)} user_id={user_id}/>)} */}
             <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
+            <UserFriendsDashboard/>
+            </div>
+            )}
         </>
   );
 }

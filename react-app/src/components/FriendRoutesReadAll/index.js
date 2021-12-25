@@ -3,15 +3,13 @@ import {getFriendRoutes} from '../../store/route';
 import {useEffect, useState} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 
-export default function FriendRouteReadModal() {
+export default function FriendRouteReadModal({userId, friendId}) {
     const dispatch = useDispatch();
-    const [isLoaded, setIsLoaded] = useState(false)
-    const { userId, friendId }  = useParams();
 
     useEffect(() => {
         (async () => {
             await dispatch(getFriendRoutes(userId, friendId));
-            setIsLoaded(true)
+            // setIsLoaded(true)
         })();
     }, [dispatch, userId, friendId]);
 
@@ -33,10 +31,10 @@ export default function FriendRouteReadModal() {
                 )
             })
 
-    return (<> {isLoaded && (
+    return (<>
                 <div className="routes">
                     {test}
-                </div>)}
+                </div>
             </>
     );
 }

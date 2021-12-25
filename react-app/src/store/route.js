@@ -166,11 +166,9 @@ export default function routeReducer (state = {}, action) {
       return newState;
     case GET_ONE_FRIEND_ROUTES:
       newState = {};
-      
       action.payload.routes.forEach(route => {
           newState[route.id] = route;
         })
-      console.log(newState, 'end state routes')
       return newState;
     case CREATE_ONE_ROUTE:
       newState = {...state};

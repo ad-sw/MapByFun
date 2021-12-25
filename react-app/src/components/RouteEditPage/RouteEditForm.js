@@ -15,7 +15,6 @@ export default function RouteEditForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const payload = {
           id: editId,
           name,
@@ -25,23 +24,24 @@ export default function RouteEditForm() {
         await dispatch(editRoute(payload)).then(history.push(`/routes/${editId}`));
       };
 
-    return (
-        <div className='routesTest'>
-          <form className="formUpdate" onSubmit={handleSubmit}>
-            <input
-              type='text'
-              placeholder='Name'
-              value={name}
-              onChange={e => setName(e.target.value)}
-            />
-            <input
-                className='routesDescription'
-                placeholder='Description'
-                required
-                value={description}
-                onChange= {(e) => setDescription(e.target.value)}/>
-            <button type='submit'>Edit route</button>
-          </form>
-        </div>
+    return (<>
+          <div className='routesTest'>
+            <form className="formUpdate" onSubmit={handleSubmit}>
+              <input
+                type='text'
+                placeholder='Name'
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+              <input
+                  className='routesDescription'
+                  placeholder='Description'
+                  required
+                  value={description}
+                  onChange= {(e) => setDescription(e.target.value)}/>
+              <button type='submit'>Edit route</button>
+            </form>
+          </div>
+        </>
       );
 }

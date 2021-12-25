@@ -16,17 +16,14 @@ const RouteCreateForm = () => {
 
     const validator = () => {
         let error = []
-
         if(name.length > 80) {
             error.push('. : Please enter a title shorter than 80 characters.')
         }
-
         if(description.length > 2000) {
             error.push('. : Descriptions cannot exceed 2000 characters.')
         } else if(description.length < 10) {
             error.push('. : Please enter a longer description past 10 characters.')
         }
-
         return error;
     }
 
