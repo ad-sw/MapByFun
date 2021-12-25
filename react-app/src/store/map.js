@@ -13,20 +13,20 @@ export const getKey = () => async (dispatch) => {
   dispatch(loadApiKey(data.api_key));
 };
 
-export const getGeoCoordinates = (address) => async (dispatch) => {
-  const res = await fetch('/api/maps/coordinates', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      address
-    })
-  })
+// export const getGeoCoordinates = (address) => async (dispatch) => {
+//   const res = await fetch('/api/maps/coordinates', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       address
+//     })
+//   })
 
-  const data = await res.json()
-  return data;
-}
+//   const data = await res.json()
+//   return data;
+// }
 
 const initialState = { key: null };
 

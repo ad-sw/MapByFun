@@ -7,14 +7,14 @@ import RouteDeleteModal from "../RouteDeleteModal";
 function UserRouteReadModal() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    // const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const { friendId }  = useParams();
 
 
     useEffect(() => {
         (async () => {
             await dispatch(getAllRoutes(sessionUser.id));
-            // setIsLoaded(true)
+            setIsLoaded(true)
         })();
     }, [dispatch, sessionUser]);
 
@@ -42,10 +42,11 @@ function UserRouteReadModal() {
                 )
             })
 
-    return (<>
+    return (<>{isLoaded && (
             <div className="routes2">
                 {test}
             </div>
+            )}
         </>
     );
 }
