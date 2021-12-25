@@ -9,6 +9,7 @@ import CommentCreateModal from '../CommentCreateModal';
 import CommentDeleteModal from '../CommentDeleteModal';
 import './SoloRoutePage.css';
 import CommentEditModal from "../CommentEditModal";
+import MapContainer from "../Maps";
 
 export default function RoutePage(){
     let dispatch = useDispatch();
@@ -43,6 +44,7 @@ export default function RoutePage(){
     return (<>
             {isLoaded && (
                 <div key={route?.id}  className="routePage">
+                    <MapContainer/>
                     <h2 id="routeName">{route.name}</h2>
                     <p id="routeActivity">{route.activity}</p>
                     <p id="routeDescription">{route.description}</p>
