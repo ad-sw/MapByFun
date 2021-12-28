@@ -12,6 +12,13 @@ export default function FriendBtns({user_id, friend_id}) {
     const friendSession = useSelector(state => state.friends)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        (async () => {
+            await dispatch(getAllNonFriends(user_id));
+            await dispatch(getAllFriends(user_id));
+        })();
+    }, [dispatch, user_id]);
+
     const handleDelete = async(e) => {
         e.preventDefault();
         await dispatch (getAllFriends(user_id));
@@ -27,13 +34,10 @@ export default function FriendBtns({user_id, friend_id}) {
         await dispatch(removeNonFriend(payload)),
         )
     }
-
-    useEffect(() => {
-        (async () => {
-            await dispatch(getAllNonFriends(user_id));
-            await dispatch(getAllFriends(user_id));
-        })();
-    }, [dispatch, user_id]);
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    }
 
     let button = null;
     if (friend_id in friendSession) {
@@ -47,6 +51,7 @@ export default function FriendBtns({user_id, friend_id}) {
                         <div className="form">
                             <p>Are you sure you want to unfriend this user?</p>
                         <button type="submit" onClick={handleDelete} className="friendUnfriendConfirmBtn">Yes</button>
+                        <button type="submit" onClick={handleCancel} className="friendUnfriendConfirmBtn">Cancel</button>
                         </div>
                         </div>
                     </Modal>

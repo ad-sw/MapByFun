@@ -15,6 +15,10 @@ function CommentDeleteModal({commentId}) {
     dispatch(deleteComment(commentId));
     setShowModal(false);
 }
+const handleCancel = (e) => {
+  e.preventDefault();
+  setShowModal(false);
+}
 
 return (
   <>
@@ -26,6 +30,7 @@ return (
               <div className="form">
                 <p>Are you sure you want to delete this comment?</p>
                 <button type="submit" onClick={handleDelete} className="commentDeleteConfirmBtn">Delete</button>
+                <button type="submit" onClick={handleCancel} className="routeDeleteConfirmBtn">Cancel</button>
               </div>
             </div>
           </Modal>

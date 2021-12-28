@@ -17,6 +17,7 @@ function RouteDeleteModal({routeId}) {
     setShowModal(false);
     history.push(`/users/${userId}/routes`);
   }
+  
   const handleCancel = (e) => {
     e.preventDefault();
     setShowModal(false);
