@@ -56,9 +56,7 @@ function UserRouteReadModal() {
             })
 
     return (<>{isLoaded && (
-            <div className="friendDashboardContainer">
-                {test}
-            </div>
+            <div className="">{test}</div>
             )}
         </>
     );

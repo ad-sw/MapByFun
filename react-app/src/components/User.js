@@ -35,7 +35,7 @@ function User() {
               <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
               <UserFriendsDashboard/>
             </div>
-            )}
+          )}
         </>
   );
 }

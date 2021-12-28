@@ -22,18 +22,24 @@ function UsersList() {
   const userComponents = users.map((user) => {
     if (user.id !== sessionUser.id) {
     return (
-      <span key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.first_name}&nbsp;{user.last_name}</NavLink><FriendBtns user_id={sessionUser.id} friend_id={user.id}/>
-      </span>
+      <div className="friendCard">
+        <div className="soMany">
+          <NavLink className="soMany" to={`/users/${user.id}`}>
+            <div className="friendContent"></div>
+            <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
+          </NavLink>
+            <div className="friendBtn"><FriendBtns user_id={sessionUser.id} friend_id={user.id}/></div>
+        </div>
+      </div>
     );
   }});
 
-  return (
-    <>{isLoaded &&(
-      <div className="friendDashboardContainer">
-        <h1>User List: </h1>
-        <div>{userComponents}</div>
-      </div>
+  return (<>
+      {isLoaded &&(
+        <>
+          <h1><center>All Users:</center></h1>
+          <div className="friendDashboardContainer">{userComponents}</div>
+        </>
       )}
     </>
   );

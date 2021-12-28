@@ -61,7 +61,7 @@ export default function FriendBtns({user_id, friend_id}) {
         )
     } else if (!(friend_id in friendSession)) {
         button = (<>
-            <button type="submit" onClick={handleAdd} className="friendAddBtn">Add Friend</button>
+            <button type="submit" onClick={handleAdd} className="friendUnfriendBtn">Add</button>
             </>
         )
     }

@@ -20,22 +20,20 @@ function UserFriendsDashboard() {
   const userComponents = friendsGot?.map(friend => {
     return (
       <div className="friendCard">
-              <div className="soMany">
-                <NavLink key={friend?.id} to={`/users/${friend?.id}`} className="soMany">
-                <div className="friendContent"></div>
-                <div className="fullName">{friend?.first_name}&nbsp;{friend?.last_name}</div>
-                </NavLink>
-                <div className="friendBtn"><FriendBtns friend_id={Number(friend?.id)} user_id={user_id}/></div>
-              </div>
+        <div className="soMany">
+          <NavLink className="soMany" key={friend?.id} to={`/users/${friend?.id}`}>
+            <div className="friendContent"></div>
+            <div className="fullName">{friend?.first_name}&nbsp;{friend?.last_name}</div>
+          </NavLink>
+            <div className="friendBtn"><FriendBtns friend_id={Number(friend?.id)} user_id={user_id}/></div>
+        </div>
       </div>
     )
   })
 
   return (<>
-              {/* <div className="friendDashboardContainer"> */}
-                <h1><center>Friend List: </center></h1>
-                <div className="friendDashboardContainer">{userComponents}</div>
-              {/* </div> */}
+            <h1><center>Friends:</center></h1>
+            <div className="friendDashboardContainer">{userComponents}</div>
           </>
   );
 }
