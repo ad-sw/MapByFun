@@ -3,6 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllNonFriends} from  '../../store/nonfriend';
 import FriendBtns from '../AddDeleteFriendBtns';
+import '../../../src/index.css'
 
 export default function UserNonfriendsDashboard() {
   const dispatch = useDispatch()
@@ -36,7 +37,7 @@ export default function UserNonfriendsDashboard() {
 )
 }})
 return (<>{isLoaded && (
-    <div>
+    <div className="friendDashboardContainer">
         <h1>Nonfriend List: </h1>
         <div>{userComponents}</div>
     </div>

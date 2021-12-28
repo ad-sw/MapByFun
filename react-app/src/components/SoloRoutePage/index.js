@@ -10,13 +10,18 @@ import CommentDeleteModal from '../CommentDeleteModal';
 import './SoloRoutePage.css';
 import CommentEditModal from "../CommentEditModal";
 import MapContainer from "../Maps";
+import '../../../src/index.css'
 
 export default function RoutePage(){
     let dispatch = useDispatch();
     const {routeId} = useParams();
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
+    // const [showMenu, setShowMenu] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
+    const friendSession = useSelector(state => state.friends)
+    const route = useSelector(state => state.routes[routeId])
+    let currentRouteComments = useSelector(state => Object.values(state?.comments))
 
     useEffect(() => {
         (async () => {
@@ -26,42 +31,77 @@ export default function RoutePage(){
         })();
     }, [dispatch, sessionUser, routeId])
 
-    const route = useSelector(state => state.routes[routeId])
+    // const openMenu = () => {
+    //     if (showMenu) return;
+    //     setShowMenu(true);
+    //   };
+    //   useEffect(() => {
+    //     if (!showMenu) return;
+    //     const closeMenu = () => {
+    //       setShowMenu(false);
+    //     };
+    //     document.addEventListener('click', closeMenu);
+    //     return () => document.removeEventListener("click", closeMenu);
+    //   }, [showMenu]);
+    //   <i onClick={openMenu} className="fa fa-ellipsis-v"></i>
+    //     {showMenu && (
+//                           <ul className="profile-dropdown">
+//                           <div><CommentEditModal commentId={comment?.id} routeId={routeId}/></div>
+//                           <div><CommentDeleteModal commentId={comment?.id} routeId={routeId}/></div>
+//                           </ul>
+//                           )}
 
-    let currentRouteComments = useSelector(state => Object.values(state?.comments))
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        <div className="commentContent">
-            {comment?.content}
-        </div>
-        {sessionUser.id === route?.user_id && (
+        {/* <span className="fa fa-ellipsis-v" onClick={null}>
+          <div className="comment-dropdown">
+            <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+          </div>
+        </span> */}
+        {comment?.content}
+        {sessionUser?.id === route?.user_id && (
         <>
-        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
         <CommentEditModal commentId={comment?.id} routeId={routeId}/>
+        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+        </>)}
+        {comment?.user_id === sessionUser.id && sessionUser?.id !== route?.user_id && (
+        <>
+        <CommentEditModal commentId={comment?.id} routeId={routeId}/>
+        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
         </>)}
     </>
     )
+
     return (<>
-            {isLoaded && (
+            {isLoaded && (<>
                 <div key={route?.id}  className="routePage">
-                    <MapContainer/>
-                    <h2 id="routeName">{route.name}</h2>
-                    <p id="routeActivity">{route.activity}</p>
-                    <p id="routeDescription">{route.description}</p>
-                    <p id="routeDate">{route.created_at}</p>
-                    {sessionUser.id === route?.user_id && (
-                    <>
-                    <button className="editRouteBtn" onClick={(e) => {
-                        e.preventDefault();
-                        history.push(`/routes/${route.id}/edit`);
-                        }}>
-                        Edit Route
-                    </button>
-                    <RouteDeleteModal routeId={routeId}/>
-                    <CommentCreateModal routeId={routeId}/>
-                    </>)}
-                    {commentss}
+                    <div className="map"><MapContainer/></div>
+                        <div className="routeInfoDiv">
+                            <div className="routeText">
+                                <h2 id="routeName">{route.name}</h2>
+                                <p id="routeActivity">{route.activity}</p>
+                                <p id="routeDescription">{route.description}</p>
+                                <p id="routeDate">{route.created_at}</p>
+                                {sessionUser.id === route?.user_id && (
+                                <>
+                                <button className="editRouteBtn" onClick={(e) => {
+                                    e.preventDefault();
+                                    history.push(`/routes/${route.id}/edit`);
+                                    }}>
+                                    Edit Route
+                                </button>
+                                    <RouteDeleteModal routeId={routeId}/>
+                                    <CommentCreateModal routeId={routeId}/>
+                                    </>)}
+                            </div>
+                            <div className="commentInfoDiv">
+                                {commentss}
+                                {route?.user_id in friendSession &&
+                                (<CommentCreateModal routeId={routeId}/>)}
+                            </div>
+                        </div>
                 </div>
+                </>
                 )}
             </>
    );

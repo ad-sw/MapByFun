@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { createRoute } from '../../store/route'
+import '../../../src/index.css'
 import './RouteCreateForm.css'
+import MapContainer from "../Maps";
 
 const RouteCreateForm = () => {
     const history = useHistory()
@@ -60,10 +62,8 @@ const RouteCreateForm = () => {
                         'Food']
 
     return (
-        <>
-            <div className="routeHeader">
-                New Route
-            </div>
+        <div className="friendDashboardContainer">
+            <div className="map"><MapContainer/></div>
             <div className='routeFormContainer'>
                 <div className="errors">
                     {errors.map((error, idx) => (
@@ -102,7 +102,7 @@ const RouteCreateForm = () => {
                     <button className="routeSubmitButton">Submit</button>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 

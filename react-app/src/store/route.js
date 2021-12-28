@@ -82,7 +82,6 @@ export const getFriendRoutes = (userId, friendId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends/${friendId}/routes`);
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'all friend route data')
     dispatch(loadOneFriendRoutes(data));
     return null;
     } else if (response.status < 500){

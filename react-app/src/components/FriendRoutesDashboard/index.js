@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import {getFriendRoutes} from  '../../store/friend';
 import FriendRouteReadModal from "../FriendRoutesReadAll";
+import './FriendRoutesDashboard.css';
 
 export default function UserFriendsDashboard() {
     const [users, setUsers] = useState([]);
@@ -21,7 +21,7 @@ export default function UserFriendsDashboard() {
 
     return (<>
         {isLoaded && (
-            <div>
+            <div className="friendDashboardContainer">
                 <h1 className='page-header'>User Dashboard Routes</h1>
                 <FriendRouteReadModal userId={user_Id} friendId={friendId}/>
                 <div className="routes-wrapper">

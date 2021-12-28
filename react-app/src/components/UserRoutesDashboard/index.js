@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useHistory, useParams } from 'react-router-dom'
 import {getAllRoutes} from  '../../store/route'
-import "./RoutesDashboard.css"
 import UserRouteReadModal from "../UserRoutesReadAll";
+import '../../../src/index.css'
 
 export default function RoutesDashboard(){
     const dispatch = useDispatch()
@@ -19,8 +19,8 @@ export default function RoutesDashboard(){
 
     return (<>
         {isLoaded && (
-            <div>
-                <h1 className='page-header'>My Dashboard Routes</h1>
+            <div className="friendDashboardContainer">
+                <h1 className='page-header'>My Routes</h1>
                 <UserRouteReadModal userId={sessionUser?.id}/>
                 <div className="routes-wrapper">
                 <button className="createRouteBtn" onClick={(e) => {

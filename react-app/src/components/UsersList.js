@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import FriendBtns from '../components/AddDeleteFriendBtns';
+import '../../src/index.css'
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -20,17 +22,17 @@ function UsersList() {
   const userComponents = users.map((user) => {
     if (user.id !== sessionUser.id) {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.first_name}&nbsp;{user.last_name}</NavLink>
-      </li>
+      <span key={user.id}>
+        <NavLink to={`/users/${user.id}`}>{user.first_name}&nbsp;{user.last_name}</NavLink><FriendBtns user_id={sessionUser.id} friend_id={user.id}/>
+      </span>
     );
   }});
 
   return (
     <>{isLoaded &&(
-      <div>
+      <div className="friendDashboardContainer">
         <h1>User List: </h1>
-        <ul>{userComponents}</ul>
+        <div>{userComponents}</div>
       </div>
       )}
     </>

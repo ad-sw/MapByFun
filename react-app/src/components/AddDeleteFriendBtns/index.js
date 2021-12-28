@@ -4,14 +4,12 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { addFriend, getAllFriends, removeFriend } from '../../store/friend';
 import {removeNonFriend, getAllNonFriends} from '../../store/nonfriend';
-
+import '../../../src/index.css'
 
 export default function FriendBtns({user_id, friend_id}) {
     const [showModal, setShowModal] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
     const friendSession = useSelector(state => state.friends)
-    console.log(friendSession, 'object stuff here')
-    console.log(sessionUser, 'this is session friends idk')
     const dispatch = useDispatch()
 
     const handleDelete = async(e) => {

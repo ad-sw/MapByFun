@@ -3,13 +3,13 @@ import {getAllRoutes} from '../../store/route';
 import {useEffect, useState} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import RouteDeleteModal from "../RouteDeleteModal";
+import '../../../src/index.css'
 
 function UserRouteReadModal() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
     const { friendId }  = useParams();
-
 
     useEffect(() => {
         (async () => {
@@ -21,29 +21,42 @@ function UserRouteReadModal() {
     const dashRoutes = useSelector(state => Object.values(state.routes))
 
     const test = dashRoutes?.map(route => {
-        return (<>
-                <NavLink key={route.id} to={`/routes/${route.id}`}>
-                    <div className="route-dash">
-                        <div className="route-dash-info" >
-                            <div className="name">{route.name}</div>
-                            <div>Activity: {route.activity}</div>
-                            <div>Description: {route.description}</div>
-                            <div>Created: {route.created_at}</div>
-                        </div>
-                    </div>
-                </NavLink>
+        return (<><div>
+                <table className='routes-table'>
+                    <thead>
+                        <tr>
+                        <th className='table-header'>Name</th>
+                        <th className='table-header'>Created</th>
+                        <th className='table-header'>Activity</th>
+                        <th className='table-header'>Privacy</th>
+                        <th className='table-header'>Description</th>
+                        <th className='table-header'>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <NavLink key={route.id} to={`/routes/${route.id}`}>
+                        <td className="name">{route.name}</td></NavLink>
+                        <td>{route.created_at}</td>
+                        <td>{route.activity}</td>
+                        <td>{/*image to go here*/}</td>
+                        <td>{route.description}</td>
+                        <td>
+                            <NavLink to={`/routes/${route.id}/edit`} exact={true} className="RouteEditBtn">
+                            Edit
+                            </NavLink>
+                            <RouteDeleteModal routeId={route.id}/>
+                        </td>
+                    </tbody>
+                </table>
                 <div>
-                    <NavLink to={`/routes/${route.id}/edit`} exact={true} className="RouteEditBtn">
-                        Edit Route
-                    </NavLink>
-                    <RouteDeleteModal routeId={route.id}/>
+                </div>
                 </div>
                 </>
                 )
             })
 
     return (<>{isLoaded && (
-            <div className="routes2">
+            <div className="friendDashboardContainer">
                 {test}
             </div>
             )}

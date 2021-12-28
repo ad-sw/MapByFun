@@ -3,6 +3,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import FriendBtns from '../AddDeleteFriendBtns';
 import {getAllFriends} from  '../../store/friend'
+import '../../../src/index.css'
 
 function UserFriendsDashboard() {
   const dispatch = useDispatch()
@@ -17,22 +18,23 @@ function UserFriendsDashboard() {
 
   const friendsGot = useSelector(state => Object.values(state.friends))
   const userComponents = friendsGot?.map(friend => {
-    return (<>
-          <NavLink key={friend?.id} to={`/users/${friend?.id}`}>
-            <div className="route-dash">
-              <div className="route-dash-info" >
-                  <div>Name: {friend?.first_name}&nbsp;{friend?.last_name}</div>
+    return (
+      <div className="friendCard">
+        <NavLink key={friend?.id} to={`/users/${friend?.id}`}>
+          <div className="full-name-container">
+            <div className="soMany">
+                <div className="friendContent"></div>
+                <div className="fullName">{friend?.first_name}&nbsp;{friend?.last_name}</div>
+                <div className="friendBtn"><FriendBtns friend_id={Number(friend?.id)} user_id={user_id}/></div>
               </div>
-            </div>
-
-          </NavLink>
-          <FriendBtns friend_id={Number(friend?.id)} user_id={user_id}/>
-      </>
+          </div>
+        </NavLink>
+      </div>
     )
   })
 
   return (<>
-              <div>
+              <div className="friendDashboardContainer">
                 <h1>Friend List: </h1>
                 <div>{userComponents}</div>
               </div>

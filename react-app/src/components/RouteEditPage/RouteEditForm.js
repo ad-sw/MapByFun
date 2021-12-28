@@ -2,6 +2,8 @@ import { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
 import {editRoute} from '../../store/route';
+import MapContainer from "../Maps";
+import '../../../src/index.css'
 
 export default function RouteEditForm() {
     const [name, setName] = useState('');
@@ -25,7 +27,8 @@ export default function RouteEditForm() {
       };
 
     return (<>
-          <div className='routesTest'>
+          <div className='friendDashboardContainer'>
+          <MapContainer/>
             <form className="formUpdate" onSubmit={handleSubmit}>
               <input
                 type='text'

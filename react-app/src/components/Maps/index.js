@@ -6,7 +6,6 @@ import { getKey } from '../../store/map';
 import Maps from './Maps'
 
 const MapContainer = ({ zoom }) => {
-  console.log(zoom, 'thisis zoom')
   const key = useSelector((state) => state.maps.key);
   const dispatch = useDispatch();
 

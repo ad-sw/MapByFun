@@ -44,8 +44,6 @@ export default function nonFriendReducer(state = {}, action) {
             return newState;
         case REMOVE_A_NON_FRIEND:
             newState = {...state};
-            console.log(newState, 'newstateee')
-            console.log(action.payload, 'testtttt')
             delete newState[action.payload.friend_id];
             return newState;
         default:

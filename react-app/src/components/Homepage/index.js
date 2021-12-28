@@ -4,6 +4,9 @@ import{ NavLink } from 'react-router-dom'
 import {getAllUsers} from  '../../store/user'
 import {getAllFriends} from '../../store/friend'
 import "./Homepage.css"
+import ProfileButton from "../NavigationBar/ProfileButton";
+import LogoutButton from "../auth/LogoutButton";
+import '../../../src/index.css'
 
 export default function HomePage(){
     const dispatch = useDispatch()
@@ -17,15 +20,29 @@ export default function HomePage(){
         })();
     }, [dispatch, sessionUser])
 
-    return (<> {isLoaded && (
-                <div>
+    let sessionLinks;
+    if (sessionUser) {
+        sessionLinks = (
+        <>
+            <div className="homePage">
+                <center>
                     <h1>My Home Page</h1>
-                    <div><NavLink to={`/users/${sessionUser.id}/routes`}>Route Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users/${sessionUser.id}/friends`}>Friends Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users/${sessionUser.id}/people`} exact={true}>All Nonfriend Users Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users/${sessionUser?.id}/routes`}>Route Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users/${sessionUser?.id}/friends`}>Friends Dashboard Placeholder</NavLink></div>
+                    <div><NavLink to={`/users/${sessionUser?.id}/people`} exact={true}>All Nonfriend Users Dashboard Placeholder</NavLink></div>
                     <div><NavLink to={`/users`} exact={true}>All Users Dashboard Placeholder</NavLink></div>
-                </div>
-                )}
-            </>
-            )
+                </center>
+            </div>
+        </>
+        );
+    } else {
+        sessionLinks = (
+        <>
+            {/*product demo until they login or signup */}
+
+        </>
+        );
+    }
+
+    return (<div id="logBtns">{isLoaded && sessionLinks}</div>)
 }
