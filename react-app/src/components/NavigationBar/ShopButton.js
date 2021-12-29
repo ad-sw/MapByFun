@@ -10,35 +10,15 @@ function ShopButton({ user }) {
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
-
-  useEffect(() => {
-    if (!showMenu) return;
-
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
-    document.addEventListener('mouseover', closeMenu);
-
-    return () => document.removeEventListener("mouseover", closeMenu);
-  }, [showMenu]);
-
   return (
     <>
-      <button onClick={openMenu} className="shop-button">
-        Shop
-      </button>
-      {showMenu && (
-        <ul className="shop-dropdown" id="style">
-          <li><NavLink to={`/404`} exact={true} activeClassName='active'>
-          Shop
-          </NavLink></li>
-        </ul>
-      )}
+      <div class="dropdown">
+      <button class="route-button" activeClassName="link-active">Shop</button>
+        <div class="dropdown-content">
+          <NavLink to={`/404`} exact={true} activeClassName='active'>Local</NavLink>
+          <NavLink to={`/404`} exact={true} activeClassName='active'>Tourist</NavLink>
+        </div>
+      </div>
     </>
   );
 }

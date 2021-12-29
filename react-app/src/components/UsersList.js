@@ -37,7 +37,15 @@ function UsersList() {
   return (<>
       {isLoaded &&(
         <>
-          <h1><center>All Users:</center></h1>
+          <div className="friendLinks">
+            <NavLink to={`/users/${sessionUser.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users/${sessionUser.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users`} activeClassName="link-active" className="links">All Users</NavLink>
+          </div>
+          <div className="titleTry">
+          <h3 className="testAlign">All Users</h3>
+          <hr className="testAlign2"></hr>
+          </div>
           <div className="friendDashboardContainer">{userComponents}</div>
         </>
       )}

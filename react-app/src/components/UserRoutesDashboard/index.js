@@ -19,12 +19,14 @@ export default function RoutesDashboard(){
     return (<>
         {isLoaded && (
             <>
-                <h1><center>My Routes</center></h1>
                 <div className="routes-wrapper">
+                <h3>MY ROUTES</h3>
+                <hr></hr>
                     <button className="createRouteBtn" onClick={(e) => {
                         e.preventDefault();
                         history.push('/routes/new');
                         }}>Create Route</button>
+                <hr></hr>
                     <center><UserRouteReadModal userId={sessionUser?.id}/></center>
                 </div>
             </>

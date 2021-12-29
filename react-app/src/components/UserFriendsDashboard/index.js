@@ -8,11 +8,13 @@ import '../../../src/index.css'
 function UserFriendsDashboard() {
   const dispatch = useDispatch()
   const user_id = useSelector(state => state.session.user.id);
+  const [isLoaded, setIsLoaded] = useState(false)
   const {userId} = useParams()
 
   useEffect(() => {
       (async () => {
           await dispatch(getAllFriends(userId));
+          setIsLoaded(true)
       })();
   }, [dispatch, userId]);
 
@@ -31,9 +33,20 @@ function UserFriendsDashboard() {
     )
   })
 
-  return (<>
-            <h1><center>Friends:</center></h1>
+  return (<>{isLoaded && (
+          <div>
+            <div className="friendLinks">
+              <NavLink exact to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink  to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink exact to={`/users`} activeClassName="link-active3" className="links">All Users</NavLink>
+            </div>
+            <div className="titleTry">
+              <h3 className="testAlign">Friends</h3>
+              <hr className="testAlign2"></hr>
+            </div>
             <div className="friendDashboardContainer">{userComponents}</div>
+          </div>
+            )}
           </>
   );
 }

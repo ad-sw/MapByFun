@@ -22,14 +22,12 @@ export default function FriendBtns({user_id, friend_id}) {
     const handleDelete = async(e) => {
         e.preventDefault();
         await dispatch (getAllFriends(user_id));
-        await dispatch(removeFriend(user_id, friend_id))
+        await dispatch(removeFriend(user_id, friend_id));
         setShowModal(false);
     }
     const handleAdd = async(e) => {
         e.preventDefault();
-        const payload = {user_id, friend_id}
-        // await dispatch (getAllFriends(user_id));
-        // await dispatch (getAllNonFriends(user_id));
+        const payload = {user_id, friend_id};
         await dispatch(addFriend(payload),
         await dispatch(removeNonFriend(payload)),
         )

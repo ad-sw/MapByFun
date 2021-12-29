@@ -40,7 +40,15 @@ export default function UserNonfriendsDashboard() {
 }})
 return (<> {isLoaded && (
     <>
-        <center><h1>Find Friends:</h1></center>
+        <div className="friendLinks">
+          <NavLink to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+          <NavLink to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+          <NavLink to={`/users`}>All Users</NavLink>
+        </div>
+        <div className="titleTry">
+          <h4 className="testAlign">Search MapByFun Friends by Name:</h4>
+          <hr className="testAlign2"></hr>
+        </div>
         <div className="friendDashboardContainer">{userComponents}</div>
     </>
     )}

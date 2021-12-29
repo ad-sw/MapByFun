@@ -21,19 +21,8 @@ function UserRouteReadModal() {
     const dashRoutes = useSelector(state => Object.values(state.routes))
 
     const test = dashRoutes?.map(route => {
-        return (<><div>
-                <table className='routes-table'>
-                    <thead>
-                        <tr>
-                        <th className='table-header'>Name</th>
-                        <th className='table-header'>Created</th>
-                        <th className='table-header'>Activity</th>
-                        <th className='table-header'>Privacy</th>
-                        <th className='table-header'>Description</th>
-                        <th className='table-header'>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+        return (<>
+                    <tr className="routes-table-row">
                     <NavLink key={route.id} to={`/routes/${route.id}`}>
                         <td className="name">{route.name}</td></NavLink>
                         <td>{route.created_at}</td>
@@ -41,22 +30,35 @@ function UserRouteReadModal() {
                         <td>{/*image to go here*/}</td>
                         <td>{route.description}</td>
                         <td>
-                            <NavLink to={`/routes/${route.id}/edit`} exact={true} className="RouteEditBtn">
+                            <NavLink to={`/routes/${route.id}/edit`} exact={true} className="friendUnfriendBtn">
                             Edit
                             </NavLink>
                             <RouteDeleteModal routeId={route.id}/>
                         </td>
-                    </tbody>
-                </table>
-                <div>
-                </div>
-                </div>
+                    </tr>
                 </>
                 )
             })
 
-    return (<>{isLoaded && (
-            <div className="">{test}</div>
+    return (<>{isLoaded && (<>
+        <div className='routes-table-container'>
+            <table className='routes-table'>
+                <thead>
+                    <tr>
+                    <th className='table-header'>Name</th>
+                    <th className='table-header'>Created</th>
+                    <th className='table-header'>Activity</th>
+                    <th className='table-header'>Privacy</th>
+                    <th className='table-header'>Description</th>
+                    <th className='table-header'>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {test}
+                </tbody>
+            </table>
+            </div>
+            </>
             )}
         </>
     );

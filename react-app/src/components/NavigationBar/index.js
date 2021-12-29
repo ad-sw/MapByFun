@@ -78,10 +78,10 @@ function NavBar(){
       <div id='linking'>
         <div id="homeLink"><NavLink exact to="/">MapByFun</NavLink></div>
       </div>
-      <div id="routeLink">{isLoaded && routeLinks}</div>
-      <div id="communityLink">{isLoaded && communityLinks}</div>
-      <div id="shopLink">{isLoaded && shopLinks}</div>
-      <div id="logBtns">{isLoaded && sessionLinks}</div>
+      <div id="routeLink" activeClassName="link-active">{isLoaded && routeLinks}</div>
+      <div id="communityLink" activeClassName="link-active">{isLoaded && communityLinks}</div>
+      <div id="shopLink" activeClassName="link-active">{isLoaded && shopLinks}</div>
+      <div id="logBtns" activeClassName="link-active">{isLoaded && sessionLinks}</div>
     </header>
     </>
   );

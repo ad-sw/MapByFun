@@ -20,29 +20,46 @@ export default function HomePage(){
         })();
     }, [dispatch, sessionUser])
 
-    let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-        <>
-            <div className="homePage">
-                <center>
-                    <h1>My Home Page</h1>
-                    <div><NavLink to={`/users/${sessionUser?.id}/routes`}>Route Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users/${sessionUser?.id}/friends`}>Friends Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users/${sessionUser?.id}/people`} exact={true}>All Nonfriend Users Dashboard Placeholder</NavLink></div>
-                    <div><NavLink to={`/users`} exact={true}>All Users Dashboard Placeholder</NavLink></div>
-                </center>
+    //let sessionLinks;
+    //if (sessionUser) {
+        let sessionLinks = (
+        <div className='main-splash-container'>
+            <div className='home-image'>
+                <div className="homePage">
+                <img className="mapFront" src="https://imgc.allpostersimages.com/img/posters/new-york-city-street-map_u-L-Q1AUL790.jpg?artHeight=900&artPerspective=n&artWidth=900"></img>
+                <div className="artistName"><center><a href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ">Artist: Michael Tompsett</a></center></div>
+                </div>
             </div>
-        </>
+            <div className='slogan-container'>
+                <hr className='home-hr' size='8' />
+                <span className='slogan'>LIVE EVERY MILE</span>
+                <hr className='home-hr' size='8' />
+            </div>
+            <div className='homepage-text-container'>
+                <span className='text-info'>The best mobile run tracking experience,</span>
+                <span className='text-info'>backed by the world's largest digital</span>
+                <span className='text-info'>health and fitness community.</span>
+                <NavLink to='/signup' className='homepage-sign-up'>SIGN UP</NavLink>
+                <div className='home-login-container'>
+                    <span className='login-q'>Already a member?</span>
+                    <NavLink to='/login' className='homepage-login'>LOG IN</NavLink>
+                </div>
+            </div>
+            {/* <center>
+                <div className="homePage">
+                    <img className="mapFront" width="1000px" height="700px" src="https://imgc.allpostersimages.com/img/posters/new-york-city-street-map_u-L-Q1AUL790.jpg?artHeight=900&artPerspective=n&artWidth=900"></img>
+                    <div className="artistName"><a href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ">Artist: Michael Tompsett</a></div>
+                </div>
+            </center> */}
+        </div>
         );
-    } else {
-        sessionLinks = (
-        <>
-            {/*product demo until they login or signup */}
+    //} else {
+    //    sessionLinks = (
+    //    <>
 
-        </>
-        );
-    }
+    //    </>
+    //    );
+    //}
 
     return (<div id="logBtns">{isLoaded && sessionLinks}</div>)
 }

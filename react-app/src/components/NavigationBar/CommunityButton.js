@@ -10,38 +10,15 @@ function CommunityButton({ user }) {
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
-
-  useEffect(() => {
-    if (!showMenu) return;
-
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
-    document.addEventListener('click', closeMenu);
-
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
-
   return (
     <>
-      <button onClick={openMenu} className="community-button">
-        Community
-      </button>
-      {showMenu && (
-        <ul className="community-dropdown" id="style">
-          <li><NavLink to={`/users/${sessionUser.id}/friends`} exact={true} activeClassName='active'>
-          My Friends
-          </NavLink></li>
-          <li><NavLink to={`/users/${sessionUser.id}/people`} exact={true} activeClassName='active'>
-          Find Friends
-          </NavLink></li>
-        </ul>
-      )}
+      <div class="dropdown">
+      <button class="route-button" activeClassName="link-active">Community</button>
+        <div class="dropdown-content">
+          <NavLink to={`/users/${sessionUser.id}/friends`} exact={true} activeClassName='active'>My Friends</NavLink>
+          <NavLink to={`/users/${sessionUser.id}/people`} exact={true} activeClassName='active'>Find Friends</NavLink>
+        </div>
+      </div>
     </>
   );
 }
