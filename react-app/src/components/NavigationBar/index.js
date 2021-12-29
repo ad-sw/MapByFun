@@ -76,7 +76,7 @@ function NavBar(){
   return (<>
     <header className="navbar">
       <div id='linking'>
-        <div id="homeLink"><NavLink exact to="/">MapByFun</NavLink></div>
+        <div id="homeLink"><NavLink exact to="/"><i id="testing12">MapByFun</i></NavLink></div>
       </div>
       <div id="routeLink" activeClassName="link-active">{isLoaded && routeLinks}</div>
       <div id="communityLink" activeClassName="link-active">{isLoaded && communityLinks}</div>

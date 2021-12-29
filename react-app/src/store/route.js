@@ -116,7 +116,7 @@ export const createRoute = (payload) => async(dispatch) => {
 
 export const editRoute = (payload) => async(dispatch) => {
   const response = await fetch(`/api/routes/${payload.id}/edit`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(payload)
   });

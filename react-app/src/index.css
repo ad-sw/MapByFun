@@ -1,17 +1,32 @@
 /* TODO Add site wide styles */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Aref+Ruqaa:wght@400;700&family=Calligraffitti&family=Carattere&family=Cookie&family=Corinthia:wght@700&family=Courgette&family=Damion&family=Dancing+Script:wght@581&family=Dawning+of+a+New+Day&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=La+Belle+Aurore&family=Merienda+One&family=Montserrat+Subrayada&family=Oooh+Baby&family=Playball&family=Seaweed+Script&family=Sedgwick+Ave&family=Sofia&family=Staatliches&display=swap');
+/*
+font-family: 'Dawning of a New Day', cursive;
+font-family: 'Fira Sans', sans-serif; not for title logo
+*/
 body {
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
     background-color: rgb(249,249,249);
+    font-family: 'Fira Sans', sans-serif;
 }
+/* Montserrat, Staatliches, Montserrat Subrayada */
 *{
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 a{
     color: #000000
+}
+#testing12 {
+    font-family: 'Dawning of a New Day', cursive;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    /* font-size: 35px;
+    font-weight: 1000px; */
+    font-style: bold;
+    color: #bfbfbf;
 }
 .navbar{
     display: flex;
@@ -19,10 +34,10 @@ a{
     align-items: center;
     padding-left: 25px;
     padding-right: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.109);
-    font-size:15px;
+    /* font-size:15px; */
     justify-content:space-between;
     background-color: white;
 }
@@ -322,27 +337,33 @@ a{
 }
 .home-image {
     justify-content: center;
+    display: flex;
 }
 .homePage {
     position: relative;
-    display: flex;
     justify-content: center;
-    height: 650px;
+    height: 640px;
+    display: inline-block;
 }
 .mapFront {
     backdrop-filter: blur(2px);
     z-index: -1;
     width: 1030px;
-    height: 630px;
+    height: 620px;
+    padding-bottom: 3px;
     background-color: white;
     opacity: 0.6;
 }
 .artistName a {
     color: #d6d6d6;
     cursor: pointer;
-    position: absolute;
+    /* padding-top: 15px;
+    margin-top: 15px; */
     bottom: 0;
-    left: 47%;
+    /* left: 47%; */
+    z-index: -1;
+    display: flex;
+    justify-content: center;
 }
 .slogan-container {
     width: 330px;

@@ -39,7 +39,7 @@ def create_route():
         return route.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@route_routes.route('/<int:id>/edit', methods=['PATCH'])
+@route_routes.route('/<int:id>/edit', methods=['PUT'])
 @login_required
 def edit_route(id):
     one_route = Route.query.get(id)
