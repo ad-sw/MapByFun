@@ -12,6 +12,7 @@ import CommentDeleteModal from '../CommentDeleteModal';
 export default function RouteEditForm() {
     const [name, setName] = useState('');
     const [errors, setErrors] = useState([]);
+    const [activity_id, setActivityId] = useState(1);
     const history = useHistory();
     const [description, setDescription] = useState('');
     const dispatch = useDispatch();
@@ -46,8 +47,10 @@ export default function RouteEditForm() {
             id: routeId,
             name,
             description,
-            user_id
+            user_id,
+            activity_id: Number(activity_id)
           };
+          console.log(payload, 'test')
           const data = await dispatch(editRoute(payload));
           if(data) {
             setErrors(data)
@@ -78,6 +81,16 @@ export default function RouteEditForm() {
       </>
       )
 
+      const activities = ['Walk',
+      'Run',
+      'Hike',
+      'Sport / Other Activity',
+      'Winter Sport / Activity',
+      'Bike Ride',
+      'Social',
+      'Volunteer',
+      'Food']
+
     return (
           <div className='testttt'>
             <div className="map"><MapContainer/></div>
@@ -99,6 +112,17 @@ export default function RouteEditForm() {
                       required
                       value={description}
                       onChange= {(e) => setDescription(e.target.value)}/>
+                  <select className='activityDropdownMenu' onChange={(e) => setActivityId(e.target.value)}>
+                      <option value={1}>{activities[0]}</option>
+                      <option value={2}>{activities[1]}</option>
+                      <option value={3}>{activities[2]}</option>
+                      <option value={4}>{activities[3]}</option>
+                      <option value={5}>{activities[4]}</option>
+                      <option value={6}>{activities[5]}</option>
+                      <option value={7}>{activities[6]}</option>
+                      <option value={8}>{activities[7]}</option>
+                      <option value={9}>{activities[8]}</option>
+                  </select>
                   <button type='editRouteBtn'>Edit route</button>
                 </form>
                   <RouteDeleteModal routeId={routeId}/>

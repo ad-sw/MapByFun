@@ -39,8 +39,9 @@ const RouteCreateForm = () => {
                 user_id,
                 name,
                 description,
-                activity_id:+activity_id,
+                activity_id: Number(activity_id),
             }
+            console.log(payload, 'testt')
             const data = await dispatch(createRoute(payload));
             if(data) {
                 setErrors(data)
@@ -82,15 +83,15 @@ const RouteCreateForm = () => {
                     required
                     onChange= {(e) => setDescription(e.target.value)}/>
                     <select className='activityDropdownMenu' onChange={(e) => setActivityId(e.target.value)}>
-                        <option value={'one'}>{activities[0]}</option>
-                        <option value={'two'}>{activities[1]}</option>
-                        <option value={'three'}>{activities[2]}</option>
-                        <option value={'four'}>{activities[3]}</option>
-                        <option value={'five'}>{activities[4]}</option>
-                        <option value={'six'}>{activities[5]}</option>
-                        <option value={'seven'}>{activities[6]}</option>
-                        <option value={'eight'}>{activities[7]}</option>
-                        <option value={'nine'}>{activities[8]}</option>
+                        <option value={1}>{activities[0]}</option>
+                        <option value={2}>{activities[1]}</option>
+                        <option value={3}>{activities[2]}</option>
+                        <option value={4}>{activities[3]}</option>
+                        <option value={5}>{activities[4]}</option>
+                        <option value={6}>{activities[5]}</option>
+                        <option value={7}>{activities[6]}</option>
+                        <option value={8}>{activities[7]}</option>
+                        <option value={9}>{activities[8]}</option>
                     </select>
                     <button className="routeSubmitButton">Submit</button>
                 </form>
