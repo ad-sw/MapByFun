@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import AddFriend from '../../src/components/AddFriend';
 import FriendBtns from '../../src/components/AddDeleteFriendBtns';
 import { useSelector } from "react-redux";
 import UserFriendsDashboard from "../components/FriendRoutesDashboard";
@@ -10,10 +9,6 @@ function User() {
   const { userId }  = useParams();
   const user_id = useSelector(state => state.session.user.id);
   const [isLoaded, setIsLoaded] = useState(false)
-  // const sessionUser = useSelector(state => state.session.user)
-  // const [friended, setFriended] = useState(
-  //   Object.values(sessionUser?.friends).includes(Number(userId))
-  // );
 
   useEffect(() => {
   if (!userId) {
@@ -32,14 +27,15 @@ function User() {
   }
 
   return (
-        <>{isLoaded && (<div>
-            <h1>User Profile</h1>
-            <div>{user.first_name}&nbsp;{user.last_name}</div>
-            <div><i>Member Since</i> {user.created_at}</div>
-            <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
-            <UserFriendsDashboard/>
+        <>{isLoaded && (
+            <div className="friendDashboardContainer">
+              <h1>User Profile</h1>
+              <div>{user.first_name}&nbsp;{user.last_name}</div>
+              <div><i>Member Since</i> {user.created_at}</div>
+              <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
+              <UserFriendsDashboard/>
             </div>
-            )}
+          )}
         </>
   );
 }

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useHistory, useParams } from 'react-router-dom'
-import {getAllRoutes} from  '../../store/route'
-import "./RoutesDashboard.css"
 import UserRouteReadModal from "../UserRoutesReadAll";
+import '../../../src/index.css'
 
 export default function RoutesDashboard(){
     const dispatch = useDispatch()
@@ -19,18 +18,18 @@ export default function RoutesDashboard(){
 
     return (<>
         {isLoaded && (
-            <div>
-                <h1 className='page-header'>My Dashboard Routes</h1>
-                <UserRouteReadModal userId={sessionUser?.id}/>
+            <>
                 <div className="routes-wrapper">
-                <button className="createRouteBtn" onClick={(e) => {
-                e.preventDefault();
-                history.push('/routes/new');
-                }}>
-                Create Route
-                </button>
+                <h3>MY ROUTES</h3>
+                <hr></hr>
+                    <button className="createRouteBtn" onClick={(e) => {
+                        e.preventDefault();
+                        history.push('/routes/new');
+                        }}>Create Route</button>
+                <hr></hr>
+                    <center><UserRouteReadModal userId={sessionUser?.id}/></center>
                 </div>
-            </div>
+            </>
         )}
     </>
     )

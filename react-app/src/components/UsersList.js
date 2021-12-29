@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import FriendBtns from '../components/AddDeleteFriendBtns';
+import '../../src/index.css'
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -20,18 +22,32 @@ function UsersList() {
   const userComponents = users.map((user) => {
     if (user.id !== sessionUser.id) {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.first_name}&nbsp;{user.last_name}</NavLink>
-      </li>
+      <div className="friendCard">
+        <div className="soMany">
+          <NavLink className="soMany" to={`/users/${user.id}`}>
+            <div className="friendContent"></div>
+            <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
+          </NavLink>
+            <div className="friendBtn"><FriendBtns user_id={sessionUser.id} friend_id={user.id}/></div>
+        </div>
+      </div>
     );
   }});
 
-  return (
-    <>{isLoaded &&(
-      <div>
-        <h1>User List: </h1>
-        <ul>{userComponents}</ul>
-      </div>
+  return (<>
+      {isLoaded &&(
+        <>
+          <div className="friendLinks">
+            <NavLink to={`/users/${sessionUser.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users/${sessionUser.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users`} activeClassName="link-active" className="links">All Users</NavLink>
+          </div>
+          <div className="titleTry">
+          <h3 className="testAlign">All Users</h3>
+          <hr className="testAlign2"></hr>
+          </div>
+          <div className="friendDashboardContainer">{userComponents}</div>
+        </>
       )}
     </>
   );

@@ -29,6 +29,7 @@ def create_route():
     if form.validate_on_submit():
         route = Route (
             user_id=form.data['user_id'],
+            activity_id=form.data['activity_id'],
             name=form.data['name'],
             description=form.data['description']
         )
@@ -46,6 +47,7 @@ def edit_route(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         one_route.user_id=form.data['user_id'],
+        one_route.activity_id=form.data['activity_id'],
         one_route.name=form.data['name'],
         one_route.description=form.data['description'],
         db.session.commit()

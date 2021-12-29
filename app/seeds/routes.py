@@ -7,79 +7,79 @@ def seed_routes():
         user_id= 1,
         name='Example 1',
         description='here is a map description',
-        activity='Bike ride',
+        activity_id=1,
     )
     route2 = Route(
         user_id= 1,
         name='Example 2',
         description='here is a map description',
-        activity='Walk',
+        activity_id=2,
     )
     route3 = Route(
         user_id= 1,
         name='Example 3',
         description='here is a map description',
-        activity='Social',
+        activity_id=3,
     )
     route4 = Route(
         user_id= 1,
         name='Example 4',
         description='here is a map description',
-        activity='Bike ride',
+        activity_id=4,
     )
     route5 = Route(
         user_id= 2,
         name='Example 5',
         description='here is a map description',
-        activity='Walk',
+        activity_id=5,
     )
     route6 = Route(
         user_id= 2,
         name='Example 6',
         description='here is a map description',
-        activity='Social',
+        activity_id=6,
     )
     route7 = Route(
         user_id= 2,
         name='Example 7',
         description='here is a map description',
-        activity='Bike ride',
+        activity_id=7,
     )
     route8 = Route(
         user_id= 3,
         name='Example 8',
         description='here is a map description',
-        activity='Walk',
+        activity_id=8,
     )
     route9 = Route(
         user_id= 3,
         name='Example 9',
         description='here is a map description',
-        activity='Social',
+        activity_id=1,
     )
     route10 = Route(
         user_id= 3,
         name='Example 10',
         description='here is a map description',
-        activity='Social',
+        activity_id=2,
     )
     route11 = Route(
         user_id= 4,
         name='Example 11',
         description='here is a map description',
-        activity='Walk',
+        activity_id=3,
     )
     route12 = Route(
         user_id= 4,
         name='Example 12',
         description='here is a map description',
-        activity='Social',
+        activity_id=4,
     )
     route13 = Route(
         user_id= 4,
         name='Example 13',
         description='here is a map description',
-        activity='Social',
+        activity_id=5,
     )
 
     db.session.add(route1)

@@ -4,31 +4,13 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { addFriend, getAllFriends, removeFriend } from '../../store/friend';
 import {removeNonFriend, getAllNonFriends} from '../../store/nonfriend';
-
+import '../../../src/index.css'
 
 export default function FriendBtns({user_id, friend_id}) {
     const [showModal, setShowModal] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
     const friendSession = useSelector(state => state.friends)
-    console.log(friendSession, 'object stuff here')
-    console.log(sessionUser, 'this is session friends idk')
     const dispatch = useDispatch()
-
-    const handleDelete = async(e) => {
-        e.preventDefault();
-        await dispatch (getAllFriends(user_id));
-        await dispatch(removeFriend(user_id, friend_id))
-        setShowModal(false);
-    }
-    const handleAdd = async(e) => {
-        e.preventDefault();
-        const payload = {user_id, friend_id}
-        // await dispatch (getAllFriends(user_id));
-        // await dispatch (getAllNonFriends(user_id));
-        await dispatch(addFriend(payload),
-        await dispatch(removeNonFriend(payload)),
-        )
-    }
 
     useEffect(() => {
         (async () => {
@@ -36,6 +18,24 @@ export default function FriendBtns({user_id, friend_id}) {
             await dispatch(getAllFriends(user_id));
         })();
     }, [dispatch, user_id]);
+
+    const handleDelete = async(e) => {
+        e.preventDefault();
+        await dispatch (getAllFriends(user_id));
+        await dispatch(removeFriend(user_id, friend_id));
+        setShowModal(false);
+    }
+    const handleAdd = async(e) => {
+        e.preventDefault();
+        const payload = {user_id, friend_id};
+        await dispatch(addFriend(payload),
+        await dispatch(removeNonFriend(payload)),
+        )
+    }
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    }
 
     let button = null;
     if (friend_id in friendSession) {
@@ -49,6 +49,7 @@ export default function FriendBtns({user_id, friend_id}) {
                         <div className="form">
                             <p>Are you sure you want to unfriend this user?</p>
                         <button type="submit" onClick={handleDelete} className="friendUnfriendConfirmBtn">Yes</button>
+                        <button type="submit" onClick={handleCancel} className="friendUnfriendConfirmBtn">Cancel</button>
                         </div>
                         </div>
                     </Modal>
@@ -58,7 +59,7 @@ export default function FriendBtns({user_id, friend_id}) {
         )
     } else if (!(friend_id in friendSession)) {
         button = (<>
-            <button type="submit" onClick={handleAdd} className="friendAddBtn">Add Friend</button>
+            <button type="submit" onClick={handleAdd} className="friendUnfriendBtn">Add</button>
             </>
         )
     }

@@ -10,7 +10,6 @@ export const getAllUsers = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(loadAllUsers(data));
-        console.log(data, 'this is the data')
         return null;
     } else if (response.status < 500){
         const data = await response.json()

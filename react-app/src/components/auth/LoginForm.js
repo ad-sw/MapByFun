@@ -27,7 +27,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to={`/users/${user.id}/routes`}/>;
   }
 
   return (
@@ -45,6 +45,7 @@ const LoginForm = () => {
           placeholder='Email'
           value={email}
           onChange={updateEmail}
+          required={true}
         />
       </div>
       <div>
@@ -55,6 +56,7 @@ const LoginForm = () => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          required={true}
         />
         <button type='submit'>Login</button>
       </div>

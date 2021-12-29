@@ -2,8 +2,8 @@ import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '1380px',
+  height: '650px',
 };
 
 const center = {
@@ -12,7 +12,7 @@ const center = {
 };
 
 const Maps = ({ apiKey, zoom }) => {
-  console.log(zoom, 'this zooom')
+  // console.log(zoom, 'this zooom')
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,
