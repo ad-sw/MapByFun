@@ -19,8 +19,15 @@ function UserRouteReadModal() {
     }, [dispatch, sessionUser]);
 
     const dashRoutes = useSelector(state => Object.values(state.routes))
-    console.log(dashRoutes)
-    // const activityType = useSelector(state => Object.values(state.routes))
+    const activities = ['Walk',
+                        'Run',
+                        'Hike',
+                        'Sport / Other Activity',
+                        'Winter Sport / Activity',
+                        'Bike Ride',
+                        'Social',
+                        'Volunteer',
+                        'Food']
 
     const test = dashRoutes?.map(route => {
         return (<>
@@ -28,7 +35,7 @@ function UserRouteReadModal() {
                     <NavLink key={route.id} to={`/routes/${route.id}`}>
                         <td className="name">{route.name}</td></NavLink>
                         <td>{route.created_at}</td>
-                        <td>{route.activity_id}</td>
+                        <td>{activities[route.activity_id]}</td>
                         <td>{/*image to go here*/}</td>
                         <td>{route.description}</td>
                         <td>
