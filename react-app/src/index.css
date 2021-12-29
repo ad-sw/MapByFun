@@ -243,15 +243,41 @@ a{
     text-align: center;
     margin-bottom: 28px;
 }
+.community-button.active {
+    color: black !important;
+    font-weight: 550;
+    padding-bottom: 4px;
+    border-bottom: 3px solid #009CE9;
+}
+.profile-dropdown.active {
+    color: black !important;
+    font-weight: 550;
+    padding-bottom: 4px;
+    border-bottom: 3px solid #009CE9;
+}
 .link-active {
     color: black !important;
     font-weight: 550;
     padding-bottom: 4px;
     border-bottom: 3px solid #009CE9;
 }
+#communityLink:focus {
+    color: black !important;
+    border-bottom: 3px solid #AFAFAF;
+}
+#communityLink:active {
+    color: black !important;
+    border-bottom: 3px solid #AFAFAF;
+}
+.route-button:active {
+    background-color: black;
+}
 .links:hover {
     color: black !important;
 }
+.pink{
+    background : pink;
+    }
 .links {
     color: #A2A2AF;
 }
@@ -287,8 +313,6 @@ a{
     justify-content: center;
     padding-top: 25px;
 }
-
-
 .main-splash-container {
     display: flex;
     width: 1300px;
@@ -303,13 +327,13 @@ a{
     position: relative;
     display: flex;
     justify-content: center;
-    height: 720px;
+    height: 650px;
 }
 .mapFront {
     backdrop-filter: blur(2px);
     z-index: -1;
-    width: 1100px;
-    height: 700px;
+    width: 1030px;
+    height: 630px;
     background-color: white;
     opacity: 0.6;
 }
@@ -351,22 +375,25 @@ a{
     margin-right: 5px;
 }
 .homepage-text-container {
-    width: 300px;
+    width: 350px;
     position: absolute;
-    top: 16%;
+    top: 56%;
     text-align: right;
     color: white;
+    font-weight: 900;
+    -webkit-text-stroke: .8px #787878;
     margin-left: 870px;
+    z-index: 2;
 }
 .text-info {
     display: inline-block;
     padding-top: 5px;
 }
-.homepage-sign-up {
+.home-sign-up {
     display: block;
     width: 90%;
     text-align: center;
-    background-color: #4bd374;
+    background-color: #b3b1b1;
     padding: 15px 0;
     margin: 30px 0;
     margin-left: 33px;
@@ -382,7 +409,7 @@ a{
     font-style: italic;
     margin-right: 20px;
 }
-.homepage-login {
+.home-login {
     text-decoration: none;
     color: white;
     border: 2px white solid;

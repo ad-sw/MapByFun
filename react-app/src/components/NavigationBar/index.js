@@ -36,7 +36,7 @@ function NavBar(){
   if (sessionUser) {
     routeLinks = (
       <>
-      <RouteButton user={sessionUser}/>
+      <RouteButton user={sessionUser} id="routeLink" activeClassName="link-active"/>
       </>
     )
   }
@@ -45,7 +45,7 @@ function NavBar(){
   if (sessionUser) {
     communityLinks = (
       <>
-      <CommunityButton user={sessionUser}/>
+      <CommunityButton user={sessionUser} id="communityLink" activeClassName="link-active"/>
       </>
     )
   }
@@ -54,7 +54,7 @@ function NavBar(){
   if (sessionUser) {
     shopLinks = (
       <>
-      <ShopButton user={sessionUser}/>
+      <ShopButton user={sessionUser} id="routeLink" activeClassName="link-active"/>
       </>
     )
   }

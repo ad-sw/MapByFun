@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
 import {getAllUsers} from  '../../store/user'
-import {getAllFriends} from '../../store/friend'
 import "./Homepage.css"
 import ProfileButton from "../NavigationBar/ProfileButton";
 import LogoutButton from "../auth/LogoutButton";
@@ -32,17 +31,17 @@ export default function HomePage(){
             </div>
             <div className='slogan-container'>
                 <hr className='home-hr' size='8' />
-                <span className='slogan'>LIVE EVERY MILE</span>
+                <span className='slogan'>SHARE EVERY MILE</span>
                 <hr className='home-hr' size='8' />
             </div>
             <div className='homepage-text-container'>
-                <span className='text-info'>The best mobile run tracking experience,</span>
-                <span className='text-info'>backed by the world's largest digital</span>
-                <span className='text-info'>health and fitness community.</span>
-                <NavLink to='/signup' className='homepage-sign-up'>SIGN UP</NavLink>
+                <span className='text-info'>Map out and share your</span>
+                <span className='text-info'>life with friends, discover</span>
+                <span className='text-info'>local events around you.</span>
+                <NavLink to='/sign-up' className='home-sign-up'>SIGN UP</NavLink>
                 <div className='home-login-container'>
                     <span className='login-q'>Already a member?</span>
-                    <NavLink to='/login' className='homepage-login'>LOG IN</NavLink>
+                    <NavLink to='/login' className='home-login'>LOG IN</NavLink>
                 </div>
             </div>
             {/* <center>

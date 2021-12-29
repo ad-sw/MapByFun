@@ -6,11 +6,11 @@ import SignUpForm from './components/auth/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import RouteForm from './components/RouteCreateForm';
+import RouteCreateForm from './components/RouteCreateForm';
+import RouteEditForm from './components/RouteEditPage'
 import RoutesDashboard from './components/UserRoutesDashboard';
 import RoutePage from './components/SoloRoutePage';
 import HomePage from './components/Homepage';
-import RouteEditPage from './components/RouteEditPage'
 import UserFriendsDashboard from './components/UserFriendsDashboard';
 import UserNonfriendsDashboard from './components/UserNonfriendsDashboard';
 import { authenticate } from './store/session';
@@ -51,7 +51,7 @@ function App() {
           <User/>
         </ProtectedRoute>
         <ProtectedRoute path='/routes/new' exact={true}>
-          <RouteForm/>
+          <RouteCreateForm/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/routes' exact={true}>
           <RoutesDashboard/>
@@ -60,7 +60,7 @@ function App() {
           <RoutePage/>
         </ProtectedRoute>
         <ProtectedRoute path='/routes/:routeId/edit' exact={true}>
-          <RouteEditPage/>
+          <RouteEditForm/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/people' exact={true} >
           <UserNonfriendsDashboard/>

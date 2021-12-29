@@ -15,7 +15,7 @@ function ShopButton({ user }) {
       <div class="dropdown">
       <button class="route-button" activeClassName="link-active">Shop</button>
         <div class="dropdown-content">
-          <NavLink to={`/404`} exact={true} activeClassName='active'>Local</NavLink>
+          <NavLink to={`/404`} exact={true} activeClassName='active' id="communityLink">Local</NavLink>
           <NavLink to={`/404`} exact={true} activeClassName='active'>Tourist</NavLink>
         </div>
       </div>
