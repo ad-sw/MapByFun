@@ -6,7 +6,7 @@ import CommentEditForm from './CommentEditForm';
 
 function CommentEditModal({routeId , commentId, content}){
     const [showModal, setShowModal] = useState(false)
-
+    console.log('content', content)
     return (
         <><div>
             <button onClick={() => setShowModal(true)} className="commentEditBtn">Edit Comment</button>
@@ -16,7 +16,7 @@ function CommentEditModal({routeId , commentId, content}){
                         routeId={routeId}
                         commentId={commentId}
                         setShowModal={setShowModal}
-                        content={content}
+                        acontent={content}
                     />
                 </Modal>
                 )}

@@ -14,7 +14,7 @@ import '../../../src/index.css'
 
 export default function RoutePage(){
     let dispatch = useDispatch();
-    const {routeId} = useParams();
+    let {routeId} = useParams();
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
     // const [showMenu, setShowMenu] = useState(false);
@@ -53,38 +53,43 @@ export default function RoutePage(){
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        {/* <span className="fa fa-ellipsis-v" onClick={null}>
-          <div className="comment-dropdown">
-            <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
-          </div>
-        </span> */}
         {comment?.content}
         {sessionUser?.id === route?.user_id && (
         <>
-        <CommentEditModal commentId={comment?.id} routeId={routeId}/>
+        <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
         <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
         </>)}
         {comment?.user_id === sessionUser.id && sessionUser?.id !== route?.user_id && (
         <>
-        <CommentEditModal commentId={comment?.id} routeId={routeId}/>
+        <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
         <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
         </>)}
     </>
     )
+    const activities = ['Walk',
+    'Run',
+    'Hike',
+    'Sport / Other Activity',
+    'Winter Sport / Activity',
+    'Bike Ride',
+    'Social',
+    'Volunteer',
+    'Food']
 
     return (<>
             {isLoaded && (<>
                 <div key={route?.id}  className="routePage">
                     <div className="map"><MapContainer/></div>
                         <div className="routeInfoDiv">
-                            <div className="routeText">
+                            <div className="routeTextt">
                                 <h2 id="routeName">{route.name}</h2>
-                                <p id="routeActivity">{route.activity}</p>
+                                <p id="routeActivity">{activities[route.activity_id - 1]}</p>
                                 <p id="routeDescription">{route.description}</p>
                                 <p id="routeDate">{route.created_at}</p>
                                 {sessionUser.id === route?.user_id && (
                                 <>
-                                <button className="editRouteBtn" onClick={(e) => {
+
+                                <button id="friendUnfriendConfirmBtn" onClick={(e) => {
                                     e.preventDefault();
                                     history.push(`/routes/${route.id}/edit`);
                                     }}>

@@ -46,7 +46,7 @@ return (<> {isLoaded && (
           <NavLink to={`/users`}>All Users</NavLink>
         </div>
         <div className="titleTry">
-          <h4 className="testAlign">Search MapByFun Friends by Name:</h4>
+          <h4 className="testAlign">Search MapByFun by Name:</h4>
           <hr className="testAlign2"></hr>
         </div>
         <div className="friendDashboardContainer">{userComponents}</div>

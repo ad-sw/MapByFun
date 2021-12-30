@@ -14,7 +14,7 @@ body {
 /* Montserrat, Staatliches, Montserrat Subrayada */
 *{
     text-decoration: none;
-    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'Fira Sans', sans-serif; */
 }
 a{
     color: #000000
@@ -150,14 +150,14 @@ a{
     backdrop-filter: blur(5px);
     box-shadow: -5px 0px 10px -8px #9a9a9a;
 }
-.routeText {
-    margin-left: 8px;
-}
 .commentInfoDiv {
-    max-height: 387px;
-    margin: 20px 0px 0px 8px;
+    max-height: 150px;
+    margin: 20px 0px 5px 8px;
     overflow-x: hidden;
     overflow-y: auto;
+    width: 292px;
+    bottom: 0;
+    position: absolute;
 }
 .fa-ellipsis-v {
     cursor: pointer;
@@ -203,7 +203,7 @@ a{
     align-items: center;
     position: relative;
 }
-.friendBtn{
+.friendBtn {
     float: right;
     right: 0;
     position: absolute;
@@ -258,18 +258,18 @@ a{
     text-align: center;
     margin-bottom: 28px;
 }
-.community-button.active {
+/* .community-button.active {
     color: black !important;
     font-weight: 550;
     padding-bottom: 4px;
     border-bottom: 3px solid #009CE9;
-}
-.profile-dropdown.active {
+} */
+/* .profile-dropdown.active {
     color: black !important;
     font-weight: 550;
     padding-bottom: 4px;
     border-bottom: 3px solid #009CE9;
-}
+} */
 .link-active {
     color: black !important;
     font-weight: 550;
@@ -283,9 +283,6 @@ a{
 #communityLink:active {
     color: black !important;
     border-bottom: 3px solid #AFAFAF;
-}
-.route-button:active {
-    background-color: black;
 }
 .links:hover {
     color: black !important;
@@ -389,51 +386,154 @@ a{
 .slogan {
     display: inline-block;
     color: #F9F9F9;
-    -webkit-text-stroke: .85px #c6c6c6;
+    -webkit-text-stroke: .85px #c2c2c2;
     font-size: 40px;
     font-weight: 900;
     z-index: 1;
-    margin-right: 5px;
+    margin-right: -14px;
 }
 .homepage-text-container {
-    width: 350px;
+    width: 300px;
     position: absolute;
     top: 56%;
     text-align: right;
     color: white;
     font-weight: 900;
     -webkit-text-stroke: .8px #787878;
-    margin-left: 870px;
+    margin-left: 920px;
     z-index: 2;
 }
 .text-info {
     display: inline-block;
     padding-top: 5px;
+    text-shadow: 1px 1px 5px #f0f0f0;
 }
 .home-sign-up {
     display: block;
     width: 90%;
     text-align: center;
-    background-color: #b3b1b1;
+    background-color: #b5b5b5;
     padding: 15px 0;
     margin: 30px 0;
     margin-left: 33px;
     border-radius: 3px;
     letter-spacing: 1px;
-    font-weight: 800;
+    font-style: 'Dawning of a New Day';
+    font-weight: 500;
     text-decoration: none;
     color: white;
     cursor: pointer;
+}
+.home-sign-up:hover {
+    background-color: #ababab;
 }
 .login-q {
     font-size: 14px;
     font-style: italic;
     margin-right: 20px;
+    font-weight: 800;
+    -webkit-text-stroke: .8px #292929;
+    text-shadow: 1px 1px 4px #B5B5B5, 0 0 25px #B5B5B5, 0 0 5px #B5B5B5;
 }
 .home-login {
     text-decoration: none;
-    color: white;
-    border: 2px white solid;
+    color: rgb(223, 223, 223);
+    border: 2px rgb(220, 220, 220) solid;
     padding: 5px 20px;
     border-radius: 3px;
+    -webkit-text-stroke: .1px rgb(233, 233, 233);
+}
+.home-login:hover {
+    color: rgb(200, 200, 200);
+    border: 2px rgb(200, 200, 200) solid;
+}
+.deleteModal {
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 7px solid #009CE9;
+    padding: 20px 40px 30px 50px;
+    background: url('https://user-images.githubusercontent.com/86431563/147730934-d929e13b-4db7-48c3-b2e5-29121bd58527.png');
+    background-size: 110%;
+    position: relative;
+}
+.deleteModal p {
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn {
+    background-color: #cacaca;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 6.5px 3px 6.5px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn:hover {
+    background-color: #bbbbbb;
+}
+.yesNCanelBtnsWrap {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.routeText {
+    border: none;
+    position: relative;
+    letter-spacing: .5px;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 12px 20px 12px;
+    display: grid;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 200px;
+    margin: 10px;
+    margin-bottom: 15px;
+    /* height: 20px; */
+    /* border: 1px solid #0000002d; */
+    border-radius: 5px;
+    /* width: 130%; */
+    padding-left: 10px;
+    align-items: left;
+    position: absolute;
+    /* height: 400px; */
+    /* margin-left: 8px; */
+}
+.routeTextt {
+    margin-bottom: 5px;
+    /* height: 20px; */
+    /* border: 1px solid #0000002d; */
+    border-radius: 5px;
+    /* width: 130%; */
+    padding: 10px 10px 20px 10px;
+    align-items: left;
+    position: absolute;
+    border: 1px grey solid;
+}
+.routesName {
+    height: 25px;
+    width: 255px;
+}
+.activityDropdownMenu {
+    margin-top: 5px;
+    height: 30px;
+    width: 263px;
+}
+textarea {
+    margin: 20px 0px;
+    height: 300px;
+    width: 240px;
+    padding: 5px 10px;
+    resize: none;
+}
+.routesDesc {
+    height: 300px;
 }

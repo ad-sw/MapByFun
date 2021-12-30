@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {getAllRoutes} from '../../store/route';
 import {useEffect, useState} from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import RouteDeleteModal from "../RouteDeleteModal";
 import '../../../src/index.css'
 
@@ -9,6 +9,7 @@ function UserRouteReadModal() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
+    const history = useHistory()
     const { friendId }  = useParams();
 
     useEffect(() => {
@@ -35,13 +36,16 @@ function UserRouteReadModal() {
                     <NavLink key={route.id} to={`/routes/${route.id}`}>
                         <td className="name">{route.name}</td></NavLink>
                         <td>{route.created_at}</td>
-                        <td>{activities[route.activity_id]}</td>
+                        <td>{activities[route.activity_id - 1]}</td>
                         <td>{/*image to go here*/}</td>
                         <td>{route.description}</td>
                         <td>
-                            <NavLink to={`/routes/${route.id}/edit`} exact={true} className="friendUnfriendBtn">
+                            <button id="friendUnfriendConfirmBtn" onClick={(e) => {
+                                    e.preventDefault();
+                                    history.push(`/routes/${route.id}/edit`);
+                                    }}>
                             Edit
-                            </NavLink>
+                            </button>
                             <RouteDeleteModal routeId={route.id}/>
                         </td>
                     </tr>

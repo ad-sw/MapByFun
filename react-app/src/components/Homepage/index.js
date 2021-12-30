@@ -31,14 +31,14 @@ export default function HomePage(){
                 </div>
             <div className='slogan-container'>
                 <hr className='home-hr' size='8' />
-                <span className='slogan'>SHARE EVERY MILE</span>
+                <span className='slogan'>SHARE SOME (S)MILES</span>
                 <hr className='home-hr' size='8' />
             </div>
             <div className='homepage-text-container'>
-                <span className='text-info'>Map out and share your</span>
-                <span className='text-info'>life with friends, discover</span>
-                <span className='text-info'>local events around you.</span>
-                <NavLink to='/sign-up' className='home-sign-up'>SIGN UP</NavLink>
+                <span className='text-info'>Map out and share with</span>
+                <span className='text-info'>friends. Discover local</span>
+                <span className='text-info'>events around you.</span>
+                <NavLink to='/sign-up' className='home-sign-up'>Sign Up</NavLink>
                 <div className='home-login-container'>
                     <span className='login-q'>Already a member?</span>
                     <NavLink to='/login' className='home-login'>LOG IN</NavLink>

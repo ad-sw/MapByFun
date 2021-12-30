@@ -31,7 +31,7 @@ export default function FriendRouteReadModal({userId, friendId}) {
                     <div className="route-dash">
                         <div className="route-dash-info" >
                             <div className="name">{route.name}</div>
-                            <div>Activity: {activities[route.activity_id]}</div>
+                            <div>Activity: {activities[route.activity_id - 1]}</div>
                             <div>Description: {route.description}</div>
                             <div>Created: {route.created_at}</div>
                         </div>
