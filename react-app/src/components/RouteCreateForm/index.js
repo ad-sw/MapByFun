@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { createRoute } from '../../store/route'
@@ -6,11 +6,13 @@ import '../../../src/index.css'
 import MapContainer from "../Maps";
 
 const RouteCreateForm = () => {
+    const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [activity_id, setActivityId] = useState(1);
     const [errors, setErrors] = useState([])
+    const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
     const user_id = useSelector(state => state.session.user.id);
 
@@ -26,6 +28,12 @@ const RouteCreateForm = () => {
         }
         return error;
     }
+
+    useEffect(() => {
+        (async () => {
+            setIsLoaded(true)
+        })();
+    }, [sessionUser])
 
     const handleCreate = async (e) => {
         e.preventDefault();
@@ -58,7 +66,7 @@ const RouteCreateForm = () => {
                         'Volunteer',
                         'Food']
 
-    return (
+    return (<>{isLoaded && (
         <div className="routePage">
             <div className="map"><MapContainer/></div>
             <div className='routeInfoDiv'>
@@ -74,7 +82,8 @@ const RouteCreateForm = () => {
                     required
                     value= {name}
                     onChange= {(e) => setName(e.target.value)}/>
-                    <select className='activityDropdownMenu' onChange={(e) => setActivityId(e.target.value)}>
+                    <select required className='activityDropdownMenu' onChange={(e) => setActivityId(e.target.value)}>
+                        {/* <option defaultValue={'select'}>select an activity:</option> */}
                         <option value={1}>{activities[0]}</option>
                         <option value={2}>{activities[1]}</option>
                         <option value={3}>{activities[2]}</option>
@@ -90,11 +99,11 @@ const RouteCreateForm = () => {
                     placeholder="Description"
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                    <button id="friendUnfriendConfirmBtn2">Create</button>
+                    <button id="friendUnfriendConfirmBtn5">Create</button>
                 </form>
             </div>
         </div>
-    )
+    )}</>)
 }
 
 export default RouteCreateForm;

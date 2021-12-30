@@ -32,7 +32,7 @@ return (
                 <div className="form">
                   <p>Delete this route?</p>
                   <div className="yesNCanelBtnsWrap">
-                  <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn">Okay</button>
+                  <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn">Yes</button>
                   <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn">Cancel</button>
                   </div>
                 </div>

@@ -382,7 +382,7 @@ a{
     top: 5%;
     letter-spacing: 2px;
     z-index: 2;
-    margin-left: 860px;
+    margin-left: 855px;
     text-align: right;
 }
 .home-hr {
@@ -400,10 +400,12 @@ a{
     display: inline-block;
     color: #F9F9F9;
     -webkit-text-stroke: .85px #c2c2c2;
-    font-size: 40px;
+    font-size: 45px;
+    font-style: bold;
     font-weight: 900;
     z-index: 1;
-    margin-right: -14px;
+    margin-right: -20px;
+    text-shadow: 0px 0px 3px #b8b8b8, 0 0 2px #dfdfdf, 0 0 3px #dfdfdf;
 }
 .homepage-text-container {
     width: 300px;
@@ -432,20 +434,22 @@ a{
     border-radius: 3px;
     letter-spacing: 1px;
     font-style: 'Dawning of a New Day';
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
+    font-size: 15px;
     color: white;
+    font-style: bold;
     cursor: pointer;
 }
 .home-sign-up:hover {
     background-color: #ababab;
 }
 .login-q {
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
     margin-right: 20px;
     font-weight: 800;
-    -webkit-text-stroke: .8px #292929;
+    -webkit-text-stroke: .8px #252525;
     text-shadow: 1px 1px 4px #B5B5B5, 0 0 25px #B5B5B5, 0 0 5px #B5B5B5;
 }
 .home-login {
@@ -469,7 +473,7 @@ a{
     margin-right: auto;
     text-align: center;
     border-bottom: 7px solid #009CE9;
-    padding: 20px 40px 30px 50px;
+    padding: 17px 40px 20px 40px;
     background: url('https://user-images.githubusercontent.com/86431563/147745332-87286859-dd53-436c-adb6-1cc33c3a314d.png');
     background-size: 110%;
     position: relative;
@@ -644,4 +648,38 @@ a{
 }
 .routesDesc {
     height: 300px;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    padding-right: 50px;
+    font-size: 19px;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    z-index: 4;
+}
+#github:hover {
+    opacity: 2.0;
+}
+#github {
+    opacity: 0.8;
+}
+#linkedin:hover {
+    opacity: 2.0;
+}
+#linkedin {
+    opacity: 0.8;
+}
+.linkss {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+#author {
+    display: flex;
+    margin: 10px;
 }

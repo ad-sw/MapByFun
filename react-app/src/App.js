@@ -39,10 +39,14 @@ function App() {
           <HomePage/>
         </Route>
         <Route path='/login' exact={true}>
+        {setLoaded && (
           <LoginForm/>
+          )}
         </Route>
         <Route path='/sign-up' exact={true}>
+        {setLoaded && (
           <SignUpForm/>
+          )}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -69,12 +73,14 @@ function App() {
           <UserFriendsDashboard/>
         </ProtectedRoute>
         <Route>
+          {setLoaded && (
         <center>
           <h1 id="h1404">404:</h1>
           Page Not Found (yet)
           <div><img alt="test" height="580" width="375" src="https://i.pinimg.com/originals/1d/c7/f9/1dc7f97fd25ba503520fc6ed4022f75e.jpg"></img></div>
           {/* <img alt="test" height="650" width="400" src="https://i.pinimg.com/originals/ec/94/fa/ec94fa24a9d4dca2c0d627039763dbaa.png"></img> */}
         </center>
+        )}
         </Route>
       </Switch>
     </BrowserRouter>

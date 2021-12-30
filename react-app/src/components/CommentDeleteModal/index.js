@@ -30,7 +30,7 @@ return (
               <div className="formModal">
                 <p>Delete this comment?</p>
                 <div className="yesNCanelBtnsWrap2">
-                <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn2">Delete</button>
+                <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn2">Okay</button>
                 <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Cancel</button>
                 </div>
               </div>

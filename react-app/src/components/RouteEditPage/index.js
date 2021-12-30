@@ -13,15 +13,17 @@ export default function RouteEditForm() {
     const route = useSelector(state => state.routes[routeId])
     const [name, setName] = useState(route?.name);
     const [errors, setErrors] = useState([]);
-    const [activity_id, setActivityId] = useState(route?.activity_id);
-    const [description, setDescription] = useState(route?.description);
+    const [activity_id, setActivityId] = useState(route?.activity_id ? route?.activity_id : '');
+    const [description, setDescription] = useState(route?.description ? route?.description : '');
     const dispatch = useDispatch();
     const user_id = useSelector(state => state.session.user.id);
     const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
-    const friendSession = useSelector(state => state.friends);
-
+    // const friendSession = useSelector(state => state.friends);
+    let routeActivityId = useSelector(state => Object.values(state.routes)[0]?.activity_id)
     let currentRouteComments = useSelector(state => Object.values(state?.comments))
+    // let routeDescription = useSelector(state => Object.values(state.routes)[0]?.description)
+    // let routeName = useSelector(state => Object.values(state.routes)[0]?.name)
 
     const validator = () => {
       let error = []
@@ -43,9 +45,12 @@ export default function RouteEditForm() {
       (async () => {
           await dispatch(getOneRoute(routeId));
           await dispatch(getAllRouteComments(routeId));
+          await setActivityId(route?.activity_id);
+          await setDescription(route?.description)
+          await setName(route?.name)
           setIsLoaded(true)
       })();
-  }, [dispatch, sessionUser, routeId])
+  }, [dispatch, route?.name, routeId, route?.description, route?.activity_id])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,7 +63,7 @@ export default function RouteEditForm() {
             name,
             description,
             user_id,
-            activity_id: +activity_id
+            activity_id
           };
           const data = await dispatch(editRoute(payload));
           if(data) {
@@ -95,8 +100,9 @@ export default function RouteEditForm() {
                     value={name}
                     className="routesName"
                     onChange={e => setName(e.target.value)}/>
-                  <select className='activityDropdownMenu' /*value={route.activity_id}*/ onChange={(e) => setActivityId(e.target.value)}>
-                      <option value={activitiesAndIds[0][0]} onClick={activitiesAndIds[0][0]}>{activitiesAndIds[0][1]}</option>
+                  <select className='activityDropdownMenu' required value={activity_id}/*value={route.activity_id}*/ onChange={(e) => setActivityId(e.target.value)}>
+                      {/* <option required defaultValue={'select'}>select an activity:</option> */}
+                      <option value={activitiesAndIds[0][0]}>{activitiesAndIds[0][1]}</option>
                       <option value={activitiesAndIds[1][0]}>{activitiesAndIds[1][1]}</option>
                       <option value={activitiesAndIds[2][0]}>{activitiesAndIds[2][1]}</option>
                       <option value={activitiesAndIds[3][0]}>{activitiesAndIds[3][1]}</option>
@@ -112,7 +118,7 @@ export default function RouteEditForm() {
                     value={description}
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                  <button id='friendUnfriendConfirmBtn5'>Post</button>
+                  <button id='friendUnfriendConfirmBtn5'>Update</button>
                 </form>
                 <div className="commentInfoDiv">{commentss}</div>
             </div>
