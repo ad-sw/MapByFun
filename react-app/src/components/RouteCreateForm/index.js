@@ -86,11 +86,11 @@ const RouteCreateForm = () => {
                         <option value={9}>{activities[8]}</option>
                     </select>
                     <textarea
-                    className='routesDesc'
+                    className='routesDescription'
                     placeholder="Description"
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                    <button id="friendUnfriendConfirmBtn">Submit</button>
+                    <button id="friendUnfriendConfirmBtn2">Create</button>
                 </form>
             </div>
         </div>

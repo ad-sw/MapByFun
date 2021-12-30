@@ -41,20 +41,20 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
     }
 
     return (
-        <div className='form-container'>
+        <div className='deleteModal3'>
             <div className="errors">
                 {errors?.map((error, idx) => (
                 <div key={idx}>{error.split(':')[1]}</div>
             ))}
             </div>
-            <form className='form' onSubmit={handleSubmit}>
-                <input
+            <form className='form3' onSubmit={handleSubmit}>
+                <textarea
                 className='commentContent'
                 placeholder='Content'
                 required
                 value={content}
                 onChange= {(e) => setContent(e.target.value)}/>
-                <button type='submit' className="contentEditModalBtn">Submit</button>
+                <button type='submit' id="friendUnfriendConfirmBtn">Post</button>
             </form>
         </div>
     )
