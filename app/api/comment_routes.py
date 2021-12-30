@@ -37,7 +37,7 @@ def create_comment():
       return { "comment": comment.to_dict() }
    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@comment_routes.route('/<int:id>/edit', methods=['PATCH'])
+@comment_routes.route('/<int:id>/edit', methods=['PUT'])
 @login_required
 def edit_comment(id):
    comment = Comment.query.get(id)

@@ -23,22 +23,22 @@ export default function HomePage(){
     //if (sessionUser) {
         let sessionLinks = (
         <div className='main-splash-container'>
-            <div className='home-image'>
+            {/* <div className='home-image'> */}
                 <div className="homePage">
                 <img className="mapFront" src="https://imgc.allpostersimages.com/img/posters/new-york-city-street-map_u-L-Q1AUL790.jpg?artHeight=900&artPerspective=n&artWidth=900"></img>
-                <div className="artistName"><center><a href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ">Artist: Michael Tompsett</a></center></div>
+                <div className="artistName"><a className="artistName" href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ">Artist: Michael Tompsett</a></div>
+                {/* </div> */}
                 </div>
-            </div>
             <div className='slogan-container'>
                 <hr className='home-hr' size='8' />
-                <span className='slogan'>SHARE EVERY MILE</span>
+                <span className='slogan'>SHARE SOME (S)MILES</span>
                 <hr className='home-hr' size='8' />
             </div>
             <div className='homepage-text-container'>
-                <span className='text-info'>Map out and share your</span>
-                <span className='text-info'>life with friends, discover</span>
-                <span className='text-info'>local events around you.</span>
-                <NavLink to='/sign-up' className='home-sign-up'>SIGN UP</NavLink>
+                <span className='text-info'>Map out and share with</span>
+                <span className='text-info'>friends. Discover local</span>
+                <span className='text-info'>events around you.</span>
+                <NavLink to='/sign-up' className='home-sign-up'>Sign Up</NavLink>
                 <div className='home-login-container'>
                     <span className='login-q'>Already a member?</span>
                     <NavLink to='/login' className='home-login'>LOG IN</NavLink>

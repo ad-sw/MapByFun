@@ -31,7 +31,7 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
                 content,
                 commentId,
             }
-            const data = await dispatch(editComment(payload, commentId))
+            const data = await dispatch(editComment(payload))
             if (data){
                 setErrors(data)
             } else {
@@ -42,12 +42,12 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
 
     return (
         <div className='form-container'>
+            <div className="errors">
+                {errors?.map((error, idx) => (
+                <div key={idx}>{error.split(':')[1]}</div>
+            ))}
+            </div>
             <form className='form' onSubmit={handleSubmit}>
-                <div className="errors">
-                    {errors.map((error, idx) => (
-                    <div key={idx}>{error.split(':')[1]}</div>
-                ))}
-                </div>
                 <input
                 className='commentContent'
                 placeholder='Content'

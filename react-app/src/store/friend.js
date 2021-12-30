@@ -72,6 +72,8 @@ export const removeFriend = (userId, friendId) => async (dispatch) => {
     }
 }
 
+
+
 export default function friendReducer(state = {}, action) {
     let newState;
     switch (action.type) {
@@ -85,7 +87,6 @@ export default function friendReducer(state = {}, action) {
             newState = {...state};
             newState[action.payload.id] = action.payload;
             const copiedState = {...newState}
-
             return copiedState;
         case REMOVE_ONE_FRIEND:
             newState = {...state};

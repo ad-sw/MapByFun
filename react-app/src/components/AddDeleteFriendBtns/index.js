@@ -45,12 +45,12 @@ export default function FriendBtns({user_id, friend_id}) {
                 <button type="submit" onClick={() => setShowModal(true)} className="friendUnfriendBtn">Unfriend</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <div className="commentDeleteModal">
-                        <div className="form">
-                            <p>Are you sure you want to unfriend this user?</p>
-                        <button type="submit" onClick={handleDelete} className="friendUnfriendConfirmBtn">Yes</button>
-                        <button type="submit" onClick={handleCancel} className="friendUnfriendConfirmBtn">Cancel</button>
-                        </div>
+                        <div className="deleteModal">
+                            <p>Unfriend this user?</p>
+                            <div className="yesNCanelBtnsWrap">
+                                <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn">Yes</button>
+                                <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn">Cancel</button>
+                            </div>
                         </div>
                     </Modal>
                 )}
