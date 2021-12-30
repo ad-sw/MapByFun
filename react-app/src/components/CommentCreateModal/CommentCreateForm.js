@@ -45,19 +45,19 @@ const CommentCreateForm = ({setShowModal}, id) => {
 
 
     return (
-        <div className='commentFormContainer'>
-            <form className='commentForm' onSubmit={handleCreate}>
+        <div className='deleteModal3'>
             <div className="errors">
                 {errors.map((error, idx) => (
                 <div key={idx}>{error.split(':')[1]}</div>
             ))}
             </div>
+            <form className='form' onSubmit={handleCreate}>
                 <textarea
-                className='commentContentInput'
+                className='commentContent'
                 placeholder='Content'
                 required
                 onChange= {(e) => setContent(e.target.value)}/>
-                <button type='submit' className="commentCreateBtn">Create Comment</button>
+                <button type='submit' id="friendUnfriendConfirmBtn2">Create</button>
             </form>
         </div>
     )

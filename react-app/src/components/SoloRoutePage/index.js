@@ -89,7 +89,7 @@ export default function RoutePage(){
                                 {sessionUser.id === route?.user_id && (
                                 <>
 
-                                <button id="friendUnfriendConfirmBtn" onClick={(e) => {
+                                <button id="EditCreateDeleteBtns" onClick={(e) => {
                                     e.preventDefault();
                                     history.push(`/routes/${route.id}/edit`);
                                     }}>

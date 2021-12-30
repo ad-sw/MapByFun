@@ -112,7 +112,7 @@ export default function RouteEditForm() {
                     value={description}
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                  <button id='friendUnfriendConfirmBtn'>Edit route</button>
+                  <button id='friendUnfriendConfirmBtn5'>Post</button>
                 </form>
                 <div className="commentInfoDiv">{commentss}</div>
             </div>

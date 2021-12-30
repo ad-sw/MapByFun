@@ -8,17 +8,16 @@ function CommentCreateModal(){
     const [showModal, setShowModal] = useState(false)
     // const {route_id} = useParams();
 
-    return (
+    return (<>
         <div className="commentCreateBtnContainer">
-        <>
-            <button onClick={() => setShowModal(true)} className="commentCreateBtn">Create Comment</button>
+            <button onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Create Comment</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CommentCreateForm setShowModal={setShowModal}/>
                 </Modal>
             )}
-        </>
         </div>
+        </>
     )
 }
 

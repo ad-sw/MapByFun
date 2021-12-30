@@ -23,14 +23,16 @@ const handleCancel = (e) => {
 return (
   <>
   <div>
-      <button type="submit" onClick={() => setShowModal(true)} className="commentDeleteModalBtn">Delete Comment</button>
+      <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
       {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <div className="commentDeleteModal">
-              <div className="form">
-                <p>Are you sure you want to delete this comment?</p>
-                <button type="submit" onClick={handleDelete} className="commentDeleteConfirmBtn">Delete</button>
-                <button type="submit" onClick={handleCancel} className="routeDeleteConfirmBtn">Cancel</button>
+            <div className="deleteModal2">
+              <div className="formModal">
+                <p>Delete this comment?</p>
+                <div className="yesNCanelBtnsWrap2">
+                <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn2">Delete</button>
+                <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Cancel</button>
+                </div>
               </div>
             </div>
           </Modal>

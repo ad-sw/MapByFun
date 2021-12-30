@@ -144,11 +144,24 @@ a{
     width: 300px;
     height: 650px;
     position: absolute;
-    top: 71px;
+    top: 73px;
     margin: 0 80px;
-    background-color: rgb(255, 255, 255, .7);
-    backdrop-filter: blur(5px);
+    /* background-color: rgb(255, 255, 255, .7); */
+    backdrop-filter: blur(7px);
     box-shadow: -5px 0px 10px -8px #9a9a9a;
+    z-index: 1;
+    border-right: 1px rgb(231, 231, 231) solid;
+}
+.routeInfoDiv::after {
+    width: 300px;
+    height: 650px;
+    background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v404-aew-01-contourtexture_2.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=ce396ed3f816d389113ab730e8e531d3');
+    position: absolute;
+    top:0;
+    z-index: -1;
+    backdrop-filter: blur(5px);
+    content: "";
+    opacity: .05;
 }
 .commentInfoDiv {
     max-height: 150px;
@@ -303,7 +316,7 @@ a{
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 3;
 }
 .dropdown-content a {
     color: black;
@@ -457,12 +470,55 @@ a{
     text-align: center;
     border-bottom: 7px solid #009CE9;
     padding: 20px 40px 30px 50px;
-    background: url('https://user-images.githubusercontent.com/86431563/147730934-d929e13b-4db7-48c3-b2e5-29121bd58527.png');
+    background: url('https://user-images.githubusercontent.com/86431563/147745332-87286859-dd53-436c-adb6-1cc33c3a314d.png');
     background-size: 110%;
     position: relative;
 }
+.deleteModal2 {
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 7px solid #009CE9;
+    padding: 20px 40px 30px 40px;
+    background: url('https://user-images.githubusercontent.com/86431563/147745332-87286859-dd53-436c-adb6-1cc33c3a314d.png');
+    background-size: 110%;
+    position: relative;
+    font-weight: 550;
+    color: rgb(71, 71, 71);
+}
+.deleteModal3 {
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    width: 210px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 7px solid #009CE9;
+    padding: 20px 30px 15px 30px;
+    background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v404-aew-01-contourtexture_2.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=ce396ed3f816d389113ab730e8e531d3');
+    background-size: 110%;
+    position: relative;
+}
+.commentContent {
+    margin-bottom: 15px;
+    height: 80px;
+    width: 200px;
+    padding: 5px;
+    resize: none;
+}
+/* .form3 {
+    display: absolute;
+} */
 .deleteModal p {
     color: rgb(71, 71, 71);
+    font-weight: 550;
 }
 #friendUnfriendConfirmBtn {
     background-color: #cacaca;
@@ -476,7 +532,57 @@ a{
 #friendUnfriendConfirmBtn:hover {
     background-color: #bbbbbb;
 }
+#friendUnfriendConfirmBtn2 {
+    background-color: #bababa;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 6.5px 3px 6.5px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn2:hover {
+    background-color: #afafaf;
+}
+#friendUnfriendConfirmBtn4 {
+    background-color: #b6b5b5;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 6.5px 3px 6.5px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn5 {
+    background-color: #bababa;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 6.5px 3px 6.5px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
+}
+#friendUnfriendConfirmBtn5:hover {
+    background-color: #afafaf;
+}
+#EditCreateDeleteBtns {
+    background-color: #cacaca;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 6.5px 3px 6.5px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
 .yesNCanelBtnsWrap {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.yesNCanelBtnsWrap2 {
     width: 100%;
     align-items: center;
     display: flex;
@@ -520,15 +626,17 @@ a{
 }
 .routesName {
     height: 25px;
-    width: 255px;
+    width: 248px;
+    padding: 0px 5px 0px 5px;
 }
 .activityDropdownMenu {
-    margin-top: 5px;
+    margin-top: 11px;
     height: 30px;
     width: 263px;
+    padding: 0px 5px 0px 5px;
 }
-textarea {
-    margin: 20px 0px;
+.routesDescription {
+    margin: 11px 0px;
     height: 300px;
     width: 240px;
     padding: 5px 10px;
