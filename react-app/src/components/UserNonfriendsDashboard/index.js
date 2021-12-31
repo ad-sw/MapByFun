@@ -13,10 +13,9 @@ export default function UserNonfriendsDashboard() {
   useEffect(() => {
       (async () => {
           await dispatch(getAllNonFriends(userId));
-          // await dispatch(getAllFriends(userId));
           setIsLoaded(true)
       })();
-  }, [dispatch, userId]);
+  }, [dispatch, userId, setIsLoaded]);
 
   const sessionUser = useSelector(state => state.session.user)
   let nonFriendList = useSelector(state => state.nonFriends)

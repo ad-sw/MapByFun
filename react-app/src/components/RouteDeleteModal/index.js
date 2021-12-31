@@ -25,7 +25,7 @@ function RouteDeleteModal({routeId}) {
 
 return (
     <div>
-        <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
+        <button type="submit" onClick={() => setShowModal(true)} id="userProfileViewLink">Delete</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <div className="deleteModal">

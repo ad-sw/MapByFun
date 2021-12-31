@@ -8,6 +8,7 @@ import '../../../src/index.css'
 
 export default function FriendBtns({user_id, friend_id}) {
     const [showModal, setShowModal] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const sessionUser = useSelector(state => state.session.user)
     const friendSession = useSelector(state => state.friends)
     const dispatch = useDispatch()
@@ -16,8 +17,9 @@ export default function FriendBtns({user_id, friend_id}) {
         (async () => {
             await dispatch(getAllNonFriends(user_id));
             await dispatch(getAllFriends(user_id));
+            setIsLoaded(true)
         })();
-    }, [dispatch, user_id]);
+    }, [dispatch, user_id, setIsLoaded]);
 
     const handleDelete = async(e) => {
         e.preventDefault();
@@ -43,7 +45,7 @@ export default function FriendBtns({user_id, friend_id}) {
             <>
             <div>
                 <button type="submit" onClick={() => setShowModal(true)} className="friendUnfriendBtn">Unfriend</button>
-                {showModal && (
+                {isLoaded && showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <div className="deleteModal">
                             <p>Unfriend this user?</p>
@@ -65,10 +67,8 @@ export default function FriendBtns({user_id, friend_id}) {
     }
 
     return (
-    <>
         <div>
             {button}
         </div>
-    </>
     );
 }

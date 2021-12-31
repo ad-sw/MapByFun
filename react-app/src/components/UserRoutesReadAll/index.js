@@ -10,7 +10,6 @@ function UserRouteReadModal() {
     const sessionUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false)
     const history = useHistory()
-    const { friendId }  = useParams();
 
     useEffect(() => {
         (async () => {
@@ -33,17 +32,17 @@ function UserRouteReadModal() {
     const test = dashRoutes?.map(route => {
         return (<>
                     <tr className="routes-table-row">
-                    <NavLink key={route.id} to={`/routes/${route.id}`}>
-                        <td className="name">{route.name}</td></NavLink>
+                    <td className="name"><NavLink key={route.id} to={`/routes/${route.id}`}>
+                        {route.name}</NavLink></td>
                         <td>{route.created_at}</td>
                         <td>{activities[route.activity_id - 1]}</td>
                         <td>{/*image to go here*/}</td>
                         <td>{route.description}</td>
                         <td>
-                            <button id="friendUnfriendConfirmBtn" onClick={(e) => {
-                                    e.preventDefault();
-                                    history.push(`/routes/${route.id}/edit`);
-                                    }}>
+                            <button id="userProfileViewLink" onClick={(e) => {
+                                e.preventDefault();
+                                history.push(`/routes/${route.id}/edit`);
+                                }}>
                             Edit
                             </button>
                             <RouteDeleteModal routeId={route.id}/>

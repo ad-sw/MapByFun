@@ -43,6 +43,11 @@ const CommentCreateForm = ({setShowModal}, id) => {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    }
+
 
     return (
         <div className='deleteModal3'>
@@ -57,7 +62,10 @@ const CommentCreateForm = ({setShowModal}, id) => {
                 placeholder='Content'
                 required
                 onChange= {(e) => setContent(e.target.value)}/>
-                <button type='submit' id="friendUnfriendConfirmBtn2">Create</button>
+                <div className="yesNCanelBtnsWrap2">
+                    <button type='submit' id="friendUnfriendConfirmBtn1">Create</button>
+                    <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn1">Cancel</button>
+                </div>
             </form>
         </div>
     )

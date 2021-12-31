@@ -56,6 +56,11 @@ const RouteCreateForm = () => {
         }
     }
 
+    const handleCancel = async (e) => {
+        await e.preventDefault();
+        await history.push(`/users/${user_id}/routes`);
+      }
+
     const activities = ['Walk',
                         'Run',
                         'Hike',
@@ -99,7 +104,10 @@ const RouteCreateForm = () => {
                     placeholder="Description"
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                    <button id="friendUnfriendConfirmBtn5">Create</button>
+                    <div className="yesNCanelBtnsWrap">
+                        <button id="friendUnfriendConfirmBtn4">Create</button>
+                        <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn4">Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>

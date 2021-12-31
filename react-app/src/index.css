@@ -257,8 +257,13 @@ a{
     color: white;
     outline: none;
     border: none;
-    padding: 6px;
+    padding: 6px 10px 6px 10px;
     border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.createRouteBtn:hover {
+    background-color: #0067a7;
 }
 #h1404 {
     margin: 3px;
@@ -327,16 +332,41 @@ a{
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: black;}
-.routes-table {
-    margin: 0 auto;
-    border: lightgray 1px solid;
-    width: 95%;
-}
+
 .routes-table-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
     padding-top: 25px;
+}
+thead {
+    margin: 0 auto;
+    clear: both;
+    height: 20px;
+    width: 100%;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+.table-header {
+    color: #f7f7f7;
+    background-color: #0076C0;
+    font-weight: 400;
+    text-align: left;
+}
+table td, table tr {
+    border: .5px solid #c2c2c2;
+}
+.routes-table-row {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 .main-splash-container {
     display: flex;
@@ -548,6 +578,19 @@ a{
 #friendUnfriendConfirmBtn2:hover {
     background-color: #afafaf;
 }
+#friendUnfriendConfirmBtn1 {
+    background-color: #c5c5c5;
+    border-radius: 2px;
+    outline: 0;
+    border: .5px solid rgb(175, 175, 175);
+    font-weight: 600;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn1:hover {
+    background-color: #bbbbbb;
+}
 #friendUnfriendConfirmBtn4 {
     background-color: #b6b5b5;
     border-radius: 2px;
@@ -569,7 +612,7 @@ a{
     text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
 }
 #friendUnfriendConfirmBtn5:hover {
-    background-color: #afafaf;
+    background-color: #a5a5a5;
 }
 #EditCreateDeleteBtns {
     background-color: #cacaca;
@@ -591,6 +634,20 @@ a{
     align-items: center;
     display: flex;
     justify-content: space-between;
+}
+#friendUnfriendConfirmBtn4 {
+    background-color: #bababa;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 40px 3px 40px;
+    cursor: pointer;
+    color: rgb(243, 243, 243);
+    font-weight: 700;
+    text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
+}
+#friendUnfriendConfirmBtn4:hover {
+    background-color: #afafaf;
 }
 .routeText {
     border: none;
@@ -659,7 +716,7 @@ a{
     position: absolute;
     cursor: pointer;
     display: flex;
-    z-index: 4;
+    z-index: 1;
 }
 #github:hover {
     opacity: 2.0;
@@ -682,4 +739,23 @@ a{
 #author {
     display: flex;
     margin: 10px;
+    color: #cccccc;
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    left: 5px;
+    bottom: 33px;
+    margin: 0;
+    padding: 0;
+}
+#userProfileViewLink {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+#userProfileViewLink:hover {
+    color: #0076C0;
+    font-style: bold;
+    text-decoration: underline #ababab solid 2px;
 }

@@ -5,7 +5,6 @@ import UserRouteReadModal from "../UserRoutesReadAll";
 import '../../../src/index.css'
 
 export default function RoutesDashboard(){
-    const dispatch = useDispatch()
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
@@ -14,7 +13,7 @@ export default function RoutesDashboard(){
         (async () => {
             setIsLoaded(true)
         })();
-    }, [dispatch, sessionUser]);
+    }, [setIsLoaded]);
 
     return (<>
         {isLoaded && (

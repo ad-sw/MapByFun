@@ -9,37 +9,44 @@ import './CommentDeleteModal.css';
 function CommentDeleteModal({commentId}) {
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  const handleDelete = (e) => {
+  useEffect(() => {
+    (async () => {
+        setIsLoaded(true)
+    })();
+  }, [setIsLoaded]);
+
+    const handleDelete = (e) => {
+      e.preventDefault();
+      dispatch(deleteComment(commentId));
+      setShowModal(false);
+  }
+  const handleCancel = (e) => {
     e.preventDefault();
-    dispatch(deleteComment(commentId));
     setShowModal(false);
-}
-const handleCancel = (e) => {
-  e.preventDefault();
-  setShowModal(false);
-}
+  }
 
-return (
-  <>
-  <div>
-      <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
-      {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <div className="deleteModal2">
-              <div className="formModal">
-                <p>Delete this comment?</p>
-                <div className="yesNCanelBtnsWrap2">
-                <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn2">Okay</button>
-                <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Cancel</button>
+  return (
+    <>
+    <div>
+        <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
+        {isLoaded && showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <div className="deleteModal2">
+                <div className="formModal">
+                  <p>Delete this comment?</p>
+                  <div className="yesNCanelBtnsWrap2">
+                  <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn2">Okay</button>
+                  <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Cancel</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Modal>
-      )}
-  </div>
-  </>
-);
+            </Modal>
+        )}
+    </div>
+    </>
+  );
 }
 
 export default CommentDeleteModal;
