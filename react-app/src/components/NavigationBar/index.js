@@ -8,11 +8,10 @@ import RouteButton from './RouteButton';
 import CommunityButton from './CommunityButton';
 import ShopButton from './ShopButton';
 import '../../../src/index.css';
-import * as sessionActions from '../../store/session';
+import AboutMe from '../AboutMe';
 
 function NavBar(){
   const [isLoaded, setIsLoaded] = useState(false)
-  const [showMenu, setShowMenu] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch()
   const history = useHistory();
@@ -68,7 +67,6 @@ function NavBar(){
         <NavLink to='/sign-up' exact={true} activeClassName='active'>
           Sign Up
         </NavLink>
-        <LogoutButton/>
       </>
     );
   }
@@ -83,6 +81,7 @@ function NavBar(){
       <div id="shopLink" activeClassName="link-active">{isLoaded && shopLinks}</div>
       <div id="logBtns" activeClassName="link-active">{isLoaded && sessionLinks}</div>
     </header>
+    <AboutMe/>
     </>
   );
 }

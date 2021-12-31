@@ -257,8 +257,13 @@ a{
     color: white;
     outline: none;
     border: none;
-    padding: 6px;
+    padding: 6px 10px 6px 10px;
     border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.createRouteBtn:hover {
+    background-color: #0067a7;
 }
 #h1404 {
     margin: 3px;
@@ -327,16 +332,41 @@ a{
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: black;}
-.routes-table {
-    margin: 0 auto;
-    border: lightgray 1px solid;
-    width: 95%;
-}
+
 .routes-table-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
     padding-top: 25px;
+}
+thead {
+    margin: 0 auto;
+    clear: both;
+    height: 20px;
+    width: 100%;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+.table-header {
+    color: #f7f7f7;
+    background-color: #0076C0;
+    font-weight: 400;
+    text-align: left;
+}
+table td, table tr {
+    border: .5px solid #c2c2c2;
+}
+.routes-table-row {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 .main-splash-container {
     display: flex;
@@ -382,7 +412,7 @@ a{
     top: 5%;
     letter-spacing: 2px;
     z-index: 2;
-    margin-left: 860px;
+    margin-left: 855px;
     text-align: right;
 }
 .home-hr {
@@ -400,10 +430,12 @@ a{
     display: inline-block;
     color: #F9F9F9;
     -webkit-text-stroke: .85px #c2c2c2;
-    font-size: 40px;
+    font-size: 45px;
+    font-style: bold;
     font-weight: 900;
     z-index: 1;
-    margin-right: -14px;
+    margin-right: -20px;
+    text-shadow: 0px 0px 3px #b8b8b8, 0 0 2px #dfdfdf, 0 0 3px #dfdfdf;
 }
 .homepage-text-container {
     width: 300px;
@@ -432,20 +464,22 @@ a{
     border-radius: 3px;
     letter-spacing: 1px;
     font-style: 'Dawning of a New Day';
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
+    font-size: 15px;
     color: white;
+    font-style: bold;
     cursor: pointer;
 }
 .home-sign-up:hover {
     background-color: #ababab;
 }
 .login-q {
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
     margin-right: 20px;
     font-weight: 800;
-    -webkit-text-stroke: .8px #292929;
+    -webkit-text-stroke: .8px #252525;
     text-shadow: 1px 1px 4px #B5B5B5, 0 0 25px #B5B5B5, 0 0 5px #B5B5B5;
 }
 .home-login {
@@ -469,7 +503,7 @@ a{
     margin-right: auto;
     text-align: center;
     border-bottom: 7px solid #009CE9;
-    padding: 20px 40px 30px 50px;
+    padding: 17px 40px 20px 40px;
     background: url('https://user-images.githubusercontent.com/86431563/147745332-87286859-dd53-436c-adb6-1cc33c3a314d.png');
     background-size: 110%;
     position: relative;
@@ -544,6 +578,19 @@ a{
 #friendUnfriendConfirmBtn2:hover {
     background-color: #afafaf;
 }
+#friendUnfriendConfirmBtn1 {
+    background-color: #c5c5c5;
+    border-radius: 2px;
+    outline: 0;
+    border: .5px solid rgb(175, 175, 175);
+    font-weight: 600;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+}
+#friendUnfriendConfirmBtn1:hover {
+    background-color: #bbbbbb;
+}
 #friendUnfriendConfirmBtn4 {
     background-color: #b6b5b5;
     border-radius: 2px;
@@ -565,7 +612,7 @@ a{
     text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
 }
 #friendUnfriendConfirmBtn5:hover {
-    background-color: #afafaf;
+    background-color: #a5a5a5;
 }
 #EditCreateDeleteBtns {
     background-color: #cacaca;
@@ -587,6 +634,20 @@ a{
     align-items: center;
     display: flex;
     justify-content: space-between;
+}
+#friendUnfriendConfirmBtn4 {
+    background-color: #bababa;
+    border-radius: 2px;
+    border: 0;
+    outline: 0;
+    padding: 3px 40px 3px 40px;
+    cursor: pointer;
+    color: rgb(243, 243, 243);
+    font-weight: 700;
+    text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
+}
+#friendUnfriendConfirmBtn4:hover {
+    background-color: #afafaf;
 }
 .routeText {
     border: none;
@@ -644,4 +705,57 @@ a{
 }
 .routesDesc {
     height: 300px;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    padding-right: 50px;
+    font-size: 19px;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    z-index: 1;
+}
+#github:hover {
+    opacity: 2.0;
+}
+#github {
+    opacity: 0.8;
+}
+#linkedin:hover {
+    opacity: 2.0;
+}
+#linkedin {
+    opacity: 0.8;
+}
+.linkss {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+#author {
+    display: flex;
+    margin: 10px;
+    color: #cccccc;
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    left: 5px;
+    bottom: 33px;
+    margin: 0;
+    padding: 0;
+}
+#userProfileViewLink {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+#userProfileViewLink:hover {
+    color: #0076C0;
+    font-style: bold;
+    text-decoration: underline #ababab solid 2px;
 }

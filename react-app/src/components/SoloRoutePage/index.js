@@ -53,7 +53,7 @@ export default function RoutePage(){
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        {comment?.content}
+        <div>{comment?.content}</div>
         {sessionUser?.id === route?.user_id && (
         <>
         <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
@@ -95,12 +95,12 @@ export default function RoutePage(){
                                     }}>
                                     Edit Route
                                 </button>
-                                    <RouteDeleteModal routeId={routeId}/>
+                                    {/* <RouteDeleteModal routeId={routeId}/> */}
                                     <CommentCreateModal routeId={routeId}/>
                                     </>)}
                             </div>
                             <div className="commentInfoDiv">
-                                {commentss}
+                                <div>{commentss}</div>
                                 {route?.user_id in friendSession &&
                                 (<CommentCreateModal routeId={routeId}/>)}
                             </div>

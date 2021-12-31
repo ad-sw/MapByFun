@@ -40,6 +40,11 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    }
+
     return (
         <div className='deleteModal3'>
             <div className="errors">
@@ -54,7 +59,10 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
                 required
                 value={content}
                 onChange= {(e) => setContent(e.target.value)}/>
-                <button type='submit' id="friendUnfriendConfirmBtn">Post</button>
+                <div className="yesNCanelBtnsWrap2">
+                    <button type='submit' id="friendUnfriendConfirmBtn1">Post</button>
+                    <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn1">Cancel</button>
+                </div>
             </form>
         </div>
     )

@@ -25,14 +25,14 @@ function RouteDeleteModal({routeId}) {
 
 return (
     <div>
-        <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
+        <button type="submit" onClick={() => setShowModal(true)} id="userProfileViewLink">Delete</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <div className="deleteModal">
                 <div className="form">
                   <p>Delete this route?</p>
                   <div className="yesNCanelBtnsWrap">
-                  <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn">Okay</button>
+                  <button type="submit" onClick={handleDelete} id="friendUnfriendConfirmBtn">Yes</button>
                   <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn">Cancel</button>
                   </div>
                 </div>

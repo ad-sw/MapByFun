@@ -9,6 +9,8 @@ function User() {
   const { userId }  = useParams();
   const user_id = useSelector(state => state.session.user.id);
   const [isLoaded, setIsLoaded] = useState(false)
+  const profileUser = useSelector(state => state.friends[userId])
+  console.log(profileUser, 'test')
 
   useEffect(() => {
   if (!userId) {
@@ -28,9 +30,8 @@ function User() {
 
   return (
         <>{isLoaded && (
-            <div className="friendDashboardContainer">
-              <h1>User Profile</h1>
-              <div>{user.first_name}&nbsp;{user.last_name}</div>
+            <div className="routes-wrapper">
+              <h3>{user.first_name}&nbsp;{user.last_name}</h3>
               <div><i>Member Since</i> {user.created_at}</div>
               <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
               <UserFriendsDashboard/>

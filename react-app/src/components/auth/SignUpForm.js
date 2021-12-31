@@ -25,14 +25,17 @@ const SignUpForm = () => {
     } else if(last_name.length < 3) {
       error.push('. : Please enter a last name longer than 3 characters.')
     }
+    if(password !== repeatPassword) {
+      error.push('. : Please enter matching passwords.')
+    }
     if(email.length > 255) {
         error.push('. : Please enter a shorter email than 255 characters.')
     }
     if(password.length > 255) {
       error.push('. : Please enter a shorter password than 255 characters.')
-  } else if(password.length < 5) {
+    } else if(password.length < 5) {
     error.push('. : Please enter a password longer than 5 characters.')
-  }
+    }
     return error;
 }
 
