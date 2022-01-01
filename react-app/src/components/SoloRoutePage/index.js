@@ -66,15 +66,16 @@ export default function RoutePage(){
         </>)}
     </>
     )
-    const activities = ['Walk',
-    'Run',
-    'Hike',
-    'Sport / Other Activity',
-    'Winter Sport / Activity',
-    'Bike Ride',
-    'Social',
-    'Volunteer',
-    'Food']
+
+    const activities = ['Walk', 'Run', 'Hike', 'Sport / Other Activity',
+    'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
+
+    let event = new Date(route?.created_at); //fri dec 31 2021
+    let date = event.toLocaleDateString()
+    // let date = JSON.stringify(event)
+    // date = date.slice(1,11).split('-')
+    // date.push(date.shift())
+    // date = date.join(',').replace(/\,/g, '/')
 
     return (<>
             {isLoaded && (<>
@@ -85,7 +86,7 @@ export default function RoutePage(){
                                 <h2 id="routeName">{route.name}</h2>
                                 <p id="routeActivity">{activities[route.activity_id - 1]}</p>
                                 <p id="routeDescription">{route.description}</p>
-                                <p id="routeDate">{route.created_at}</p>
+                                <p id="routeDate">{date}</p>
                                 {sessionUser.id === route?.user_id && (
                                 <>
 

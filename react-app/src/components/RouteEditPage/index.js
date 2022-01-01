@@ -100,14 +100,15 @@ export default function RouteEditForm() {
                 ))}
                 </div>
                 <form className="routeText" onSubmit={handleSubmit}>
+                  <b>Name</b>
                   <input
                     type='text'
-                    placeholder='Name'
+                    placeholder='Route Name'
                     value={name}
                     className="routesName"
                     onChange={e => setName(e.target.value)}/>
-                  <select className='activityDropdownMenu' required value={activity_id}/*value={route.activity_id}*/ onChange={(e) => setActivityId(e.target.value)}>
-                      {/* <option required defaultValue={'select'}>select an activity:</option> */}
+                  <b>Activity</b>
+                  <select className='activityDropdownMenu' required value={activity_id} onChange={(e) => setActivityId(e.target.value)}>
                       <option value={activitiesAndIds[0][0]}>{activitiesAndIds[0][1]}</option>
                       <option value={activitiesAndIds[1][0]}>{activitiesAndIds[1][1]}</option>
                       <option value={activitiesAndIds[2][0]}>{activitiesAndIds[2][1]}</option>
@@ -118,9 +119,10 @@ export default function RouteEditForm() {
                       <option value={activitiesAndIds[7][0]}>{activitiesAndIds[7][1]}</option>
                       <option value={activitiesAndIds[8][0]}>{activitiesAndIds[8][1]}</option>
                   </select>
+                  <b>Describe</b>
                   <textarea
                     className='routesDescription'
-                    placeholder="Description"
+                    placeholder="Route Description"
                     value={description}
                     required
                     onChange={(e) => setDescription(e.target.value)}/>

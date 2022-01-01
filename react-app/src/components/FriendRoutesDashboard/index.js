@@ -12,8 +12,7 @@ export default function UserFriendsDashboard() {
     let friendId = userId
     const user_Id = useSelector(state => state.session.user.id)
     const [isLoaded, setIsLoaded] = useState(false)
-    const profileUser = useSelector(state => state.friends[userId])
-    console.log(profileUser, 'test')
+    // const profileUser = useSelector(state => state.friends[userId])
 
     useEffect(() => {
         (async () => {
@@ -23,12 +22,7 @@ export default function UserFriendsDashboard() {
 
     return (<>
         {isLoaded && (
-            <div className="outes-wrapper">
-                <h3>User Dashboard Routes</h3>
                 <FriendRouteReadModal userId={user_Id} friendId={friendId}/>
-                {/* <div className="routes-wrapper"> */}
-                {/* </div> */}
-            </div>
         )}
     </>
     )

@@ -61,10 +61,10 @@ function NavBar(){
   if (!sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to='/login' exact={true} activeClassName='active'>
+        <NavLink className="logBtns1" to='/login' exact={true} activeClassName='active1'>
           Login
         </NavLink>
-        <NavLink to='/sign-up' exact={true} activeClassName='active'>
+        <NavLink className="logBtns1" to='/sign-up' exact={true} activeClassName='active1'>
           Sign Up
         </NavLink>
       </>
@@ -79,7 +79,7 @@ function NavBar(){
       <div id="routeLink" activeClassName="link-active">{isLoaded && routeLinks}</div>
       <div id="communityLink" activeClassName="link-active">{isLoaded && communityLinks}</div>
       <div id="shopLink" activeClassName="link-active">{isLoaded && shopLinks}</div>
-      <div id="logBtns" activeClassName="link-active">{isLoaded && sessionLinks}</div>
+      <div className="logBtns" activeClassName="link-active">{isLoaded && sessionLinks}</div>
     </header>
     <AboutMe/>
     </>
