@@ -60,7 +60,7 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
                 value={content}
                 onChange= {(e) => setContent(e.target.value)}/>
                 <div className="yesNCanelBtnsWrap2">
-                    <button type='submit' id="friendUnfriendConfirmBtn1">Post</button>
+                    <button type='submit' id="friendUnfriendConfirmBtn1">Update</button>
                     <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn1">Cancel</button>
                 </div>
             </form>

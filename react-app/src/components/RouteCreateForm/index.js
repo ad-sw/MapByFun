@@ -61,15 +61,8 @@ const RouteCreateForm = () => {
         await history.push(`/users/${user_id}/routes`);
       }
 
-    const activities = ['Walk',
-                        'Run',
-                        'Hike',
-                        'Sport / Other Activity',
-                        'Winter Sport / Activity',
-                        'Bike Ride',
-                        'Social',
-                        'Volunteer',
-                        'Food']
+      const activitiesAndIds = [[1, 'Walk'], [2, "Run"], [3, 'Hike'], [4, 'Sport / Other Activity'],
+      [5, 'Winter Sport / Activity'], [6, 'Bike Ride'], [7, 'Social'], [8, 'Volunteer'], [9, 'Food']]
 
     return (<>{isLoaded && (
         <div className="routePage">
@@ -81,27 +74,29 @@ const RouteCreateForm = () => {
                 ))}
                 </div>
                 <form className='routeText' onSubmit={handleCreate}>
+                    <b>Name</b>
                     <input
                     className='routesName'
-                    placeholder='Name'
+                    placeholder='Route Name'
                     required
                     value= {name}
                     onChange= {(e) => setName(e.target.value)}/>
+                    <b>Activity</b>
                     <select required className='activityDropdownMenu' onChange={(e) => setActivityId(e.target.value)}>
-                        {/* <option defaultValue={'select'}>select an activity:</option> */}
-                        <option value={1}>{activities[0]}</option>
-                        <option value={2}>{activities[1]}</option>
-                        <option value={3}>{activities[2]}</option>
-                        <option value={4}>{activities[3]}</option>
-                        <option value={5}>{activities[4]}</option>
-                        <option value={6}>{activities[5]}</option>
-                        <option value={7}>{activities[6]}</option>
-                        <option value={8}>{activities[7]}</option>
-                        <option value={9}>{activities[8]}</option>
+                        <option value={activitiesAndIds[0][0]}>{activitiesAndIds[0][1]}</option>
+                        <option value={activitiesAndIds[1][0]}>{activitiesAndIds[1][1]}</option>
+                        <option value={activitiesAndIds[2][0]}>{activitiesAndIds[2][1]}</option>
+                        <option value={activitiesAndIds[3][0]}>{activitiesAndIds[3][1]}</option>
+                        <option value={activitiesAndIds[4][0]}>{activitiesAndIds[4][1]}</option>
+                        <option value={activitiesAndIds[5][0]}>{activitiesAndIds[5][1]}</option>
+                        <option value={activitiesAndIds[6][0]}>{activitiesAndIds[6][1]}</option>
+                        <option value={activitiesAndIds[7][0]}>{activitiesAndIds[7][1]}</option>
+                        <option value={activitiesAndIds[8][0]}>{activitiesAndIds[8][1]}</option>
                     </select>
+                    <b>Describe</b>
                     <textarea
                     className='routesDescription'
-                    placeholder="Description"
+                    placeholder="Route Description"
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
                     <div className="yesNCanelBtnsWrap">

@@ -4,7 +4,7 @@ const AboutMe = () =>{
     return(
     <div className='footer'>
         <div className="AboutMe">
-        <h4 id="author">Author:</h4>
+        <h4 className="author">Author:</h4>
             <div className="linkss">
             <a id='linkedin' href="https://linkedin.com/in/ad-sw" alt="LinkedIn">
                 <img src="https://user-images.githubusercontent.com/86431563/147783547-d6a56001-b07b-4450-876f-dcdddaf4d5fc.png" alt="LinkedIn" width="30" height="30"></img>

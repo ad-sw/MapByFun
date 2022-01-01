@@ -31,6 +31,12 @@ function ProfileButton({ user }) {
     history.push('/');
   };
 
+  let event = new Date(user.created_at);
+  let date = JSON.stringify(event)
+  date = date.slice(1,11).split('-')
+  date.push(date.shift())
+  date = date.join(',').replace(/\,/g, '/')
+
   return (
     <>
       <button onClick={openMenu} className="profile-button">
@@ -39,7 +45,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown" id="style">
           <li>{user.first_name}&nbsp;{user.last_name}</li>
-          <li><i>Member Since</i> {user.created_at}</li>
+          <li><i>Member Since</i> {date}</li>
           <li>
             <button onClick={logout}>Log Out</button>
           </li>

@@ -50,7 +50,7 @@ a{
     width: 40px;
     border-radius: 25px;
     outline: 0;
-    border: 1px solid rgb(208, 208, 208);
+    border: 2px solid rgb(220, 219, 219);
     cursor: pointer;
 }
 .profile-dropdown {
@@ -91,23 +91,26 @@ a{
 .friendDashboardContainer {
     text-align: center;
     justify-content: center;
-    width: 50%;
+    width: 700px;
     margin: 0 auto;
     align-items: center;
 }
 .titleTry {
     text-align: left;
     justify-content: center;
-    width: 45%;
+    width: 670px;
     margin: 20px auto 20px auto;
     align-items: center;
 }
 .testAlign {
     margin-bottom: 0;
     font-weight: 600;
+    width: 640px;
+    margin-left: 15px;
 }
 .testAlign2 {
     margin-bottom: 50;
+    width: 670px;
     color: grey;
 }
 .RouteEditBtn {
@@ -147,7 +150,7 @@ a{
     top: 73px;
     margin: 0 80px;
     /* background-color: rgb(255, 255, 255, .7); */
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(9px);
     box-shadow: -5px 0px 10px -8px #9a9a9a;
     z-index: 1;
     border-right: 1px rgb(231, 231, 231) solid;
@@ -159,7 +162,7 @@ a{
     position: absolute;
     top:0;
     z-index: -1;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
     content: "";
     opacity: .05;
 }
@@ -172,6 +175,17 @@ a{
     bottom: 0;
     position: absolute;
 }
+.logBtns {
+    width: 105px;
+    justify-content: space-between;
+    display: flex;
+}
+.logBtns a {
+    color: #696969;
+}
+.logBtns1:hover, .logBtns1:active, .logBtns2:active, .active1, .active1 {
+    border-bottom: 2px solid #009CE9;
+}
 .fa-ellipsis-v {
     cursor: pointer;
     right: 35px;
@@ -182,21 +196,27 @@ a{
 .friendDashboardContainer {
     grid-template-columns: repeat(auto-fill, 350px);
     display: grid;
-    align-content: flex-start;
-    justify-content: space-evenly;
+    /* align-content: flex-start; */
     margin: 0 auto;
-    text-align: center;
 }
 .friendCard {
     padding: 10px;
-    margin: 0px auto 20px auto;
+    margin-bottom: 15px;
+    margin: auto auto 15px auto;
     background-color: #FFFFFF;
     outline: 1px solid #DEE1E7;
     align-items: center;
-    width: 320px;
+    width: 310px;
     height: 67.5px;
-    justify-content: center;
+    text-align: center;
     display: inline-block;
+    /* margin: auto; */
+}
+.friendCard:hover {
+    /* z-index: -1; */
+    background: url('https://user-images.githubusercontent.com/86431563/147842027-1e8850a3-ad48-4085-a7ff-260277848639.png');
+    background-size: 100%;
+    background-repeat: none;
 }
 .friendContent {
     width: 60px;
@@ -204,12 +224,17 @@ a{
     background-color: rgb(175, 175, 175);
     margin-right: 10px;
     border-radius: 30px;
+    cursor: auto;
 }
 .full-name-container {
     padding-right: 5px;
 }
 .fullName {
     top: 50%;
+}
+.fullName:hover {
+    text-decoration: underline .7px solid grey;
+    color: #00446e;
 }
 .soMany {
     display: flex;
@@ -233,6 +258,10 @@ a{
     text-align: center;
     cursor: pointer;
 }
+.friendUnfriendBtn:hover {
+    background-color: #d5d5d5;
+    color: rgb(91, 91, 91);
+}
 .friendUnfriendBtn a {
     width: 74px;
     height: 35px;
@@ -246,8 +275,35 @@ a{
     cursor: pointer;
 }
 .routes-wrapper {
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
+    align-items: center;
+}
+.userProfileInfo {
+    /* grid-template-columns: repeat(auto-fill, 350px);
+    display: grid;
+    width: 500px; */
+    width: 270px;
+    /* flex-direction: column; */
+    margin: 0 auto;
+    /* display: inline-block; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.userPic {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(175, 175, 175);
+    border-radius: 40px;
+    display: flex;
+    position: relative;
+    opacity: .5;
+    border: 1px rgb(140, 140, 140) solid;
+    /* float: right; */
+    /* right: 0; */
+    /* position: absolute; */
 }
 .createRouteBtn {
     margin-right: 0;
@@ -333,9 +389,13 @@ a{
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: black;}
 
+.privacyIcon {
+    cursor: help;
+}
 .routes-table-container {
     width: 100%;
     padding-top: 25px;
+    color: rgb(69, 69, 69);
 }
 thead {
     margin: 0 auto;
@@ -343,17 +403,31 @@ thead {
     height: 20px;
     width: 100%;
 }
-tr:nth-child(even) {background-color: #f2f2f2;}
-
+tr:nth-child(even) {background-color: #f0f0f0;}
 th, td {
     padding: 15px;
     text-align: left;
+}
+#nameColor a {
+    color: #0e6093 !important;
+}
+.name a:hover {
+    color: #0076C0;
+    text-decoration: underline #ababab solid 2px;
+}
+.td-name a:hover {
+    color: #0076C0;
+    text-decoration: underline #ababab solid 2px;
+}
+td a, td button {
+    color: rgb(69, 69, 69);
 }
 .table-header {
     color: #f7f7f7;
     background-color: #0076C0;
     font-weight: 400;
     text-align: left;
+    border: .2px solid #2994d6;
 }
 table td, table tr {
     border: .5px solid #c2c2c2;
@@ -394,14 +468,14 @@ table {
     background-color: white;
     opacity: 0.6;
 }
-.artistName a {
+.artistName {
     color: #d6d6d6;
     cursor: pointer;
     /* padding-top: 15px;
     margin-top: 15px; */
     bottom: 0;
     /* left: 47%; */
-    z-index: -1;
+    z-index: 2;
     display: flex;
     justify-content: center;
 }
@@ -636,25 +710,25 @@ table {
     justify-content: space-between;
 }
 #friendUnfriendConfirmBtn4 {
-    background-color: #bababa;
+    background-color: #cac7c7;
     border-radius: 2px;
-    border: 0;
+    border: 1px #bababa solid;
     outline: 0;
     padding: 3px 40px 3px 40px;
     cursor: pointer;
     color: rgb(243, 243, 243);
     font-weight: 700;
-    text-shadow: 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147), 0 0 1px rgb(147, 147, 147);
+    text-shadow: 0 0 1px rgb(132, 132, 132), 0 0 1px rgb(132, 132, 132), 0 0 1px rgb(132, 132, 132), 0 0 1px rgb(132, 132, 132);
 }
 #friendUnfriendConfirmBtn4:hover {
-    background-color: #afafaf;
+    background-color: #bdbaba;
 }
 .routeText {
     border: none;
     position: relative;
     letter-spacing: .5px;
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     padding: 10px 12px 20px 12px;
     display: grid;
     /* align-items: center; */
@@ -671,6 +745,8 @@ table {
     padding-left: 10px;
     align-items: left;
     position: absolute;
+    color: rgb(171, 171, 171);
+    font-size: 12px;
     /* height: 400px; */
     /* margin-left: 8px; */
 }
@@ -688,16 +764,17 @@ table {
 .routesName {
     height: 25px;
     width: 248px;
+    margin: 1px 0px 11px 0px;
     padding: 0px 5px 0px 5px;
 }
 .activityDropdownMenu {
-    margin-top: 11px;
+    margin: 1px 0px 11px 0px;
     height: 30px;
     width: 263px;
     padding: 0px 5px 0px 5px;
 }
 .routesDescription {
-    margin: 11px 0px;
+    margin: 1px 0px 11px 0px;
     height: 300px;
     width: 240px;
     padding: 5px 10px;
@@ -718,44 +795,51 @@ table {
     display: flex;
     z-index: 1;
 }
-#github:hover {
+/* #github:hover {
     opacity: 2.0;
 }
 #github {
-    opacity: 0.8;
+    opacity: 4.0;
 }
 #linkedin:hover {
     opacity: 2.0;
 }
 #linkedin {
-    opacity: 0.8;
+    opacity: 4.0;
+} */
+.AboutMe {
+    height: 55px;
+    display: grid;
+    width: 64px;
+    padding: 5px;
+    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px; */
+    background-color: rgb(236, 236, 236);
+    border: 2px rgb(220, 220, 220) solid;
 }
 .linkss {
     display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
 }
-#author {
+.author {
     display: flex;
-    margin: 10px;
+    margin: 1px 0px 2px 0px;
     color: #cccccc;
     font-size: 18px;
     font-weight: 500;
-    position: absolute;
-    left: 5px;
-    bottom: 33px;
-    margin: 0;
     padding: 0;
 }
 #userProfileViewLink {
     border: none;
+    font-size: 12px;
     background-color: transparent;
     outline: none;
     cursor: pointer;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    color: rgb(23, 111, 165) !important;
 }
 #userProfileViewLink:hover {
     color: #0076C0;
-    font-style: bold;
     text-decoration: underline #ababab solid 2px;
 }
