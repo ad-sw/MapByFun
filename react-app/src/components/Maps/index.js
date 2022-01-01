@@ -24,7 +24,7 @@ const MapContainer = ({ zoom }) => {
 
 
   return (
-    <Maps apiKey={key} zoom={7}/>
+    <Maps className="map" apiKey={key} zoom={7}/>
   );
 };
 

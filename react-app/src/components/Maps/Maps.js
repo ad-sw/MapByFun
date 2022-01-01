@@ -22,6 +22,7 @@ const Maps = ({ apiKey, zoom }) => {
     <>
       {isLoaded && (
         <GoogleMap
+          className="map"
           mapContainerStyle={containerStyle}
           center={center}
           zoom={7}

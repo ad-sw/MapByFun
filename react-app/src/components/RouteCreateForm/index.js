@@ -66,7 +66,7 @@ const RouteCreateForm = () => {
 
     return (<>{isLoaded && (
         <div className="routePage">
-            <div className="map"><MapContainer/></div>
+            <div className="map"><MapContainer className="map"/></div>
             <div className='routeInfoDiv'>
                 <div className="errors">
                     {errors.map((error, idx) => (

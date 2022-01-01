@@ -83,7 +83,7 @@ export default function RouteEditForm() {
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-      <div className="commentInfoDiv">{comment?.content}</div>
+      <div className="editFormCommentsView">{comment?.content}</div>
     </>
     )
 
@@ -91,8 +91,8 @@ export default function RouteEditForm() {
     [5, 'Winter Sport / Activity'], [6, 'Bike Ride'], [7, 'Social'], [8, 'Volunteer'], [9, 'Food']]
 
     return (<> {isLoaded && (
-          <div className='testttt'>
-            <div className="map"><MapContainer/></div>
+          <div className='routePage'>
+            <div className="map"><MapContainer className="map"/></div>
             <div className='routeInfoDiv'>
                 <div className="errors">
                     {errors.map((error, idx) => (
