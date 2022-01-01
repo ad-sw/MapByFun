@@ -53,7 +53,7 @@ export default function RoutePage(){
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        <div>{comment?.content}</div>
+        <div className="editFormCommentsView">{comment?.content}</div>
         {sessionUser?.id === route?.user_id && (
         <>
         <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
@@ -71,40 +71,53 @@ export default function RoutePage(){
     'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
 
     let event = new Date(route?.created_at); //fri dec 31 2021
-    let date = event.toLocaleDateString()
+    let date = event.toLocaleDateString().slice(0,6) + event.toLocaleDateString().slice(8,10)
     // let date = JSON.stringify(event)
     // date = date.slice(1,11).split('-')
     // date.push(date.shift())
     // date = date.join(',').replace(/\,/g, '/')
-
     return (<>
             {isLoaded && (<>
                 <div key={route?.id}  className="routePage">
-                    <div className="map"><MapContainer/></div>
+                    <div className="map"><MapContainer className="map"/></div>
+                        {/* <div className="routeInfoContainer"> */}
                         <div className="routeInfoDiv">
-                            <div className="routeTextt">
-                                <h2 id="routeName">{route.name}</h2>
-                                <p id="routeActivity">{activities[route.activity_id - 1]}</p>
-                                <p id="routeDescription">{route.description}</p>
-                                <p id="routeDate">{date}</p>
+                        <div id='routeLabel'>Route Description</div>
+                            <div id="routeTextt">
+                                <div id="routeName">{route.name}</div>
+                                Activity
+                                <div id="routeActivity">{activities[route.activity_id - 1]}</div>
+                                Description
+                                <div id="routeDescription">{route.description}</div>
+                                <div id="dateProf">Created&nbsp;
+                                    <div id="routeDate">{date}</div></div>
+                                <div id="descProf">
                                 {sessionUser.id === route?.user_id && (
                                 <>
-
                                 <button id="EditCreateDeleteBtns" onClick={(e) => {
                                     e.preventDefault();
                                     history.push(`/routes/${route.id}/edit`);
                                     }}>
                                     Edit Route
                                 </button>
-                                    {/* <RouteDeleteModal routeId={routeId}/> */}
-                                    <CommentCreateModal routeId={routeId}/>
-                                    </>)}
+                                </>
+                                )}</div>
+                            </div>
+                            <div id="commentBtn">
+                            {sessionUser.id === route?.user_id && (
+                                <>
+                            <CommentCreateModal routeId={routeId}/>
+                            </>
+                                )}
+                            </div>
+                            <div id='commentLabel'>Comments
                             </div>
                             <div className="commentInfoDiv">
                                 <div>{commentss}</div>
                                 {route?.user_id in friendSession &&
                                 (<CommentCreateModal routeId={routeId}/>)}
                             </div>
+                        {/* </div> */}
                         </div>
                 </div>
                 </>

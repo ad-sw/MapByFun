@@ -38,7 +38,7 @@ export default function HomePage(){
                 <span className='text-info'>Map out and share with</span>
                 <span className='text-info'>friends. Discover local</span>
                 <span className='text-info'>events around you.</span>
-                <NavLink to='/sign-up' className='home-sign-up'><b>Sign Up</b></NavLink>
+                <NavLink to='/sign-up' className='home-sign-up'><b><i>Sign Up</i></b></NavLink>
                 <div className='home-login-container'>
                     <span className='login-q'>Already a member?</span>
                     <NavLink to='/login' className='home-login'>LOG IN</NavLink>

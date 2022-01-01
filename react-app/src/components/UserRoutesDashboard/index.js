@@ -24,7 +24,7 @@ export default function RoutesDashboard(){
                     <button className="createRouteBtn" onClick={(e) => {
                         e.preventDefault();
                         history.push('/routes/new');
-                        }}>Create Route</button>
+                        }}>Create a Route</button>
                 <hr></hr>
                     <center><UserRouteReadModal userId={sessionUser?.id}/></center>
                 </div>
