@@ -45,21 +45,22 @@ export default function FriendRouteReadModal({userId, friendId}) {
                 <td>{'n/a'}</td>
                 <td>
                 {!(route?.user_id in friendSession) && ('n/a')}
-                    {route?.user_id in friendSession &&
-                    <button id="userProfileViewLink" onClick={(e) => {
-                        e.preventDefault();
-                        history.push(`/routes/${route.id}`);
-                        }}>
-                    View
-                    </button>}
+                {route?.user_id in friendSession &&
+                <button id="userProfileViewLink" onClick={(e) => {
+                    e.preventDefault();
+                    history.push(`/routes/${route.id}`);
+                    }}>
+                View
+                </button>}
                 </td>
             </tr>
             </>
             )
         })
 
-    return (<>{isLoaded && (
+    return (<>{isLoaded && (<>
         <div className='routes-table-container'>
+            <div className="tableBodyScroll">
             <table className='routes-table'>
             <thead>
                 <tr>
@@ -71,11 +72,13 @@ export default function FriendRouteReadModal({userId, friendId}) {
                 <th className='table-header'>Options</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="tableBodyScroll">
                 {test}
             </tbody>
             </table>
+            </div>
         </div>
+        </>
         )}
     </>
     );

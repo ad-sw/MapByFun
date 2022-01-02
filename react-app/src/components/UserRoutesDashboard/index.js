@@ -25,7 +25,19 @@ export default function RoutesDashboard(){
                         e.preventDefault();
                         history.push('/routes/new');
                         }}>Create a Route</button>
-                <hr></hr>
+                <hr id="testHr"></hr>
+                <table className='routes'>
+            <thead>
+                <tr>
+                <th className='tt'>Route Name</th>
+                <th className='tt'>Created</th>
+                <th className='tt'>Activity</th>
+                <th className='tt'>Privacy</th>
+                <th className='tt'>Distance</th>
+                <th className='tt'>Options</th>
+                </tr>
+            </thead>
+        </table>
                     <center><UserRouteReadModal userId={sessionUser?.id}/></center>
                 </div>
             </>

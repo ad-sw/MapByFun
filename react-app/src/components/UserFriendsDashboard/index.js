@@ -34,7 +34,7 @@ function UserFriendsDashboard() {
   })
 
   return (<>{isLoaded && (
-          <div>
+          <div className="topoBackground">
             <div className="friendLinks">
               <NavLink exact to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink  to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;

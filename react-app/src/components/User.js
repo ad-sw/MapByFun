@@ -42,6 +42,7 @@ function User() {
   return (
         <>{isLoaded && (
           <>
+          <div className="divCont">
             <div className="friendLinks">
               <NavLink to={`/users/${sessionUser.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${sessionUser.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
@@ -56,7 +57,20 @@ function User() {
                 </div>
                 <div className="userPic"></div>
               </div>
+              <div id="te">
+                <thead>
+                <tr>
+                <th className='ttt'>Route Name</th>
+                <th className='ttt'>Created</th>
+                <th className='ttt'>Activity</th>
+                <th className='ttt'>Privacy</th>
+                <th className='ttt'>Distance</th>
+                <th className='ttt'>Options</th>
+                </tr>
+              </thead>
+            </div>
               <UserFriendsDashboard/>
+            </div>
             </div>
             </>
           )}

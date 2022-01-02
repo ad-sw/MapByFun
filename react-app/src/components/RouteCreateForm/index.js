@@ -93,7 +93,7 @@ const RouteCreateForm = () => {
                         <option value={activitiesAndIds[7][0]}>{activitiesAndIds[7][1]}</option>
                         <option value={activitiesAndIds[8][0]}>{activitiesAndIds[8][1]}</option>
                     </select>
-                    <b>Describe</b>
+                    <b>Description</b>
                     <textarea
                     className='routesDescription'
                     placeholder="Route Description"

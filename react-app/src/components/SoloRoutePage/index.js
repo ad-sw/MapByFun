@@ -53,7 +53,7 @@ export default function RoutePage(){
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        <div className="editFormCommentsView">{comment?.content}</div>
+        <div className="editFormCommentsView"><div className='tess'>{comment?.content}</div></div>
         {sessionUser?.id === route?.user_id && (
         <>
         <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
@@ -82,13 +82,13 @@ export default function RoutePage(){
                     <div className="map"><MapContainer className="map"/></div>
                         {/* <div className="routeInfoContainer"> */}
                         <div className="routeInfoDiv">
-                        <div id='routeLabel'>Route Description</div>
+                        <div id='routeLabel'>Route Details</div>
                             <div id="routeTextt">
                                 <div id="routeName">{route.name}</div>
                                 Activity
                                 <div id="routeActivity">{activities[route.activity_id - 1]}</div>
                                 Description
-                                <div id="routeDescription">{route.description}</div>
+                                <div id="routeDescription"><div className="tes">{route.description}</div></div>
                                 <div id="dateProf">Created&nbsp;
                                     <div id="routeDate">{date}</div></div>
                                 <div id="descProf">
@@ -109,15 +109,13 @@ export default function RoutePage(){
                             <CommentCreateModal routeId={routeId}/>
                             </>
                                 )}
+                            {route?.user_id in friendSession &&
+                            (<CommentCreateModal routeId={routeId}/>)}
                             </div>
-                            <div id='commentLabel'>Comments
-                            </div>
+                            <div id='commentLabel'>Comments</div>
                             <div className="commentInfoDiv">
-                                <div>{commentss}</div>
-                                {route?.user_id in friendSession &&
-                                (<CommentCreateModal routeId={routeId}/>)}
+                                {commentss}
                             </div>
-                        {/* </div> */}
                         </div>
                 </div>
                 </>
