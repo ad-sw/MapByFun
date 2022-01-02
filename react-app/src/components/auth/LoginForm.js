@@ -2,42 +2,33 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import * as sessionActions from "../../store/session";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoaded, setIsLoaded] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  const onLogin = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
-    setErrors([]);
-    setIsLoaded(true);
-    return dispatch(sessionActions.login({ email, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+    const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
+    }
   };
 
   const demoLogin = async () => {
     const demoUser = {email: "demo@aa.io", password: "password"};
     await dispatch(login(demoUser));
-    await setIsLoaded(true);
   }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
-    setIsLoaded(true);
   };
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
-    setIsLoaded(true);
   };
 
   if (user) {
@@ -45,37 +36,47 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className="login-page">
+      <div className="login-container">
+        <form onSubmit={onLogin} className="login-form">
+        <a href={`/sign-up`} className="signupText">SIGN UP</a>
+        <button onClick={demoLogin} className="demoBtn">LOG IN WITH DEMO</button>
+        <div className='or-container'>
+              <span className='divider'></span><span className='or-text'>OR</span><span className='divider'></span>
+        </div>
+        <div className="errors">
+          {errors.map((error, ind) => (
+            <div key={ind}>{error.split(':')[1]}</div>
+          ))}
+        </div>
+          <div>
+            {/* <label htmlFor='email'>Email</label> */}
+            <input
+              className="email-input"
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+              required
+            />
+          </div>
+          <div>
+            {/* <label htmlFor='password'>Password</label> */}
+            <input
+              className='password-input'
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+              required
+            />
+            <button type='submit' className="login-button">LOG IN</button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-          required={true}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-          required={true}
-        />
-        <button type='submit'>Login</button>
-        <button onClick={demoLogin} className="demoBtn">Demo Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 
