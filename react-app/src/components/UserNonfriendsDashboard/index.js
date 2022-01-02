@@ -39,6 +39,7 @@ export default function UserNonfriendsDashboard() {
 }})
 return (<> {isLoaded && (
     <>
+    <div className="topoBackground">
         <div className="friendLinks">
           <NavLink to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
           <NavLink to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
@@ -49,6 +50,7 @@ return (<> {isLoaded && (
           <hr className="testAlign2"></hr>
         </div>
         <div className="friendDashboardContainer">{userComponents}</div>
+      </div>
     </>
     )}
 </>

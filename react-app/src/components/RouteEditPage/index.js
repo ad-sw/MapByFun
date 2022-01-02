@@ -83,7 +83,7 @@ export default function RouteEditForm() {
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
-      <div className="editFormCommentsView">{comment?.content}</div>
+      <div className="editFormCommentsView"><div className='tess'>{comment?.content}</div></div>
     </>
     )
 
@@ -119,7 +119,7 @@ export default function RouteEditForm() {
                       <option value={activitiesAndIds[7][0]}>{activitiesAndIds[7][1]}</option>
                       <option value={activitiesAndIds[8][0]}>{activitiesAndIds[8][1]}</option>
                   </select>
-                  <b>Describe</b>
+                  <b>Description</b>
                   <textarea
                     className='routesDescription'
                     placeholder="Route Description"
@@ -131,6 +131,7 @@ export default function RouteEditForm() {
                     <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn4">Cancel</button>
                   </div>
                 </form>
+                <div id='commentLabel2'>Comments</div>
                 <div className="commentInfoDiv">{commentss}</div>
             </div>
           </div>

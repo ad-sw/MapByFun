@@ -37,6 +37,7 @@ function UsersList() {
   return (<>
       {isLoaded &&(
         <>
+        <div className="topoBackground">
           <div className="friendLinks">
             <NavLink to={`/users/${sessionUser.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
             <NavLink to={`/users/${sessionUser.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
@@ -47,6 +48,7 @@ function UsersList() {
           <hr className="testAlign2"></hr>
           </div>
           <div className="friendDashboardContainer">{userComponents}</div>
+        </div>
         </>
       )}
     </>

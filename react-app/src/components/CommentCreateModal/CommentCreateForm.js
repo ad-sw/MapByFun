@@ -59,7 +59,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
             <form className='form' onSubmit={handleCreate}>
                 <textarea
                 className='commentContent'
-                placeholder='Content'
+                placeholder='Comment content'
                 required
                 onChange= {(e) => setContent(e.target.value)}/>
                 <div className="yesNCanelBtnsWrap2">

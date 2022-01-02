@@ -76,8 +76,7 @@ function App() {
         {setLoaded && (
           <center>
             <h3 id="h1404">Under Construction</h3>
-            <div>Thank you for your patience as we work hard to make this a feature by 2420.<br></br>
-            You will then find a new design and our new feature.<br></br>
+            <div>Thank you for your patience while we work hard to make this feature by 2420.<br></br>
             Until then we look forward to seeing you on our other features.
             </div>
             <div><img alt="test" height="560" width="365" src="https://i.pinimg.com/originals/1d/c7/f9/1dc7f97fd25ba503520fc6ed4022f75e.jpg"></img></div>
