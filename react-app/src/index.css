@@ -1090,6 +1090,9 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     display: inline-block;
     position: relative;
 }
+i.fa {
+    font-family:FontAwesome!important;
+}
 .fa-pencil, .fa-close, .pencil, .close {
     outline: 0;
     border: 0;
