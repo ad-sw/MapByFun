@@ -11,11 +11,11 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
 
     const validator = () => {
         let error = []
-        if(content.length > 400) {
+        if(content.length > 401) {
             error.push('. : Please enter a description shorter than 400 characters.')
         }
-        else if(content.length < 3) {
-            error.push('. : Please enter a description longer than three letters.')
+        else if(content.length < 4) {
+            error.push('. : Please enter a description longer than three characters.')
         }
         return error;
     }
@@ -47,7 +47,7 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
 
     return (
         <div className='deleteModal3'>
-            <div className="errors">
+            <div className="errors0">
                 {errors?.map((error, idx) => (
                 <div key={idx}>{error.split(':')[1]}</div>
             ))}

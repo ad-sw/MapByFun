@@ -20,13 +20,13 @@ const RouteCreateForm = () => {
 
     const validator = () => {
         let error = []
-        if(name.length > 80) {
+        if(name.length > 81) {
             error.push('. : Please enter a route title shorter than 80 characters.')
         }
-        if(description.length > 2000) {
+        if(description.length > 2001) {
             error.push('. : Descriptions cannot exceed 2000 characters.')
         } else if(description.length < 4) {
-            error.push('. : Please enter a description longer than 4 characters.')
+            error.push('. : Please enter a description longer than three characters.')
         }
         return error;
     }
@@ -75,11 +75,6 @@ const RouteCreateForm = () => {
         <div className="routePage">
             <div className="map"><MapContainer className="map"/></div>
             <div className='routeInfoDiv'>
-                <div className="errors">
-                    {errors.map((error, idx) => (
-                    <div key={idx}>{error.split(':')[1]}</div>
-                ))}
-                </div>
                 <form className='routeText' onSubmit={handleCreate}>
                     <b>Name</b>
                     <input
@@ -126,6 +121,11 @@ const RouteCreateForm = () => {
                               </Modal>
                           )}
                   </div>
+                  <div className="errors1">
+                    {errors.map((error, idx) => (
+                    <div key={idx}>{error.split(':')[1]}</div>
+                ))}
+                </div>
             </div>
         </div>
     )}</>)
