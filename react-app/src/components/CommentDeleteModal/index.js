@@ -30,7 +30,7 @@ function CommentDeleteModal({commentId}) {
   return (
     <>
     <div>
-        <button type="submit" onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Delete</button>
+        <button type="submit" onClick={() => setShowModal(true)} className="close"><i className="fa fa-close"></i></button>
         {isLoaded && showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <div className="deleteModal2">

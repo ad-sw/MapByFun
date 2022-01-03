@@ -11,7 +11,6 @@ function User() {
   const user_id = useSelector(state => state.session.user.id);
   const [isLoaded, setIsLoaded] = useState(false)
   const profileUser = useSelector(state => state.friends[userId])
-  console.log(profileUser, 'test')
 
   useEffect(() => {
   if (!userId) {

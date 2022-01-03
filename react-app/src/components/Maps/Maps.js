@@ -12,7 +12,6 @@ const center = {
 };
 
 const Maps = ({ apiKey, zoom }) => {
-  // console.log(zoom, 'this zooom')
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,

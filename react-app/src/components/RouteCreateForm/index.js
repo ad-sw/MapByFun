@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Modal } from '../Context/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { createRoute } from '../../store/route'
@@ -8,6 +9,7 @@ import MapContainer from "../Maps";
 const RouteCreateForm = () => {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
+    const [showModal, setShowModal] = useState(false)
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [activity_id, setActivityId] = useState(1);
@@ -59,7 +61,12 @@ const RouteCreateForm = () => {
     const handleCancel = async (e) => {
         await e.preventDefault();
         await history.push(`/users/${user_id}/routes`);
-      }
+    }
+
+    const handleCancell = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    }
 
       const activitiesAndIds = [[1, 'Walk'], [2, "Run"], [3, 'Hike'], [4, 'Sport / Other Activity'],
       [5, 'Winter Sport / Activity'], [6, 'Bike Ride'], [7, 'Social'], [8, 'Volunteer'], [9, 'Food']]
@@ -101,9 +108,24 @@ const RouteCreateForm = () => {
                     onChange={(e) => setDescription(e.target.value)}/>
                     <div className="yesNCanelBtnsWrap">
                         <button id="friendUnfriendConfirmBtn4">Create</button>
-                        <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn4">Cancel</button>
                     </div>
                 </form>
+                <div className="yesNCanelBtnsWrap3">
+                      <button type="submit" onClick={() => setShowModal(true)} id="friendUnfriendConfirmBtn4">Cancel</button>
+                          {isLoaded && showModal && (
+                              <Modal onClose={() => setShowModal(false)}>
+                              <div className="deleteModal2">
+                                  <div className="formModal">
+                                  <p>Cancel this route?</p>
+                                  <div className="yesNCanelBtnsWrap2">
+                                  <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Yes</button>
+                                  <button type="submit" onClick={handleCancell} id="friendUnfriendConfirmBtn2">No</button>
+                                  </div>
+                                  </div>
+                              </div>
+                              </Modal>
+                          )}
+                  </div>
             </div>
         </div>
     )}</>)
