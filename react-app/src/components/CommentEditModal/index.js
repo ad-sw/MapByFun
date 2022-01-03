@@ -16,7 +16,7 @@ function CommentEditModal({routeId , commentId, content}){
 
     return (
         <><div>
-            <button onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Edit</button>
+            <button onClick={() => setShowModal(true)} className="pencil"><i className="fa fa-pencil"></i></button>
             {isLoaded && showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CommentEditForm

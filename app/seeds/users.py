@@ -9,16 +9,28 @@ def seed_users():
         email='demo@aa.io',
         password='password'
     )
-    sydney = User(
-        first_name='Sydney',
-        last_name='Clark',
-        email='sydney@aa.io',
+    thorn = User(
+        first_name='Thorn',
+        last_name='Phillips',
+        email='thorn@aa.io',
         password='password'
     )
-    jeff = User(
-        first_name='Jeff',
+    crystal = User(
+        first_name='Crystal',
+        last_name='Clark',
+        email='crystal@aa.io',
+        password='password'
+    )
+    kelly = User(
+        first_name='Kelly',
         last_name='Thompson',
-        email='bobbie@aa.io',
+        email='kelly@aa.io',
+        password='password'
+    )
+    max = User(
+        first_name='Max',
+        last_name='Nguyen',
+        email='max@aa.io',
         password='password'
     )
     jessica = User(
@@ -27,22 +39,22 @@ def seed_users():
         email='jessica@aa.io',
         password='password'
     )
-    ben = User(
-        first_name='Ben',
+    minka = User(
+        first_name='Minka',
         last_name='Moore',
-        email='ben@aa.io',
+        email='minka@aa.io',
         password='password'
     )
-    annie = User(
-        first_name='Annie',
+    yash = User(
+        first_name='Yash',
         last_name='Anderson',
-        email='annie@aa.io',
+        email='yash@aa.io',
         password='password'
     )
-    ralph = User(
-        first_name='Ralph',
+    akshay = User(
+        first_name='Akshay',
         last_name='Lexing',
-        email='ralph@aa.io',
+        email='akshay@aa.io',
         password='password'
     )
     nicole = User(
@@ -99,20 +111,35 @@ def seed_users():
         email='quinn@aa.io',
         password='password'
     )
-    sarah = User(
-        first_name='Sarah',
+    camille = User(
+        first_name='Camille',
         last_name='Lewis',
-        email='sarah@aa.io',
+        email='camille@aa.io',
+        password='password'
+    )
+    valeriya = User(
+        first_name='Valeriya',
+        last_name='Paulis',
+        email='valeriya@aa.io',
+        password='password'
+    )
+    joshua = User(
+        first_name='Joshua',
+        last_name='Lopez',
+        email='joshua@aa.io',
         password='password'
     )
 
+
     db.session.add(demo)
-    db.session.add(sydney)
-    db.session.add(jeff)
+    db.session.add(thorn)
+    db.session.add(crystal)
+    db.session.add(kelly)
+    db.session.add(max)
     db.session.add(jessica)
-    db.session.add(ben)
-    db.session.add(annie)
-    db.session.add(ralph)
+    db.session.add(minka)
+    db.session.add(yash)
+    db.session.add(akshay)
     db.session.add(nicole)
     db.session.add(kate)
     db.session.add(michael)
@@ -122,7 +149,9 @@ def seed_users():
     db.session.add(connor)
     db.session.add(bennett)
     db.session.add(quinn)
-    db.session.add(sarah)
+    db.session.add(camille)
+    db.session.add(valeriya)
+    db.session.add(joshua)
 
     db.session.commit()
 

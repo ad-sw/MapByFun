@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom'
 import {getOneRoute} from  '../../store/route'
 import { getAllRouteComments } from "../../store/comment";
-import RouteDeleteModal from "../RouteDeleteModal";
 import CommentCreateModal from '../CommentCreateModal';
 import CommentDeleteModal from '../CommentDeleteModal';
 import './SoloRoutePage.css';
@@ -31,39 +30,30 @@ export default function RoutePage(){
         })();
     }, [dispatch, sessionUser, routeId])
 
-    // const openMenu = () => {
-    //     if (showMenu) return;
-    //     setShowMenu(true);
-    //   };
-    //   useEffect(() => {
-    //     if (!showMenu) return;
-    //     const closeMenu = () => {
-    //       setShowMenu(false);
-    //     };
-    //     document.addEventListener('click', closeMenu);
-    //     return () => document.removeEventListener("click", closeMenu);
-    //   }, [showMenu]);
-    //   <i onClick={openMenu} className="fa fa-ellipsis-v"></i>
-    //     {showMenu && (
-//                           <ul className="profile-dropdown">
-//                           <div><CommentEditModal commentId={comment?.id} routeId={routeId}/></div>
-//                           <div><CommentDeleteModal commentId={comment?.id} routeId={routeId}/></div>
-//                           </ul>
-//                           )}
-
     let commentss = currentRouteComments?.map((comment) =>
     <>
-        <div className="editFormCommentsView"><div className='tess'>{comment?.content}</div></div>
-        {sessionUser?.id === route?.user_id && (
-        <>
-        <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
-        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
-        </>)}
-        {comment?.user_id === sessionUser.id && sessionUser?.id !== route?.user_id && (
-        <>
-        <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
-        <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
-        </>)}
+        <div className="editFormCommentsView">
+        <div className="commentContentt">{comment?.content}</div>
+            <div>
+            {sessionUser?.id === route?.user_id && (
+            <>
+                <div id="editDeleteIcons">
+                <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+                </div>
+            </>
+            )}
+            {comment?.user_id === sessionUser.id && sessionUser?.id !== route?.user_id && (
+            <>
+            <div id="editDeleteIcons">
+                <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+            </div>
+            </>
+            )}
+
+            </div>
+        </div>
     </>
     )
 

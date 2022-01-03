@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Modal } from '../Context/Modal';
 import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
 import {editRoute, getAllRoutes, getOneRoute} from '../../store/route';
@@ -81,9 +82,14 @@ export default function RouteEditForm() {
       await history.push(`/routes/${routeId}`);
     }
 
+    const handleCancell = (e) => {
+      e.preventDefault();
+      setShowModal(false);
+    }
+
     let commentss = currentRouteComments?.map((comment) =>
     <>
-      <div className="editFormCommentsView"><div className='tess'>{comment?.content}</div></div>
+      <div className="editFormCommentsView"><div className='commentContentt'>{comment?.content}</div></div>
     </>
     )
 
@@ -126,11 +132,26 @@ export default function RouteEditForm() {
                     value={description}
                     required
                     onChange={(e) => setDescription(e.target.value)}/>
-                  <div className="yesNCanelBtnsWrap">
-                    <button type="submit" id='friendUnfriendConfirmBtn4'>Update</button>
-                    <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn4">Cancel</button>
-                  </div>
+                    <div className="yesNCanelBtnsWrap">
+                      <button type="submit" id='friendUnfriendConfirmBtn4'>Update</button>
+                    </div>
                 </form>
+                <div className="yesNCanelBtnsWrap3">
+                      <button type="submit" onClick={() => setShowModal(true)} id="friendUnfriendConfirmBtn4">Cancel</button>
+                          {isLoaded && showModal && (
+                              <Modal onClose={() => setShowModal(false)}>
+                              <div className="deleteModal2">
+                                  <div className="formModal">
+                                  <p>Cancel this update?</p>
+                                  <div className="yesNCanelBtnsWrap2">
+                                  <button type="submit" onClick={handleCancel} id="friendUnfriendConfirmBtn2">Yes</button>
+                                  <button type="submit" onClick={handleCancell} id="friendUnfriendConfirmBtn2">No</button>
+                                  </div>
+                                  </div>
+                              </div>
+                              </Modal>
+                          )}
+                  </div>
                 <div id='commentLabel2'>Comments</div>
                 <div className="commentInfoDiv">{commentss}</div>
             </div>

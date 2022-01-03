@@ -63,11 +63,9 @@ export const getAllRoutes = (userId) => async (dispatch) => {
 }
 
 export const getOneRoute = (id) => async(dispatch) => {
-  console.log(id, 'this is id')
     const response = await fetch(`/api/routes/${id}`)
     if(response.ok) {
       const data = await response.json()
-      console.log(data, 'idk')
       dispatch(loadOneRoute(data))
       return data
     } else if (response.status < 500){
@@ -124,7 +122,6 @@ export const editRoute = (payload) => async(dispatch) => {
   });
   if (response.ok) {
     const data = await response.json()
-    console.log(data, 'idk')
     dispatch(editOneRoute(data))
     return null;
   } else if (response.status < 500){

@@ -13,6 +13,7 @@ const AboutMe = () =>{
                 <img src="https://user-images.githubusercontent.com/86431563/147783496-18d3941e-1352-48bc-a545-34c75abd1f0c.png" alt="GitHub" width="28" height="28"></img>
               </a>
             </div>
+            <div className='footer2'>&nbsp;</div>
         </div>
         </div>
     )
