@@ -39,25 +39,28 @@ A MapMyRun clone that focuses on frontend styling.
 ## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
 
 ### [Home Page](https://mapbyfun.herokuapp.com/)
-- Log in, sign up or sign in as a demo user.
+- Overview product concept with options to sign up or sign in as a registered or demo user. (Centered animation art credited to [ILLO](https://illo.tv/airbnbchina).)
+<img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375">
+
+### [Login & Sign Up Pages](http://localhost:3000/login)
+<img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="500" height="250">
+<img src="https://user-images.githubusercontent.com/86431563/147933515-ca75444e-05a8-454e-b573-f98a6b30c29b.PNG" width="500" height="250">
 
 ### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
 - View all of your route posts to find details, edit, delete, create more of, or comment on.
+<img src="https://user-images.githubusercontent.com/86431563/147933974-84ae86fd-386f-460a-bd28-b2d9b3a98dbc.PNG" width="750" height="375">
 
 ### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
 - View your route's detailed information and any existing comments with the option to add more to.
+<img src="https://user-images.githubusercontent.com/86431563/147934129-674d8557-6232-48ea-9b26-f335d333caf8.PNG" width="750" height="375">
 
 ### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
 - View a collection of your friends to visit one of their specific profile pages, or potentially unfriend.
-
-### [Nonfriends Dashboard](https://mapbyfun.herokuapp.com/users/1/people)
-- View a collection of users that you may add as a friend or visit one of their specific profile pages.
-
-### [All Users Dashboard](https://mapbyfun.herokuapp.com/users)
-- Overview all existing site users that you may add/remove as a friend or for profile page browsing in one cohesive spot.
+<img src="https://user-images.githubusercontent.com/86431563/147934479-4fc7df84-b63a-4453-9f12-3819c9e1a53f.PNG" width="750" height="375">
 
 ### [Specific User Profile](https://mapbyfun.herokuapp.com/users/2)
 - View a specific user's high level site information. If they are a friend, you may view their routes and comment on them as well.
+<img src="https://user-images.githubusercontent.com/86431563/147934288-d0e5137e-aa18-4da3-af72-ca4e9100ac0c.PNG" width="750" height="375">
 
 ## Getting started
 
