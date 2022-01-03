@@ -12,11 +12,37 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
+    const errorsArr = validator()
+    if(errorsArr.length) {
+      setErrors(errorsArr)
+    } else{
+      const payload = {
+          email,
+          password
+      }
+    if (email, password) {
+      const data = await dispatch(login(payload));
+        if(data) {
+          setErrors(data)
+        }
+      }
     }
   };
+
+  const validator = () => {
+    let error = []
+
+    if(password.length < 5) {
+      error.push('. : Please enter a password longer than or equal to 5 characters.')
+    }
+    if(password.length > 255) {
+      error.push('. : Please enter a shorter password than or equal to 255 characters.')
+    }
+    else if(email.length > 255) {
+      error.push('. : Please enter a shorter email than or equal to 255 characters.')
+    }
+    return error;
+  }
 
   const demoLogin = async () => {
     const demoUser = {email: "demo@aa.io", password: "password"};

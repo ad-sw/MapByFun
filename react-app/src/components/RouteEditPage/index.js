@@ -29,16 +29,16 @@ export default function RouteEditForm() {
 
   const validator = () => {
     let error = []
-    if(name.length > 80) {
+    if(name.length > 81) {
         error.push('. : Please enter a route title shorter than 80 characters.')
     }
-    if(name.length < 3) {
+    if(name.length < 4) {
       error.push('. : Please enter a route title longer than three characters.')
   }
-    if(description.length > 8000) {
+    if(description.length > 2000) {
         error.push('. : Descriptions cannot exceed 2000 characters.')
     } else if(description.length < 4) {
-        error.push('. : Please enter a description longer than four characters.')
+        error.push('. : Please enter a description longer than three characters.')
     }
     return error;
   }
@@ -100,11 +100,6 @@ export default function RouteEditForm() {
           <div className='routePage'>
             <div className="map"><MapContainer className="map"/></div>
             <div className='routeInfoDiv'>
-                <div className="errors">
-                    {errors.map((error, idx) => (
-                    <div key={idx}>{error.split(':')[1]}</div>
-                ))}
-                </div>
                 <form className="routeText" onSubmit={handleSubmit}>
                   <b>Name</b>
                   <input
@@ -151,6 +146,11 @@ export default function RouteEditForm() {
                               </div>
                               </Modal>
                           )}
+                  </div>
+                    <div className="errors2">
+                      {errors.map((error, idx) => (
+                      <div key={idx}>{error.split(':')[1]}</div>
+                  ))}
                   </div>
                 <div id='commentLabel2'>Comments</div>
                 <div className="commentInfoDiv">{commentss}</div>
