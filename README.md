@@ -1,6 +1,6 @@
 ## [MapByFun](https://mapbyfun.herokuapp.com/) 
 
-A MapMyRun clone that focuses on frontend styling.
+A MapMyRun clone that focuses on frontend styling. Conceptually it could function like a bridge between Google Maps and Eventbrite.
 
 ### Fullstack used:
 * CSS & HTML (front-end)
