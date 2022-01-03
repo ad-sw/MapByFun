@@ -1,6 +1,63 @@
-# Flask React Project
+## [MapByFun](https://mapbyfun.herokuapp.com/) 
 
-This is the starter for the Flask React project.
+A MapMyRun clone that focuses on frontend styling.
+
+### Fullstack used:
+* CSS & HTML (front-end)
+* React (front-end)
+* Redux (front-end)
+* Python (back-end)
+* Sequelize (back-end)
+---
+## [Database Schema](https://github.com/ad-sw/ConstructHunt/wiki/Database-Schema)
+
+### Features Overview:
+* Visitors View
+  + Navigation Bar
+    - [X] Sign up
+    - [X] Log in (registered user or demo)
+ 
+* Logged-in View
+  + Route Posts
+    - [X] Create route post (C)
+    - [X] View route post (R)
+    - [X] Update route post (U)
+    - [X] Delete route post (D)
+  + Route Comments
+    - [X] Create comment  (C)
+    - [X] Read comment (R)
+    - [X] Update comment    (U)
+    - [X] Delete comment  (D)
+  + Friends
+    - [X] Add friend  (C)
+    - [X] View friends (R)
+    - [X] Unfriend friends    (D)
+  + Additional Site Features:
+    - [X] In the community tab, logged in users may view their friends, users to add as friends, and a combined list of the two (friends and other users). Users may also click on any person's name to view their profile and a high level overview of their routes/site activity. For privacy reasons, only if the user is a friend can they then view their routes.
+
+
+## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
+
+### [Home Page](https://mapbyfun.herokuapp.com/)
+- Log in, sign up or sign in as a demo user.
+
+### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
+- View all of your route posts to find details, edit, delete, create more of, or comment on.
+
+### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
+- View your route's detailed information and any existing comments with the option to add more to.
+
+### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+- View a collection of your friends to visit one of their specific profile pages, or potentially unfriend.
+
+### [Nonfriends Dashboard](https://mapbyfun.herokuapp.com/users/1/people)
+- View a collection of users that you may add as a friend or visit one of their specific profile pages.
+
+### [All Users Dashboard](https://mapbyfun.herokuapp.com/users)
+- Overview all existing site users that you may add/remove as a friend or for profile page browsing in one cohesive spot.
+
+### [Specific User Profile](https://mapbyfun.herokuapp.com/users/2)
+- View a specific user's high level site information. If they are a friend, you may view their routes and comment on them as well.
 
 ## Getting started
 
