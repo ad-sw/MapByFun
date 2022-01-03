@@ -9,6 +9,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false)
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -32,14 +34,14 @@ const LoginForm = () => {
   const validator = () => {
     let error = []
 
-    if(password.length < 5) {
-      error.push('. : Please enter a password longer than or equal to 5 characters.')
+    if(password.length < 6) {
+      error.push('. : Please enter a password longer than five characters.')
     }
-    if(password.length > 255) {
-      error.push('. : Please enter a shorter password than or equal to 255 characters.')
+    if(password.length > 256) {
+      error.push('. : Please enter a password shorter than 255 characters.')
     }
-    else if(email.length > 255) {
-      error.push('. : Please enter a shorter email than or equal to 255 characters.')
+    else if(email.length > 256) {
+      error.push('. : Please enter an email shorter 255 characters.')
     }
     return error;
   }
@@ -47,6 +49,7 @@ const LoginForm = () => {
   const demoLogin = async () => {
     const demoUser = {email: "demo@aa.io", password: "password"};
     await dispatch(login(demoUser));
+    // setIsLoaded(true)
   }
 
   const updateEmail = (e) => {
@@ -61,48 +64,49 @@ const LoginForm = () => {
     return <Redirect to={`/users/${user.id}/routes`}/>;
   }
 
-  return (
-    <div className="login-page">
-      <div className="login-container">
-        <form onSubmit={onLogin} className="login-form">
-        <a href={`/sign-up`} className="signupText">SIGN UP</a>
-        <button onClick={demoLogin} className="demoBtn">LOG IN WITH DEMO</button>
-        <div className='or-container'>
-              <span className='divider'></span><span className='or-text'>OR</span><span className='divider'></span>
-        </div>
-        <div className="errors">
-          {errors.map((error, ind) => (
-            <div key={ind}>{error.split(':')[1]}</div>
-          ))}
-        </div>
-          <div>
-            {/* <label htmlFor='email'>Email</label> */}
-            <input
-              className="email-input"
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-              required
-            />
+  return (<div>
+      <div className="login-page">
+        <div className="login-container">
+          <form onSubmit={onLogin} className="login-form">
+          <a href={`/sign-up`} className="signupText">SIGN UP</a>
+          <button onClick={demoLogin} className="demoBtn">LOG IN WITH DEMO</button>
+          <div className='or-container'>
+                <span className='divider'></span><span className='or-text'>OR</span><span className='divider'></span>
           </div>
-          <div>
-            {/* <label htmlFor='password'>Password</label> */}
-            <input
-              className='password-input'
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-              required
-            />
-            <button type='submit' className="login-button">LOG IN</button>
+          <div className="errors">
+            {errors.map((error, ind) => (
+              <div key={ind}>{error.split(':')[1]}</div>
+            ))}
           </div>
-        </form>
+            <div>
+              {/* <label htmlFor='email'>Email</label> */}
+              <input
+                className="email-input"
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+                required
+              />
+            </div>
+            <div>
+              {/* <label htmlFor='password'>Password</label> */}
+              <input
+                className='password-input'
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+                required
+              />
+              <button type='submit' className="login-button">LOG IN</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+      </div>
   );
 };
 

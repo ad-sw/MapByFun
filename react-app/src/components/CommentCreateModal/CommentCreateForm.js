@@ -17,7 +17,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
         if(content.length > 401) {
             error.push('. : Please enter a comment shorter than 400 characters.')
         } else if(content.length < 4) {
-            error.push('. : Please enter a comment longer than three characters.')
+            error.push('. : Please enter a comment longer than 3 characters.')
         }
         return error;
     }

@@ -76,12 +76,12 @@ def seed_users():
         password='password'
     )
 
-    # minka = User(
-    #     first_name='Minka',
-    #     last_name='Moore',
-    #     email='minka@aa.io',
-    #     password='password'
-    # )
+    minka = User(
+        first_name='Minka',
+        last_name='Moore',
+        email='minka@aa.io',
+        password='password'
+    )
     # akshay = User(
     #     first_name='Akshay',
     #     last_name='Lexing',
@@ -106,12 +106,12 @@ def seed_users():
     #     email='bennett@aa.io',
     #     password='password'
     # )
-    # quinn = User(
-    #     first_name='Quinn',
-    #     last_name='Wilson',
-    #     email='quinn@aa.io',
-    #     password='password'
-    # )
+    quinn = User(
+        first_name='Quinn',
+        last_name='Wilson',
+        email='quinn@aa.io',
+        password='password'
+    )
     # jessica = User(
     #     first_name='Jessica',
     #     last_name='Lee',
@@ -144,13 +144,14 @@ def seed_users():
     db.session.add(kate)
     db.session.add(max)
     db.session.add(dina)
+    db.session.add(minka)
+    db.session.add(quinn)
+
     # db.session.add(crystal)
     # db.session.add(jessica)
-    # db.session.add(minka)
     # db.session.add(akshay)
     # db.session.add(connor)
     # db.session.add(bennett)
-    # db.session.add(quinn)
     # db.session.add(valeriya)
     # db.session.add(joshua)
 
