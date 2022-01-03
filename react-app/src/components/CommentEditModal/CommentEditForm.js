@@ -15,7 +15,7 @@ const CommentEditForm = ({routeId, commentId, acontent, setShowModal}) => {
             error.push('. : Please enter a description shorter than 400 characters.')
         }
         else if(content.length < 4) {
-            error.push('. : Please enter a description longer than three characters.')
+            error.push('. : Please enter a description longer than 3 characters.')
         }
         return error;
     }

@@ -22,12 +22,13 @@ export default function HomePage(){
     //let sessionLinks;
     //if (sessionUser) {
         let sessionLinks = (<>
-            <a id="artistName"href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ" target="_blank" rel="noopener noreferrer">Artist: Michael Tompsett</a>
+            {/* <a id="artistName"href="https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ" target="_blank" rel="noopener noreferrer">Artist: Michael Tompsett</a> */}
+            <a id="artistName" href="https://illo.tv/airbnbchina" target="_blank" rel="noopener noreferrer">Animation Credit: ILLO Studio</a>
         <div className='main-splash-container'>
             {/* <div className='home-image'> */}
                 <div className="homePage">
-                <img className="mapFront" src="https://imgc.allpostersimages.com/img/posters/new-york-city-street-map_u-L-Q1AUL790.jpg?artHeight=900&artPerspective=n&artWidth=900"></img>
-                {/* </div> */}
+                {/* <img className="mapFront" src="https://imgc.allpostersimages.com/img/posters/new-york-city-street-map_u-L-Q1AUL790.jpg?artHeight=900&artPerspective=n&artWidth=900"></img> */}
+                <img className="mapFront" src="https://cdn.dribbble.com/users/77121/screenshots/11485643/media/2daa7264756c4a02ddba5271f0ce1a71.gif"></img>
                 </div>
             <div className='slogan-container'>
                 <hr className='home-hr' size='8' />
@@ -46,6 +47,15 @@ export default function HomePage(){
             </div>
         </div>
         </>);
+
+    if (!isLoaded) {
+        return (
+        <div id="loadingGif">
+                <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
+                <div className="loadText">Loading</div>
+            </div>
+        );
+    }
 
     return (
     <div id="logBtns">{isLoaded && sessionLinks}</div>

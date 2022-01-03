@@ -303,56 +303,56 @@ def seed_comments():
         route_id= 59,
         content='Example content for a comment',
     )
-    # comment60 = Comment(
-    #     user_id= 13,
-    #     route_id= 60,
-    #     content='Example content for a comment',
-    # )
-    # comment61 = Comment(
-    #     user_id= 13,
-    #     route_id= 61,
-    #     content='Example content for a comment',
-    # )
-    # comment62 = Comment(
-    #     user_id= 13,
-    #     route_id= 62,
-    #     content='Example content for a comment',
-    # )
-    # comment63 = Comment(
-    #     user_id= 13,
-    #     route_id= 63,
-    #     content='Example content for a comment',
-    # )
-    # comment64 = Comment(
-    #     user_id= 13,
-    #     route_id= 64,
-    #     content='Example content for a comment',
-    # )
-    # comment65 = Comment(
-    #     user_id= 14,
-    #     route_id= 65,
-    #     content='Example content for a comment',
-    # )
-    # comment66 = Comment(
-    #     user_id= 14,
-    #     route_id= 66,
-    #     content='Example content for a comment',
-    # )
-    # comment67 = Comment(
-    #     user_id= 14,
-    #     route_id= 67,
-    #     content='Example content for a comment',
-    # )
-    # comment68 = Comment(
-    #     user_id= 14,
-    #     route_id= 68,
-    #     content='Example content for a comment',
-    # )
-    # comment69 = Comment(
-    #     user_id= 14,
-    #     route_id= 69,
-    #     content='Example content for a comment',
-    # )
+    comment60 = Comment(
+        user_id= 13,
+        route_id= 60,
+        content='Example content for a comment',
+    )
+    comment61 = Comment(
+        user_id= 13,
+        route_id= 61,
+        content='Example content for a comment',
+    )
+    comment62 = Comment(
+        user_id= 13,
+        route_id= 62,
+        content='Example content for a comment',
+    )
+    comment63 = Comment(
+        user_id= 13,
+        route_id= 63,
+        content='Example content for a comment',
+    )
+    comment64 = Comment(
+        user_id= 13,
+        route_id= 64,
+        content='Example content for a comment',
+    )
+    comment65 = Comment(
+        user_id= 14,
+        route_id= 65,
+        content='Example content for a comment',
+    )
+    comment66 = Comment(
+        user_id= 14,
+        route_id= 66,
+        content='Example content for a comment',
+    )
+    comment67 = Comment(
+        user_id= 14,
+        route_id= 67,
+        content='Example content for a comment',
+    )
+    comment68 = Comment(
+        user_id= 14,
+        route_id= 68,
+        content='Example content for a comment',
+    )
+    comment69 = Comment(
+        user_id= 14,
+        route_id= 69,
+        content='Example content for a comment',
+    )
     # comment70 = Comment(
     #     user_id= 15,
     #     route_id= 70,
@@ -503,68 +503,66 @@ def seed_comments():
     #     route_id= 99,
     #     content='Example content for a comment',
     # )
-    # comment100 = Comment(
-    #     user_id= 2,
-    #     route_id= 100,
-    #     content='Example content for a comment',
-    # )
-    # comment101 = Comment(
-    #     user_id= 3,
-    #     route_id= 101,
-    #     content='Example content for a comment',
-    # )
-    # comment102 = Comment(
-    #     user_id= 4,
-    #     route_id= 102,
-    #     content='Example content for a comment',
-    # )
-
-    # comment103 = Comment(
-    #     user_id= 5,
-    #     route_id= 103,
-    #     content='Example content for a comment',
-    # )
-    # comment104 = Comment(
-    #     user_id= 6,
-    #     route_id= 104,
-    #     content='Example content for a comment',
-    # )
-    # comment105 = Comment(
-    #     user_id= 7,
-    #     route_id= 105,
-    #     content='Example content for a comment',
-    # )
-    # comment106 = Comment(
-    #     user_id= 8,
-    #     route_id= 106,
-    #     content='Example content for a comment',
-    # )
-    # comment107 = Comment(
-    #     user_id= 9,
-    #     route_id= 107,
-    #     content='Example content for a comment',
-    # )
-    # comment108 = Comment(
-    #     user_id= 10,
-    #     route_id= 108,
-    #     content='Example content for a comment',
-    # )
-
-    # comment109 = Comment(
-    #     user_id= 11,
-    #     route_id= 109,
-    #     content='Example content for a comment',
-    # )
-    # comment110 = Comment(
-    #     user_id= 12,
-    #     route_id= 110,
-    #     content='Example content for a comment',
-    # )
-    # comment111 = Comment(
-    #     user_id= 13,
-    #     route_id= 111,
-    #     content='Example content for a comment',
-    # )
+    comment100 = Comment(
+        user_id= 2,
+        route_id= 100,
+        content='Example content for a comment',
+    )
+    comment101 = Comment(
+        user_id= 3,
+        route_id= 101,
+        content='Example content for a comment',
+    )
+    comment102 = Comment(
+        user_id= 4,
+        route_id= 102,
+        content='Example content for a comment',
+    )
+    comment103 = Comment(
+        user_id= 5,
+        route_id= 103,
+        content='Example content for a comment',
+    )
+    comment104 = Comment(
+        user_id= 6,
+        route_id= 104,
+        content='Example content for a comment',
+    )
+    comment105 = Comment(
+        user_id= 7,
+        route_id= 105,
+        content='Example content for a comment',
+    )
+    comment106 = Comment(
+        user_id= 8,
+        route_id= 106,
+        content='Example content for a comment',
+    )
+    comment107 = Comment(
+        user_id= 9,
+        route_id= 107,
+        content='Example content for a comment',
+    )
+    comment108 = Comment(
+        user_id= 10,
+        route_id= 108,
+        content='Example content for a comment',
+    )
+    comment109 = Comment(
+        user_id= 11,
+        route_id= 109,
+        content='Example content for a comment',
+    )
+    comment110 = Comment(
+        user_id= 12,
+        route_id= 110,
+        content='Example content for a comment',
+    )
+    comment111 = Comment(
+        user_id= 13,
+        route_id= 111,
+        content='Example content for a comment',
+    )
     # comment112 = Comment(
     #     user_id= 14,
     #     route_id= 112,
@@ -690,16 +688,16 @@ def seed_comments():
     db.session.add(comment57)
     db.session.add(comment58)
     db.session.add(comment59)
-    # db.session.add(comment60)
-    # db.session.add(comment61)
-    # db.session.add(comment62)
-    # db.session.add(comment63)
-    # db.session.add(comment64)
-    # db.session.add(comment65)
-    # db.session.add(comment66)
-    # db.session.add(comment67)
-    # db.session.add(comment68)
-    # db.session.add(comment69)
+    db.session.add(comment60)
+    db.session.add(comment61)
+    db.session.add(comment62)
+    db.session.add(comment63)
+    db.session.add(comment64)
+    db.session.add(comment65)
+    db.session.add(comment66)
+    db.session.add(comment67)
+    db.session.add(comment68)
+    db.session.add(comment69)
     # db.session.add(comment70)
     # db.session.add(comment71)
     # db.session.add(comment72)
@@ -730,18 +728,18 @@ def seed_comments():
     # db.session.add(comment97)
     # db.session.add(comment98)
     # db.session.add(comment99)
-    # db.session.add(comment100)
-    # db.session.add(comment101)
-    # db.session.add(comment102)
-    # db.session.add(comment103)
-    # db.session.add(comment104)
-    # db.session.add(comment105)
-    # db.session.add(comment106)
-    # db.session.add(comment107)
-    # db.session.add(comment108)
-    # db.session.add(comment109)
-    # db.session.add(comment110)
-    # db.session.add(comment111)
+    db.session.add(comment100)
+    db.session.add(comment101)
+    db.session.add(comment102)
+    db.session.add(comment103)
+    db.session.add(comment104)
+    db.session.add(comment105)
+    db.session.add(comment106)
+    db.session.add(comment107)
+    db.session.add(comment108)
+    db.session.add(comment109)
+    db.session.add(comment110)
+    db.session.add(comment111)
     # db.session.add(comment112)
     # db.session.add(comment113)
     # db.session.add(comment114)

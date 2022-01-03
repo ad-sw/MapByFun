@@ -33,12 +33,12 @@ export default function RouteEditForm() {
         error.push('. : Please enter a route title shorter than 80 characters.')
     }
     if(name.length < 4) {
-      error.push('. : Please enter a route title longer than three characters.')
-  }
+      error.push('. : Please enter a route title longer than 3 characters.')
+    }
     if(description.length > 2000) {
         error.push('. : Descriptions cannot exceed 2000 characters.')
     } else if(description.length < 4) {
-        error.push('. : Please enter a description longer than three characters.')
+        error.push('. : Please enter a description longer than 3 characters.')
     }
     return error;
   }

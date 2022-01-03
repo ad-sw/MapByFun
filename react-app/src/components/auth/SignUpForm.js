@@ -15,25 +15,25 @@ const SignUpForm = () => {
 
   const validator = () => {
     let error = []
-    if(first_name.length > 40) {
-        error.push('. : Please enter a shorter user name than 40 characters.')
-    } else if(first_name.length < 3) {
+    if(first_name.length > 41) {
+        error.push('. : Please enter a shorter first name than 40 characters.')
+    } else if(first_name.length < 4) {
       error.push('. : Please enter a first name longer than 3 characters.')
     }
-    if(last_name.length > 40) {
-      error.push('. : Please enter a shorter user name than 40 characters.')
-    } else if(last_name.length < 3) {
+    if(last_name.length > 41) {
+      error.push('. : Please enter a shorter last name than 40 characters.')
+    } else if(last_name.length < 4) {
       error.push('. : Please enter a last name longer than 3 characters.')
     }
     if(password !== repeatPassword) {
       error.push('. : Please enter matching passwords.')
     }
-    if(email.length > 255) {
+    if(email.length > 256) {
         error.push('. : Please enter a shorter email than 255 characters.')
     }
-    if(password.length > 255) {
+    if(password.length > 256) {
       error.push('. : Please enter a shorter password than 255 characters.')
-    } else if(password.length < 5) {
+    } else if (password.length < 6) {
     error.push('. : Please enter a password longer than 5 characters.')
     }
     return error;
@@ -60,7 +60,7 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(payload));
       if(data) {
         setErrors(data)
-      }
+        }
       }
     }
   };

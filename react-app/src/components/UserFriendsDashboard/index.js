@@ -33,6 +33,15 @@ function UserFriendsDashboard() {
     )
   })
 
+  if (!isLoaded) {
+    return (
+      <div id="loadingGif">
+            <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
+            <div className="loadText">Loading</div>
+        </div>
+    );
+  }
+
   return (<>{isLoaded && (
           <div className="topoBackground">
             <div className="friendLinks">

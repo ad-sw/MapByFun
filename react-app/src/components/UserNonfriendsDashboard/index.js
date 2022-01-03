@@ -33,26 +33,36 @@ export default function UserNonfriendsDashboard() {
             <div className="friendBtn"><FriendBtns friend_id={user?.id} user_id={+userId}/></div>
         </div>
       </div>
-    )}
-  </>
-)
-}})
-return (<> {isLoaded && (
-    <>
-    <div className="topoBackground">
-        <div className="friendLinks">
-          <NavLink to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-          <NavLink to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-          <NavLink to={`/users`}>All Users</NavLink>
-        </div>
-        <div className="titleTry">
-          <h4 className="testAlign">Search MapByFun by Name:</h4>
-          <hr className="testAlign2"></hr>
-        </div>
-        <div className="friendDashboardContainer">{userComponents}</div>
-      </div>
+      )}
     </>
-    )}
-</>
-);
-}
+  )
+  }})
+
+  if (!isLoaded) {
+    return (
+      <div id="loadingGif">
+            <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
+            <div className="loadText">Loading</div>
+        </div>
+    );
+  }
+
+  return (<> {isLoaded && (
+      <>
+      <div className="topoBackground">
+          <div className="friendLinks">
+            <NavLink to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users`}>All Users</NavLink>
+          </div>
+          <div className="titleTry">
+            <h4 className="testAlign">Search MapByFun by Name:</h4>
+            <hr className="testAlign2"></hr>
+          </div>
+          <div className="friendDashboardContainer">{userComponents}</div>
+        </div>
+      </>
+      )}
+  </>
+  );
+  }
