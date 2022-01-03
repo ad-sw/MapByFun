@@ -29,7 +29,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment5 = Comment(
-        user_id= 2,
+        user_id= 1,
         route_id= 5,
         content='Example content for a comment',
     )
@@ -54,7 +54,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment10 = Comment(
-        user_id= 3,
+        user_id= 2,
         route_id= 10,
         content='Example content for a comment',
     )
@@ -79,7 +79,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment15 = Comment(
-        user_id= 4,
+        user_id= 3,
         route_id= 15,
         content='Example content for a comment',
     )
@@ -104,7 +104,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment20 = Comment(
-        user_id= 5,
+        user_id= 4,
         route_id= 20,
         content='Example content for a comment',
     )
@@ -129,7 +129,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment25 = Comment(
-        user_id= 6,
+        user_id= 5,
         route_id= 25,
         content='Example content for a comment',
     )
@@ -154,7 +154,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment30 = Comment(
-        user_id= 7,
+        user_id= 6,
         route_id= 30,
         content='Example content for a comment',
     )
@@ -179,7 +179,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment35 = Comment(
-        user_id= 8,
+        user_id= 7,
         route_id= 35,
         content='Example content for a comment',
     )
@@ -204,7 +204,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment40 = Comment(
-        user_id= 9,
+        user_id= 8,
         route_id= 40,
         content='Example content for a comment',
     )
@@ -229,7 +229,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment45 = Comment(
-        user_id= 10,
+        user_id= 9,
         route_id= 45,
         content='Example content for a comment',
     )
@@ -254,7 +254,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment50 = Comment(
-        user_id= 11,
+        user_id= 10,
         route_id= 50,
         content='Example content for a comment',
     )
@@ -279,7 +279,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment55 = Comment(
-        user_id= 12,
+        user_id= 11,
         route_id= 55,
         content='Example content for a comment',
     )
@@ -304,7 +304,7 @@ def seed_comments():
         content='Example content for a comment',
     )
     comment60 = Comment(
-        user_id= 13,
+        user_id= 12,
         route_id= 60,
         content='Example content for a comment',
     )
@@ -503,16 +503,16 @@ def seed_comments():
     #     route_id= 99,
     #     content='Example content for a comment',
     # )
-    comment100 = Comment(
-        user_id= 2,
-        route_id= 100,
-        content='Example content for a comment',
-    )
-    comment101 = Comment(
-        user_id= 3,
-        route_id= 101,
-        content='Example content for a comment',
-    )
+    # comment100 = Comment(
+    #     user_id= 2,
+    #     route_id= 100,
+    #     content='Example content for a comment',
+    # )
+    # comment101 = Comment(
+    #     user_id= 3,
+    #     route_id= 101,
+    #     content='Example content for a comment',
+    # )
     comment102 = Comment(
         user_id= 4,
         route_id= 102,
@@ -728,18 +728,18 @@ def seed_comments():
     # db.session.add(comment97)
     # db.session.add(comment98)
     # db.session.add(comment99)
-    db.session.add(comment100)
-    db.session.add(comment101)
-    db.session.add(comment102)
-    db.session.add(comment103)
-    db.session.add(comment104)
-    db.session.add(comment105)
-    db.session.add(comment106)
-    db.session.add(comment107)
-    db.session.add(comment108)
-    db.session.add(comment109)
-    db.session.add(comment110)
-    db.session.add(comment111)
+    # db.session.add(comment100)
+    # db.session.add(comment101)
+    # db.session.add(comment102)
+    # db.session.add(comment103)
+    # db.session.add(comment104)
+    # db.session.add(comment105)
+    # db.session.add(comment106)
+    # db.session.add(comment107)
+    # db.session.add(comment108)
+    # db.session.add(comment109)
+    # db.session.add(comment110)
+    # db.session.add(comment111)
     # db.session.add(comment112)
     # db.session.add(comment113)
     # db.session.add(comment114)

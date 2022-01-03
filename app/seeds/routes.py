@@ -363,12 +363,12 @@ def seed_routes():
         description='here is a map description',
         activity_id=7,
     )
-    route60 = Route(
-        user_id= 13,
-        name='Example 60',
-        description='here is a map description',
-        activity_id=6,
-    )
+    # route60 = Route(
+    #     user_id= 13,
+    #     name='Example 60',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
     route61 = Route(
         user_id= 13,
         name='Example 61',
@@ -609,12 +609,12 @@ def seed_routes():
         description='here is a map description',
         activity_id=2,
     )
-    route100 = Route(
-        user_id= 2,
-        name='Example Z',
-        description='here is a map description',
-        activity_id=2,
-    )
+    # route100 = Route(
+    #     user_id= 2,
+    #     name='Example Z',
+    #     description='here is a map description',
+    #     activity_id=2,
+    # )
     route101 = Route(
         user_id= 3,
         name='Example Z',
@@ -860,7 +860,7 @@ def seed_routes():
     # db.session.add(route97)
     # db.session.add(route98)
     db.session.add(route99)
-    db.session.add(route100)
+    # db.session.add(route100)
     db.session.add(route101)
     db.session.add(route102)
     db.session.add(route103)
