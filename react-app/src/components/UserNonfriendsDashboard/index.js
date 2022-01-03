@@ -26,11 +26,11 @@ export default function UserNonfriendsDashboard() {
     return (<> {isLoaded && (
       <div className="friendCard">
         <div className="soMany">
-          <NavLink className="soMany" key={user?.id} to={`/users/${user?.id}`}>
+          <NavLink className="soMany" key={user.id} to={`/users/${user.id}`}>
             <div className="friendContent"></div>
-            <div className="fullName">{user?.first_name}&nbsp;{user?.last_name}</div>
+            <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
           </NavLink>
-            <div className="friendBtn"><FriendBtns friend_id={user?.id} user_id={+userId}/></div>
+            <div className="friendBtn"><FriendBtns friend_id={user.id} user_id={+userId}/></div>
         </div>
       </div>
       )}
@@ -47,7 +47,7 @@ export default function UserNonfriendsDashboard() {
     );
   }
 
-  return (<> {isLoaded && (
+  return (<>
       <>
       <div className="topoBackground">
           <div className="friendLinks">
@@ -62,7 +62,7 @@ export default function UserNonfriendsDashboard() {
           <div className="friendDashboardContainer">{userComponents}</div>
         </div>
       </>
-      )}
+
   </>
   );
   }
