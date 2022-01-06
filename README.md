@@ -1,15 +1,21 @@
 ## [MapByFun](https://mapbyfun.herokuapp.com/)
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375"></p>
+A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-focused project, but derived from the fact that humans use maps for survival and near-daily in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools.
 
-A MapMyRun clone that focuses on frontend styling. Conceptually it could function like a bridge between Google Maps and Eventbrite.
+<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands would attend throughout the city neighborhoods via these programming networks.
+<br><p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
+<img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p></br>
+The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public that makes the less familiar less daunting, as the unforeseen becomes more seen. It could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand loyalty and repeat customers derive from familiarity and trust of repeated exposure, something like this could help the newer, smaller, and/or more diverse community spaces resonate with more people. A bridge between Eventbrite and Google Maps.</br>
 
 ### Fullstack used:
 * CSS & HTML (front-end)
 * React (front-end)
 * Redux (front-end)
+* Javascript (front-end)
 * Python (back-end)
 * Sequelize (back-end)
 ---
-## [Database Schema](https://github.com/ad-sw/ConstructHunt/wiki/Database-Schema)
+## [Database Schema](https://github.com/ad-sw/MapByFun/wiki/Database-Schema)
 
 ### Features Overview:
 * Visitors View
@@ -39,35 +45,35 @@ A MapMyRun clone that focuses on frontend styling. Conceptually it could functio
 ## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
 
 ### [Home Page](https://mapbyfun.herokuapp.com/)
-- Overview product concept with options to sign up or sign in as a registered or demo user. (Centered animation art credited to [ILLO](https://illo.tv/airbnbchina).)
-<img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375">
+- Overview product concept with options to sign up or sign in as a registered or demo user. (Centered animation art credited to [ILLO Studio](https://illo.tv/).)
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375"></p>
 
-### [Login & Sign Up Pages](http://localhost:3000/login)
-<img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="500" height="250">
-<img src="https://user-images.githubusercontent.com/86431563/147933515-ca75444e-05a8-454e-b573-f98a6b30c29b.PNG" width="500" height="250">
+### [Login & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="370" height="230" opacity=".5">
+<img src="https://user-images.githubusercontent.com/86431563/147933515-ca75444e-05a8-454e-b573-f98a6b30c29b.PNG" width="370" height="230" opacity=".5"></p>
 
 ### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
 - View all of your route posts to find details, edit, delete, create more of, or comment on.
-<img src="https://user-images.githubusercontent.com/86431563/147933974-84ae86fd-386f-460a-bd28-b2d9b3a98dbc.PNG" width="750" height="375">
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933974-84ae86fd-386f-460a-bd28-b2d9b3a98dbc.PNG" width="750" height="375"></p>
 
 ### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
 - View your route's detailed information and any existing comments with the option to add more to.
-<img src="https://user-images.githubusercontent.com/86431563/147934129-674d8557-6232-48ea-9b26-f335d333caf8.PNG" width="750" height="375">
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/148127859-947ecb99-8306-4bc4-bcba-104bca19e258.PNG" width="750" height="375"></p>
 
 ### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
 - View a collection of your friends to visit one of their specific profile pages, or potentially unfriend.
-<img src="https://user-images.githubusercontent.com/86431563/147934479-4fc7df84-b63a-4453-9f12-3819c9e1a53f.PNG" width="750" height="375">
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147934479-4fc7df84-b63a-4453-9f12-3819c9e1a53f.PNG" width="750" height="375"></p>
 
 ### [Specific User Profile](https://mapbyfun.herokuapp.com/users/2)
 - View a specific user's high level site information. If they are a friend, you may view their routes and comment on them as well.
-<img src="https://user-images.githubusercontent.com/86431563/147934288-d0e5137e-aa18-4da3-af72-ca4e9100ac0c.PNG" width="750" height="375">
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147934288-d0e5137e-aa18-4da3-af72-ca4e9100ac0c.PNG" width="750" height="375"></p>
 
 ## Getting started
 
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/ad-sw/MapByFun
+   git clone https://github.com/ad-sw/MapByFun.git 
    ```
 
 2. Install dependencies
