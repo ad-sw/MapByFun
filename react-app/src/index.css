@@ -566,8 +566,10 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     bottom: 0px;
     transform: translate(-50%, -50%);
     margin: 0 auto;
+    max-height: 25px;;
     z-index: 2;
-    height: 20px;
+    display: inline-block;
+    /* height: 20px; */
   /* bring your own prefixes */
     background-color: #F9F9F9;
     padding: 0px 250px 0px 250px;
@@ -1205,14 +1207,12 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 }
 .signup-page {
     align-items: center;
-    /* display: flex; */
     position: absolute;
     top: 50px;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-    /* padding-top: 10px; */
     height: 600px;
     width: 455px;
     content: '';
@@ -1254,14 +1254,20 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 9px;
-    margin-right: 37px;
+    margin-top: 12px;
+    margin-right: 38px;
+    color: #9297A3;
+}
+.loginText {
+    float: right;
+    margin-top: 10px;
+    margin-right: 39px;
     color: #9297A3;
 }
 .signupText:hover {
     color: #747c8a;
 }
-.demoBtn {
+.demoBtn1 {
     margin-top: 20px;
     width: 320.6px;
     background-color: #0076C0;
@@ -1270,12 +1276,33 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     border-radius: 1px;
     border: .5px solid rgb(172, 172, 172);
     padding: 12px 16px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-.demoBtn:hover{
+.demoBtn2 {
+    width: 320.6px;
+    background-color: #0076C0;
+    color: white;
+    height: 44px;
+    border-radius: 1px;
+    border: .5px solid rgb(172, 172, 172);
+    padding: 12px 16px 12px 16px;
+    margin: 40px 20px 0px 35px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.demoBtn1:hover{
     background-color: #0065a4;
     cursor: pointer;
 }
-.login-form{
+.demoBtn2:hover{
+    background-color: #0065a4;
+    cursor: pointer;
+}
+.login-form1 {
     padding: 20px 20px 30px 20px;
     border-radius: 2px;
     align-items: center;
@@ -1283,6 +1310,23 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     width: 350px;
     border: 2px solid #BFBFBF;
     box-shadow: 8px 10px 3px 1px #d3d5d6;
+}
+.login-form-container{
+    align-items: center;
+    text-align: center;
+    margin: 8% auto;
+    padding-bottom: 20px;
+    display: block;
+    width: 394px;
+    /* height: 490px; */
+    background: white;
+    border: 2px solid #BFBFBF;
+    box-shadow: 8px 10px 3px 1px #d3d5d6;
+}
+.login-form {
+    align-items: center;
+    text-align: center;
+    padding: 0px 35px;
 }
 .email-input{
     margin-top: 10px;
@@ -1304,8 +1348,21 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     border: .5px solid rgb(172, 172, 172);
     padding: 12px 16px;
 }
-.or-container {
+.or-container1 {
     width: 91%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #a6a6a6;
+    font-size: 12px;
+}
+.or-container2 {
+    width: 81%;
     display: flex;
     align-items: center;
     text-align: center;
@@ -1342,8 +1399,23 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     background-color: rgba(61, 154, 157, 0.755);
     cursor: pointer;
 }
+.signup-button {
+    margin-top: 10px;
+    margin-bottom: 13px;
+    width: 320.6px;
+    background-color: rgba(65, 144, 148, 0.619);
+    color: white;
+    height: 44px;
+    border-radius: 1px;
+    border: .5px solid rgb(172, 172, 172);
+    padding: 12px 16px 25px 16px;
+}
+.signup-button:hover{
+    background-color: rgba(61, 154, 157, 0.755);
+    cursor: pointer;
+}
 .commentInfoDiv::-webkit-scrollbar {
-    width: 7.5px;
+    width: 3px;
 }
 .commentInfoDiv::-webkit-scrollbar-track {
     background: white;
@@ -1351,7 +1423,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 .commentInfoDiv::-webkit-scrollbar-thumb {
     background-color: #4f546c47;
     /* border-radius: 10px; */
-    border: 2px solid white;
+    /* border: 0px solid white; */
 }
 .commentInfoDiv::-webkit-scrollbar-track-piece {
     margin-top: 10px;

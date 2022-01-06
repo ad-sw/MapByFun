@@ -45,12 +45,12 @@ function App() {
           <HomePage/>
         </Route>
         <Route path='/login' exact={true}>
-        {setLoaded && (
+        {loaded && (
           <LoginForm/>
           )}
         </Route>
         <Route path='/sign-up' exact={true}>
-        {setLoaded && (
+        {loaded && (
           <SignUpForm/>
           )}
         </Route>
@@ -82,7 +82,7 @@ function App() {
           <UnderConstruction/>
         </ProtectedRoute>
         <Route>
-        {setLoaded && (
+        {loaded && (
           <center>
             <h1 id="h1404">404:</h1>
             Page Not Found

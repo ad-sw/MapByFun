@@ -124,7 +124,7 @@ const RouteCreateForm = () => {
                               </Modal>
                           )}
                   </div>
-                  <div className="errors1">
+                  <div className="errors2">
                     {errors.map((error, idx) => (
                     <div key={idx}>{error.split(':')[1]}</div>
                 ))}

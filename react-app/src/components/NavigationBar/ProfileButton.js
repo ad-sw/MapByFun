@@ -31,11 +31,15 @@ function ProfileButton({ user }) {
     history.push('/');
   };
 
-  let event = new Date(user.created_at);
-  let date = JSON.stringify(event)
-  date = date.slice(1,11).split('-')
-  date.push(date.shift())
-  date = date.join(',').replace(/\,/g, '/')
+  //full date format
+  // let event = new Date(user.created_at);
+  // let date = JSON.stringify(event)
+  // date = date.slice(1,11).split('-')
+  // date.push(date.shift())
+  // date = date.join(',').replace(/\,/g, '/')
+  let event = new Date(user?.created_at); //fri dec 31 2021
+  let date = event.toLocaleDateString().slice(0,4) + event.toLocaleDateString().slice(6,8)
+
 
   return (
     <>

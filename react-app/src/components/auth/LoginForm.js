@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -11,23 +11,17 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false)
 
+  useEffect(() => {
+    (async() => {
+      setIsLoaded(true);
+    })();
+  }, [dispatch]);
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const errorsArr = validator()
-    if(errorsArr.length) {
-      setErrors(errorsArr)
-    } else{
-      const payload = {
-          email,
-          password
-      }
-    if (email, password) {
-      const data = await dispatch(login(payload));
-        if(data) {
-          setErrors(data)
-        }
-      }
+    const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
     }
   };
 
@@ -46,12 +40,6 @@ const LoginForm = () => {
     return error;
   }
 
-  const demoLogin = async () => {
-    const demoUser = {email: "demo@aa.io", password: "password"};
-    await dispatch(login(demoUser));
-    // setIsLoaded(true)
-  }
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -64,13 +52,13 @@ const LoginForm = () => {
     return <Redirect to={`/users/${user.id}/routes`}/>;
   }
 
-  return (<div>
+  return (<div>{isLoaded && (
       <div className="login-page">
         <div className="login-container">
-          <form onSubmit={onLogin} className="login-form">
+          <form onSubmit={onLogin} className="login-form1">
           <a href={`/sign-up`} className="signupText">SIGN UP</a>
-          <button onClick={demoLogin} className="demoBtn">LOG IN WITH DEMO</button>
-          <div className='or-container'>
+          <button className="demoBtn1" onClick={() => {setEmail('demo@test.io'); setPassword('password');}}>LOG IN WITH DEMO</button>
+          <div className='or-container1'>
                 <span className='divider'></span><span className='or-text'>OR</span><span className='divider'></span>
           </div>
           <div className="errors">
@@ -79,7 +67,6 @@ const LoginForm = () => {
             ))}
           </div>
             <div>
-              {/* <label htmlFor='email'>Email</label> */}
               <input
                 className="email-input"
                 name='email'
@@ -91,7 +78,6 @@ const LoginForm = () => {
               />
             </div>
             <div>
-              {/* <label htmlFor='password'>Password</label> */}
               <input
                 className='password-input'
                 name='password'
@@ -105,8 +91,8 @@ const LoginForm = () => {
             </div>
           </form>
         </div>
-      </div>
-      </div>
+      </div>)}
+    </div>
   );
 };
 

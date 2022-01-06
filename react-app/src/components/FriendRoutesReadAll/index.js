@@ -29,7 +29,7 @@ export default function FriendRouteReadModal({userId, friendId}) {
         // date.push(date.shift())
         // date = date.join(',').replace(/\,/g, '/')
         let event = new Date(route?.created_at); //fri dec 31 2021
-        let date = event.toLocaleDateString()
+        let date = event.toLocaleDateString().slice(0,4) + event.toLocaleDateString().slice(6,8)
 
         return (<>
             <tr className="routes-table-row">
@@ -44,7 +44,7 @@ export default function FriendRouteReadModal({userId, friendId}) {
                 <td>{<center><img title="viewable by friends" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28" className="privacyIcon"></img></center>}</td>
                 <td id="distanceCenter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</td>
                 <td>
-                {!(route?.user_id in friendSession) && ('n/a')}
+                {!(route?.user_id in friendSession) && (<>&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</>)}
                 {route?.user_id in friendSession &&
                 <button id="userProfileViewLink" onClick={(e) => {
                     e.preventDefault();

@@ -19,7 +19,7 @@ export default function FriendBtns({user_id, friend_id}) {
             await dispatch(getAllFriends(user_id));
             setIsLoaded(true)
         })();
-    }, [dispatch, user_id, setIsLoaded]);
+    }, [dispatch, user_id]);
 
     const handleDelete = async(e) => {
         e.preventDefault();

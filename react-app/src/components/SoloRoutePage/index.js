@@ -61,7 +61,8 @@ export default function RoutePage(){
     'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
 
     let event = new Date(route?.created_at); //fri dec 31 2021
-    let date = event.toLocaleDateString().slice(0,6) + event.toLocaleDateString().slice(8,10)
+    let date = event.toLocaleDateString().slice(0,4) + event.toLocaleDateString().slice(6,8)
+
     // let date = JSON.stringify(event)
     // date = date.slice(1,11).split('-')
     // date.push(date.shift())

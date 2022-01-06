@@ -243,186 +243,186 @@ def seed_routes():
         description='here is a map description',
         activity_id=4,
     )
-    route41 = Route(
-        user_id= 9,
-        name='Example 41',
-        description='here is a map description',
-        activity_id=5,
-    )
-    route42 = Route(
-        user_id= 9,
-        name='Example 42',
-        description='here is a map description',
-        activity_id=6,
-    )
-    route43 = Route(
-        user_id= 9,
-        name='Example 43',
-        description='here is a map description',
-        activity_id=7,
-    )
-    route44 = Route(
-        user_id= 9,
-        name='Example 44',
-        description='here is a map description',
-        activity_id=1,
-    )
-    route45 = Route(
-        user_id= 9,
-        name='Example 45',
-        description='here is a map description',
-        activity_id=2,
-    )
-    route46 = Route(
-        user_id= 10,
-        name='Example 46',
-        description='here is a map description',
-        activity_id=3,
-    )
-    route47 = Route(
-        user_id= 10,
-        name='Example 47',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route48 = Route(
-        user_id= 10,
-        name='Example 48',
-        description='here is a map description',
-        activity_id=5,
-    )
-    route49 = Route(
-        user_id= 10,
-        name='Example 49',
-        description='here is a map description',
-        activity_id=6,
-    )
-    route50 = Route(
-        user_id= 10,
-        name='Example 50',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route51 = Route(
-        user_id= 11,
-        name='Example 51',
-        description='here is a map description',
-        activity_id=5,
-    )
-    route52 = Route(
-        user_id= 11,
-        name='Example 52',
-        description='here is a map description',
-        activity_id=6,
-    )
-    route53 = Route(
-        user_id= 11,
-        name='Example 53',
-        description='here is a map description',
-        activity_id=7,
-    )
-    route54 = Route(
-        user_id= 11,
-        name='Example 54',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route55 = Route(
-        user_id= 11,
-        name='Example 55',
-        description='here is a map description',
-        activity_id=3,
-    )
-    route56 = Route(
-        user_id= 12,
-        name='Example 56',
-        description='here is a map description',
-        activity_id=7,
-    )
-    route57 = Route(
-        user_id= 12,
-        name='Example 57',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route58 = Route(
-        user_id= 12,
-        name='Example 58',
-        description='here is a map description',
-        activity_id=3,
-    )
-    route59 = Route(
-        user_id= 12,
-        name='Example 59',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route60 = Route(
-        user_id= 12,
-        name='Example 60',
-        description='here is a map description',
-        activity_id=7,
-    )
+    # route41 = Route(
+    #     user_id= 9,
+    #     name='Example 41',
+    #     description='here is a map description',
+    #     activity_id=5,
+    # )
+    # route42 = Route(
+    #     user_id= 9,
+    #     name='Example 42',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
+    # route43 = Route(
+    #     user_id= 9,
+    #     name='Example 43',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
+    # route44 = Route(
+    #     user_id= 9,
+    #     name='Example 44',
+    #     description='here is a map description',
+    #     activity_id=1,
+    # )
+    # route45 = Route(
+    #     user_id= 9,
+    #     name='Example 45',
+    #     description='here is a map description',
+    #     activity_id=2,
+    # )
+    # route46 = Route(
+    #     user_id= 10,
+    #     name='Example 46',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
+    # route47 = Route(
+    #     user_id= 10,
+    #     name='Example 47',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route48 = Route(
+    #     user_id= 10,
+    #     name='Example 48',
+    #     description='here is a map description',
+    #     activity_id=5,
+    # )
+    # route49 = Route(
+    #     user_id= 10,
+    #     name='Example 49',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
+    # route50 = Route(
+    #     user_id= 10,
+    #     name='Example 50',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route51 = Route(
+    #     user_id= 11,
+    #     name='Example 51',
+    #     description='here is a map description',
+    #     activity_id=5,
+    # )
+    # route52 = Route(
+    #     user_id= 11,
+    #     name='Example 52',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
+    # route53 = Route(
+    #     user_id= 11,
+    #     name='Example 53',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
+    # route54 = Route(
+    #     user_id= 11,
+    #     name='Example 54',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route55 = Route(
+    #     user_id= 11,
+    #     name='Example 55',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
+    # route56 = Route(
+    #     user_id= 12,
+    #     name='Example 56',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
+    # route57 = Route(
+    #     user_id= 12,
+    #     name='Example 57',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route58 = Route(
+    #     user_id= 12,
+    #     name='Example 58',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
+    # route59 = Route(
+    #     user_id= 12,
+    #     name='Example 59',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route60 = Route(
+    #     user_id= 12,
+    #     name='Example 60',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
     # route60 = Route(
     #     user_id= 13,
     #     name='Example 60',
     #     description='here is a map description',
     #     activity_id=6,
     # )
-    route61 = Route(
-        user_id= 13,
-        name='Example 61',
-        description='here is a map description',
-        activity_id=1,
-    )
-    route62 = Route(
-        user_id= 13,
-        name='Example 62',
-        description='here is a map description',
-        activity_id=2,
-    )
-    route63 = Route(
-        user_id= 13,
-        name='Example 63',
-        description='here is a map description',
-        activity_id=3,
-    )
-    route64 = Route(
-        user_id= 13,
-        name='Example 64',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route65 = Route(
-        user_id= 14,
-        name='Example 65',
-        description='here is a map description',
-        activity_id=7,
-    )
-    route66 = Route(
-        user_id= 14,
-        name='Example 66',
-        description='here is a map description',
-        activity_id=6,
-    )
-    route67 = Route(
-        user_id= 14,
-        name='Example 67',
-        description='here is a map description',
-        activity_id=5,
-    )
-    route68 = Route(
-        user_id= 14,
-        name='Example 68',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route69 = Route(
-        user_id= 14,
-        name='Example 69',
-        description='here is a map description',
-        activity_id=3,
-    )
+    # route61 = Route(
+    #     user_id= 13,
+    #     name='Example 61',
+    #     description='here is a map description',
+    #     activity_id=1,
+    # )
+    # route62 = Route(
+    #     user_id= 13,
+    #     name='Example 62',
+    #     description='here is a map description',
+    #     activity_id=2,
+    # )
+    # route63 = Route(
+    #     user_id= 13,
+    #     name='Example 63',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
+    # route64 = Route(
+    #     user_id= 13,
+    #     name='Example 64',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route65 = Route(
+    #     user_id= 14,
+    #     name='Example 65',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
+    # route66 = Route(
+    #     user_id= 14,
+    #     name='Example 66',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
+    # route67 = Route(
+    #     user_id= 14,
+    #     name='Example 67',
+    #     description='here is a map description',
+    #     activity_id=5,
+    # )
+    # route68 = Route(
+    #     user_id= 14,
+    #     name='Example 68',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route69 = Route(
+    #     user_id= 14,
+    #     name='Example 69',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
     # route70 = Route(
     #     user_id= 15,
     #     name='Example 70',
@@ -651,42 +651,42 @@ def seed_routes():
         description='here is a map description',
         activity_id=1,
     )
-    route107 = Route(
-        user_id= 9,
-        name='Example Z',
-        description='here is a map description',
-        activity_id=2,
-    )
-    route108 = Route(
-        user_id= 10,
-        name='Example Z',
-        description='here is a map description',
-        activity_id=3,
-    )
-    route109 = Route(
-        user_id= 11,
-        name='Example Z',
-        description='here is a map description',
-        activity_id=4,
-    )
-    route110 = Route(
-        user_id= 12,
-        name='Example Z',
-        description='here is a map description',
-        activity_id=5,
-    )
-    route111 = Route(
-        user_id= 13,
-        name='Example X',
-        description='here is a map description',
-        activity_id=6,
-    )
-    route112 = Route(
-        user_id= 14,
-        name='Example X',
-        description='here is a map description',
-        activity_id=7,
-    )
+    # route107 = Route(
+    #     user_id= 9,
+    #     name='Example Z',
+    #     description='here is a map description',
+    #     activity_id=2,
+    # )
+    # route108 = Route(
+    #     user_id= 10,
+    #     name='Example Z',
+    #     description='here is a map description',
+    #     activity_id=3,
+    # )
+    # route109 = Route(
+    #     user_id= 11,
+    #     name='Example Z',
+    #     description='here is a map description',
+    #     activity_id=4,
+    # )
+    # route110 = Route(
+    #     user_id= 12,
+    #     name='Example Z',
+    #     description='here is a map description',
+    #     activity_id=5,
+    # )
+    # route111 = Route(
+    #     user_id= 13,
+    #     name='Example X',
+    #     description='here is a map description',
+    #     activity_id=6,
+    # )
+    # route112 = Route(
+    #     user_id= 14,
+    #     name='Example X',
+    #     description='here is a map description',
+    #     activity_id=7,
+    # )
     # route113 = Route(
     #     user_id= 15,
     #     name='Example X',
@@ -801,35 +801,35 @@ def seed_routes():
     db.session.add(route38)
     db.session.add(route39)
     db.session.add(route40)
-    db.session.add(route41)
-    db.session.add(route42)
-    db.session.add(route43)
-    db.session.add(route44)
-    db.session.add(route45)
-    db.session.add(route46)
-    db.session.add(route47)
-    db.session.add(route48)
-    db.session.add(route49)
-    db.session.add(route50)
-    db.session.add(route51)
-    db.session.add(route52)
-    db.session.add(route53)
-    db.session.add(route54)
-    db.session.add(route55)
-    db.session.add(route56)
-    db.session.add(route57)
-    db.session.add(route58)
-    db.session.add(route59)
-    db.session.add(route60)
-    db.session.add(route61)
-    db.session.add(route62)
-    db.session.add(route63)
-    db.session.add(route64)
-    db.session.add(route65)
-    db.session.add(route66)
-    db.session.add(route67)
-    db.session.add(route68)
-    db.session.add(route69)
+    # db.session.add(route41)
+    # db.session.add(route42)
+    # db.session.add(route43)
+    # db.session.add(route44)
+    # db.session.add(route45)
+    # db.session.add(route46)
+    # db.session.add(route47)
+    # db.session.add(route48)
+    # db.session.add(route49)
+    # db.session.add(route50)
+    # db.session.add(route51)
+    # db.session.add(route52)
+    # db.session.add(route53)
+    # db.session.add(route54)
+    # db.session.add(route55)
+    # db.session.add(route56)
+    # db.session.add(route57)
+    # db.session.add(route58)
+    # db.session.add(route59)
+    # db.session.add(route60)
+    # db.session.add(route61)
+    # db.session.add(route62)
+    # db.session.add(route63)
+    # db.session.add(route64)
+    # db.session.add(route65)
+    # db.session.add(route66)
+    # db.session.add(route67)
+    # db.session.add(route68)
+    # db.session.add(route69)
     # db.session.add(route70)
     # db.session.add(route71)
     # db.session.add(route72)
@@ -867,12 +867,12 @@ def seed_routes():
     db.session.add(route104)
     db.session.add(route105)
     db.session.add(route106)
-    db.session.add(route107)
-    db.session.add(route108)
-    db.session.add(route109)
-    db.session.add(route110)
-    db.session.add(route111)
-    db.session.add(route112)
+    # db.session.add(route107)
+    # db.session.add(route108)
+    # db.session.add(route109)
+    # db.session.add(route110)
+    # db.session.add(route111)
+    # db.session.add(route112)
     # db.session.add(route113)
     # db.session.add(route114)
     # db.session.add(route115)

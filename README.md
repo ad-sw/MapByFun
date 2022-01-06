@@ -1,4 +1,4 @@
-## [MapByFun](https://mapbyfun.herokuapp.com/) 
+## [MapByFun](https://mapbyfun.herokuapp.com/)
 
 A MapMyRun clone that focuses on frontend styling. Conceptually it could function like a bridge between Google Maps and Eventbrite.
 
@@ -16,7 +16,7 @@ A MapMyRun clone that focuses on frontend styling. Conceptually it could functio
   + Navigation Bar
     - [X] Sign up
     - [X] Log in (registered user or demo)
- 
+
 * Logged-in View
   + Route Posts
     - [X] Create route post (C)
@@ -67,7 +67,7 @@ A MapMyRun clone that focuses on frontend styling. Conceptually it could functio
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/ad-sw/MapByFun
    ```
 
 2. Install dependencies

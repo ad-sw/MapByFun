@@ -35,7 +35,7 @@ export const getAllFriends = (userId) => async (dispatch) => {
 }
 
 export const addFriend = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/users/${payload.user_id}/friends/${payload.friend_id}/add`, {
+  const response = await fetch(`/api/users/${payload?.user_id}/friends/${payload.friend_id}/add`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
@@ -86,7 +86,7 @@ export default function friendReducer(state = {}, action) {
         case ADD_ONE_FRIEND:
             newState = {...state};
             newState[action.payload.id] = action.payload;
-            const copiedState = {...newState}
+            const copiedState = {...newState};
             return copiedState;
         case REMOVE_ONE_FRIEND:
             newState = {...state};
