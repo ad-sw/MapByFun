@@ -13,7 +13,10 @@ The just-for-fun concept was to have a platform that any city or person could de
 * Redux (front-end)
 * Javascript (front-end)
 * Python (back-end)
-* Sequelize (back-end)
+* PostgreSQL (back-end)
+* Flask (back-end)
+* SQLAlchemy (back-end)
+* WTForms (back-end)
 ---
 ## [Database Schema](https://github.com/ad-sw/MapByFun/wiki/Database-Schema)
 
