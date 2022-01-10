@@ -9,17 +9,17 @@ import '../../../src/index.css'
 export default function FriendBtns({user_id, friend_id}) {
     const [showModal, setShowModal] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const friendSession = useSelector(state => state.friends)
     const dispatch = useDispatch()
 
     useEffect(() => {
         (async () => {
-            await dispatch(getAllNonFriends(user_id));
-            await dispatch(getAllFriends(user_id));
+            // await dispatch(getAllNonFriends(user_id));
+            // await dispatch(getAllFriends(user_id));
             setIsLoaded(true)
         })();
-    }, [dispatch, user_id]);
+    }, [dispatch, setIsLoaded, user_id]);
 
     const handleDelete = async(e) => {
         e.preventDefault();
@@ -30,9 +30,10 @@ export default function FriendBtns({user_id, friend_id}) {
     const handleAdd = async(e) => {
         e.preventDefault();
         const payload = {user_id, friend_id};
-        await dispatch(addFriend(payload),
-        await dispatch(removeNonFriend(payload)),
-        )
+        // await dispatch(getAllNonFriends(user_id));
+        await dispatch(removeNonFriend(payload));
+        await dispatch(addFriend(payload));
+        setIsLoaded(true)
     }
     const handleCancel = (e) => {
         e.preventDefault();

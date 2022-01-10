@@ -7,10 +7,10 @@ const loadAllNonFriends = (friends, id) => ({
     id,
   });
 
-const removeOneNonFriend = (friends, id) => ({
+const removeOneNonFriend = (friends, user_id) => ({
     type: REMOVE_A_NON_FRIEND,
     payload: friends,
-    id,
+    user_id
 });
 
 export const getAllNonFriends = (id) => async (dispatch) => {
@@ -31,6 +31,7 @@ export const getAllNonFriends = (id) => async (dispatch) => {
 
 export const removeNonFriend = (payload) => async (dispatch) => {
       dispatch(removeOneNonFriend(payload));
+      console.log(payload, 'this is payload', payload.friend_id, payload.user_id)
     }
 
 export default function nonFriendReducer(state = {}, action) {
@@ -41,11 +42,13 @@ export default function nonFriendReducer(state = {}, action) {
             Object.values(action.payload.nonfriends).forEach(user => {
                 newState[user.id] = user;
               })
-            return newState;
+            const copiedState = {...newState}
+            return copiedState;
         case REMOVE_A_NON_FRIEND:
             newState = {...state};
             delete newState[action.payload.friend_id];
-            return newState;
+            const copyState = {...newState}
+            return copyState;
         default:
             return state;
     }

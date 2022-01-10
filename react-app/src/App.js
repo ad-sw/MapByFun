@@ -15,7 +15,8 @@ import UserFriendsDashboard from './components/UserFriendsDashboard';
 import UserNonfriendsDashboard from './components/UserNonfriendsDashboard';
 import { authenticate } from './store/session';
 import NavBar from '../src/components/NavigationBar';
-import UnderConstruction from './components/UnderConstruction';
+import ShopUnderConstruction from './components/UnderConstruction';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,15 +28,6 @@ function App() {
       setLoaded(true);
     })();
   }, [dispatch]);
-
-  // if (!loaded) {
-  //   return (
-  //     <div id="loadingGif">
-  //           <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
-  //           <div className="loadText">Loading</div>
-  //       </div>
-  //   );
-  // }
 
   return (
     <BrowserRouter>
@@ -79,7 +71,10 @@ function App() {
           <UserFriendsDashboard/>
         </ProtectedRoute>
         <ProtectedRoute path='/under-construction' exact={true}>
-          <UnderConstruction/>
+          <ShopUnderConstruction/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/about-us' exact={true}>
+          <ShopUnderConstruction/>
         </ProtectedRoute>
         <Route>
         {loaded && (

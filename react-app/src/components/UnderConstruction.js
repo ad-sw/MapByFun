@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const UnderConstruction = () => {
+const ShopUnderConstruction = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const UnderConstruction = () => {
                 Thank you for your patience while we work hard to make this feature by 3000.<br></br>
                 Until then we look forward to seeing you on our other features.
                 </div>
-                <div><img alt="test" height="550" width="365" src="https://i.pinimg.com/originals/1d/c7/f9/1dc7f97fd25ba503520fc6ed4022f75e.jpg"></img></div>
+                <div><a href="https://www.pinterest.co.kr/pin/450078556508774615/"><img alt="test" height="500" width="375" src="https://i.pinimg.com/originals/ec/94/fa/ec94fa24a9d4dca2c0d627039763dbaa.png"></img></a></div>
             </div>
         </div>
       )}
@@ -24,4 +24,4 @@ const UnderConstruction = () => {
     )
 }
 
-export default UnderConstruction;
+export default ShopUnderConstruction;
