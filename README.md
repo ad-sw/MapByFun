@@ -1,5 +1,5 @@
 ## [MapByFun](https://mapbyfun.herokuapp.com/)
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375"><br><sub>(Centered animation art credited to ILLO Studio.)</sub></br></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/148797804-168d2d33-ccb8-4263-a9dd-713917e52a3f.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
 A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-focused project, but derived from the fact that humans use maps for survival and near-daily in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools.
 
 <br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands would attend throughout the city neighborhoods via these programming networks.
@@ -48,8 +48,8 @@ The just-for-fun concept was to have a platform that any city or person could de
 ## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
 
 ### [Home Page](https://mapbyfun.herokuapp.com/)
-- Overview product concept with options to sign up or sign in as a registered or demo user. (Centered animation art credited to [ILLO Studio](https://illo.tv/).)
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933200-9aafe1e0-bc25-4682-8828-259a9397b282.PNG" width="750" height="375"></p>
+- Overview product concept with options to sign up or sign in as a registered or demo user. (Centered art credited to [Michael Tompsett](https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ).)
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/148797804-168d2d33-ccb8-4263-a9dd-713917e52a3f.PNG" width="750" height="375"></p>
 
 ### [Login & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="370" height="230" opacity=".5">
@@ -76,7 +76,7 @@ The just-for-fun concept was to have a platform that any city or person could de
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/ad-sw/MapByFun.git 
+   git clone https://github.com/ad-sw/MapByFun.git
    ```
 
 2. Install dependencies

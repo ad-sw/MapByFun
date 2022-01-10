@@ -557,22 +557,22 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     opacity: 0.72;
 }
 #artistName {
-    color: #dadada;
+    color: #c9c9c9;
     cursor: pointer;
     /* padding-top: 15px;
     margin-top: 15px; */
     position: absolute;
     left: 50%;
-    bottom: 0px;
+    bottom: 8px;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     max-height: 25px;;
     z-index: 2;
     display: inline-block;
     /* height: 20px; */
-  /* bring your own prefixes */
-    background-color: #F9F9F9;
-    padding: 0px 250px 0px 250px;
+    /* bring your own prefixes */
+    /* background-color: #F9F9F9; */
+    /* padding: 0px 250px 0px 250px; */
     justify-content: center;
 }
 .slogan-container {
