@@ -38,6 +38,14 @@ def get_all_user_routes(user_id):
     all_user_routes = Route.query.filter(Route.user_id == user_id).all()
     return {'routes': [route.to_dict() for route in all_user_routes]}
 
+@user_routes.route('/<int:user_id>/search/<string:term>')
+def search_all_user_routes(user_id, term):
+    if term:
+        all_user_search_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))
+    elif not term | len(term) == 0 | len(term) == []:
+        all_user_search_routes = Route.query.filter(Route.user_id == user_id).all()
+    return {'routes': [route.to_dict() for route in all_user_search_routes]}
+
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>/routes')
 @login_required
 def get_all_user_friend_routes(user_id, friend_id):

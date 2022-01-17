@@ -38,7 +38,7 @@ function ProfileButton({ user }) {
   // date.push(date.shift())
   // date = date.join(',').replace(/\,/g, '/')
   let event = new Date(user?.created_at); //fri dec 31 2021
-  let date = event.toLocaleDateString().slice(0,4) + event.toLocaleDateString().slice(6,8)
+  let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
 
 
   return (

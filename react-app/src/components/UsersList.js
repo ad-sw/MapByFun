@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllNonFriends} from  '../store/nonfriend';
 import FriendBtns from '../components/AddDeleteFriendBtns';
 import '../../src/index.css'
+import { getAllFriends } from '../store/friend';
 
 function UsersList() {
+  const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false)
   const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('/api/users/');
-      const responseData = await response.json();
-      setUsers(responseData.users);
-      setIsLoaded(true)
-    }
-    fetchData();
-  }, []);
+    (async () => {
+        await dispatch(getAllFriends(sessionUser?.id));
+        const response = await fetch('/api/users');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+        setIsLoaded(true)
+    })();
+  }, [dispatch, sessionUser?.id]);
 
   const userComponents = users.map((user) => {
-    if (user.id !== sessionUser.id) {
+    if (user.id !== sessionUser?.id) {
     return (
       <div className="friendCard">
         <div className="soMany">
@@ -28,7 +31,7 @@ function UsersList() {
             <div className="friendContent"></div>
             <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
           </NavLink>
-            <div className="friendBtn"><FriendBtns user_id={sessionUser.id} friend_id={user.id}/></div>
+            <div className="friendBtn"><FriendBtns user_id={sessionUser?.id} friend_id={user.id}/></div>
         </div>
       </div>
     );

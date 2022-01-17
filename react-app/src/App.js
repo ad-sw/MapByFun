@@ -16,6 +16,7 @@ import UserNonfriendsDashboard from './components/UserNonfriendsDashboard';
 import { authenticate } from './store/session';
 import NavBar from '../src/components/NavigationBar';
 import ShopUnderConstruction from './components/UnderConstruction';
+import AboutUs from './components/AboutUs'
 
 
 function App() {
@@ -46,36 +47,51 @@ function App() {
           <SignUpForm/>
           )}
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </Route>
+        <Route path='/users/:userId' exact={true} >
           <User/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/routes/new' exact={true}>
+        </Route>
+        <Route path='/routes/new' exact={true}>
           <RouteCreateForm/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/routes' exact={true}>
-          <RoutesDashboard/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/routes/:routeId' exact={true}>
+        </Route>
+        <Route path='/routes/:routeId' exact={true}>
           <RoutePage/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/routes/:routeId/edit' exact={true}>
+        </Route>
+        <Route path='/routes/:routeId/edit' exact={true}>
           <RouteEditForm/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/people' exact={true} >
+        </Route>
+        <Route path='/users/:userId/people' exact={true} >
           <UserNonfriendsDashboard/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/friends' exact={true}>
+        </Route>
+        <Route path='/users/:userId/friends' exact={true}>
           <UserFriendsDashboard/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/under-construction' exact={true}>
+        </Route>
+        <Route path='/under-construction' exact={true}>
           <ShopUnderConstruction/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/about-us' exact={true}>
+        </Route>
+        <Route path='/about-us' exact={true}>
           <ShopUnderConstruction/>
-        </ProtectedRoute>
+        </Route>
+        <Route path='/about' exact={true}>
+          <AboutUs/>
+        </Route>
+        <Route path='/ambassador-program' exact={true}>
+          <ShopUnderConstruction/>
+        </Route>
+        <Route path='/faq' exact={true}>
+          <ShopUnderConstruction/>
+        </Route>
+        <Route path='/users/:userId/routes' exact={true}>
+          <RoutesDashboard/>
+        </Route>
+        <Route path='/search' exact={true}>
+          <RoutesDashboard/>
+        </Route>
+        <Route path='/users/:userId/search/:term' exact={true}>
+          <RoutesDashboard/>
+        </Route>
         <Route>
         {loaded && (
           <center>

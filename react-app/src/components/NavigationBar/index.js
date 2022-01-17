@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from 'react-redux';
-import LogoutButton from '../auth/LogoutButton';
+// import LogoutButton from '../auth/LogoutButton';
 import ProfileButton from './ProfileButton';
 import RouteButton from './RouteButton';
 import CommunityButton from './CommunityButton';
 import ShopButton from './ShopButton';
+import AboutButton from './AboutButton';
 import '../../../src/index.css';
 import AboutMe from '../AboutMe';
 
@@ -58,6 +59,15 @@ function NavBar(){
     )
   }
 
+  let aboutLinks;
+  if (sessionUser) {
+    aboutLinks = (
+      <>
+      <AboutButton user={sessionUser} id="routeLink" activeClassName="link-active"/>
+      </>
+    )
+  }
+
   if (!sessionUser) {
     sessionLinks = (
       <>
@@ -79,6 +89,7 @@ function NavBar(){
       <div id="routeLink" activeClassName="link-active">{isLoaded && routeLinks}</div>
       <div id="communityLink" activeClassName="link-active">{isLoaded && communityLinks}</div>
       <div id="shopLink" activeClassName="link-active">{isLoaded && shopLinks}</div>
+      <div className="logBtns" activeClassName="link-active">{isLoaded && aboutLinks}</div>
       <div className="logBtns" activeClassName="link-active">{isLoaded && sessionLinks}</div>
     </header>
     <AboutMe/>

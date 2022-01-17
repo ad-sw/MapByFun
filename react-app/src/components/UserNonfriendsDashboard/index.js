@@ -8,6 +8,7 @@ import '../../../src/index.css'
 export default function UserNonfriendsDashboard() {
   const dispatch = useDispatch()
   const { userId }  = useParams();
+  const user_id = useSelector(state => state.session.user?.id);
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -17,12 +18,11 @@ export default function UserNonfriendsDashboard() {
       })();
   }, [dispatch, userId]);
 
-  const sessionUser = useSelector(state => state.session.user)
   let nonFriendList = useSelector(state => state.nonFriends)
   let nonFriendsList = Object.values(nonFriendList)
 
   const userComponents = nonFriendsList?.map(user => {
-    if (user.id !== sessionUser.id) {
+    if (user.id !== user_id) {
     return (<> {
       <div className="friendCard">
         <div className="soMany">
@@ -30,7 +30,7 @@ export default function UserNonfriendsDashboard() {
             <div className="friendContent"></div>
             <div className="fullName">{user?.first_name}&nbsp;{user?.last_name}</div>
           </NavLink>
-            <div className="friendBtn"><FriendBtns user_id={+userId} friend_id={user?.id} /></div>
+            <div className="friendBtn"><FriendBtns user_id={userId} friend_id={user?.id} /></div>
         </div>
       </div>
       }
@@ -51,8 +51,8 @@ export default function UserNonfriendsDashboard() {
       {isLoaded && (
       <div className="topoBackground">
           <div className="friendLinks">
-            <NavLink to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
             <NavLink to={`/users`}>All Users</NavLink>
           </div>
           <div className="titleTry">

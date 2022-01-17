@@ -10,13 +10,12 @@ const AboutUs = () => {
     return(<>
       {isLoaded &&(
         <div className="underConstruction">
-            <div className="inner">
+            <div className="inner"><br></br>
                 <div className="h404">About</div>
                 <div className="textInner">
                 This is where a description of this web project will go.<br></br>
-                Essentially better formatted readme information.
+                Essentially better formatted <i><a href="https://github.com/ad-sw/MapByFun">readme</a></i> information.
                 </div>
-                <div><img alt="test" height="550" width="365" src=""></img></div>
             </div>
         </div>
       )}

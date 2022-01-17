@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import FriendBtns from '../../src/components/AddDeleteFriendBtns';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import UserFriendsDashboard from "../components/FriendRoutesDashboard";
+import { getAllFriends } from '../store/friend';
 
 function User() {
+  const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId }  = useParams();
-  const sessionUser = useSelector(state => state.session.user)
-  const user_id = useSelector(state => state.session.user.id);
+  // const sessionUser = useSelector(state => state.session.user)
+  const user_id = useSelector(state => state.session.user?.id);
   const [isLoaded, setIsLoaded] = useState(false)
   const profileUser = useSelector(state => state.friends[userId])
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-  if (!userId) {
-    return;
-  }
-  (async () => {
-    const response = await fetch(`/api/users/${userId}`);
-    const user = await response.json();
-    setUser(user);
-    setIsLoaded(true)
-  })();
-  }, [userId]);
+    (async () => {
+        await dispatch(getAllFriends(sessionUser?.id));
+        const response = await fetch(`/api/users/${userId}`);
+        const user = await response.json();
+        setUser(user);
+        setIsLoaded(true)
+    })();
+  }, [dispatch, sessionUser?.id, userId]);
 
   if (!user) {
     return null;
@@ -36,15 +37,15 @@ function User() {
   // date = date.join(',').replace(/\,/g, '/')
 
   let event = new Date(user?.created_at); //fri dec 31 2021
-  let date = event.toLocaleDateString().slice(0,4) + event.toLocaleDateString().slice(6,8)
+  let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
 
   return (
         <>{isLoaded && (
           <>
           <div className="divCont">
             <div className="friendLinks">
-              <NavLink to={`/users/${sessionUser.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink to={`/users/${sessionUser.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
             <div className="routes-wrapper">
