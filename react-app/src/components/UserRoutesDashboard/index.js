@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useHistory, useParams } from 'react-router-dom'
 import UserRouteReadModal from "../UserRoutesReadAll";
+import RouteSearchForm from '../RoutesSearchbar';
 import {getAllRoutes, searchAllRoutes} from '../../store/route';
 import '../../../src/index.css'
 
@@ -23,17 +24,23 @@ export default function RoutesDashboard(){
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (term.length > 0) {
-            dispatch(searchAllRoutes(userId, term));
-            history.push(`/users/${userId}/search/${term}`);
-        }
-        else if (term.length === 0 || !term) {
-            dispatch(getAllRoutes(userId))
-            history.push(`/search`);
-        }
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (term.length > 0) {
+    //         dispatch(searchAllRoutes(userId, term));
+    //         history.push(`/users/${userId}/search/${term}`);
+    //     }
+    //     else if (term.length === 0 || !term) {
+    //         dispatch(getAllRoutes(userId));
+    //         history.push(`/users/${userId}/search`);
+    //     }
+    // }
+
+    // const onHandleFormSubmit = (e) => {
+    //     e.preventDefault();
+    //     setTerm('');
+    //     history.push(`/users/${userId}/search`);
+    // }
 
     return (<>
         {isLoaded && (
@@ -42,17 +49,7 @@ export default function RoutesDashboard(){
                 <h3>MY ROUTES</h3>
                 <hr></hr>
 
-                <div className='searchbarWrap'>
-                    <form className='searchForm' onSubmit={handleSubmit}>
-                        <input
-                        className='searchbarInput'
-                        placeholder='Discover projects'
-                        value={term}
-                        onChange= {(e) => setTerm(e.target.value)}/>
-                        <button className='search-btn' type='submit'>Search</button>
-                    </form>
-                </div>
-
+                <RouteSearchForm />
                 <button className="createRouteBtn" onClick={(e) => {
                     e.preventDefault();
                     history.push('/routes/new');

@@ -4,7 +4,7 @@ const CREATE_ONE_ROUTE = 'routes/CREATE_ONE';
 const GET_ONE_FRIEND_ROUTES = 'friends/GET_FRIEND_ROUTES';
 const EDIT_ONE_ROUTE = 'routes/EDIT_ONE';
 const DELETE_ONE_ROUTE = 'routes/DELETE_ONE';
-const GET_ALL_SEARCH_ROUTES = 'routes/GET_SEARCH_ROUTES'
+const GET_ALL_SEARCH_ROUTES = 'routes/GET_SEARCHED_ROUTES'
 
 const loadAllRoutes = (routes) => {
   return {
@@ -47,13 +47,13 @@ const deleteOneRoute = (routeId) => {
     }
   }
 
-  const searchRoutes = (routes, userId) => {
-    return {
-      type: GET_ALL_SEARCH_ROUTES,
-      payload: routes,
-      userId
-    }
+const searchRoutes = (routes, userId) => {
+  return {
+    type: GET_ALL_SEARCH_ROUTES,
+    payload: routes,
+    userId
   }
+}
 
 export const getAllRoutes = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/routes`)
@@ -201,11 +201,9 @@ export default function routeReducer (state = {}, action) {
       return newState;
     case GET_ALL_SEARCH_ROUTES:
       newState = {...state}
-      console.log(action.payload.routes, 'this is the new state')
       const searchState = newState.searchedRoutes = action.payload.routes
       let lastEle = searchState.pop()
       searchState.unshift(lastEle)
-      console.log(searchState, 'idk if this works')
       return searchState
     default:
       return state;

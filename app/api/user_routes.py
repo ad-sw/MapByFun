@@ -22,6 +22,37 @@ def all_user_friends(user_id):
     user = User.query.get(user_id)
     return {'users': [friend.to_dict() for friend in user.user_friends]}
 
+@user_routes.route('/<int:user_id>/find/<string:term>')
+def search_all_user_friends(user_id, term):
+    user = User.query.get(user_id)
+
+    user_friends = [friend.to_dict() for friend in user.user_friends]
+    user_friends.sort(key=lambda x: x.get('first_name'))
+
+    # def extract_positive(numbers):
+    #     positive_numbers = []
+    #     for number in numbers:
+    #         if number > 0:  # Filtering condition
+    #             positive_numbers.append(number)
+    #     return positive_numbers
+
+    # def filter_set(user_friends, term):
+    #     def iterator_func(x):
+    #         for v in x.values():
+    #             if term in v:
+    #                 return True
+    #         return False
+    #     return filter(iterator_func, user_friends)
+
+    # filtered_records = list(filter_set(user_friends, term))
+    # print(filtered_records, '1111111111111111111111111111111111111111111111111111111111111')
+    # print(first_list + list(set(second_list) - set(first_list)))
+
+    filteredFirst = list(filter(lambda friend: term.lower() in friend['first_name'].lower(), user_friends))
+    filteredLast = list(filter(lambda friend: term.lower() in friend['last_name'].lower(), user_friends))
+    filtered = list(filteredFirst + filteredLast)
+    return {'users': [filtered]}
+
 @user_routes.route('/<int:id>/people')
 @login_required
 def all_user_nonfriends(id):
@@ -42,8 +73,6 @@ def get_all_user_routes(user_id):
 def search_all_user_routes(user_id, term):
     if term:
         all_user_search_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))
-    elif not term | len(term) == 0 | len(term) == []:
-        all_user_search_routes = Route.query.filter(Route.user_id == user_id).all()
     return {'routes': [route.to_dict() for route in all_user_search_routes]}
 
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>/routes')

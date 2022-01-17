@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import FriendBtns from '../AddDeleteFriendBtns';
 import {getAllFriends} from  '../../store/friend'
 import '../../../src/index.css'
+import FriendSearchForm from '../FriendsSearchbar';
 
 function UserFriendsDashboard() {
   const dispatch = useDispatch()
@@ -18,8 +19,12 @@ function UserFriendsDashboard() {
       })();
   }, [dispatch, userId]);
 
-  const friendsGot = useSelector(state => Object.values(state.friends))
+  const friendsGot = useSelector(state => Object.values(state.friends.searchedFriends || state.friends))
   const userComponents = friendsGot?.map(friend => {
+    if (!friend) {
+      return <p>No results found :/</p>;
+    }
+
     return (
       <div className="friendCard">
         <div className="soMany">
@@ -49,9 +54,14 @@ function UserFriendsDashboard() {
               <NavLink  to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink exact to={`/users`} activeClassName="link-active3" className="links">All Users</NavLink>
             </div>
+
+            <h3>Search Friends:</h3>
+                <FriendSearchForm />
+                <hr></hr>
+
             <div className="titleTry">
-              <h3 className="testAlign">Friends</h3>
-              <hr className="testAlign2"></hr>
+              <h3 className="testAlign">Friends</h3><p></p>
+              {/* <hr className="testAlign2"></hr> */}
             </div>
             <div className="friendDashboardContainer">{userComponents}</div>
           </div>

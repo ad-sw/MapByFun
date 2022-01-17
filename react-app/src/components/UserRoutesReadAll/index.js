@@ -17,17 +17,22 @@ function UserRouteReadModal() {
     useEffect(() => {
         (async () => {
             // await dispatch(getAllRoutes(userId));
-            await dispatch(searchAllRoutes(userId, term))
+            if (term) {
+                await dispatch(searchAllRoutes(userId, term))
+            }
             setIsLoaded(true)
         })();
     }, [dispatch, term, userId]);
 
-    let dashRouted = useSelector(state => Object.values(state.routes?.searchedRoutes || state?.routes))
+    let dashRouted = useSelector(state => Object.values(state.routes.searchedRoutes || state.routes))
 
     const activities = ['Walk', 'Run', 'Hike', 'Sport / Other Activity',
     'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
 
     const test = dashRouted.map(route => {
+        if (!route) {
+            return <p>No results found :/</p>;
+        }
 
         let event = new Date(route?.created_at); //fri dec 31 2021
         let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
@@ -35,7 +40,7 @@ function UserRouteReadModal() {
         return (<>{isLoaded &&(
                     <tr className="routes-table-row">
                     <td className="td-name" id="nameColor">
-                        <NavLink key={route?.id} to={`/routes/${route?.id}`}>{route?.name}</NavLink></td>
+                        <NavLink key={route.id} to={`/routes/${route.id}`}>{route.name}</NavLink></td>
                         <td>{date}</td>
                         <td>{activities[route?.activity_id - 1]}</td>
                         <td>{<center><NavLink to={`/users/${userId}/friends`}><img id="privacyimg" title="viewable by friends" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img></NavLink></center>}</td>
@@ -43,17 +48,17 @@ function UserRouteReadModal() {
                         <td>
                             <button id="userProfileViewLink" onClick={(e) => {
                                 e.preventDefault();
-                                history.push(`/routes/${route?.id}`);
+                                history.push(`/routes/${route.id}`);
                                 }}>
                             View
                             </button>
                             <button id="userProfileViewLink" onClick={(e) => {
                                 e.preventDefault();
-                                history.push(`/routes/${route?.id}/edit`);
+                                history.push(`/routes/${route.id}/edit`);
                                 }}>
                             Edit
                             </button>
-                            <RouteDeleteModal routeId={route?.id}/>
+                            <RouteDeleteModal routeId={route.id}/>
                         </td>
                     </tr>)}
                 </>
