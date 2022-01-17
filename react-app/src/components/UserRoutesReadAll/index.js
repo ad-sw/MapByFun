@@ -31,7 +31,7 @@ function UserRouteReadModal() {
 
     const test = dashRouted.map(route => {
         if (!route) {
-            return <p>No results found :/</p>;
+            return null;
         }
 
         let event = new Date(route?.created_at); //fri dec 31 2021

@@ -24,24 +24,6 @@ export default function RoutesDashboard(){
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (term.length > 0) {
-    //         dispatch(searchAllRoutes(userId, term));
-    //         history.push(`/users/${userId}/search/${term}`);
-    //     }
-    //     else if (term.length === 0 || !term) {
-    //         dispatch(getAllRoutes(userId));
-    //         history.push(`/users/${userId}/search`);
-    //     }
-    // }
-
-    // const onHandleFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     setTerm('');
-    //     history.push(`/users/${userId}/search`);
-    // }
-
     return (<>
         {isLoaded && (
             <>

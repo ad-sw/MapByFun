@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
 import UserRouteReadModal from "../UserRoutesReadAll";
-import { getAllFriends, searchAllFriends } from "../../store/friend";
+import { getAllNonFriends, searchAllNonFriends } from '../../store/nonfriend';
 
-const FriendSearchForm = () => {
+const NonfriendSearchForm = () => {
     const history = useHistory();
     const [term, setTerm] = useState('');
     const userId = useSelector(state => state.session.user?.id)
@@ -17,11 +17,11 @@ const FriendSearchForm = () => {
         (async () => {
             setIsLoaded(true)
             if (term.length === 0) {
-                await dispatch(getAllFriends(userId));
+                await dispatch(getAllNonFriends(userId));
             }
             if (term.length > 0) {
-                await dispatch(searchAllFriends(userId, term));
-                history.push(`/users/${userId}/find/${term}`);
+                await dispatch(searchAllNonFriends(userId, term));
+                history.push(`/users/${userId}/discover/${term}`);
             }
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
@@ -29,19 +29,19 @@ const FriendSearchForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (term.length > 0) {
-            dispatch(searchAllFriends(userId, term));
-            history.push(`/users/${userId}/find/${term}`);
+            dispatch(searchAllNonFriends(userId, term));
+            history.push(`/users/${userId}/discover/${term}`);
         }
         else if (term.length === 0 || !term) {
-            dispatch(getAllFriends(userId));
-            history.push(`/users/${userId}/find`);
+            dispatch(getAllNonFriends(userId));
+            history.push(`/users/${userId}/discover`);
         }
     }
 
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/find`);
+        history.push(`/users/${userId}/discover`);
     }
 
     return (
@@ -59,4 +59,4 @@ const FriendSearchForm = () => {
     )
 }
 
-export default FriendSearchForm;
+export default NonfriendSearchForm;

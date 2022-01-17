@@ -20,12 +20,10 @@ function UserFriendsDashboard() {
   }, [dispatch, userId]);
 
   const friendsGot = useSelector(state => Object.values(state.friends.searchedFriends || state.friends))
-  const userComponents = friendsGot?.map(friend => {
-    if (!friend) {
-      return <p>No results found :/</p>;
-    }
 
-    return (
+  const userComponents = friendsGot?.map(friend => {
+
+    return (<> {isLoaded && (
       <div className="friendCard">
         <div className="soMany">
           <NavLink className="soMany" key={friend?.id} to={`/users/${friend?.id}`}>
@@ -35,7 +33,8 @@ function UserFriendsDashboard() {
             <div className="friendBtn"><FriendBtns friend_id={Number(friend?.id)} user_id={userId}/></div>
         </div>
       </div>
-    )
+      )}
+    </>)
   })
 
   if (!isLoaded) {
@@ -55,9 +54,11 @@ function UserFriendsDashboard() {
               <NavLink exact to={`/users`} activeClassName="link-active3" className="links">All Users</NavLink>
             </div>
 
-            <h3>Search Friends:</h3>
+            <div className="titleTry">
+            <h3 className="testAlign">Search Friends by First or Last Name:</h3>
                 <FriendSearchForm />
-                <hr></hr>
+            <hr className="testAlign2"></hr>
+            </div>
 
             <div className="titleTry">
               <h3 className="testAlign">Friends</h3><p></p>

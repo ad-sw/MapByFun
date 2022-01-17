@@ -25,33 +25,19 @@ def all_user_friends(user_id):
 @user_routes.route('/<int:user_id>/find/<string:term>')
 def search_all_user_friends(user_id, term):
     user = User.query.get(user_id)
-
     user_friends = [friend.to_dict() for friend in user.user_friends]
     user_friends.sort(key=lambda x: x.get('first_name'))
-
-    # def extract_positive(numbers):
-    #     positive_numbers = []
-    #     for number in numbers:
-    #         if number > 0:  # Filtering condition
-    #             positive_numbers.append(number)
-    #     return positive_numbers
-
-    # def filter_set(user_friends, term):
-    #     def iterator_func(x):
-    #         for v in x.values():
-    #             if term in v:
-    #                 return True
-    #         return False
-    #     return filter(iterator_func, user_friends)
-
-    # filtered_records = list(filter_set(user_friends, term))
-    # print(filtered_records, '1111111111111111111111111111111111111111111111111111111111111')
-    # print(first_list + list(set(second_list) - set(first_list)))
-
     filteredFirst = list(filter(lambda friend: term.lower() in friend['first_name'].lower(), user_friends))
     filteredLast = list(filter(lambda friend: term.lower() in friend['last_name'].lower(), user_friends))
     filtered = list(filteredFirst + filteredLast)
-    return {'users': [filtered]}
+    seen = set()
+    result = []
+    for user in filtered:
+        key = user['first_name']
+        if key not in seen:
+            result.append(user)
+            seen.add(key)
+    return {'users': [result]}
 
 @user_routes.route('/<int:id>/people')
 @login_required
@@ -62,6 +48,31 @@ def all_user_nonfriends(id):
     all_user_friends = set(current_user.user_friends)
     non_friend_users = all_users.difference(all_user_friends)
     return {'nonfriends': [user.to_dict() for user in non_friend_users]}
+
+@user_routes.route('/<int:user_id>/discover/<string:term>')
+def search_all_user_nonfriends(user_id, term):
+    users = User.query.all()
+    current_user = User.query.get(user_id)
+    all_users = set(users)
+    all_user_friends = set(current_user.user_friends)
+    non_friend_users = all_users.difference(all_user_friends)
+
+    # print('222222222222222222222222222222222222', [user.to_dict() for user in non_friend_users])
+
+    user_non_friends = [user.to_dict() for user in non_friend_users]
+    user_non_friends.sort(key=lambda x: x.get('first_name'))
+
+    filteredFirst = list(filter(lambda non_friend: term.lower() in non_friend['first_name'].lower(), user_non_friends))
+    filteredLast = list(filter(lambda non_friend: term.lower() in non_friend['last_name'].lower(), user_non_friends))
+    filtered = list(filteredFirst + filteredLast)
+    seen = set()
+    result = []
+    for user in filtered:
+        key = user['first_name']
+        if key not in seen:
+            result.append(user)
+            seen.add(key)
+    return {'nonfriends': [result]}
 
 @user_routes.route('/<int:user_id>/routes')
 @login_required

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllNonFriends} from  '../../store/nonfriend';
 import FriendBtns from '../AddDeleteFriendBtns';
 import '../../../src/index.css'
+import NonfriendSearchForm from '../NonfriendsSearchbar';
 
 export default function UserNonfriendsDashboard() {
   const dispatch = useDispatch()
@@ -18,25 +19,25 @@ export default function UserNonfriendsDashboard() {
       })();
   }, [dispatch, userId]);
 
-  let nonFriendList = useSelector(state => state.nonFriends)
-  let nonFriendsList = Object.values(nonFriendList)
+  const nonFriendsGot = useSelector(state => Object.values(state.nonFriends.searchedNonFriends || state.nonFriends))
 
-  const userComponents = nonFriendsList?.map(user => {
+  const userComponents = nonFriendsGot?.map(user => {
     if (user.id !== user_id) {
-    return (<> {
-      <div className="friendCard">
-        <div className="soMany">
-          <NavLink className="soMany" key={user?.id} to={`/users/${user?.id}`}>
-            <div className="friendContent"></div>
-            <div className="fullName">{user?.first_name}&nbsp;{user?.last_name}</div>
-          </NavLink>
-            <div className="friendBtn"><FriendBtns user_id={userId} friend_id={user?.id} /></div>
+      return (<> {isLoaded && (
+        <div className="friendCard">
+          <div className="soMany">
+            <NavLink className="soMany" key={user?.id} to={`/users/${user?.id}`}>
+              <div className="friendContent"></div>
+              <div className="fullName">{user?.first_name}&nbsp;{user?.last_name}</div>
+            </NavLink>
+              <div className="friendBtn"><FriendBtns user_id={userId} friend_id={user?.id} /></div>
+          </div>
         </div>
-      </div>
+        )}
+      </>)
       }
-    </>
+    }
   )
-  }})
 
   if (!isLoaded) {
     return (
@@ -56,7 +57,10 @@ export default function UserNonfriendsDashboard() {
             <NavLink to={`/users`}>All Users</NavLink>
           </div>
           <div className="titleTry">
-            <h4 className="testAlign">Search MapByFun by Name:</h4>
+            <h4 className="testAlign">Search Users by First or Last Name:</h4>
+              <NonfriendSearchForm />
+              <hr></hr>
+
             <hr className="testAlign2"></hr>
           </div>
           <div className="friendDashboardContainer">{userComponents}</div>

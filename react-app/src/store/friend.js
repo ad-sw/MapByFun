@@ -111,13 +111,8 @@ export default function friendReducer(state = {}, action) {
         case GET_ALL_SEARCH_FRIENDS:
             newState = {...state}
             let searchedUsersArr = Object.values(...action.payload.users);
-            let ff = Object.values(searchedUsersArr)
-            console.log(ff, 'fffff')
-
-            let arr = [...new Set(searchedUsersArr)]
-            console.log(arr, 't')
-
             newState.searchedFriends = searchedUsersArr
+            console.log(newState, 'here')
             return newState
         default:
         return state;
