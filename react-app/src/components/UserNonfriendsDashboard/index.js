@@ -5,7 +5,7 @@ import { getAllNonFriends} from  '../../store/nonfriend';
 import { getAllFriends } from '../../store/friend';
 import FriendBtns from '../AddDeleteFriendBtns';
 import '../../../src/index.css'
-import NonfriendSearchForm from '../NonfriendsSearchbar';
+import NonfriendSearchForm from '../NonfriendSearchbar';
 
 export default function UserNonfriendsDashboard() {
   const dispatch = useDispatch()
@@ -54,20 +54,23 @@ export default function UserNonfriendsDashboard() {
       {isLoaded && (
       <div className="topoBackground">
           <div className="friendLinks">
-            <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users/${user_id}/search`}>All Users</NavLink>
+            <NavLink exact to={`/users/${user_id}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${user_id}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${user_id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
           </div>
 
           <div className="titleTry">
             <h4 className="testAlign">Search Users by First or Last Name:</h4>
               <NonfriendSearchForm />
-              <hr></hr>
             <hr className="testAlign2"></hr>
           </div>
 
+          <div className="titleTry">
+          <h3 className="testAlign">Users</h3>
+          </div>
+
           <div className="friendDashboardContainer">{userComponents}</div>
-        </div>
+      </div>
       )}
   </>
   );

@@ -202,8 +202,6 @@ export default function routeReducer (state = {}, action) {
     case GET_ALL_SEARCH_ROUTES:
       newState = {...state}
       const searchState = newState.searchedRoutes = action.payload.routes
-      let lastEle = searchState.pop()
-      searchState.unshift(lastEle)
       return searchState
     default:
       return state;

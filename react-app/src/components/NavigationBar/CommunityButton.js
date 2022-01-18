@@ -17,8 +17,8 @@ function CommunityButton({ user }) {
       <div class="dropdown">
       <button class="route-button" activeClassName="link-active">Community</button>
         <div class="dropdown-content">
-          <NavLink to={`/users/${sessionUser.id}/friends`} exact={true} id="communityLink">My Friends</NavLink>
-          <NavLink to={`/users/${sessionUser.id}/people`} exact={true}>Find Friends</NavLink>
+          <NavLink to={`/users/${sessionUser.id}/find`} exact={true} id="communityLink">My Friends</NavLink>
+          <NavLink to={`/users/${sessionUser.id}/discover`} exact={true}>Find Friends</NavLink>
         </div>
       </div>
     </>

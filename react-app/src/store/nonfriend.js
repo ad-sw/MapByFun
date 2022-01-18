@@ -49,7 +49,6 @@ export const searchAllNonFriends = (userId, searchTerm) => async (dispatch) => {
 
 export const removeNonFriend = (payload) => async (dispatch) => {
       dispatch(removeOneNonFriend(payload));
-      console.log(payload, 'this is payload', payload.friend_id, payload.user_id)
     }
 
 export default function nonFriendReducer(state = {}, action) {

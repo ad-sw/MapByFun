@@ -31,6 +31,7 @@ export default function FriendBtns({user_id, friend_id}) {
         e.preventDefault();
         const payload = {user_id, friend_id};
         await dispatch(removeNonFriend(payload));
+        await dispatch(getAllNonFriends(user_id));
         await dispatch(addFriend(payload));
         await dispatch(getAllNonFriends(user_id));
         setIsLoaded(true)

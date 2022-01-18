@@ -4,9 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import FriendBtns from '../AddDeleteFriendBtns';
 import {getAllFriends} from  '../../store/friend'
 import '../../../src/index.css'
-import FriendSearchForm from '../FriendsSearchbar';
+import FriendSearchForm from '../FriendSearchbar';
 
 function UserFriendsDashboard() {
+  const history = useHistory();
+  const {pathname} = history.location
+  const routeId = pathname.split('/')[1]
   const dispatch = useDispatch()
   // const user_id = useSelector(state => state.session.user.id);
   const [isLoaded, setIsLoaded] = useState(false)
@@ -49,9 +52,9 @@ function UserFriendsDashboard() {
   return (<>{isLoaded && (
           <div className="topoBackground">
             <div className="friendLinks">
-              <NavLink exact to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink  to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active3" className="links">All Users</NavLink>
+              <NavLink exact to={`/users/${userId}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink exact to={`/users/${userId}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
 
             <div className="titleTry">
@@ -61,9 +64,9 @@ function UserFriendsDashboard() {
             </div>
 
             <div className="titleTry">
-              <h3 className="testAlign">Friends</h3><p></p>
-              {/* <hr className="testAlign2"></hr> */}
+              <h3 className="testAlign">Friends</h3>
             </div>
+
             <div className="friendDashboardContainer">{userComponents}</div>
           </div>
             )}

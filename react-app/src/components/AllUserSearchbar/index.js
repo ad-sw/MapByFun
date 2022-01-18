@@ -32,7 +32,7 @@ const AllUserSearchForm = () => {
             dispatch(searchAllUsers(userId, term));
             history.push(`/users/${userId}/search/${term}`);
         }
-        else if (term.length === 0 || !term) {
+        else if (term.length === 0) {
             dispatch(getAllNonUserUsers(userId));
             history.push(`/users/${userId}/search`);
         }
@@ -50,7 +50,7 @@ const AllUserSearchForm = () => {
         <form id='searchForm' onSubmit={handleSubmit}>
             <input
             className='searchbarInput'
-            placeholder='Discover projects'
+            placeholder='Discover users'
             value={term}
             onChange= {(e) => setTerm(e.target.value)}/>
             <button className='search-btn' type='submit'>Search</button>

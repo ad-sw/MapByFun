@@ -1,12 +1,12 @@
 import { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import {searchAllRoutes, getAllRoutes} from '../../store/route';
 import { useSelector } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
 import UserRouteReadModal from "../UserRoutesReadAll";
-import { getAllFriends, searchAllFriends } from "../../store/friend";
 
-const FriendSearchForm = () => {
+const RouteSearchForm = () => {
     const history = useHistory();
     const [term, setTerm] = useState('');
     const userId = useSelector(state => state.session.user?.id)
@@ -16,32 +16,30 @@ const FriendSearchForm = () => {
     useEffect(() => {
         (async () => {
             setIsLoaded(true)
-            if (term.length === 0) {
-                await dispatch(getAllFriends(userId));
-            }
-            if (term.length > 0) {
-                await dispatch(searchAllFriends(userId, term));
-                history.push(`/users/${userId}/find/${term}`);
+            await dispatch(getAllRoutes(userId))
+            if (term.length >= 1) {
+                await dispatch(searchAllRoutes(userId, term));
+                history.push(`/users/${userId}/explore/${term}`);
             }
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (term.length > 0) {
-            dispatch(searchAllFriends(userId, term));
-            history.push(`/users/${userId}/find/${term}`);
+        if (term.length >= 1) {
+            dispatch(searchAllRoutes(userId, term));
+            history.push(`/users/${userId}/explore/${term}`);
         }
         else if (term.length === 0 || !term) {
-            dispatch(getAllFriends(userId));
-            history.push(`/users/${userId}/find`);
+            dispatch(getAllRoutes(userId));
+            history.push(`/users/${userId}/explore`);
         }
     }
 
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/find`);
+        history.push(`/users/${userId}/explore`);
     }
 
     return (
@@ -49,7 +47,7 @@ const FriendSearchForm = () => {
             <form id='searchForm' onSubmit={handleSubmit}>
                 <input
                 className='searchbarInput'
-                placeholder='Discover projects'
+                placeholder='Enter a keyword'
                 value={term}
                 onChange= {(e) => setTerm(e.target.value)}/>
                 <button className='search-btn' type='submit'>Search</button>
@@ -59,4 +57,4 @@ const FriendSearchForm = () => {
     )
 }
 
-export default FriendSearchForm;
+export default RouteSearchForm;
