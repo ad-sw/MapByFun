@@ -86,10 +86,10 @@ function App() {
         <Route path='/users/:userId/routes' exact={true}>
           <RoutesDashboard/>
         </Route>
-        <Route path='/users/:userId/search' exact={true}>
+        <Route path='/users/:userId/explore' exact={true}>
           <RoutesDashboard/>
         </Route>
-        <Route path='/users/:userId/search/:term' exact={true}>
+        <Route path='/users/:userId/explore/:term' exact={true}>
           <RoutesDashboard/>
         </Route>
         <Route path='/users/:userId/find' exact={true}>
@@ -103,6 +103,12 @@ function App() {
         </Route>
         <Route path='/users/:userId/discover/:term' exact={true}>
           <UserNonfriendsDashboard/>
+        </Route>
+        <Route path='/users/:userId/search' exact={true}>
+          <UsersList/>
+        </Route>
+        <Route path='/users/:userId/search/:term' exact={true}>
+          <UsersList/>
         </Route>
         <Route>
         {loaded && (

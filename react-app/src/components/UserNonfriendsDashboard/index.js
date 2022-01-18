@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllNonFriends} from  '../../store/nonfriend';
+import { getAllFriends } from '../../store/friend';
 import FriendBtns from '../AddDeleteFriendBtns';
 import '../../../src/index.css'
 import NonfriendSearchForm from '../NonfriendsSearchbar';
@@ -15,6 +16,7 @@ export default function UserNonfriendsDashboard() {
   useEffect(() => {
       (async () => {
           await dispatch(getAllNonFriends(userId));
+          await dispatch(getAllFriends(userId));
           setIsLoaded(true)
       })();
   }, [dispatch, userId]);
@@ -56,16 +58,17 @@ export default function UserNonfriendsDashboard() {
             <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
             <NavLink to={`/users`}>All Users</NavLink>
           </div>
+
           <div className="titleTry">
             <h4 className="testAlign">Search Users by First or Last Name:</h4>
               <NonfriendSearchForm />
               <hr></hr>
-
             <hr className="testAlign2"></hr>
           </div>
+
           <div className="friendDashboardContainer">{userComponents}</div>
         </div>
       )}
   </>
   );
-  }
+}

@@ -19,7 +19,7 @@ const RouteSearchForm = () => {
             await dispatch(getAllRoutes(userId))
             if (term.length > 0) {
                 await dispatch(searchAllRoutes(userId, term));
-                history.push(`/users/${userId}/search/${term}`);
+                history.push(`/users/${userId}/explore/${term}`);
             }
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
@@ -28,11 +28,11 @@ const RouteSearchForm = () => {
         e.preventDefault();
         if (term.length > 0) {
             dispatch(searchAllRoutes(userId, term));
-            history.push(`/users/${userId}/search/${term}`);
+            history.push(`/users/${userId}/explore/${term}`);
         }
         else if (term.length === 0 || !term) {
             dispatch(getAllRoutes(userId));
-            history.push(`/users/${userId}/search`);
+            history.push(`/users/${userId}/explore`);
         }
     }
 

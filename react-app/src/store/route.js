@@ -160,7 +160,7 @@ export const deleteRoute = (routeId) => async(dispatch) => {
 }
 
 export const searchAllRoutes = (userId, searchTerm) => async (dispatch) => {
-  const response = await fetch(`/api/users/${userId}/search/${searchTerm}`);
+  const response = await fetch(`/api/users/${userId}/explore/${searchTerm}`);
 
   if (response.ok) {
       const data = await response.json();

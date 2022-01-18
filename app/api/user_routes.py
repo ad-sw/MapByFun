@@ -5,10 +5,39 @@ from app.models.user import friends
 user_routes = Blueprint('users', __name__)
 
 @user_routes.route('/')
-# @login_required
 def all_users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
+
+@user_routes.route('/<int:user_id>/search')
+def all_User_users(user_id):
+    users = User.query.all()
+    user = {User.query.get(user_id)}
+    # current_user = set(user)
+    print('000000000000000000000000000000000000000', user) #user 1
+    all_users = set(users)
+    print('111111111111111111111111111111111111111', all_users) #all users
+    non_user_users = all_users.difference(user)
+    print('222222222222222222222222222222222222222', non_user_users) #
+    return {'users': [user.to_dict() for user in non_user_users]}
+
+@user_routes.route('/<int:user_id>/search/<string:term>')
+@login_required
+def search_all_users(user_id, term):
+    users = User.query.all()
+    all_users = [user.to_dict() for user in users]
+    # all_users.sort(key=lambda x: x.get('first_name'))
+    filteredFirst = list(filter(lambda friend: term.lower() in friend['first_name'].lower(), all_users))
+    filteredLast = list(filter(lambda friend: term.lower() in friend['last_name'].lower(), all_users))
+    filtered = list(filteredFirst + filteredLast)
+    seen = set()
+    result = []
+    for user in filtered:
+        key = user['first_name']
+        if key not in seen:
+            result.append(user)
+            seen.add(key)
+    return {'users': [result]}
 
 @user_routes.route('/<int:id>')
 @login_required
@@ -57,8 +86,6 @@ def search_all_user_nonfriends(user_id, term):
     all_user_friends = set(current_user.user_friends)
     non_friend_users = all_users.difference(all_user_friends)
 
-    # print('222222222222222222222222222222222222', [user.to_dict() for user in non_friend_users])
-
     user_non_friends = [user.to_dict() for user in non_friend_users]
     user_non_friends.sort(key=lambda x: x.get('first_name'))
 
@@ -80,7 +107,7 @@ def get_all_user_routes(user_id):
     all_user_routes = Route.query.filter(Route.user_id == user_id).all()
     return {'routes': [route.to_dict() for route in all_user_routes]}
 
-@user_routes.route('/<int:user_id>/search/<string:term>')
+@user_routes.route('/<int:user_id>/explore/<string:term>')
 def search_all_user_routes(user_id, term):
     if term:
         all_user_search_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))

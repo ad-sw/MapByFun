@@ -112,7 +112,6 @@ export default function friendReducer(state = {}, action) {
             newState = {...state}
             let searchedUsersArr = Object.values(...action.payload.users);
             newState.searchedFriends = searchedUsersArr
-            console.log(newState, 'here')
             return newState
         default:
         return state;
