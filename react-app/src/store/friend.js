@@ -1,6 +1,7 @@
 const GET_USER_FRIENDS = "friends/GET_FRIENDS";
 const ADD_ONE_FRIEND = 'friends/ADD_FRIEND';
 const REMOVE_ONE_FRIEND = 'friends/REMOVE_FRIEND';
+const GET_ALL_SEARCH_FRIENDS = 'routes/GET_SEARCHED_FRIENDS'
 
 const loadAllFriends = (friends, userId) => ({
   type: GET_USER_FRIENDS,
@@ -17,6 +18,14 @@ const removeOneFriend = (data) => ({
     type: REMOVE_ONE_FRIEND,
     payload: data,
 });
+
+const searchFriends = (friends, userId) => {
+    return {
+      type: GET_ALL_SEARCH_FRIENDS,
+      payload: friends,
+      userId
+    }
+  }
 
 export const getAllFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/friends`);
@@ -72,7 +81,14 @@ export const removeFriend = (userId, friendId) => async (dispatch) => {
     }
 }
 
+export const searchAllFriends = (userId, searchTerm) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/find/${searchTerm}`);
 
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(searchFriends(data));
+    }
+  };
 
 export default function friendReducer(state = {}, action) {
     let newState;
@@ -92,6 +108,11 @@ export default function friendReducer(state = {}, action) {
             newState = {...state};
             delete newState[action.payload.friend_id];
             return newState;
+        case GET_ALL_SEARCH_FRIENDS:
+            newState = {...state}
+            let searchedUsersArr = Object.values(...action.payload.users);
+            newState.searchedFriends = searchedUsersArr
+            return newState
         default:
         return state;
     }

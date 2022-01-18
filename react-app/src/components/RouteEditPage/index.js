@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Modal } from '../Context/Modal';
-import {useHistory} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
 import {editRoute, getAllRoutes, getOneRoute} from '../../store/route';
 import { getAllRouteComments } from "../../store/comment";
@@ -18,7 +18,8 @@ export default function RouteEditForm() {
   const [activity_id, setActivityId] = useState(route?.activity_id ? route?.activity_id : '');
   const [description, setDescription] = useState(route?.description ? route?.description : '');
   const dispatch = useDispatch();
-  const user_id = useSelector(state => state.session.user.id);
+  // const {userId} = useParams();
+  const user_id = useSelector(state => state.session.user?.id);
   const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
   // const friendSession = useSelector(state => state.friends);

@@ -10,7 +10,7 @@ export default function UserFriendsDashboard() {
     const history = useHistory();
     const { userId }  = useParams();
     let friendId = userId
-    const user_Id = useSelector(state => state.session.user.id)
+    const user_Id = useSelector(state => state.session.user?.id)
     const [isLoaded, setIsLoaded] = useState(false)
     // const profileUser = useSelector(state => state.friends[userId])
 

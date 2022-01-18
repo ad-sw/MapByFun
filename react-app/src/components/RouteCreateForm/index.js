@@ -16,7 +16,7 @@ const RouteCreateForm = () => {
     const [errors, setErrors] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
-    const user_id = useSelector(state => state.session.user.id);
+    const user_id = useSelector(state => state.session.user?.id);
 
     const validator = () => {
         let error = []

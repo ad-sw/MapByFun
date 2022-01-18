@@ -1,5 +1,6 @@
 const GET_ALL_NON_FRIENDS = "nonfriends/GET_NONFRIENDS";
 const REMOVE_A_NON_FRIEND = "nonfriends/REMOVE_ONE_NONFRIEND";
+const GET_ALL_SEARCH_NONFRIENDS = 'routes/GET_SEARCHED_NONFRIENDS';
 
 const loadAllNonFriends = (friends, id) => ({
     type: GET_ALL_NON_FRIENDS,
@@ -12,6 +13,14 @@ const removeOneNonFriend = (friends, user_id) => ({
     payload: friends,
     user_id
 });
+
+const searchNonFriends = (friends, userId) => {
+    return {
+      type: GET_ALL_SEARCH_NONFRIENDS,
+      payload: friends,
+      userId
+    }
+  }
 
 export const getAllNonFriends = (id) => async (dispatch) => {
     const response = await fetch(`/api/users/${id}/people`);
@@ -29,6 +38,15 @@ export const getAllNonFriends = (id) => async (dispatch) => {
         }
 }
 
+export const searchAllNonFriends = (userId, searchTerm) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/discover/${searchTerm}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(searchNonFriends(data));
+    }
+  };
+
 export const removeNonFriend = (payload) => async (dispatch) => {
       dispatch(removeOneNonFriend(payload));
       console.log(payload, 'this is payload', payload.friend_id, payload.user_id)
@@ -43,12 +61,19 @@ export default function nonFriendReducer(state = {}, action) {
                 newState[user.id] = user;
               })
             const copiedState = {...newState}
-            return copiedState;
+            const copiedObjState = Object.values(copiedState)
+            return copiedObjState;
         case REMOVE_A_NON_FRIEND:
             newState = {...state};
             delete newState[action.payload.friend_id];
-            const copyState = {...newState}
-            return copyState;
+            // const copyState = {...newState}
+            return newState;
+        case GET_ALL_SEARCH_NONFRIENDS:
+            newState = {...state}
+            let searchedUsersArr = Object.values(...action.payload.nonfriends);
+            let try1 = Object.values(searchedUsersArr)
+            newState.searchedNonFriends = try1
+            return newState
         default:
             return state;
     }

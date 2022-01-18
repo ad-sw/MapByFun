@@ -205,7 +205,7 @@ a{
     /* backdrop-filter: blur(2px); */
     /* z-index: -1; */
     width: 1150px;
-    height: 640px;
+    /* height: 680px; */
     z-index: 0;
     margin: 0 auto;
     display: flex;
@@ -551,19 +551,19 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     backdrop-filter: blur(2px);
     z-index: -1;
     width: 1030px;
-    height: 620px;
+    height: 102%;
     padding-bottom: 3px;
     background-color: white;
     opacity: 0.72;
 }
 #artistName {
-    color: #c9c9c9;
+    color: #b8b8b8;
     cursor: pointer;
     /* padding-top: 15px;
     margin-top: 15px; */
     position: absolute;
     left: 50%;
-    bottom: 8px;
+    bottom: 6px;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     max-height: 25px;;
@@ -821,10 +821,10 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 .yesNCanelBtnsWrap3 {
     width: 127px;
     align-items: right;
-    height: 24px;
+    height: 23px;
     position: absolute;
     right: 19px;
-    top: 66.8%;
+    top: 64.9%;
     display: flex;
     justify-content: flex-end;
 }
@@ -906,7 +906,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     /* margin-left: 920px; */
     /* outline: 1px #dadada solid; */
     /* height: 100%; */
-    height: 650px;
+    height: 670px;
 }
 .routeInfoDiv::after {
     width: 300px;
@@ -1031,7 +1031,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     text-align: right;
 }
 .commentInfoDiv {
-    height: 130px;
+    height: 134.5px;
     padding: 6px 8px 7px 17px;
     margin: 0px 0px 0px 0px;
     overflow-x: hidden;
@@ -1162,8 +1162,8 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     width: 100%;
     bottom: 0;
     left: 0;
-    /* height: 15px; */
-    position: absolute;
+    height: 20px;
+    position: fixed;
     z-index: 2;
     background-color: rgba(137, 186, 189);
 }

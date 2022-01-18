@@ -8,7 +8,7 @@ const CommentCreateForm = ({setShowModal}, id) => {
     const [errors, setErrors] = useState([]);
     const [content, setContent] = useState('');
     const dispatch = useDispatch();
-    const user_id = useSelector(state => state.session.user.id);
+    const user_id = useSelector(state => state.session.user?.id);
     const {routeId} = useParams();
 
     const validator = () => {
