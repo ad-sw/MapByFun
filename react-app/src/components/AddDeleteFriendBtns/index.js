@@ -30,9 +30,9 @@ export default function FriendBtns({user_id, friend_id}) {
     const handleAdd = async(e) => {
         e.preventDefault();
         const payload = {user_id, friend_id};
-        // await dispatch(getAllNonFriends(user_id));
         await dispatch(removeNonFriend(payload));
         await dispatch(addFriend(payload));
+        await dispatch(getAllNonFriends(user_id));
         setIsLoaded(true)
     }
     const handleCancel = (e) => {

@@ -66,8 +66,8 @@ export default function nonFriendReducer(state = {}, action) {
         case REMOVE_A_NON_FRIEND:
             newState = {...state};
             delete newState[action.payload.friend_id];
-            const copyState = {...newState}
-            return copyState;
+            // const copyState = {...newState}
+            return newState;
         case GET_ALL_SEARCH_NONFRIENDS:
             newState = {...state}
             let searchedUsersArr = Object.values(...action.payload.nonfriends);

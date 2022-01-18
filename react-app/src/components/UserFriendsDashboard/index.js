@@ -51,7 +51,7 @@ function UserFriendsDashboard() {
             <div className="friendLinks">
               <NavLink exact to={`/users/${userId}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink  to={`/users/${userId}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink exact to={`/users`} activeClassName="link-active3" className="links">All Users</NavLink>
+              <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active3" className="links">All Users</NavLink>
             </div>
 
             <div className="titleTry">

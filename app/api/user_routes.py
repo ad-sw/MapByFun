@@ -13,12 +13,8 @@ def all_users():
 def all_User_users(user_id):
     users = User.query.all()
     user = {User.query.get(user_id)}
-    # current_user = set(user)
-    print('000000000000000000000000000000000000000', user) #user 1
     all_users = set(users)
-    print('111111111111111111111111111111111111111', all_users) #all users
     non_user_users = all_users.difference(user)
-    print('222222222222222222222222222222222222222', non_user_users) #
     return {'users': [user.to_dict() for user in non_user_users]}
 
 @user_routes.route('/<int:user_id>/search/<string:term>')

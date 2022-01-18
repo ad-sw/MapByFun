@@ -46,7 +46,7 @@ function User() {
             <div className="friendLinks">
               <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink to={`/users`} activeClassName="link-active" className="links">All Users</NavLink>
+              <NavLink to={`/users/${user_id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
             <div className="routes-wrapper">
               <div className="userProfileInfo">

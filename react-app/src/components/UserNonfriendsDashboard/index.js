@@ -15,8 +15,8 @@ export default function UserNonfriendsDashboard() {
 
   useEffect(() => {
       (async () => {
+          // await dispatch(getAllFriends(userId));
           await dispatch(getAllNonFriends(userId));
-          await dispatch(getAllFriends(userId));
           setIsLoaded(true)
       })();
   }, [dispatch, userId]);
@@ -56,7 +56,7 @@ export default function UserNonfriendsDashboard() {
           <div className="friendLinks">
             <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
             <NavLink to={`/users/${user_id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users`}>All Users</NavLink>
+            <NavLink to={`/users/${user_id}/search`}>All Users</NavLink>
           </div>
 
           <div className="titleTry">

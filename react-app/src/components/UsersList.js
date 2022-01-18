@@ -20,7 +20,7 @@ function UsersList() {
     (async () => {
         await dispatch(getAllFriends(userId));
         await dispatch(getAllNonUserUsers(sessionUser?.id));
-        await dispatch(getAllNonFriends(userId));
+        // await dispatch(getAllNonFriends(userId));
         // const response = await fetch('/api/users');
         // const responseData = await response.json();
         // setUsers(responseData.users);

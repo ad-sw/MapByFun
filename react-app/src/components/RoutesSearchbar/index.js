@@ -39,7 +39,7 @@ const RouteSearchForm = () => {
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/search`);
+        history.push(`/users/${userId}/explore`);
     }
 
     return (
