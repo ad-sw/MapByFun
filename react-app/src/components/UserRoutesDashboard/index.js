@@ -15,12 +15,15 @@ export default function RoutesDashboard(){
 
     useEffect(() => {
         (async () => {
+            // if (term.length === 0) {
+            //     await dispatch(getAllRoutes(userId))
+            //     history.push(`/users/${userId}/explore`);
+            //     }
+            // if (term.length > 0) {
+            //     await dispatch(searchAllRoutes(userId, term));
+            //     history.push(`/users/${userId}/search/${term}`);
+            // }
             setIsLoaded(true)
-            await dispatch(getAllRoutes(userId))
-            if (term.length > 0) {
-                await dispatch(searchAllRoutes(userId, term));
-                history.push(`/users/${userId}/search/${term}`);
-            }
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 

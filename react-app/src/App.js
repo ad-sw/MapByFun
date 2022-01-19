@@ -110,6 +110,12 @@ function App() {
         <Route path='/users/:userId/search/:term' exact={true}>
           <UsersList/>
         </Route>
+        <Route path='/users/:userId/browse' exact={true}>
+          <User/>
+        </Route>
+        <Route path='/users/:userId/browse/:term' exact={true}>
+          <User/>
+        </Route>
         <Route>
         {loaded && (
           <center>

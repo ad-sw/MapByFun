@@ -16,7 +16,7 @@ function RouteButton({ user }) {
       <div className="ttBtn"><button class="route-button" activeClassName="link-active">Routes</button></div>
         <div class="dropdown-content">
           <NavLink to={`/routes/new`} exact={true} activeClassName='active' id="communityLink">Create Route</NavLink>
-          <NavLink to={`/users/${sessionUser.id}/routes`} exact={true} activeClassName='active'>My Routes</NavLink>
+          <NavLink to={`/users/${sessionUser.id}/explore`} exact={true} activeClassName='active'>My Routes</NavLink>
         </div>
       </div>
     </>

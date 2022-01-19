@@ -14,7 +14,6 @@ const AllUserSearchForm = () => {
 
     useEffect(() => {
         (async () => {
-            setIsLoaded(true)
             if (term.length === 0) {
                 await dispatch(getAllNonUserUsers(userId));
                 history.push(`/users/${userId}/search`);
@@ -23,6 +22,7 @@ const AllUserSearchForm = () => {
                 await dispatch(searchAllUsers(userId, term));
                 history.push(`/users/${userId}/search/${term}`);
             }
+            setIsLoaded(true)
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 

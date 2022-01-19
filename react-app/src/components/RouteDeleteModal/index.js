@@ -9,7 +9,7 @@ function RouteDeleteModal({routeId}) {
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
-  const sessionUserid = useSelector(state => state.session.user.id)
+  const sessionUserid = useSelector(state => state.session.user?.id)
   // const userId = useParams()
 
   const handleDelete = (e) => {

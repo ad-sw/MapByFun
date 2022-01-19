@@ -4,33 +4,36 @@ import { useHistory } from "react-router-dom";
 import {searchAllRoutes, getAllRoutes} from '../../store/route';
 import { useSelector } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
-import UserRouteReadModal from "../UserRoutesReadAll";
 
-const RouteSearchForm = () => {
+const FriendRouteSearchForm = () => {
     const history = useHistory();
     const [term, setTerm] = useState('');
-    const userId = useSelector(state => state.session.user?.id)
+    const {userId} = useParams();
+    // const user_id = useSelector(state => state.session.user?.id)
     const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
 
     useEffect(() => {
         (async () => {
-            setIsLoaded(true)
-            await dispatch(getAllRoutes(userId))
-            if (term.length >= 1) {
+            if (term.length === 0) {
+                await dispatch(getAllRoutes(userId))
+                history.push(`/users/${userId}/explore`);
+            }
+            if (term.length > 0) {
                 await dispatch(searchAllRoutes(userId, term));
                 history.push(`/users/${userId}/explore/${term}`);
             }
+            setIsLoaded(true)
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (term.length >= 1) {
+        if (term.length > 0) {
             dispatch(searchAllRoutes(userId, term));
             history.push(`/users/${userId}/explore/${term}`);
         }
-        else if (term.length === 0 || !term) {
+        else if (term.length === 0) {
             dispatch(getAllRoutes(userId));
             history.push(`/users/${userId}/explore`);
         }
@@ -57,4 +60,4 @@ const RouteSearchForm = () => {
     )
 }
 
-export default RouteSearchForm;
+export default FriendRouteSearchForm;

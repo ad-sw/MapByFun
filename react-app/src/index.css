@@ -713,7 +713,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     text-align: center;
     border-bottom: 7px solid #009CE9;
     padding: 20px 30px 15px 30px;
-    background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v404-aew-01-contourtexture_2.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=ce396ed3f816d389113ab730e8e531d3');
+    background: url('https://user-images.githubusercontent.com/86431563/150050493-86d6420e-b8f2-4bff-ba05-e7db0954d069.jpg');
     background-size: 110%;
     position: relative;
 }
@@ -906,7 +906,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 }
 .routeInfoDiv::after {
     width: 300px;
-    background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v404-aew-01-contourtexture_2.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=ce396ed3f816d389113ab730e8e531d3');
+    background: url('https://user-images.githubusercontent.com/86431563/150050493-86d6420e-b8f2-4bff-ba05-e7db0954d069.jpg');
     position: absolute;
     /* top:0; */
     left: 0;

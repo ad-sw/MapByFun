@@ -4,6 +4,7 @@ import FriendBtns from '../../src/components/AddDeleteFriendBtns';
 import { useSelector, useDispatch } from "react-redux";
 import UserFriendsDashboard from "../components/FriendRoutesDashboard";
 import { getAllFriends } from '../store/friend';
+import FriendRouteSearchForm from '../components/FriendRouteSearchbar';
 
 function User() {
   const dispatch = useDispatch()
@@ -14,6 +15,7 @@ function User() {
   const [isLoaded, setIsLoaded] = useState(false)
   const profileUser = useSelector(state => state.friends[userId])
   const sessionUser = useSelector(state => state.session.user)
+  const friendSession = useSelector(state => state.friends)
 
   useEffect(() => {
     (async () => {
@@ -44,7 +46,7 @@ function User() {
           <>
           <div className="divCont">
             <div className="friendLinks">
-              <NavLink to={`/users/${user_id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink to={`/users/${user_id}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${user_id}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${user_id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
@@ -57,6 +59,15 @@ function User() {
                 </div>
                 <div className="userPic"></div>
               </div>
+
+              {userId in friendSession && (
+              <div className="titleTry">
+                <h4 className="testAlign">Browse Routes:</h4>
+                  <FriendRouteSearchForm/>
+                <hr className="testAlign2"></hr>
+              </div>
+              )}
+
               <div id="te">
                 <thead>
                 <tr>

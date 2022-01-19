@@ -18,6 +18,7 @@ const FriendSearchForm = () => {
             setIsLoaded(true)
             if (term.length === 0) {
                 await dispatch(getAllFriends(userId));
+                history.push(`/users/${userId}/find`);
             }
             if (term.length > 0) {
                 await dispatch(searchAllFriends(userId, term));
@@ -32,7 +33,7 @@ const FriendSearchForm = () => {
             dispatch(searchAllFriends(userId, term));
             history.push(`/users/${userId}/find/${term}`);
         }
-        else if (term.length === 0 || !term) {
+        else if (term.length === 0) {
             dispatch(getAllFriends(userId));
             history.push(`/users/${userId}/find`);
         }
