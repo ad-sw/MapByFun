@@ -18,7 +18,7 @@ function UsersList() {
 
   useEffect(() => {
     (async () => {
-        await dispatch(getAllFriends(userId));
+        await dispatch(getAllFriends(sessionUser?.id));
         await dispatch(getAllNonUserUsers(sessionUser?.id));
         // await dispatch(getAllNonFriends(userId));
         // const response = await fetch('/api/users');
@@ -29,7 +29,6 @@ function UsersList() {
   }, [dispatch, sessionUser?.id]);
 
   const allUsersList = useSelector(state => Object.values(state.users.searchedUsers || state.users))
-  console.log(allUsersList, 'here is a list')
 
   const userComponents = allUsersList.map((user) => {
     if (user.id !== sessionUser?.id) {
@@ -62,21 +61,21 @@ function UsersList() {
         <>
         <div className="topoBackground">
           <div className="friendLinks">
-            <NavLink to={`/users/${sessionUser?.id}/friends`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users/${sessionUser?.id}/people`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink to={`/users`} activeClassName="link-active" className="links">All Users</NavLink>
+            <NavLink exact to={`/users/${sessionUser?.id}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${sessionUser?.id}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${sessionUser?.id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
           </div>
 
           <div className="titleTry">
             <h4 className="testAlign">Search All Users by First or Last Name:</h4>
               <AllUserSearchForm/>
-              <hr></hr>
             <hr className="testAlign2"></hr>
           </div>
 
           <div className="titleTry">
           <h3 className="testAlign">All Users</h3>
           </div>
+
           <div className="friendDashboardContainer">{userComponents}</div>
         </div>
         </>

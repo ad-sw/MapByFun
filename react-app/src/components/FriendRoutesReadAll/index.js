@@ -17,7 +17,7 @@ export default function FriendRouteReadModal({userId, friendId}) {
     }, [dispatch, userId, friendId]);
 
 
-    const dashRoutes = useSelector(state => Object.values(state.routes))
+    const dashRoutes = useSelector(state => Object.values(state.routes.searchedFriendRoutes || state.routes))
     const activities = ['Walk', 'Run', 'Hike', 'Sport / Other Activity',
     'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
 

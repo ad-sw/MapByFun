@@ -47,9 +47,9 @@ function App() {
           <SignUpForm/>
           )}
         </Route>
-        <Route path='/users' exact={true} >
+        {/* <Route path='/users' exact={true} >
           <UsersList/>
-        </Route>
+        </Route> */}
         <Route path='/users/:userId' exact={true} >
           <User/>
         </Route>
@@ -62,12 +62,12 @@ function App() {
         <Route path='/routes/:routeId/edit' exact={true}>
           <RouteEditForm/>
         </Route>
-        <Route path='/users/:userId/people' exact={true} >
+        {/* <Route path='/users/:userId/people' exact={true} >
           <UserNonfriendsDashboard/>
-        </Route>
-        <Route path='/users/:userId/friends' exact={true}>
+        </Route> */}
+        {/* <Route path='/users/:userId/friends' exact={true}>
           <UserFriendsDashboard/>
-        </Route>
+        </Route> */}
         <Route path='/under-construction' exact={true}>
           <ShopUnderConstruction/>
         </Route>
@@ -109,6 +109,12 @@ function App() {
         </Route>
         <Route path='/users/:userId/search/:term' exact={true}>
           <UsersList/>
+        </Route>
+        <Route path='/users/:userId/browse' exact={true}>
+          <User/>
+        </Route>
+        <Route path='/users/:userId/browse/:term' exact={true}>
+          <User/>
         </Route>
         <Route>
         {loaded && (

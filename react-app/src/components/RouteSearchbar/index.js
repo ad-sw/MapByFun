@@ -1,47 +1,48 @@
 import { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import {searchAllRoutes, getAllRoutes} from '../../store/route';
 import { useSelector } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
-import UserRouteReadModal from "../UserRoutesReadAll";
-import { getAllFriends, searchAllFriends } from "../../store/friend";
 
-const FriendSearchForm = () => {
+const FriendRouteSearchForm = () => {
     const history = useHistory();
     const [term, setTerm] = useState('');
-    const userId = useSelector(state => state.session.user?.id)
+    const {userId} = useParams();
+    // const user_id = useSelector(state => state.session.user?.id)
     const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
 
     useEffect(() => {
         (async () => {
-            setIsLoaded(true)
             if (term.length === 0) {
-                await dispatch(getAllFriends(userId));
+                await dispatch(getAllRoutes(userId))
+                history.push(`/users/${userId}/explore`);
             }
             if (term.length > 0) {
-                await dispatch(searchAllFriends(userId, term));
-                history.push(`/users/${userId}/find/${term}`);
+                await dispatch(searchAllRoutes(userId, term));
+                history.push(`/users/${userId}/explore/${term}`);
             }
+            setIsLoaded(true)
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (term.length > 0) {
-            dispatch(searchAllFriends(userId, term));
-            history.push(`/users/${userId}/find/${term}`);
+            dispatch(searchAllRoutes(userId, term));
+            history.push(`/users/${userId}/explore/${term}`);
         }
-        else if (term.length === 0 || !term) {
-            dispatch(getAllFriends(userId));
-            history.push(`/users/${userId}/find`);
+        else if (term.length === 0) {
+            dispatch(getAllRoutes(userId));
+            history.push(`/users/${userId}/explore`);
         }
     }
 
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/find`);
+        history.push(`/users/${userId}/explore`);
     }
 
     return (
@@ -49,7 +50,7 @@ const FriendSearchForm = () => {
             <form id='searchForm' onSubmit={handleSubmit}>
                 <input
                 className='searchbarInput'
-                placeholder='Discover projects'
+                placeholder='Enter a keyword'
                 value={term}
                 onChange= {(e) => setTerm(e.target.value)}/>
                 <button className='search-btn' type='submit'>Search</button>
@@ -59,4 +60,4 @@ const FriendSearchForm = () => {
     )
 }
 
-export default FriendSearchForm;
+export default FriendRouteSearchForm;

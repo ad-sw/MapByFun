@@ -77,14 +77,12 @@ export default function userReducer(state = {}, action) {
             action.payload.users.forEach(user => {
                 newState[user.id] = user;
                 })
-            console.log(newState, 'idkkk')
             return newState;
         case GET_ALL_SEARCH_USERS:
             newState = {...state}
             let searchedUsersArr = Object.values(...action.payload.users);
             let try1 = Object.values(searchedUsersArr)
             newState.searchedUsers = try1
-            console.log(newState, 'idk')
             return newState
         default:
             return state;

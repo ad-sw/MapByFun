@@ -51,7 +51,7 @@ def all_user_friends(user_id):
 def search_all_user_friends(user_id, term):
     user = User.query.get(user_id)
     user_friends = [friend.to_dict() for friend in user.user_friends]
-    user_friends.sort(key=lambda x: x.get('first_name'))
+    # user_friends.sort(key=lambda x: x.get('first_name'))
     filteredFirst = list(filter(lambda friend: term.lower() in friend['first_name'].lower(), user_friends))
     filteredLast = list(filter(lambda friend: term.lower() in friend['last_name'].lower(), user_friends))
     filtered = list(filteredFirst + filteredLast)
@@ -83,7 +83,7 @@ def search_all_user_nonfriends(user_id, term):
     non_friend_users = all_users.difference(all_user_friends)
 
     user_non_friends = [user.to_dict() for user in non_friend_users]
-    user_non_friends.sort(key=lambda x: x.get('first_name'))
+    # user_non_friends.sort(key=lambda x: x.get('first_name'))
 
     filteredFirst = list(filter(lambda non_friend: term.lower() in non_friend['first_name'].lower(), user_non_friends))
     filteredLast = list(filter(lambda non_friend: term.lower() in non_friend['last_name'].lower(), user_non_friends))
@@ -106,8 +106,14 @@ def get_all_user_routes(user_id):
 @user_routes.route('/<int:user_id>/explore/<string:term>')
 def search_all_user_routes(user_id, term):
     if term:
-        all_user_search_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))
-    return {'routes': [route.to_dict() for route in all_user_search_routes]}
+        all_searched_user_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))
+    return {'routes': [route.to_dict() for route in all_searched_user_routes]}
+
+@user_routes.route('/<int:user_id>/browse/<string:term>')
+def search_all_friend_routes(user_id, term):
+    if term:
+        all_searched_friend_routes = Route.query.filter((Route.user_id == user_id) & Route.name.ilike("%" + term + "%"))
+    return {'routes': [route.to_dict() for route in all_searched_friend_routes]}
 
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>/routes')
 @login_required
