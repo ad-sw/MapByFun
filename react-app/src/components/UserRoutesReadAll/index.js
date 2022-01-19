@@ -16,8 +16,11 @@ function UserRouteReadModal() {
 
     useEffect(() => {
         (async () => {
-            if (term) {
-                await dispatch(searchAllRoutes(userId, term))
+            // // if (term) {
+            //     await dispatch(getAllRoutes(userId))
+            // //}
+            if (!term) {
+                await dispatch(getAllRoutes(userId))
             }
             setIsLoaded(true)
         })();
