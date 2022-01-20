@@ -60,7 +60,7 @@ export default function UserNonfriendsDashboard() {
           </div>
 
           <div className="titleTry">
-            <h4 className="testAlign">Search Users by First or Last Name:</h4>
+            <h3 id="testAlign3">Search Users by First or Last Name:</h3>
               <NonfriendSearchForm />
             <hr className="testAlign2"></hr>
           </div>

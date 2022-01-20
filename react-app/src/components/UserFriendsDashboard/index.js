@@ -58,7 +58,7 @@ function UserFriendsDashboard() {
             </div>
 
             <div className="titleTry">
-            <h3 className="testAlign">Search Friends by First or Last Name:</h3>
+            <h3 id="testAlign3">Search Friends by First or Last Name:</h3>
                 <FriendSearchForm />
             <hr className="testAlign2"></hr>
             </div>

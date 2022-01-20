@@ -30,6 +30,16 @@ function User() {
   if (!user) {
     return null;
   }
+
+  if (!isLoaded) {
+    return (
+      <div id="loadingGif">
+            <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
+            <div className="loadText">Loading</div>
+        </div>
+    );
+  }
+
   //way 1
   // let event = new Date(user.created_at);
   // event.getTimezoneOffset()
@@ -45,7 +55,7 @@ function User() {
         <>{isLoaded && (
           <>
           <div className="divCont">
-            <div className="friendLinks">
+            <div className="friendLinks2">
               <NavLink to={`/users/${user_id}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${user_id}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
               <NavLink to={`/users/${user_id}/search`} activeClassName="link-active" className="links">All Users</NavLink>

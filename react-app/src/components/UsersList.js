@@ -67,7 +67,7 @@ function UsersList() {
           </div>
 
           <div className="titleTry">
-            <h4 className="testAlign">Search All Users by First or Last Name:</h4>
+            <h3 id="testAlign3">Search All Users by First or Last Name:</h3>
               <AllUserSearchForm/>
             <hr className="testAlign2"></hr>
           </div>
