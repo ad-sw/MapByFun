@@ -1,22 +1,25 @@
 ## [MapByFun](https://mapbyfun.herokuapp.com/)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/148797804-168d2d33-ccb8-4263-a9dd-713917e52a3f.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
-A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-focused project, but derived from the fact that humans use maps for survival and near-daily in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools.
+A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-focused project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools.
 
-<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands attend throughout the city neighborhoods via these programmed networks.
+
+<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands attend throughout the city neighborhoods via these programmed networks.<p></p>
+<br>The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public that makes the less familiar less daunting, as the unforeseen becomes more seen.
+
 <br><p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
 <img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p></br>
-The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public that makes the less familiar less daunting, as the unforeseen becomes more seen. It could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse community spaces resonate with more people. A bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.</br>
+This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse community spaces resonate with more people. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.</br>
 
 ### Fullstack used:
-* CSS & HTML (front-end)
-* React (front-end)
-* Redux (front-end)
-* Javascript (front-end)
-* Python (back-end)
-* PostgreSQL (back-end)
-* Flask (back-end)
-* SQLAlchemy (back-end)
-* WTForms (back-end)
+* CSS & HTML (frontend)
+* React (frontend)
+* Redux (frontend)
+* Javascript (frontend)
+* Python (backend)
+* PostgreSQL (backend)
+* Flask (backend)
+* SQLAlchemy (backend)
+* WTForms (backend)
 ---
 ## [Database Schema](https://github.com/ad-sw/MapByFun/wiki/Database-Schema)
 
