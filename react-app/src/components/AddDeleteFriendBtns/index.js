@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { Modal } from '../Context/Modal';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { addFriend, getAllFriends, removeFriend } from '../../store/friend';
 import {removeNonFriend, getAllNonFriends} from '../../store/nonfriend';
+import {getAllRoutes} from '../../store/route'
 import '../../../src/index.css'
 
 export default function FriendBtns({user_id, friend_id}) {
     const [showModal, setShowModal] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
+    const {userId} = useParams()
+
     // const sessionUser = useSelector(state => state.session.user)
     const friendSession = useSelector(state => state.friends)
     const dispatch = useDispatch()
@@ -25,6 +28,7 @@ export default function FriendBtns({user_id, friend_id}) {
         e.preventDefault();
         await dispatch (getAllFriends(user_id));
         await dispatch(removeFriend(user_id, friend_id));
+        await dispatch(getAllRoutes(userId));
         setShowModal(false);
     }
     const handleAdd = async(e) => {
