@@ -914,7 +914,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 .routePage {
     display: flex;
     width: 1150px;
-    height: 99%;
+    /* height: 95%; */
     justify-content: center;
     position: relative;
     margin: 0 auto;
@@ -1823,7 +1823,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     height: 100%;
     text-align: right;
     cursor: pointer;
-    filter: sepia(180%) hue-rotate(160deg) brightness(80%) saturate(140%);
+    filter: sepia(100%) hue-rotate(165deg) brightness(82%) saturate(160%);
 }
 .close3:hover {
     cursor: pointer;

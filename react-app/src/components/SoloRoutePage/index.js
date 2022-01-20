@@ -58,10 +58,10 @@ export default function RoutePage(){
         <div className="editFormCommentsView">
         <div className="commentContentt">
             {comment?.content}
-            <div className="commentAuthor">{allUsersList[comment?.user_id-1]?.first_name} {date}</div>
+            <div className="commentAuthor">{res[comment?.user_id-1]?.first_name} {date}</div>
         </div>
             <div>
-            {sessionUser?.id === route?.user_id && (
+            {sessionUser?.id === route?.user_id && comment?.user_id === sessionUser.id && (
             <>
                 <div id="editDeleteIcons">
                 <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
@@ -117,8 +117,8 @@ export default function RoutePage(){
                                 <div id="routeDescription"><div className="tes">{route.description}</div></div>
                                 <div id="dateProf">
                                     {/* allUsersList[route.user_id][first_name] */}
-                                    {sessionUser?.id === route.user_id && (<div className="routeUser">Me ({allUsersList[userId-1]['first_name']}) on</div>)}
-                                    {sessionUser?.id !== route.user_id && (<div className="routeUser">{allUsersList[userId-1]['first_name']} on</div>)}
+                                    {sessionUser?.id === route.user_id && (<div className="routeUser">Me ({res[userId-1]['first_name']}) on</div>)}
+                                    {sessionUser?.id !== route.user_id && (<div className="routeUser">{res[userId-1]['first_name']} on</div>)}
                                     <div id="routeDate">{date}</div></div>
                                 <div id="descProf">
                                 {sessionUser.id === route?.user_id && (
@@ -133,12 +133,12 @@ export default function RoutePage(){
                                 )}</div>
                             </div>
                             <div id="commentBtn">
-                            {sessionUser.id === route?.user_id && (
+                            {sessionUser.id === route?.user_id && !(route?.user_id in friendSession) && (
                                 <>
                             <CommentCreateModal routeId={routeId}/>
                             </>
                                 )}
-                            {route?.user_id in friendSession &&
+                            {route?.user_id in friendSession && sessionUser.id !== route?.user_id &&
                             (<CommentCreateModal routeId={routeId}/>)}
                             </div>
                             <div id='commentLabel'>Comments</div>

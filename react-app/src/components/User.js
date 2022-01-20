@@ -4,6 +4,7 @@ import FriendBtns from '../../src/components/AddDeleteFriendBtns';
 import { useSelector, useDispatch } from "react-redux";
 import UserFriendsDashboard from "../components/FriendRoutesDashboard";
 import { getAllFriends } from '../store/friend';
+import {getAllRoutes} from '../store/route'
 import FriendRouteSearchForm from '../components/FriendRouteSearchbar';
 
 function User() {
@@ -73,11 +74,12 @@ function User() {
               {userId in friendSession && (
               <div className="titleTry3">
                 <hr className="testAlign4"></hr>
-                {/* <h4 className="testAlign">Browse Routes:</h4> */}
                   <FriendRouteSearchForm/>
                 <hr className="testAlign4"></hr>
               </div>
               )}
+
+
 
               <div id="te">
                 <thead>
