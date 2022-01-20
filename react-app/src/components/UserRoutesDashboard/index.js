@@ -15,14 +15,6 @@ export default function RoutesDashboard(){
 
     useEffect(() => {
         (async () => {
-            // if (term.length === 0) {
-            //     await dispatch(getAllRoutes(userId))
-            //     history.push(`/users/${userId}/explore`);
-            //     }
-            // if (term.length > 0) {
-            //     await dispatch(searchAllRoutes(userId, term));
-            //     history.push(`/users/${userId}/search/${term}`);
-            // }
             setIsLoaded(true)
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
@@ -31,14 +23,16 @@ export default function RoutesDashboard(){
         {isLoaded && (
             <>
                 <div className="routes-wrapper">
-                <h3>MY ROUTES</h3>
+                <h3 className="h3MyRoutes">My Routes</h3>
                 <hr></hr>
 
+                <div className="searchNcreate">
                 <RouteSearchForm />
                 <button className="createRouteBtn" onClick={(e) => {
                     e.preventDefault();
                     history.push('/routes/new');
                     }}>Create a Route</button>
+                </div>
 
                 <hr id="testHr"></hr>
                 <table className='routes'>
