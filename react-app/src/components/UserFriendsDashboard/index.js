@@ -57,8 +57,9 @@ function UserFriendsDashboard() {
               <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
 
-            <div className="titleTry">
-            <h3 id="testAlign3">Search Friends by First or Last Name:</h3>
+            <div className="titleTry2">
+            <hr className="testAlign2"></hr>
+            {/* <h3 id="testAlign3">Search Friends by First or Last Name:</h3> */}
                 <FriendSearchForm />
             <hr className="testAlign2"></hr>
             </div>

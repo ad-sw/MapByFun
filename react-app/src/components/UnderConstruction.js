@@ -10,7 +10,7 @@ const ShopUnderConstruction = () => {
     return(<>
       {isLoaded &&(
         <div className="underConstruction">
-            <div className="inner"><br></br>
+            <div className="inner">
                 <div className="h404">Under Construction</div>
                 <div className="textInner">
                 Thank you for your patience while we work hard to make this feature by 3000.<br></br>

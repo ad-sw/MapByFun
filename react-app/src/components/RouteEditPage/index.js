@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../Context/Modal';
 import {useHistory, useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
+import {getAllNonUserUsers} from '../../store/user'
 import {editRoute, getAllRoutes, getOneRoute} from '../../store/route';
 import { getAllRouteComments } from "../../store/comment";
 import MapContainer from "../Maps";
@@ -51,6 +52,7 @@ export default function RouteEditForm() {
         await setActivityId(route?.activity_id);
         await setDescription(route?.description)
         await setName(route?.name)
+        await dispatch(getAllNonUserUsers(sessionUser?.id));
         setIsLoaded(true)
     })();
 }, [dispatch, route?.name, routeId, route?.description, route?.activity_id])
@@ -88,9 +90,20 @@ export default function RouteEditForm() {
       setShowModal(false);
     }
 
+    let event = new Date(route?.created_at);
+    let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
+    const allUsersList = useSelector(state => Object.values(state.users))
+    const demoUser = {id: 1, first_name: "Demo"}
+    allUsersList.unshift(demoUser)
+
     let commentss = currentRouteComments?.map((comment) =>
     <>
-      <div className="editFormCommentsView"><div className='commentContentt'>{comment?.content}</div></div>
+      <div className="editFormCommentsView">
+        <div className='commentContentt'>
+          {comment?.content}
+          <div className="commentAuthor">{allUsersList[comment?.user_id - 1]?.first_name} {date}</div>
+        </div>
+      </div>
     </>
     )
 

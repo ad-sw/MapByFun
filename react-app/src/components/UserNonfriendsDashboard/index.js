@@ -59,8 +59,9 @@ export default function UserNonfriendsDashboard() {
             <NavLink exact to={`/users/${user_id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
           </div>
 
-          <div className="titleTry">
-            <h3 id="testAlign3">Search Users by First or Last Name:</h3>
+          <div className="titleTry2">
+          <hr className="testAlign2"></hr>
+            {/* <h3 id="testAlign3">Search Users by First or Last Name:</h3> */}
               <NonfriendSearchForm />
             <hr className="testAlign2"></hr>
           </div>

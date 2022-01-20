@@ -37,7 +37,7 @@ export default function RoutesDashboard(){
                 <hr id="testHr"></hr>
                 <table className='routes'>
                 <thead>
-                    <tr>
+                    <tr className="place">
                     <th className='tt'>Route Name</th>
                     <th className='tt'>Created</th>
                     <th className='tt'>Activity</th>

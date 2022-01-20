@@ -47,9 +47,9 @@ function App() {
           <SignUpForm/>
           )}
         </Route>
-        {/* <Route path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList/>
-        </Route> */}
+        </Route>
         <Route path='/users/:userId' exact={true} >
           <User/>
         </Route>
