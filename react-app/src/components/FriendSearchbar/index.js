@@ -50,7 +50,7 @@ const FriendSearchForm = () => {
             <form id='searchForm' onSubmit={handleSubmit}>
                 <input
                 className='searchbarInput'
-                placeholder='Search friends'
+                placeholder='Search by First or Last Name:'
                 value={term}
                 onChange= {(e) => setTerm(e.target.value)}/>
                 <button className='search-btn' type='submit'>Search</button>

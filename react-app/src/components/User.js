@@ -71,10 +71,11 @@ function User() {
               </div>
 
               {userId in friendSession && (
-              <div className="titleTry">
-                <h4 className="testAlign">Browse Routes:</h4>
+              <div className="titleTry3">
+                <hr className="testAlign4"></hr>
+                {/* <h4 className="testAlign">Browse Routes:</h4> */}
                   <FriendRouteSearchForm/>
-                <hr className="testAlign2"></hr>
+                <hr className="testAlign4"></hr>
               </div>
               )}
 

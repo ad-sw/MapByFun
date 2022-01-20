@@ -66,8 +66,9 @@ function UsersList() {
             <NavLink exact to={`/users/${sessionUser?.id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
           </div>
 
-          <div className="titleTry">
-            <h3 id="testAlign3">Search All Users by First or Last Name:</h3>
+          <div className="titleTry2">
+          <hr className="testAlign2"></hr>
+            {/* <h3 id="testAlign3">Search All Users by First or Last Name:</h3> */}
               <AllUserSearchForm/>
             <hr className="testAlign2"></hr>
           </div>

@@ -3,6 +3,8 @@ import { Modal } from '../Context/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom'
 import {getOneRoute} from  '../../store/route'
+import {getAllNonUserUsers} from '../../store/user'
+import {getAllFriends} from '../../store/friend'
 import { getAllRouteComments } from "../../store/comment";
 import CommentCreateModal from '../CommentCreateModal';
 import CommentDeleteModal from '../CommentDeleteModal';
@@ -13,27 +15,51 @@ import '../../../src/index.css'
 
 export default function RoutePage(){
     let dispatch = useDispatch();
+    const [user, setUser] = useState({});
+    // const [users, setUsers] = useState([]);
     let {routeId} = useParams();
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
     // const [showMenu, setShowMenu] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
+    // const sessionUserId = sessionUser?.id
     const friendSession = useSelector(state => state.friends)
     const route = useSelector(state => state.routes[routeId])
+    // const idk = useSelector(state => state.users)
+    const userId = route?.user_id
     let currentRouteComments = useSelector(state => Object.values(state?.comments))
 
     useEffect(() => {
         (async () => {
             await dispatch(getOneRoute(routeId));
             await dispatch(getAllRouteComments(routeId));
+            await dispatch(getAllNonUserUsers(sessionUser?.id));
+            // const response = await fetch(`/api/users/${userId}`);
+            // const user = await response.json();
+            // await dispatch(getAllUsers());
+            // setUser(user);
             setIsLoaded(true)
         })();
     }, [dispatch, sessionUser, routeId])
 
+
+
+    let event = new Date(route?.created_at);
+    let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
+    const allUsersList = useSelector(state => Object.values(state.users))
+    allUsersList.unshift(sessionUser)
+    var res = allUsersList.sort(({id:a}, {id:b}) => a - b);
+    // allUsersList.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+
+    console.log(res, 'here')
+
     let commentss = currentRouteComments?.map((comment) =>
     <>
         <div className="editFormCommentsView">
-        <div className="commentContentt">{comment?.content}</div>
+        <div className="commentContentt">
+            {comment?.content}
+            <div className="commentAuthor">{allUsersList[comment?.user_id-1]?.first_name} {date}</div>
+        </div>
             <div>
             {sessionUser?.id === route?.user_id && (
             <>
@@ -57,16 +83,25 @@ export default function RoutePage(){
     </>
     )
 
+
+    if (!user) {
+        return null;
+    }
+
+
+    if (!isLoaded) {
+        return (
+        <div id="t">
+            <video id="mediaContent" preload="true" muted="" loop="" playsinline="" autoplay="" src="https://cdn.dribbble.com/users/4187655/screenshots/8421375/media/eaa37c1d3e989e818ab5cd3748a09867.mp4">
+            </video>
+            <div className="loadText">Loading</div>
+        </div>
+        );
+    }
+
     const activities = ['Walk', 'Run', 'Hike', 'Sport / Other Activity',
     'Winter Sport / Activity', 'Bike Ride', 'Social', 'Volunteer', 'Food']
 
-    let event = new Date(route?.created_at); //fri dec 31 2021
-    let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
-
-    // let date = JSON.stringify(event)
-    // date = date.slice(1,11).split('-')
-    // date.push(date.shift())
-    // date = date.join(',').replace(/\,/g, '/')
     return (<>
             {isLoaded && (<>
                 <div key={route?.id}  className="routePage">
@@ -80,7 +115,10 @@ export default function RoutePage(){
                                 <div id="routeActivity">{activities[route.activity_id - 1]}</div>
                                 Description
                                 <div id="routeDescription"><div className="tes">{route.description}</div></div>
-                                <div id="dateProf">Created&nbsp;
+                                <div id="dateProf">
+                                    {/* allUsersList[route.user_id][first_name] */}
+                                    {sessionUser?.id === route.user_id && (<div className="routeUser">Me ({allUsersList[userId-1]['first_name']}) on</div>)}
+                                    {sessionUser?.id !== route.user_id && (<div className="routeUser">{allUsersList[userId-1]['first_name']} on</div>)}
                                     <div id="routeDate">{date}</div></div>
                                 <div id="descProf">
                                 {sessionUser.id === route?.user_id && (

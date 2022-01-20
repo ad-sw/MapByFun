@@ -19,5 +19,5 @@ class Comment(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'route_id': self.route_id,
-            'content': self.content
+            'content': self.content,
         }
