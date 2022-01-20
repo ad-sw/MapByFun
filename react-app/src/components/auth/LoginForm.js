@@ -52,15 +52,19 @@ const LoginForm = () => {
     return <Redirect to={`/users/${user.id}/routes`}/>;
   }
 
+  const demoLogin = async() => {
+    await dispatch(login('demo@test.io', 'password'));
+  }
+
   return (<div>{isLoaded && (
       <div className="login-page">
-        <div className="login-container">
-          <form onSubmit={onLogin} className="login-form1">
-          <a href={`/sign-up`} className="signupText">SIGN UP</a>
-          <button className="demoBtn1" onClick={() => {setEmail('demo@test.io'); setPassword('password');}}>LOG IN WITH DEMO</button>
-          <div className='or-container1'>
+        <div className="login-container2">
+        <a href={`/sign-up`} className="loginText">SIGN UP</a>
+        <button onClick={demoLogin} className="demoBtn2">LOG IN WITH DEMO</button>
+          <div className='or-container2'>
                 <span className='divider'></span><span className='or-text'>OR</span><span className='divider'></span>
           </div>
+          <form onSubmit={onLogin} className="login-form">
           <div className="errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error.split(':')[1]}</div>

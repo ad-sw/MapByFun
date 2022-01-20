@@ -770,6 +770,24 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 #friendUnfriendConfirmBtn:hover {
     background-color: #bbbbbb;
 }
+#closeBtn {
+    background-color: #89BABD;
+    /* border-radius: 2px; */
+    border: 5px solid #ECECEC;
+    outline: 0;
+    padding: 2px 5px 2px 5px;
+    cursor: pointer;
+    color: #404d4ee7;
+    margin: -5px 0 0 0;
+    font-weight: 600;
+    position: absolute;
+    bottom: 4px;
+    right: 0%;
+}
+#closeBtn:hover {
+    color: #3e4e50be;
+    background-color: rgb(136, 164, 167);
+}
 #friendUnfriendConfirmBtn2 {
     background-color: #bababa;
     border-radius: 2px;
@@ -896,7 +914,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 .routePage {
     display: flex;
     width: 1150px;
-    height: 99.5%;
+    height: 99%;
     justify-content: center;
     position: relative;
     margin: 0 auto;
@@ -1377,6 +1395,18 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     border: 2px solid #BFBFBF;
     box-shadow: 8px 10px 3px 1px #d3d5d6;
 }
+.login-container2 {
+    align-items: center;
+    text-align: center;
+    margin: 30% auto;
+    padding-bottom: 20px;
+    display: block;
+    width: 394px;
+    /* height: 490px; */
+    background: white;
+    border: 2px solid #BFBFBF;
+    box-shadow: 8px 10px 3px 1px #d3d5d6;
+}
 .login-form {
     align-items: center;
     text-align: center;
@@ -1763,8 +1793,8 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     transform: translate(-50%, -50%);
     position: absolute;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 -10px 0;
+    padding: 0 0 -10px 0;
     font-weight: 550;
 }
 .close2 {
@@ -1776,8 +1806,13 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     height: 100%;
     text-align: right;
     cursor: pointer;
-    opacity: .9;
-    filter: sepia(200%) hue-rotate(180deg) brightness(88%) saturate(140%);
+    opacity: 1;
+    filter: sepia(180%) hue-rotate(160deg) brightness(83%) saturate(160%);
+}
+.close2:hover {
+    cursor: pointer;
+    filter: none;
+    filter: saturate(40%);
 }
 .close3 {
     outline: 0;
@@ -1788,20 +1823,13 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     height: 100%;
     text-align: right;
     cursor: pointer;
-    opacity: .9;
-    filter: sepia(200%) hue-rotate(180deg) brightness(88%) saturate(140%);
-}
-.close2:hover {
-    cursor: pointer;
-    filter: none;
-    opacity: .97;
-    filter: saturate(30%);
+    filter: sepia(180%) hue-rotate(160deg) brightness(80%) saturate(140%);
 }
 .close3:hover {
     cursor: pointer;
     filter: none;
     opacity: .97;
-    filter: saturate(50%);
+    filter: saturate(40%);
 }
 .textInner {
     font-size: 13.5px;
@@ -1882,6 +1910,10 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     width: 670px;
     text-align: left;
     margin: 0 auto;
+    text-indent: 40px;
+}
+.indent {
+    text-indent: 40px;
 }
 .friendDashboardContainer2 {
     /* text-align: center; */

@@ -6,12 +6,12 @@ import RouteDeleteModal from "../RouteDeleteModal";
 import {searchAllRoutes} from '../../store/route';
 import '../../../src/index.css'
 
-function UserRouteReadModal() {
+function UserRouteReadModal({userId}) {
     const dispatch = useDispatch();
     const {term} = useParams()
     const [isLoaded, setIsLoaded] = useState(false)
     const history = useHistory()
-    const {userId} = useParams()
+    // const {userId} = useParams()
     // const userId  = useSelector(state => state.session.user?.id);
 
     useEffect(() => {

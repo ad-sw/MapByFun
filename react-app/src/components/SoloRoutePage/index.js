@@ -22,6 +22,7 @@ export default function RoutePage(){
     const [isLoaded, setIsLoaded] = useState(false)
     // const [showMenu, setShowMenu] = useState(false);
     const sessionUser = useSelector(state => state.session.user)
+    // const sessionUserId = sessionUser?.id
     const friendSession = useSelector(state => state.friends)
     const route = useSelector(state => state.routes[routeId])
     // const idk = useSelector(state => state.users)
@@ -46,15 +47,18 @@ export default function RoutePage(){
     let event = new Date(route?.created_at);
     let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
     const allUsersList = useSelector(state => Object.values(state.users))
-    const demoUser = {id: 1, first_name: "Demo"}
-    allUsersList.unshift(demoUser)
+    allUsersList.unshift(sessionUser)
+    var res = allUsersList.sort(({id:a}, {id:b}) => a - b);
+    // allUsersList.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+
+    console.log(res, 'here')
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
         <div className="editFormCommentsView">
         <div className="commentContentt">
             {comment?.content}
-            <div className="commentAuthor">{allUsersList[comment?.user_id - 1]?.first_name} {date}</div>
+            <div className="commentAuthor">{allUsersList[comment?.user_id-1]?.first_name} {date}</div>
         </div>
             <div>
             {sessionUser?.id === route?.user_id && (
@@ -113,8 +117,8 @@ export default function RoutePage(){
                                 <div id="routeDescription"><div className="tes">{route.description}</div></div>
                                 <div id="dateProf">
                                     {/* allUsersList[route.user_id][first_name] */}
-                                    {sessionUser?.id === route.user_id && (<div className="routeUser">Me ({allUsersList[route.user_id - 1]['first_name']}) on</div>)}
-                                    {sessionUser?.id !== route.user_id && (<div className="routeUser">{allUsersList[route.user_id - 1]['first_name']} on</div>)}
+                                    {sessionUser?.id === route.user_id && (<div className="routeUser">Me ({allUsersList[userId-1]['first_name']}) on</div>)}
+                                    {sessionUser?.id !== route.user_id && (<div className="routeUser">{allUsersList[userId-1]['first_name']} on</div>)}
                                     <div id="routeDate">{date}</div></div>
                                 <div id="descProf">
                                 {sessionUser.id === route?.user_id && (
