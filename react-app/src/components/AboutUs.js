@@ -25,7 +25,7 @@ const AboutUs = () => {
                 <div className="friendDashboardContainer2">
                 <div className="textInner2">
                 This is a <a className="cloneName" href="https://www.mapmyrun.com/" target="_blank" rel="noopener noreferrer">MapMyRun</a> clone that turned into being a just-for-fun "what else can be done"
-                frontend-focused project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance,
+                project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance,
                 safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that
                 everyone can understand, similar to no-code or low-code tools.<p></p>
                 The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public

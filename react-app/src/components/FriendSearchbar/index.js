@@ -18,11 +18,11 @@ const FriendSearchForm = () => {
             setIsLoaded(true)
             if (term.length === 0) {
                 await dispatch(getAllFriends(userId));
-                history.push(`/users/${userId}/find`);
+                history.push(`/users/${userId}/search`);
             }
             if (term.length > 0) {
                 await dispatch(searchAllFriends(userId, term));
-                history.push(`/users/${userId}/find/${term}`);
+                history.push(`/users/${userId}/search/${term}`);
             }
         })();
     }, [setIsLoaded, dispatch, userId, term, history]);
@@ -31,18 +31,18 @@ const FriendSearchForm = () => {
         e.preventDefault();
         if (term.length > 0) {
             dispatch(searchAllFriends(userId, term));
-            history.push(`/users/${userId}/find/${term}`);
+            history.push(`/users/${userId}/search/${term}`);
         }
         else if (term.length === 0) {
             dispatch(getAllFriends(userId));
-            history.push(`/users/${userId}/find`);
+            history.push(`/users/${userId}/search`);
         }
     }
 
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/find`);
+        history.push(`/users/${userId}/search`);
     }
 
     return (

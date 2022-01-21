@@ -39,7 +39,7 @@ export const getAllUsers = () => async (dispatch) => {
 }
 
 export const getAllNonUserUsers = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/search`);
+    const response = await fetch(`/api/users/${userId}/discover`);
     if (response.ok) {
         const data = await response.json();
         dispatch(loadAllNonUserUsers(data));
@@ -55,7 +55,7 @@ export const getAllNonUserUsers = (userId) => async (dispatch) => {
 }
 
 export const searchAllUsers = (userId, searchTerm) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/search/${searchTerm}`);
+    const response = await fetch(`/api/users/${userId}/discover/${searchTerm}`);
 
     if (response.ok) {
         const data = await response.json();

@@ -82,7 +82,7 @@ export const removeFriend = (userId, friendId) => async (dispatch) => {
 }
 
 export const searchAllFriends = (userId, searchTerm) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/find/${searchTerm}`);
+    const response = await fetch(`/api/users/${userId}/search/${searchTerm}`);
 
     if (response.ok) {
         const data = await response.json();
