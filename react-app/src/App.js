@@ -92,22 +92,22 @@ function App() {
         <Route path='/users/:userId/explore/:term' exact={true}>
           <RoutesDashboard/>
         </Route>
-        <Route path='/users/:userId/find' exact={true}>
-          <UserFriendsDashboard/>
-        </Route>
-        <Route path='/users/:userId/find/:term' exact={true}>
-          <UserFriendsDashboard/>
-        </Route>
-        <Route path='/users/:userId/discover' exact={true}>
-          <UserNonfriendsDashboard/>
-        </Route>
-        <Route path='/users/:userId/discover/:term' exact={true}>
-          <UserNonfriendsDashboard/>
-        </Route>
         <Route path='/users/:userId/search' exact={true}>
-          <UsersList/>
+          <UserFriendsDashboard/>
         </Route>
         <Route path='/users/:userId/search/:term' exact={true}>
+          <UserFriendsDashboard/>
+        </Route>
+        <Route path='/users/:userId/find' exact={true}>
+          <UserNonfriendsDashboard/>
+        </Route>
+        <Route path='/users/:userId/find/:term' exact={true}>
+          <UserNonfriendsDashboard/>
+        </Route>
+        <Route path='/users/:userId/discover' exact={true}>
+          <UsersList/>
+        </Route>
+        <Route path='/users/:userId/discover/:term' exact={true}>
           <UsersList/>
         </Route>
         <Route path='/users/:userId/browse' exact={true}>

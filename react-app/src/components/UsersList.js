@@ -36,7 +36,7 @@ function UsersList() {
     return (<> {isLoaded && (
       <div className="friendCard">
         <div className="soMany">
-          <NavLink className="soMany" to={`/users/${user.id}`}>
+          <NavLink className="soMany" exact to={`/users/${user.id}`}>
             <div className="friendContent"></div>
             <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
           </NavLink>
@@ -61,9 +61,9 @@ function UsersList() {
         <>
         <div className="topoBackground">
           <div className="friendLinks">
-            <NavLink exact to={`/users/${sessionUser?.id}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink exact to={`/users/${sessionUser?.id}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-            <NavLink exact to={`/users/${sessionUser?.id}/search`} activeClassName="link-active" className="links">All Users</NavLink>
+            <NavLink exact to={`/users/${sessionUser?.id}/search`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${sessionUser?.id}/find`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+            <NavLink exact to={`/users/${sessionUser?.id}/discover`} activeClassName="link-active" className="links">All Users</NavLink>
           </div>
 
           <div className="titleTry2">

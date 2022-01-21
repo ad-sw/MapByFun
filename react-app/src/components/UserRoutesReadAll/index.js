@@ -45,7 +45,7 @@ function UserRouteReadModal({userId}) {
                         <NavLink key={route.id} to={`/routes/${route.id}`}>{route.name}</NavLink></td>
                         <td>{date}</td>
                         <td>{activities[route?.activity_id - 1]}</td>
-                        <td>{<center><NavLink to={`/users/${userId}/find`}><img id="privacyimg" title="viewable by friends" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img></NavLink></center>}</td>
+                        <td>{<center><NavLink exact to={`/users/${userId}/search`}><img id="privacyimg" title="viewable by friends" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img></NavLink></center>}</td>
                         <td id="distanceCenter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</td>
                         <td>
                             <button id="userProfileViewLink" onClick={(e) => {

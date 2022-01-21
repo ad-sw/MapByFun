@@ -17,11 +17,11 @@ const NonfriendSearchForm = () => {
         (async () => {
             if (term.length === 0) {
                 await dispatch(getAllNonFriends(userId));
-                history.push(`/users/${userId}/discover`);
+                history.push(`/users/${userId}/find`);
             }
             if (term.length > 0) {
                 await dispatch(searchAllNonFriends(userId, term));
-                history.push(`/users/${userId}/discover/${term}`);
+                history.push(`/users/${userId}/find/${term}`);
             }
             setIsLoaded(true)
         })();
@@ -31,18 +31,18 @@ const NonfriendSearchForm = () => {
         e.preventDefault();
         if (term.length > 0) {
             dispatch(searchAllNonFriends(userId, term));
-            history.push(`/users/${userId}/discover/${term}`);
+            history.push(`/users/${userId}/find/${term}`);
         }
         else if (term.length === 0) {
             dispatch(getAllNonFriends(userId));
-            history.push(`/users/${userId}/discover`);
+            history.push(`/users/${userId}/find`);
         }
     }
 
     const onHandleFormSubmit = (e) => {
         e.preventDefault();
         setTerm('');
-        history.push(`/users/${userId}/discover`);
+        history.push(`/users/${userId}/find`);
     }
 
     return (

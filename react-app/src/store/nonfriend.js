@@ -39,7 +39,7 @@ export const getAllNonFriends = (id) => async (dispatch) => {
 }
 
 export const searchAllNonFriends = (userId, searchTerm) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/discover/${searchTerm}`);
+    const response = await fetch(`/api/users/${userId}/find/${searchTerm}`);
 
     if (response.ok) {
         const data = await response.json();

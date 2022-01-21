@@ -16,11 +16,11 @@ const AllUserSearchForm = () => {
         (async () => {
             if (term.length === 0) {
                 await dispatch(getAllNonUserUsers(userId));
-                history.push(`/users/${userId}/search`);
+                history.push(`/users/${userId}/discover`);
             }
             if (term.length > 0) {
                 await dispatch(searchAllUsers(userId, term));
-                history.push(`/users/${userId}/search/${term}`);
+                history.push(`/users/${userId}/discover/${term}`);
             }
             setIsLoaded(true)
         })();
@@ -30,11 +30,11 @@ const AllUserSearchForm = () => {
         e.preventDefault();
         if (term.length > 0) {
             dispatch(searchAllUsers(userId, term));
-            history.push(`/users/${userId}/search/${term}`);
+            history.push(`/users/${userId}/discover/${term}`);
         }
         else if (term.length === 0) {
             dispatch(getAllNonUserUsers(userId));
-            history.push(`/users/${userId}/search`);
+            history.push(`/users/${userId}/discover`);
         }
     }
 
@@ -42,7 +42,7 @@ const AllUserSearchForm = () => {
         e.preventDefault();
         setTerm('');
         dispatch(getAllNonUserUsers(userId));
-        history.push(`/users/${userId}/search`);
+        history.push(`/users/${userId}/discover`);
     }
 
     return (

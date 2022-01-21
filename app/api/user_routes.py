@@ -9,15 +9,15 @@ def all_users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
-@user_routes.route('/<int:user_id>/search')
-def all_User_users(user_id):
+@user_routes.route('/<int:user_id>/discover')
+def all_user_users(user_id):
     users = User.query.all()
     user = {User.query.get(user_id)}
     all_users = set(users)
     non_user_users = all_users.difference(user)
     return {'users': [user.to_dict() for user in non_user_users]}
 
-@user_routes.route('/<int:user_id>/search/<string:term>')
+@user_routes.route('/<int:user_id>/discover/<string:term>')
 @login_required
 def search_all_users(user_id, term):
     users = User.query.all()
@@ -47,7 +47,7 @@ def all_user_friends(user_id):
     user = User.query.get(user_id)
     return {'users': [friend.to_dict() for friend in user.user_friends]}
 
-@user_routes.route('/<int:user_id>/find/<string:term>')
+@user_routes.route('/<int:user_id>/search/<string:term>')
 def search_all_user_friends(user_id, term):
     user = User.query.get(user_id)
     user_friends = [friend.to_dict() for friend in user.user_friends]
@@ -74,7 +74,7 @@ def all_user_nonfriends(id):
     non_friend_users = all_users.difference(all_user_friends)
     return {'nonfriends': [user.to_dict() for user in non_friend_users]}
 
-@user_routes.route('/<int:user_id>/discover/<string:term>')
+@user_routes.route('/<int:user_id>/find/<string:term>')
 def search_all_user_nonfriends(user_id, term):
     users = User.query.all()
     current_user = User.query.get(user_id)

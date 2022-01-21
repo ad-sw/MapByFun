@@ -52,9 +52,9 @@ function UserFriendsDashboard() {
   return (<>{isLoaded && (
           <div className="topoBackground">
             <div className="friendLinks">
-              <NavLink exact to={`/users/${userId}/find`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink exact to={`/users/${userId}/discover`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
-              <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active" className="links">All Users</NavLink>
+              <NavLink exact to={`/users/${userId}/search`} activeClassName="link-active" className="links">My Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink exact to={`/users/${userId}/find`} activeClassName="link-active" className="links">Find Friends</NavLink>&nbsp;&nbsp;&nbsp;
+              <NavLink exact to={`/users/${userId}/discover`} activeClassName="link-active" className="links">All Users</NavLink>
             </div>
 
             <div className="titleTry2">
