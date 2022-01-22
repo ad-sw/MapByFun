@@ -40,7 +40,7 @@ const AboutUs = () => {
                       <div className="mapModal">
                         <div className="">
                           <a href="https://www.seattle.gov/arts/experience/art-walks" target="_blank" rel="noopener noreferrer"><img width="1000px" src="https://user-images.githubusercontent.com/86431563/150277376-0cb2a373-4aa5-435c-8b1b-f440ec60a4d4.png"/></a>
-                          <button type="submit" onClick={handleCancel} id="closeBtn">Close</button>
+                          <button type="submit" onClick={handleCancel} id="closeBtn">X</button>
                         </div>
                       </div>
                     </Modal>

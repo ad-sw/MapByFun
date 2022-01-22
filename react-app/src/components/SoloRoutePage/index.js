@@ -48,10 +48,8 @@ export default function RoutePage(){
     let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
     const allUsersList = useSelector(state => Object.values(state.users))
     allUsersList.unshift(sessionUser)
-    var res = allUsersList.sort(({id:a}, {id:b}) => a - b);
+    let res = allUsersList.sort(({id:a}, {id:b}) => a - b);
     // allUsersList.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
-
-    console.log(res, 'here')
 
     let commentss = currentRouteComments?.map((comment) =>
     <>
