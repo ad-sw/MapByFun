@@ -781,7 +781,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     text-align: center;
     /* display: flex; */
     outline: 0;
-    padding: 3px 7px;
+    padding: 3px 6.5px;
     cursor: pointer;
     color: #404d4ee7;
     margin: -5px 0 0 0;
