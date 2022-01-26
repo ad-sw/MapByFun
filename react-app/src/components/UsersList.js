@@ -47,12 +47,22 @@ function UsersList() {
     );
   }});
 
+  // if (!isLoaded) {
+  //   return (
+  //     <div id="loadingGif">
+  //           <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
+  //           <div className="loadText">Loading</div>
+  //       </div>
+  //   );
+  // }
+
   if (!isLoaded) {
     return (
-      <div id="loadingGif">
-            <img src={"https://cdn.dribbble.com/users/1976516/screenshots/6860281/dribb.gif"} height="400px" width="600px" alt="loading"/>
-            <div className="loadText">Loading</div>
-        </div>
+    <div id="t">
+        <video id="mediaContent" preload="none" muted="" loop="" playsinline="" autoplay="" src="https://cdn.dribbble.com/users/4187655/screenshots/8421375/media/eaa37c1d3e989e818ab5cd3748a09867.mp4">
+        </video>
+        <div className="loadText">Loading</div>
+    </div>
     );
   }
 

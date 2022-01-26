@@ -53,6 +53,8 @@ const LoginForm = () => {
   }
 
   const demoLogin = async() => {
+    setEmail('demo@test.io');
+    setPassword('password');
     await dispatch(login('demo@test.io', 'password'));
   }
 
