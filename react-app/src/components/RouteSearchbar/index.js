@@ -53,7 +53,7 @@ const FriendRouteSearchForm = () => {
                 placeholder='Enter a keyword'
                 value={term}
                 onChange= {(e) => setTerm(e.target.value)}/>
-                <button className='search-btn' type='submit'>Search</button>
+                {/* <button className='search-btn' type='submit'>Search</button> */}
                 <button onClick={onHandleFormSubmit} className='search-btn'>Reset</button>
             </form>
         </div>

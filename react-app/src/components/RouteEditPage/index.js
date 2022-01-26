@@ -94,15 +94,15 @@ export default function RouteEditForm() {
     let event = new Date(route?.created_at);
     let date = event.toLocaleDateString().slice(0,5) + event.toLocaleDateString().slice(7,9)
     const allUsersList = useSelector(state => Object.values(state.users))
-    // const demoUser = {id: 1, first_name: "Demo"}
-    // allUsersList.unshift(demoUser)
-
+    allUsersList.unshift(sessionUser)
+    let res = allUsersList.sort(({id:a}, {id:b}) => a - b);
+    
     let commentss = currentRouteComments?.map((comment) =>
     <>
       <div className="editFormCommentsView">
         <div className='commentContentt'>
           {comment?.content}
-          <div className="commentAuthor">{allUsersList[comment?.user_id - 1]?.first_name} {date}</div>
+          <div className="commentAuthor">{res[comment?.user_id - 1]?.first_name} {date}</div>
         </div>
       </div>
     </>
