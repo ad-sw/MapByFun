@@ -27,7 +27,7 @@ const AboutUs = () => {
                 This is a <a className="cloneName" href="https://www.mapmyrun.com/" target="_blank" rel="noopener noreferrer">MapMyRun</a> clone that turned into being a just-for-fun "what else can be done"
                 frontend-to-backend project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance,
                 safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that
-                everyone can understand, similar to no-code or low-code tools.<p></p>
+                everyone can understand, similar to no-code or low-code tools. (And if not geospatial maps, we also rely heavily on calendars, which are maps of time.)<p></p>
                 The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public
                 that makes the less familiar less daunting, as the unforeseen becomes more seen.<p></p>
 
@@ -71,6 +71,7 @@ const AboutUs = () => {
                 This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand
                 loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse
                 community spaces resonate with more people. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.
+                <p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects to their interface.
               </div>
             </div>
           </div>
