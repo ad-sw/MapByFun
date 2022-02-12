@@ -45,6 +45,11 @@ This project could help smaller-scaled local businesses access greater audiences
     - [X] View friends (R)
     - [X] Unfriend friends    (D)
   + Additional Site Features:
+    - [X] Search Bar 1: users can search their own routes on their routes page.
+    - [X] Search Bar 2: users can search their friends by first or last name on the Community > Friends dashboard page.
+    - [X] Search Bar 3: users can search other users by first or last name on the Community > Find Friends dashboard page.
+    - [X] Search Bar 4: users can search both friends and other users by first or last name on the Community > All Users dashboard page.
+    - [X] Search Bar 5: users can search a friend's routes on their friend's user profile page.
     - [X] In the community tab, logged in users may view their friends, users to add as friends, and a combined list of the two (friends and other users). Users may also click on any person's name to view their profile and a high level overview of their routes/site activity. For privacy reasons, only if the user is a friend can they then view their routes.
 
 
@@ -54,8 +59,9 @@ This project could help smaller-scaled local businesses access greater audiences
 - Overview product concept with options to sign up or sign in as a registered or demo user. (Centered art credited to [Michael Tompsett](https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ).)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/153726506-047018de-361d-478f-9aea-8c4ab4e72105.PNG" width="750" height="375"></p>
 
-### [Login & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="370" height="230" opacity=".5">
+### [Log In & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
+- Sign up and log in as a registered or demo user.
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/153731736-66362800-e218-4f1a-8e6f-eb4764d0ae9a.PNG" width="370" height="230" opacity=".5">
 <img src="https://user-images.githubusercontent.com/86431563/153730955-cf484a60-b9e1-4870-baa2-fe3d5a2d1895.PNG" width="370" height="230" opacity=".5"></p>
 
 ### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
