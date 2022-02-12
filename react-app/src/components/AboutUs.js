@@ -71,7 +71,7 @@ const AboutUs = () => {
                 This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand
                 loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse
                 community spaces resonate with more people. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.
-                <p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects to their interface.
+                <p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects into their interface and perhaps coordinated with local towns/cities to empower community programming.
               </div>
             </div>
           </div>

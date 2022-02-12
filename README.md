@@ -8,13 +8,13 @@ A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being
 <br><p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
 <img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p></br>
 This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse community spaces resonate with more people. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.</br>
-<p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects to their interface.
+<p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects into their interface and perhaps coordinated with local towns/cities to empower community programming.
 
 ### Fullstack used:
 * CSS & HTML (frontend)
 * React (frontend)
 * Redux (frontend)
-* Javascript (frontend)
+* JavaScript (frontend)
 * Python (backend)
 * PostgreSQL (backend)
 * Flask (backend)
@@ -56,7 +56,7 @@ This project could help smaller-scaled local businesses access greater audiences
 
 ### [Login & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/147933518-6303138c-8b12-41a0-9345-cc71a19ec7d4.PNG" width="370" height="230" opacity=".5">
-<img src="https://user-images.githubusercontent.com/86431563/147933515-ca75444e-05a8-454e-b573-f98a6b30c29b.PNG" width="370" height="230" opacity=".5"></p>
+<img src="https://user-images.githubusercontent.com/86431563/153730955-cf484a60-b9e1-4870-baa2-fe3d5a2d1895.PNG" width="370" height="230" opacity=".5"></p>
 
 ### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
 - View all of your route posts to search through them, find details, create/edit/delete more of them, or comment on them.
@@ -74,7 +74,7 @@ This project could help smaller-scaled local businesses access greater audiences
 - View a specific user's high level site information. If they are a friend, you may search and view their routes to comments, as well as comment on their routes of your choosing.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/153726466-fe84dbd0-0026-4581-bc4f-29beaa51bfd0.PNG" width="750" height="375"></p>
 
-## Getting started
+## Local Use Set Up
 
 1. Clone this repository (only this branch)
 
