@@ -78,7 +78,7 @@ function User() {
                     <div><i>Member Since</i>&nbsp;{date}</div>
                     <FriendBtns friend_id={Number(userId)} user_id={user_id}/>
                 </div>
-                <div className="userPic"></div>
+                <div><img className="userPic" src={user.profile_picture}/></div>
               </div>
 
               {userId in friendSession && (

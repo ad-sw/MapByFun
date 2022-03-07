@@ -37,7 +37,7 @@ function UsersList() {
       <div className="friendCard">
         <div className="soMany">
           <NavLink className="soMany" exact to={`/users/${user.id}`}>
-            <div className="friendContent"></div>
+            <div><img className="friendContent" src={user.profile_picture}/></div>
             <div className="fullName">{user.first_name}&nbsp;{user.last_name}</div>
           </NavLink>
             <div className="friendBtn"><FriendBtns user_id={sessionUser?.id} friend_id={user.id}/></div>

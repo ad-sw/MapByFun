@@ -1,6 +1,6 @@
 ## [MapByFun](https://mapbyfun.herokuapp.com/)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/153726506-047018de-361d-478f-9aea-8c4ab4e72105.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
-A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-to-backend project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools. (And if not geospatial maps, we also rely heavily on calendars, which are maps of time.)
+A spin on <a href="https://www.mapmyrun.com/">MapMyRun</a> that evolved into being a just-for-fun "what else can be done" frontend-to-backend project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools. (And if not geospatial maps, we also rely heavily on calendars, which are maps of time.)
 
 <br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands attend throughout the city neighborhoods via these programmed networks.<p></p>
 <br>The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public that makes the less familiar less daunting, as the unforeseen becomes more seen.
@@ -44,12 +44,14 @@ This project could help smaller-scaled local businesses access greater audiences
     - [X] Add friend  (C)
     - [X] View friends (R)
     - [X] Unfriend friends    (D)
+  + Search Bars x5
+    - [X] Search Bar 1: search own routes on routes dashboard page (R)
+    - [X] Search Bar 2: search friends by first or last name on the Community > Friends dashboard page (R)
+    - [X] Search Bar 3: search other users by first or last name on the Community > Find Friends dashboard page (R)
+    - [X] Search Bar 4: search both friends and other users by first or last name on the Community > All Users dashboard page (R)
+    - [X] Search Bar 5: search a friend's routes on friend's user profile page (R)
+
   + Additional Site Features:
-    - [X] Search Bar 1: users can search their own routes on their routes page.
-    - [X] Search Bar 2: users can search their friends by first or last name on the Community > Friends dashboard page.
-    - [X] Search Bar 3: users can search other users by first or last name on the Community > Find Friends dashboard page.
-    - [X] Search Bar 4: users can search both friends and other users by first or last name on the Community > All Users dashboard page.
-    - [X] Search Bar 5: users can search a friend's routes on their friend's user profile page.
     - [X] In the community tab, logged in users may view their friends, users to add as friends, and a combined list of the two (friends and other users). Users may also click on any person's name to view their profile and a high level overview of their routes/site activity. For privacy reasons, only if the user is a friend can they then view their routes.
 
 
@@ -70,15 +72,27 @@ This project could help smaller-scaled local businesses access greater audiences
 
 ### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
 - View your route's detailed information to edit or review the route and any existing comments with the option to add/edit comments.
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/148127859-947ecb99-8306-4bc4-bcba-104bca19e258.PNG" width="750" height="375"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156968502-276c93a3-2b27-4ebe-8da7-3b6634a87f2d.PNG" width="750" height="375"></p>
 
 ### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
 - View a collection of your friends to search through by first or last name and visit one of their specific profile pages, or potentially unfriend them.
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/153726444-827d5422-b4e7-4930-be5f-f0fc312c0d57.PNG" width="750" height="375"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156982994-9a4bec19-a7fa-4e03-93f9-46cb82c3f8ae.PNG" width="750" height="375"></p>
 
-### [Specific User Profile](https://mapbyfun.herokuapp.com/users/2)
-- View a specific user's high level site information. If they are a friend, you may search and view their routes to comments, as well as comment on their routes of your choosing.
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/153726466-fe84dbd0-0026-4581-bc4f-29beaa51bfd0.PNG" width="750" height="375"></p>
+### [Find Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+- View a collection of other users to search through by first or last name and friend them, or/and visit their specific profile page.
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156982999-1b918103-a1dc-4d59-a4c6-068259a89de3.PNG" width="750" height="375"></p>
+
+### [All Users Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+- View a collection of all users to search through by first or last name and visit one of their specific profile pages, or potentially friend/unfriend them.
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156983000-4199a898-9bed-4042-8d36-102ecb816a01.PNG" width="750" height="375"></p>
+
+### [Friend User Profile](https://mapbyfun.herokuapp.com/users/2)
+- View a friend's high level site information where you may search and view their routes to comments, as well as comment on their routes of your choosing.
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156983001-ff0e6922-1171-4989-aeb6-0c7893feafd6.PNG" width="750" height="375"></p>
+
+### [Non-Friend User Profile](https://mapbyfun.herokuapp.com/users/2)
+- View a non-friend's high level site information where you may scroll through and see a summary of their site activity, but won't be able to search for a specific route or view any until you've added them as a friend.
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156983255-2633a157-1414-4448-9026-4e4ae0ada679.PNG" width="750" height="375"></p>
 
 ## Local Use Set Up
 
