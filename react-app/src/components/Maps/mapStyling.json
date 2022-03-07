@@ -1,0 +1,97 @@
+[
+    {
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": 50
+            },
+            {
+                "gamma": 1.2
+            },
+            {
+                "sepia": 100
+            },
+            {
+                "lightness": 5
+            },
+            {
+                "hue": "#4b83d4"
+            }
+        ]
+    },
+
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#2a91d1"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "simplified",
+                "color": "#bdc1c5"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "simplified",
+                "color": "#bdc1c5"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#00000"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "gamma": 0.1
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "gamma": 10
+            }
+        ]
+    }
+]

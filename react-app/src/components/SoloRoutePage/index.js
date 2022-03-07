@@ -11,6 +11,7 @@ import CommentDeleteModal from '../CommentDeleteModal';
 import './SoloRoutePage.css';
 import CommentEditModal from "../CommentEditModal";
 import MapContainer from "../Maps";
+import Tester from "./test";
 import '../../../src/index.css'
 
 export default function RoutePage(){
@@ -29,9 +30,12 @@ export default function RoutePage(){
     const userId = route?.user_id
     let currentRouteComments = useSelector(state => Object.values(state?.comments))
 
+    console.log(friendSession,'idk')
+
     useEffect(() => {
         (async () => {
             await dispatch(getOneRoute(routeId));
+            await dispatch(getAllFriends(sessionUser?.id));
             await dispatch(getAllRouteComments(routeId));
             await dispatch(getAllNonUserUsers(sessionUser?.id));
             // const response = await fetch(`/api/users/${userId}`);
@@ -51,13 +55,12 @@ export default function RoutePage(){
     let res = allUsersList.sort(({id:a}, {id:b}) => a - b);
     // allUsersList.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
 
-    let event2;
     let date2;
     let commentss = currentRouteComments?.map((comment) =>
     <>
-    <div className="hideThis">
-    {date2 = String(new Date(comment?.created_at).toLocaleDateString().slice(0,5) + new Date(comment?.created_at).toLocaleDateString().slice(7,9))}
-    </div>
+        <div className="hideThis">
+            {date2 = String(new Date(comment?.created_at).toLocaleDateString().slice(0,5) + new Date(comment?.created_at).toLocaleDateString().slice(7,9))}
+        </div>
         <div className="editFormCommentsView">
         <div className="commentContentt">
             {comment?.content}
@@ -67,16 +70,18 @@ export default function RoutePage(){
             {sessionUser?.id === route?.user_id && comment?.user_id === sessionUser?.id && (
             <>
                 <div id="editDeleteIcons">
-                <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
-                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+                <Tester commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                {/* <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/> */}
                 </div>
             </>
             )}
             {comment?.user_id === sessionUser.id && sessionUser?.id !== route?.user_id && (
             <>
             <div id="editDeleteIcons">
-                <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
-                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/>
+                <Tester commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                {/* <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>
+                <CommentDeleteModal commentId={comment?.id} routeId={routeId}/> */}
             </div>
             </>
             )}
@@ -126,22 +131,22 @@ export default function RoutePage(){
                                 <div id="descProf">
                                 {sessionUser.id === route?.user_id && (
                                 <>
-                                <button id="EditCreateDeleteBtns" onClick={(e) => {
+                                <button id="EditCreateDeleteBtn" onClick={(e) => {
                                     e.preventDefault();
                                     history.push(`/routes/${route.id}/edit`);
                                     }}>
-                                    Edit Route
+                                    <img src="https://user-images.githubusercontent.com/86431563/156958505-dfb3e977-5fe4-461c-8e96-fd82c7e257f6.png" alt="edit" width="12" height="11" className='pencil2'/>
                                 </button>
                                 </>
                                 )}</div>
                             </div>
                             <div id="commentBtn">
-                            {sessionUser.id === route?.user_id && !(route?.user_id in friendSession) && (
-                                <>
-                            <CommentCreateModal routeId={routeId}/>
+                            {sessionUser?.id === route?.user_id && !(route?.user_id in friendSession) && (
+                            <>
+                                <CommentCreateModal routeId={routeId}/>
                             </>
                                 )}
-                            {route?.user_id in friendSession && sessionUser.id !== route?.user_id &&
+                            {route?.user_id in friendSession && sessionUser?.id !== route?.user_id &&
                             (<CommentCreateModal routeId={routeId}/>)}
                             </div>
                             <div id='commentLabel'>Comments</div>

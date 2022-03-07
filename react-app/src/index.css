@@ -221,6 +221,7 @@ a{
     /* height: 680px; */
     z-index: 0;
     margin: 0 auto;
+    opacity: .88;
     display: flex;
     padding-bottom: 3px;
     background-color: white;
@@ -235,7 +236,7 @@ a{
     color: #787878;
 }
 .logBtns1:hover, .logBtns1:active, .logBtns2:active, .active1, .active1 {
-    border-bottom: 2px solid #009CE9;
+    border-bottom: 2px solid #4b83d4;
 }
 .fa-ellipsis-v {
     cursor: pointer;
@@ -448,17 +449,23 @@ a{
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: black;}
 
+.target2 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0;
+    padding: 0;
+}
 .target {
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin: 0 20px 0 0;
-
+    margin: 0 15px 0 0;
 }
 .react-tooltip-lite {
     background: #535353;
     color: white;
-    max-width: 190px;
+    max-width: 160px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -471,8 +478,12 @@ a{
     align-items: center;
     justify-content: center;
 }
-.privacyIcon {
+.privacyIcon2 {
     cursor: pointer;
+    /* margin-right: 15px; */
+}
+.privacyIcon {
+    cursor: default;
     /* margin-right: 15px; */
 }
 tbody {
@@ -770,12 +781,22 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     background-size: 110%;
     position: relative;
 }
+.dots {
+    cursor: pointer;
+    opacity: .5;
+    margin: 8px 0 0 2.1px;
+    width: 68%;
+}
 .commentContent {
     margin-bottom: 15px;
     height: 80px;
     width: 200px;
-    padding: 5px;
+    padding: 5px 0px 5px 5px;
     resize: none;
+}
+.pencil3 {
+    width: 10px;
+    height: 15px;
 }
 /* .form3 {
     display: absolute;
@@ -868,14 +889,54 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     border-bottom: 0;
     border-radius: 2px;
     outline: 0;
-    padding: 2px 5px 1.5px 5px;
+    padding: 2px 5px 1px 5px;
     cursor: pointer;
     color: rgb(144, 144, 144);
     font-size: 12.5px;
+    z-index: 1000;
 }
 #EditCreateDeleteBtns:hover {
     background-color: #e7e7e7;
     padding-bottom: .5px;
+    letter-spacing: .05px;
+}
+.plusSignStyle {
+    font-size: 18px;
+    /* font-weight: 800; */
+    color: #a5a5a5;
+    margin: 0;
+    padding: 0;
+}
+#commentBtn {
+    bottom: 22.25%;
+    position: absolute;
+    padding: 0px 16.5px 0px 0px;
+    right: 0;
+    margin: 0;
+}
+.commentCreateBtnContainer {
+    padding: 0;
+    margin: 0;
+}
+#EditCreateDeleteBtn {
+    background-color: #cccccc30;
+    border-top: .5px rgba(209, 209, 209, 0.534) solid;
+    border-right: .5px rgb(209, 209, 209, 0.534) solid;
+    border-left: .5px rgb(209, 209, 209, 0.534) solid;
+    border-bottom: 0;
+    border-radius: 2px;
+    outline: 0;
+    margin: 0;
+    height: 19px;
+    /* height: 20px; */
+    padding: 0px 4px 6px 4px;
+    cursor: pointer;
+    color: rgb(144, 144, 144);
+    /* font-size: 12.5px; */
+}
+#EditCreateDeleteBtn:hover {
+    background-color: #e7e7e7;
+    /* padding-bottom: .5px; */
     letter-spacing: .05px;
 }
 #descProf {
@@ -964,7 +1025,7 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     /* position: relative; */
     /* margin: 0 80px; */
     backdrop-filter: blur(9px);
-    background-color: rgb(255, 255, 255, .6);
+    background-color: rgb(255, 255, 255, .85);
     box-shadow: -5px 0px 10px -8px #9a9a9a;
     z-index: 0;
     border-right: 1px rgb(231, 231, 231) solid;
@@ -989,9 +1050,9 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     /* top:0; */
     left: 0;
     z-index: -1;
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(8px);
     content: "";
-    opacity: .05;
+    opacity: .025;
     height: 100%;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -1151,12 +1212,6 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     left: 0;
     color: rgb(211, 211, 211);
 }
-#commentBtn {
-    bottom: 22.5%;
-    position: absolute;
-    padding: 0px 17px 0px 0px;
-    right: 0;
-}
 #routeLabel {
     margin: 11px 0 0 14px;
     padding: 0;
@@ -1219,12 +1274,27 @@ tr:nth-child(even) {background-color: #f0f0f0;}
 .delX, .pencil, .close {
     outline: 0;
     border: 0;
-    padding: 3px 0px 0 0px;
+    padding: 3px 0px 0px 0px;
     margin: 0;
     text-align: right;
     opacity: .75;
-    background-color: rgba(255, 255, 255, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.6); */
     cursor: pointer;
+    background-color: none;
+}
+.pencil {
+    padding-left: 1px;
+    padding-right: 2px;
+    margin-bottom: 3px;
+}
+.close {
+    padding-left: 1px;
+    padding-right: 2px;
+}
+.pencil2 {
+    opacity: .52;
+    cursor: pointer;
+    margin-top: 4px;
 }
 .routesName {
     height: 25px;

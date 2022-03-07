@@ -2,6 +2,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {getFriendRoutes} from '../../store/route';
 import {useEffect, useState} from 'react';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
+import Tooltip from 'react-tooltip-lite';
 
 export default function FriendRouteReadModal({userId, friendId}) {
     const dispatch = useDispatch();
@@ -41,7 +42,17 @@ export default function FriendRouteReadModal({userId, friendId}) {
                 {route.name}</NavLink>)}</td>
                 <td>{date}</td>
                 <td>{activities[route.activity_id - 1]}</td>
-                <td>{<center><img title="viewable by friends" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28" className="privacyIcon"></img></center>}</td>
+                <td>{
+                    <center>
+                    <section>
+                        <div className="flex-spread">
+                            <Tooltip padding={8} content="Viewable by friends" className="target" tipContentClassName="foo2">
+                                <img id="privacyimg" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img>
+                            </Tooltip>
+                        </div>
+                    </section>
+                </center>
+                }</td>
                 <td id="distanceCenter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</td>
                 <td>
                 {!(route?.user_id in friendSession) && (<>&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</>)}

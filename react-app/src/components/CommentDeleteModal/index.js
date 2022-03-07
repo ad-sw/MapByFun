@@ -30,7 +30,7 @@ function CommentDeleteModal({commentId}) {
   return (
     <>
     <div>
-        <button type="submit" onClick={() => setShowModal(true)} className="close"><img src="https://user-images.githubusercontent.com/86431563/147906966-fc59c0c5-9e55-45af-bb5d-d6a629b6ae86.png" alt="edit" width="11" height="10" className='delX'></img></button>
+        <div type="submit" onClick={() => setShowModal(true)} className="close"><img src="https://user-images.githubusercontent.com/86431563/156965228-93a2df0b-5b1a-46d1-a81e-b62588c628a8.png" alt="edit" width="15" height="14" className='delX'></img></div>
         {isLoaded && showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <div className="deleteModal2">

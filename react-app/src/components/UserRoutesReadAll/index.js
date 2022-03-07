@@ -52,7 +52,7 @@ function UserRouteReadModal({userId}) {
                                     <div className="flex-spread">
                                         <Tooltip padding={8} content="Viewable by friends" className="target" tipContentClassName="foo2">
                                             <NavLink exact to={`/users/${userId}/search`}>
-                                                <img id="privacyimg" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img>
+                                                <img id="privacyimg" className="privacyIcon2" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img>
                                             </NavLink>
                                         </Tooltip>
                                     </div>

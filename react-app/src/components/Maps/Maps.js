@@ -1,14 +1,16 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
+const styles = require('./mapStyling.json')
+
 const containerStyle = {
   width: '1380px',
   height: '670px',
 };
 
 const center = {
-  lat: 46,
-  lng: 77.0369,
+  lat: 40.46000284306324,
+  lng: -77.38512762101064,
 };
 
 const Maps = ({ apiKey, zoom }) => {
@@ -21,10 +23,11 @@ const Maps = ({ apiKey, zoom }) => {
     <>
       {isLoaded && (
         <GoogleMap
+          options={{styles: styles, mapTypeId:'terrain'}}
           className="map"
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={7}
+          zoom={10.15}
         />
       )}
     </>
