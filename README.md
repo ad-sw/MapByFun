@@ -72,7 +72,7 @@ This project could help smaller-scaled local businesses access greater audiences
 
 ### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
 - View your route's detailed information to edit or review the route and any existing comments with the option to add/edit comments.
-<p align="center"><img src="https://user-images.githubusercontent.com/86431563/153816582-de93089e-759f-4d1b-8dd5-d4b4231138b4.PNG" width="750" height="375"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/86431563/156968502-276c93a3-2b27-4ebe-8da7-3b6634a87f2d.PNG" width="750" height="375"></p>
 
 ### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
 - View a collection of your friends to search through by first or last name and visit one of their specific profile pages, or potentially unfriend them.
