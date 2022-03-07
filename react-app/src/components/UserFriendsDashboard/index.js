@@ -30,7 +30,7 @@ function UserFriendsDashboard() {
       <div className="friendCard">
         <div className="soMany">
           <NavLink className="soMany" key={friend?.id} to={`/users/${friend?.id}`}>
-            <div className="friendContent"></div>
+            <div><img className="friendContent" src={friend?.profile_picture}/></div>
             <div className="fullName">{friend?.first_name}&nbsp;{friend?.last_name}</div>
           </NavLink>
             <div className="friendBtn"><FriendBtns friend_id={Number(friend?.id)} user_id={userId}/></div>

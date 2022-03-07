@@ -46,11 +46,22 @@ a{
     gap: 1rem;
 }
 .profile-button {
+    /* height: 40px;
+    width: 40px; */
+    /* border-radius: 25px; */
+    /* outline: 0; */
+    /* border: 2px solid rgb(220, 219, 219); */
+    cursor: pointer;
+}
+.img-profile-button {
     height: 40px;
     width: 40px;
     border-radius: 25px;
-    outline: 0;
-    border: 2px solid rgb(220, 219, 219);
+    margin: 0;
+    padding: 0;
+    outline: 2px solid rgb(220, 219, 219);
+    /* outline: 0; */
+    filter: sepia(22%) hue-rotate(160deg) brightness(89%) saturate(200%);
     cursor: pointer;
 }
 .profile-dropdown {
@@ -245,7 +256,6 @@ a{
     color: rgb(132, 132, 132);
     font-size: 24px;
 }
-
 .friendCard {
     padding: 10px;
     margin-bottom: 15px;
@@ -257,6 +267,7 @@ a{
     height: 67.5px;
     text-align: center;
     display: inline-block;
+    /* filter: sepia(30%) hue-rotate(160deg) brightness(88%) saturate(200%); */
     /* margin: auto; */
 }
 .friendCard:hover {
@@ -268,9 +279,11 @@ a{
 .friendContent {
     width: 60px;
     height: 60px;
-    background-color: rgb(175, 175, 175);
+    /* background-color: rgb(175, 175, 175); */
+    filter: sepia(10%) hue-rotate(160deg) brightness(100%) saturate(250%);
     margin-right: 10px;
     border-radius: 30px;
+    border: 1px solid rgb(175, 175, 175);
     cursor: auto;
 }
 .full-name-container {
@@ -359,8 +372,9 @@ a{
     border-radius: 40px;
     display: flex;
     position: relative;
-    opacity: .5;
+    opacity: .6;
     border: 1px rgb(140, 140, 140) solid;
+    filter: sepia(15%) hue-rotate(160deg) brightness(95%) saturate(250%);
     /* float: right; */
     /* right: 0; */
     /* position: absolute; */

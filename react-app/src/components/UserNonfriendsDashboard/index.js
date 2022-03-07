@@ -29,7 +29,7 @@ export default function UserNonfriendsDashboard() {
         <div className="friendCard">
           <div className="soMany">
             <NavLink className="soMany" key={user?.id} to={`/users/${user?.id}`}>
-              <div className="friendContent"></div>
+              <div><img className="friendContent" src={user?.profile_picture}/></div>
               <div className="fullName">{user?.first_name}&nbsp;{user?.last_name}</div>
             </NavLink>
               <div className="friendBtn"><FriendBtns user_id={userId} friend_id={user?.id} /></div>
