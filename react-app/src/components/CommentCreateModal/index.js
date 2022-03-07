@@ -16,7 +16,9 @@ function CommentCreateModal(){
 
     return (<>
         <div className="commentCreateBtnContainer">
-            <button onClick={() => setShowModal(true)} id="EditCreateDeleteBtns">Create Comment</button>
+            <button onClick={() => setShowModal(true)} id="EditCreateDeleteBtn">
+                <div className="plusSignStyle">+</div>
+            </button>
             {isLoaded && showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CommentCreateForm setShowModal={setShowModal}/>

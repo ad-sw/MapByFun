@@ -16,7 +16,7 @@ function CommentEditModal({routeId , commentId, content}){
 
     return (
         <><div>
-            <button onClick={() => setShowModal(true)} className="pencil"><img src="https://user-images.githubusercontent.com/86431563/147906903-b7d81cf4-8b2f-4135-9094-454046d7d198.png" alt="edit" width="12" height="11" className='pencil'></img></button>
+            <div onClick={() => setShowModal(true)} className="pencil"><img src="https://user-images.githubusercontent.com/86431563/156966199-83801254-52ad-482e-acb8-a40db8ed9d1c.png" alt="edit" className='pencil' width="15px" height="15px"></img></div>
             {isLoaded && showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CommentEditForm
