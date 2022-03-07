@@ -20,4 +20,5 @@ class Comment(db.Model):
             'user_id': self.user_id,
             'route_id': self.route_id,
             'content': self.content,
+            'created_at': self.created_at,
         }

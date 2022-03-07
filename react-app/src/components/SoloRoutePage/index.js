@@ -51,15 +51,20 @@ export default function RoutePage(){
     let res = allUsersList.sort(({id:a}, {id:b}) => a - b);
     // allUsersList.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
 
+    let event2;
+    let date2;
     let commentss = currentRouteComments?.map((comment) =>
     <>
+    <div className="hideThis">
+    {date2 = String(new Date(comment?.created_at).toLocaleDateString().slice(0,5) + new Date(comment?.created_at).toLocaleDateString().slice(7,9))}
+    </div>
         <div className="editFormCommentsView">
         <div className="commentContentt">
             {comment?.content}
-            <div className="commentAuthor">{res[comment?.user_id-1]?.first_name} {date}</div>
+            <div className="commentAuthor">{res[comment?.user_id-1]?.first_name + ' on '}{date2}</div>
         </div>
             <div>
-            {sessionUser?.id === route?.user_id && comment?.user_id === sessionUser.id && (
+            {sessionUser?.id === route?.user_id && comment?.user_id === sessionUser?.id && (
             <>
                 <div id="editDeleteIcons">
                 <CommentEditModal commentId={comment?.id} routeId={routeId} content={comment?.content}/>

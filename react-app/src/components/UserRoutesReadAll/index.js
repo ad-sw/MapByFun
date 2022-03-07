@@ -5,6 +5,7 @@ import { NavLink, useParams, useHistory } from 'react-router-dom';
 import RouteDeleteModal from "../RouteDeleteModal";
 import {searchAllRoutes} from '../../store/route';
 import '../../../src/index.css'
+import Tooltip from 'react-tooltip-lite';
 
 function UserRouteReadModal({userId}) {
     const dispatch = useDispatch();
@@ -45,7 +46,19 @@ function UserRouteReadModal({userId}) {
                         <NavLink key={route.id} to={`/routes/${route.id}`}>{route.name}</NavLink></td>
                         <td>{date}</td>
                         <td>{activities[route?.activity_id - 1]}</td>
-                        <td>{<center><NavLink exact to={`/users/${userId}/search`}><img id="privacyimg" title="viewable by friends" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img></NavLink></center>}</td>
+                        <td>{
+                            <center>
+                                <section>
+                                    <div className="flex-spread">
+                                        <Tooltip padding={8} content="Viewable by friends" className="target" tipContentClassName="foo2">
+                                            <NavLink exact to={`/users/${userId}/search`}>
+                                                <img id="privacyimg" className="privacyIcon" src="https://user-images.githubusercontent.com/86431563/147837757-50dc021b-9531-4274-8ed9-9660b0aa53f8.png" width="28" height="28"></img>
+                                            </NavLink>
+                                        </Tooltip>
+                                    </div>
+                                </section>
+                            </center>
+                        }</td>
                         <td id="distanceCenter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'n/a'}</td>
                         <td>
                             <button id="userProfileViewLink" onClick={(e) => {

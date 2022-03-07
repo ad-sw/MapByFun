@@ -448,9 +448,32 @@ a{
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: black;}
 
+.target {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px 0 0;
+
+}
+.react-tooltip-lite {
+    background: #535353;
+    color: white;
+    max-width: 190px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 400px;
+}
+.react-tooltip-lite-arrow {
+    border-color: #535353;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 .privacyIcon {
-    cursor: help;
-    margin-right: 15px;
+    cursor: pointer;
+    /* margin-right: 15px; */
 }
 tbody {
     table-layout: fixed;
@@ -1170,11 +1193,15 @@ tr:nth-child(even) {background-color: #f0f0f0;}
     letter-spacing: -.3px;
     color: rgba(128, 128, 128, 0.4);
 }
+.hideThis{
+    display: none;
+}
 .editFormCommentsView {
     padding: 0px 0px 0px 2px;
     margin: 5px 0px 12px 0px;
     border-left: 3px solid #CAC7C7;
     opacity: .9;
+    content: '';
     /* width: 0px; */
     width: 272px;
     display: flex;
