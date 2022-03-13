@@ -45,11 +45,11 @@ This project could help smaller-scaled local businesses access greater audiences
     - [X] View friends (R)
     - [X] Unfriend friends    (D)
   + Search Bars x5
-    - [X] Search Bar 1: search own routes on routes dashboard page (R)
+    - [X] Search Bar 1: search your own routes on your routes dashboard page (R)
     - [X] Search Bar 2: search friends by first or last name on the Community > Friends dashboard page (R)
     - [X] Search Bar 3: search other users by first or last name on the Community > Find Friends dashboard page (R)
     - [X] Search Bar 4: search both friends and other users by first or last name on the Community > All Users dashboard page (R)
-    - [X] Search Bar 5: search a friend's routes on friend's user profile page (R)
+    - [X] Search Bar 5: search a friend's routes on a friend's user profile page (R)
 
   + Additional Site Features:
     - [X] In the community tab, logged in users may view their friends, users to add as friends, and a combined list of the two (friends and other users). Users may also click on any person's name to view their profile and a high level overview of their routes/site activity. For privacy reasons, only if the user is a friend can they then view their routes.
