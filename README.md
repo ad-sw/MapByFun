@@ -1,4 +1,4 @@
-## [MapByFun](https://mapbyfun.herokuapp.com/)
+## [MapByFun](https://map-byfun.herokuapp.com/)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985587-83a1bba2-7439-486d-99da-0fd56b5dafb2.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
 A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-to-backend project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools. (And if not geospatial maps, we also rely heavily on calendars, which are maps of time.)
 
@@ -57,40 +57,40 @@ This project could help smaller-scaled local businesses access greater audiences
 
 ## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
 
-### [Home Page](https://mapbyfun.herokuapp.com/)
+### [Home Page](https://map-byfun.herokuapp.com/)
 - Overview product concept with options to sign up or sign in as a registered or demo user. (Centered art credited to [Michael Tompsett](https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ).)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985587-83a1bba2-7439-486d-99da-0fd56b5dafb2.PNG" width="750" height="375"></p>
 
-### [Log In & Sign Up Pages](https://mapbyfun.herokuapp.com/login)
+### [Log In & Sign Up Pages](https://map-byfun.herokuapp.com/login)
 - Sign up and log in as a registered or demo user.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/153731736-66362800-e218-4f1a-8e6f-eb4764d0ae9a.PNG" width="370" height="230" opacity=".5">
 <img src="https://user-images.githubusercontent.com/86431563/153730955-cf484a60-b9e1-4870-baa2-fe3d5a2d1895.PNG" width="370" height="230" opacity=".5"></p>
 
-### [User Routes Dashboard](https://mapbyfun.herokuapp.com/users/1/routes)
+### [User Routes Dashboard](https://map-byfun.herokuapp.com/users/1/routes)
 - View all of your route posts to search through them, find details, create/edit/delete more of them, or comment on them.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985160-8a3ebc3f-0869-4719-9b3b-63f166539351.PNG" width="750" height="375"></p>
 
-### [Specific Route Page](https://mapbyfun.herokuapp.com/routes/1)
+### [Specific Route Page](https://map-byfun.herokuapp.com/routes/1)
 - View your route's detailed information to edit or review the route and any existing comments with the option to add/edit comments.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985155-8f461b3e-8739-4117-8be8-465cfc93232e.PNG" width="750" height="375"></p>
 
-### [Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+### [Friends Dashboard](https://map-byfun.herokuapp.com/users/1/friends)
 - View a collection of your friends to search through by first or last name and visit one of their specific profile pages, or potentially unfriend them.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156986027-fada1220-ad74-4ebe-b735-3840161ce242.PNG" width="750" height="375"></p>
 
-### [Find Friends Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+### [Find Friends Dashboard](https://map-byfun.herokuapp.com/users/1/friends)
 - View a collection of other users to search through by first or last name and friend them, or/and visit their specific profile page.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985145-edff86f4-6d2a-479d-b6f4-fd95bb0e6cfa.PNG" width="750" height="375"></p>
 
-### [All Users Dashboard](https://mapbyfun.herokuapp.com/users/1/friends)
+### [All Users Dashboard](https://map-byfun.herokuapp.com/users/1/friends)
 - View a collection of all users to search through by first or last name and visit one of their specific profile pages, or potentially friend/unfriend them.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985148-44a3e03d-3dc8-4566-93a5-1e45d291f4b1.PNG" width="750" height="375"></p>
 
-### [Friend User Profile](https://mapbyfun.herokuapp.com/users/2)
+### [Friend User Profile](https://map-byfun.herokuapp.com/users/2)
 - View a friend's high level site information where you may search and view their routes to comments, as well as comment on their routes of your choosing.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985150-c2046781-d7e3-41b4-86a3-07494ae2610e.PNG" width="750" height="375"></p>
 
-### [Non-Friend User Profile](https://mapbyfun.herokuapp.com/users/2)
+### [Non-Friend User Profile](https://map-byfun.herokuapp.com/users/2)
 - View a non-friend's high level site information where you may scroll through and see a summary of their site activity, but won't be able to search for a specific route or view any until you've added them as a friend.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985153-f9e57958-5f6c-4317-a827-d6a6c55d5562.PNG" width="750" height="375"></p>
 
