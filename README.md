@@ -55,7 +55,7 @@ This project could help smaller-scaled local businesses access greater audiences
     - [X] In the community tab, logged in users may view their friends, users to add as friends, and a combined list of the two (friends and other users). Users may also click on any person's name to view their profile and a high level overview of their routes/site activity. For privacy reasons, only if the user is a friend can they then view their routes.
 
 
-## [Features List:](https://github.com/ad-sw/MapByFun/wiki/Features-List)
+## [Features List](https://github.com/ad-sw/MapByFun/wiki/Features-List)
 
 ### [Home Page](https://map-byfun.herokuapp.com/)
 - Overview product concept with options to sign up or sign in as a registered or demo user. (Centered art credited to [Michael Tompsett](https://www.lowes.com/pd/Trademark-Fine-Art-Michael-Tompsett-Philadelphia-Pennsylvania-Street-Map-18x24-Canvas-Art/1002797748?cm_mmc=psm-_-c-_-prd-_-dcr-_-pin-_-shp-_-0-_-0-_-0-_-trademark_fine_art&epik=dj0yJnU9THpsWFRTN2dVNHZ0QXhrVUtFQkZfY2UxTjV5Zl9LUUkmcD0wJm49aTJNVXRDMkRqbnVYOHFTZ2N3QnJ2dyZ0PUFBQUFBR0hNRUVZ).)
