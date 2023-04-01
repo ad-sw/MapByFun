@@ -1,14 +1,17 @@
 ## [MapByFun](https://map-byfun.herokuapp.com/)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985587-83a1bba2-7439-486d-99da-0fd56b5dafb2.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
-A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-to-backend project, but derived from the fact that humans use maps near-daily for survival and in small to large life tasks. Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand, similar to no-code or low-code tools. (And if not geospatial maps, we also rely heavily on calendars, which are maps of time.)
+A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-to-backend project.
 
-<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> (pre-Covid) to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population, both ethnically and socioeconomically speaking. Hundreds to thousands attend throughout the city neighborhoods via these programmed networks.<p></p>
-<br>The just-for-fun concept was to have a platform that any city or person could design and map out events to be shared with friends or the general public that makes the less familiar less daunting, as the unforeseen becomes more seen.
+<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population.
 
-<br><p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
-<img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p></br>
-This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. If brand loyalty and repeat customers stems from trust and familiarity via repeated exposure, something like this could help the newer, smaller, and/or more diverse community spaces resonate with more people. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.</br>
-<p></p>I also think it would be interesting if Eventbrite integrated more geospatial map aspects into their interface and perhaps coordinated with local towns/cities to empower community programming.
+The just-for-fun concept was to create a platform that any city or person could design and map out events to be shared with friends or the general public.
+
+Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand.
+
+This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.
+
+<p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
+<img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p>
 
 ### Fullstack used:
 * CSS & HTML (frontend)
@@ -90,8 +93,8 @@ This project could help smaller-scaled local businesses access greater audiences
 - View a friend's high level site information where you may search and view their routes to comments, as well as comment on their routes of your choosing.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985150-c2046781-d7e3-41b4-86a3-07494ae2610e.PNG" width="750" height="375"></p>
 
-### [Non-Friend User Profile](https://map-byfun.herokuapp.com/users/2)
-- View a non-friend's high level site information where you may scroll through and see a summary of their site activity, but won't be able to search for a specific route or view any until you've added them as a friend.
+### [Regular User Profile](https://map-byfun.herokuapp.com/users/2)
+- View a user's high level site information where you may scroll through and see a summary of their site activity, but won't be able to search for a specific route or view any until you've added them as a friend.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985153-f9e57958-5f6c-4317-a827-d6a6c55d5562.PNG" width="750" height="375"></p>
 
 ## Local Use Set Up
