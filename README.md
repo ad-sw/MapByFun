@@ -1,14 +1,9 @@
 ## [MapByFun](https://map-byfun.herokuapp.com/)
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985587-83a1bba2-7439-486d-99da-0fd56b5dafb2.PNG" width="750" height="375"><br><sub>(Centered art credited to Michael Tompsett.)</sub></br></p>
-A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a just-for-fun "what else can be done" frontend-to-backend project.
+A <a href="https://www.mapmyrun.com/">MapMyRun</a> clone that evolved into being a frontend-to-backend project. 
+<p>The City of Seattle's neighborhoods produce monthly maps during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> for their communities to foster growth among local businesses and strengthen its cross-cultural social fabric. The clone is of a platform where any city or person could design and map out events with friends or the general public. Maps represent assurance, safety, planning, and are language-agnostic where they communicate data types almost solely through visuals in a way that everyone can understand.
 
-<br>The City of Seattle's neighborhoods produce monthly maps for their communities during <a href="https://www.seattle.gov/arts/experience/art-walks">Seattle Art Walks</a> to encourage local small-to-medium businesses' growth as well as fostering a stronger cross-cultural social fabric for its diverse population.
-
-The just-for-fun concept was to create a platform that any city or person could design and map out events to be shared with friends or the general public.
-
-Maps represent assurance, safety, planning, and are largely language-agnostic in the sense that they communicate many data types almost purely through visuals alone in a way that everyone can understand.
-
-This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of their existence. I think of it as a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.
+This project could help smaller-scaled local businesses access greater audiences to those who reside near but are unaware of them. It's like a bridge between Eventbrite and Google Maps with alternative use for delivery and shipping logistics.
 
 <p align="center"><img src="https://artupphinneywood.files.wordpress.com/2014/01/2014_artupmap.jpg" width="150" height="255">
 <img src="https://pbs.twimg.com/media/CuHrofeWIAAceDE.jpg" width="530" height="265"></p>
