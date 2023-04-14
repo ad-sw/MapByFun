@@ -38,7 +38,7 @@ This can help smaller-scaled local businesses access greater audiences to those 
     - [X] Read comment (R)
     - [X] Update comment    (U)
     - [X] Delete comment  (D)
-  + Friends
+  + Friending Users
     - [X] Add friend  (C)
     - [X] View friends (R)
     - [X] Unfriend friends    (D)
