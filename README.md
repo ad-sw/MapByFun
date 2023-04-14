@@ -88,7 +88,7 @@ This can help smaller-scaled local businesses access greater audiences to those 
 - View a friend's high level site information where you may search and view their routes to comments, as well as comment on their routes of your choosing.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985150-c2046781-d7e3-41b4-86a3-07494ae2610e.PNG" width="750" height="375"></p>
 
-### [Regular User Profile](https://map-byfun.herokuapp.com/users/2)
+### [Other User Profile](https://map-byfun.herokuapp.com/users/2)
 - View a user's high level site information where you may scroll through and see a summary of their site activity, but won't be able to search for a specific route or view any until you've added them as a friend.
 <p align="center"><img src="https://user-images.githubusercontent.com/86431563/156985153-f9e57958-5f6c-4317-a827-d6a6c55d5562.PNG" width="750" height="375"></p>
 
